@@ -91,6 +91,76 @@ flowchart LR
 - 版本：v3.0
 
 
+
+## Phase 1.2: 参数调优自动化脚本 (NEW in v3.0)
+
+**参数调优自动化脚本 (Python)**:
+
+```python
+import optuna
+from stable_diffusion_api import StableDiffusionAPI
+
+def objective(trial):
+    """Optuna目标函数：最大化生成质量"""
+    cfg = trial.suggest_float("cfg", 5.0, 9.0)
+    steps = trial.suggest_int("steps", 15, 30)
+    sampler = trial.suggest_categorical("sampler", ["DPM++ 2M Karras", "Euler a"])
+    
+    # 调用Stable Diffusion API
+    api = StableDiffusionAPI()
+    result = api.generate(cfg=cfg, steps=steps, sampler=sampler)
+    
+    # 返回质量评分 (越高越好)
+    return result["quality_score"]
+
+# 运行优化
+study = optuna.create_study(direction="maximize")
+study.optimize(objective, n_trials=100)
+
+print(f"最佳参数: {study.best_params}")
+print(f"最佳质量评分: {study.best_value}")
+```
+
+**参数组合自动搜索工具**:
+
+```markdown
+### 1. 搜索空间定义：
+| 参数 | 类型 | 范围/选项 |
+|------|------|----------|
+| CFG Scale | 连续 | 5.0 - 9.0 |
+| Steps | 整数 | 15 - 30 |
+| Sampler | 离散 | DPM++ 2M Karras, Euler a, DDIM |
+
+### 2. 自适应采样器配置：
+- 初始阶段：使用DPM++ 2M Karras (平衡速度质量)
+- 精细调优：切换到Euler a (细节更好)
+- 最终输出：使用最优采样器
+
+### 3. 调优过程可视化系统：
+- 参数重要性图表 (Feature Importance)
+- 优化历史图表 (Optimization History)
+- 并行坐标图 (Parallel Coordinate)
+```
+
+**Output**: 参数调优报告 (JSON/Markdown/HTML format)
+
+---
+
+## 联动机制强化 (v3.0)
+
+### 与十二生肖团猴技能的联动 (双向引用)
+- **触发条件**：
+  1. 当需要执行参数调优任务时
+  2. 当需要应用参数调优自动化脚本时
+  3. 当需要自适应采样器配置时
+
+### 顾问能力提升 (v3.0)
+- 提供：参数组合自动搜索工具
+- 提供：调优过程可视化系统
+- 提供：最佳配置推荐引擎
+- 提供：自适应采样器配置
+
+
 ---
 
 ## 技能联动

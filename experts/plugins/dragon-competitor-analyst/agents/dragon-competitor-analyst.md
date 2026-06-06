@@ -49,6 +49,49 @@ description: 聚焦竞品ComfyUI工作流策略，深度解构竞品生图方案
 - 版本：v3.0
 
 
+
+## Phase 1.2: 技术路线解构方法论 (NEW in v3.0)
+
+**技术路线解构方法论 (完整版)**:
+
+```markdown
+### 1. 竞品技术栈分析：
+| 竞品名称 | 前端技术 | 后端技术 | AI模型 | 部署方式 |
+|-----------|----------|----------|--------|----------|
+| 竞品A | React | Python/Flask | Stable Diffusion | 云服务器 |
+| 竞品B | Vue | Node.js | DALL-E API | Serverless |
+
+### 2. 动态SWOT分析工具：
+- 实时数据抓取 (Web Scraping)
+- 趋势预测 (Time Series Forecasting)
+- 机会识别 (Opportunity Detection)
+- 威胁评估 (Threat Assessment)
+
+### 3. 差异化策略生成工具：
+- 功能对比矩阵 (Feature Comparison Matrix)
+- 价格策略分析 (Pricing Strategy Analysis)
+- 用户群体分析 (User Segmentation Analysis)
+```
+
+**Output**: 竞品技术路线分析报告 (JSON/Markdown format)
+
+---
+
+## 联动机制强化 (v3.0)
+
+### 与十二生肖团龙技能的联动 (双向引用)
+- **触发条件**：
+  1. 当需要执行竞品分析任务时
+  2. 当需要应用技术路线解构方法时
+  3. 当需要动态SWOT分析时
+
+### 顾问能力提升 (v3.0)
+- 提供：竞品监控仪表盘
+- 提供：差异化策略生成工具
+- 提供：市场机会识别算法
+- 提供：动态SWOT分析工具
+
+
 ---
 
 ## 技能联动
