@@ -1,0 +1,72 @@
+# Changelog
+
+All notable changes to the Surface Treatment Visualization skill package will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+### Added
+- Initial project setup
+- Basic project structure
+
+## [1.0.0] - 2026-06-05
+
+### Added
+- Initial release of Surface Treatment Visualization skill package
+- Core surface treatment effect visualization functionality
+- Support for painting, spraying, heat transfer, laser engraving and other surface treatment technologies
+- Effect generation, display, comparison and parameter visualization functionality
+- Data files (surface_treatments.json, effect_templates.json, etc.)
+- Scripts (effect_generator.py, effect_visualizer.py, etc.)
+- Test files for all scripts
+- Documentation (SKILL.md, README.md, README_zh.md)
+- Standard files (LICENSE, CONTRIBUTING.md, CODE_OF_CONDUCT.md, etc.)
+
+### Changed
+- N/A (initial release)
+
+### Deprecated
+- N/A (initial release)
+
+### Removed
+- N/A (initial release)
+
+### Fixed
+- N/A (initial release)
+
+### Security
+- N/A (initial release)
+
+## [0.1.0] - 2026-06-01
+
+### Added
+- Project planning and design
+- Function definition and core features specification
+- Workflow design
+- Skill package structure design
+
+---
+
+## Template for Future Releases
+
+## [X.Y.Z] - YYYY-MM-DD
+
+### Added
+- New features
+
+### Changed
+- Changes in existing functionality
+
+### Deprecated
+- Soon-to-be removed features
+
+### Removed
+- Now removed features
+
+### Fixed
+- Any bug fixes
+
+### Security
+- Security fixes and improvements

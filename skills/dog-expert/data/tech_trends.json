@@ -1,0 +1,54 @@
+{
+  "tech_trends": [
+    {
+      "id": "trend_001",
+      "title": "大模型技术持续演进",
+      "category": "AI技术",
+      "description": "GPT-5、Claude 4.7等大模型持续发布，性能不断提升",
+      "impact": "高",
+      "timeline": "2026年全年",
+      "related_technologies": ["多模态", "Agent", "推理优化"],
+      "application_scenarios": ["智能客服", "内容生成", "代码辅助"]
+    },
+    {
+      "id": "trend_002",
+      "title": "轻量化材料应用加速",
+      "category": "材料技术",
+      "description": "镁合金、碳纤维等轻量化材料在电动轮椅、保温杯等产品中的应用加速",
+      "impact": "高",
+      "timeline": "2026-2027年",
+      "related_technologies": ["镁合金压铸", "碳纤维成型", "材料表面处理"],
+      "application_scenarios": ["电动轮椅车架", "保温杯杯体", "车载配件"]
+    },
+    {
+      "id": "trend_003",
+      "title": "AI Agent框架成熟",
+      "category": "AI技术",
+      "description": "LangGraph、CrewAI等AI Agent框架逐渐成熟，应用场景丰富",
+      "impact": "中",
+      "timeline": "2026年下半年",
+      "related_technologies": ["状态管理", "角色驱动", "事件驱动"],
+      "application_scenarios": ["自动化工作流", "智能助手", "决策支持"]
+    },
+    {
+      "id": "trend_004",
+      "title": "智能健康监测技术普及",
+      "category": "医疗健康技术",
+      "description": "健康监测技术（心率、血压、血糖等）在电动轮椅等产品中的普及",
+      "impact": "高",
+      "timeline": "2026-2027年",
+      "related_technologies": ["传感器", "数据分析", "云端存储"],
+      "application_scenarios": ["电动轮椅健康监测", "智能床垫", "可穿戴设备"]
+    },
+    {
+      "id": "trend_005",
+      "title": "车载场景创新",
+      "category": "产品设计",
+      "description": "车载场景下的产品创新（USB加热、防误触、磁吸固定等）",
+      "impact": "中",
+      "timeline": "2026年全年",
+      "related_technologies": ["车载电源", "磁吸技术", "智能控制"],
+      "application_scenarios": ["车载保温杯", "车载手机支架", "车载充电器"]
+    }
+  ]
+}

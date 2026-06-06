@@ -1,0 +1,42 @@
+[
+  {
+    "id": "task1",
+    "name": "需求分析",
+    "priority": "high",
+    "expertise": "requirement_analysis",
+    "estimated_duration": 2,
+    "dependencies": []
+  },
+  {
+    "id": "task2",
+    "name": "市场调研",
+    "priority": "medium",
+    "expertise": "market_research",
+    "estimated_duration": 3,
+    "dependencies": ["task1"]
+  },
+  {
+    "id": "task3",
+    "name": "产品设计",
+    "priority": "high",
+    "expertise": "product_design",
+    "estimated_duration": 4,
+    "dependencies": ["task1"]
+  },
+  {
+    "id": "task4",
+    "name": "AI生图",
+    "priority": "medium",
+    "expertise": "ai_image_generation",
+    "estimated_duration": 5,
+    "dependencies": ["task3"]
+  },
+  {
+    "id": "task5",
+    "name": "设计评审",
+    "priority": "high",
+    "expertise": "design_review",
+    "estimated_duration": 1,
+    "dependencies": ["task4"]
+  }
+]

@@ -1,0 +1,166 @@
+{
+  "assembly_processes": [
+    {
+      "id": "ultrasonic_welding",
+      "name": "超声波焊接",
+      "applicable_materials": ["pp", "abs", "pc", "tritan"],
+      "welding_strength": "高强度（接近本体强度）",
+      "equipment_cost": "¥1-5万/台",
+      "cycle_time": "2-10秒",
+      "joint_strength": "20-40 MPa",
+      "leak_test": "0.3-0.5 MPa（保压 30秒）",
+      "total_cost_index": 0.8,
+      "advantages": ["强度高", "速度快", "无需辅料", "环保"],
+      "disadvantages": ["设备成本高", "模具要求高"],
+      "application": "塑料盖本体焊接、多层结构焊接",
+      "durability": "优秀",
+      "environmental_friendliness": "优秀"
+    },
+    {
+      "id": "hot_plate_welding",
+      "name": "热板焊接",
+      "applicable_materials": ["pp", "pe", "abs"],
+      "welding_strength": "高强度",
+      "equipment_cost": "¥0.5-3万/台",
+      "cycle_time": "10-30秒",
+      "joint_strength": "15-30 MPa",
+      "leak_test": "0.3-0.5 MPa（保压 30秒）",
+      "total_cost_index": 0.6,
+      "advantages": ["设备简单", "成本低", "适合大型零件"],
+      "disadvantages": ["周期长", "表面有溢料"],
+      "application": "大型塑料件焊接、厚壁零件",
+      "durability": "优秀",
+      "environmental_friendliness": "优秀"
+    },
+    {
+      "id": "screw_fixation",
+      "name": "螺丝固定",
+      "applicable_materials": ["all_plastic", "metal"],
+      "fixation_strength": "中高强度",
+      "screw_type": "自攻螺丝、机械螺丝",
+      "equipment_cost": "¥0.1-0.5万/台（电动螺丝刀）",
+      "cycle_time": "10-30秒",
+      "torque_control": "0.5-5 N·m",
+      "total_cost_index": 0.4,
+      "advantages": ["可拆卸", "成本低", "工艺简单"],
+      "disadvantages": ["有孔位", "可能影响外观", "密封性一般"],
+      "application": "塑料盖与金属杯体连接、手柄固定",
+      "durability": "良好",
+      "environmental_friendliness": "优秀"
+    },
+    {
+      "id": "snap_fit",
+      "name": "卡扣装配",
+      "applicable_materials": ["pp", "abs", "pc", "tritan"],
+      "fixation_strength": "中等强度",
+      "snap_type": "悬臂卡扣、环形卡扣",
+      "insertion_force": "20-80 N",
+      "removal_force": "10-50 N",
+      "cycle_time": "5-15秒",
+      "total_cost_index": 0.3,
+      "advantages": ["无需辅料", "快速装配", "可拆卸"],
+      "disadvantages": ["模具复杂", "应力集中", "拆装次数有限"],
+      "application": "塑料盖卡扣、装饰件固定",
+      "durability": "中等",
+      "environmental_friendliness": "优秀"
+    },
+    {
+      "id": "adhesive_bonding",
+      "name": "胶水粘合",
+      "applicable_materials": ["all_plastic", "metal", "silicone"],
+      "adhesive_type": "环氧胶、UV胶、硅胶",
+      "bonding_strength": "中等强度",
+      "equipment_cost": "¥0.2-1万/台",
+      "curing_time": "几秒-24小时",
+      "temperature_resistance": "-40~150°C",
+      "total_cost_index": 0.5,
+      "advantages": ["无孔位", "密封性好", "外观完整"],
+      "disadvantages": ["固化时间长", "有VOC排放", "不可拆卸"],
+      "application": "装饰件粘合、密封圈固定",
+      "durability": "中等",
+      "environmental_friendliness": "一般"
+    },
+    {
+      "id": "sealing_ring_assembly",
+      "name": "密封圈装配",
+      "applicable_materials": ["silicone", "tpe"],
+      "sealing_performance": "0.3-0.5 MPa（保压 30秒）",
+      "assembly_method": "手工装配、自动化装配",
+      "equipment_cost": "¥0.5-3万/台（自动化设备）",
+      "cycle_time": "10-20秒",
+      "service_life": "500-1000次开合",
+      "total_cost_index": 0.4,
+      "advantages": ["密封性好", "可拆卸清洗", "更换方便"],
+      "disadvantages": ["易老化", "需定期更换"],
+      "application": "杯盖密封圈、防漏垫",
+      "durability": "中等",
+      "environmental_friendliness": "良好"
+    },
+    {
+      "id": "spring_lid_assembly",
+      "name": "弹跳盖机构装配",
+      "applicable_materials": ["stainless_steel_spring", "pp", "abs"],
+      "mechanical_performance": "5000-10000次开合",
+      "assembly_method": "手工装配、半自动化装配",
+      "equipment_cost": "¥1-5万/台（半自动化设备）",
+      "cycle_time": "30-60秒",
+      "spring_fatigue_life": "10000+次",
+      "total_cost_index": 1.2,
+      "advantages": ["一键开盖", "防漏设计", "使用方便"],
+      "disadvantages": ["结构复杂", "零件多", "成本较高"],
+      "application": "弹跳盖保温杯",
+      "durability": "良好",
+      "environmental_friendliness": "良好"
+    }
+  ],
+  "assembly_quality_control": {
+    "leak_test": {
+      "test_pressure": "0.3-0.5 MPa",
+      "hold_time": "30秒",
+      "acceptance_criteria": "无气泡、无渗漏",
+      "test_standard": "GB/T 11416-2013"
+    },
+    "drop_test": {
+      "drop_height": "1.0-1.5米",
+      "drop_surface": "水泥地面",
+      "number_of_drops": "6次（每个方向1次）",
+      "acceptance_criteria": "无破损、无泄漏"
+    },
+    "temperature_cycle_test": {
+      "high_temperature": "95-100°C",
+      "low_temperature": "-20°C",
+      "cycle_count": "10次",
+      "acceptance_criteria": "无变形、无泄漏、功能正常"
+    },
+    "durability_test": {
+      "lid_opening_closing": "5000-10000次",
+      "sealing_ring_pressure": "500-1000次",
+      "acceptance_criteria": "功能正常、无破损"
+    }
+  },
+  "assembly_cost_estimation": {
+    "labor_cost": {
+      "manual_assembly": "¥0.5-2.0/杯",
+      "semi_automated": "¥0.3-1.5/杯",
+      "fully_automated": "¥0.1-0.8/杯"
+    },
+    "equipment_depreciation": {
+      "ultrasonic_welder": "¥0.1-0.5/杯",
+      "hot_plate_welder": "¥0.05-0.3/杯",
+      "automated_assembly_line": "¥0.2-1.0/杯"
+    },
+    "yield_rate": {
+      "manual_assembly": "95-98%",
+      "semi_automated": "98-99%",
+      "fully_automated": "99-99.5%"
+    }
+  },
+  "local_supply_chain": {
+    "yongkang": {
+      "assembly_factories": "永康装配加工厂（200+家）",
+      "equipment_suppliers": "永康超声波设备厂（10+家）",
+      "mold_makers": "永康模具城（50+家）",
+      "lead_time": "装配加工 3-7天，设备采购 7-15天"
+    }
+  }
+}

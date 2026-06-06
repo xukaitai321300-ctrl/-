@@ -1,0 +1,81 @@
+{
+  "intelligence_sources": [
+    {
+      "id": "arxiv",
+      "name": "arXiv",
+      "type": "academic",
+      "url": "https://arxiv.org/",
+      "description": "开源学术论文预印本数据库",
+      "priority": "高",
+      "update_frequency": "每日",
+      "access_method": "API",
+      "keywords": ["AI", "大模型", "计算机视觉", "NLP"]
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "type": "opensource",
+      "url": "https://github.com/",
+      "description": "开源代码托管平台",
+      "priority": "高",
+      "update_frequency": "实时",
+      "access_method": "API",
+      "keywords": ["AI", "Agent", "ComfyUI", "Stable Diffusion"]
+    },
+    {
+      "id": "tech_blog",
+      "name": "技术博客",
+      "type": "blog",
+      "url": "https://medium.com/",
+      "description": "技术博客平台",
+      "priority": "中",
+      "update_frequency": "每周",
+      "access_method": "爬虫",
+      "keywords": ["AI技术", "产品设计与开发", "制造工艺"]
+    },
+    {
+      "id": "patent_db",
+      "name": "专利数据库",
+      "type": "patent",
+      "url": "https://www.cnipa.gov.cn/",
+      "description": "国家知识产权局专利数据库",
+      "priority": "高",
+      "update_frequency": "每月",
+      "access_method": "爬虫",
+      "keywords": ["电动轮椅", "老年代步车", "保温杯", "轻量化材料"]
+    },
+    {
+      "id": "competitor_website",
+      "name": "竞品官网",
+      "type": "website",
+      "url": "https://www.competitor-a.com/",
+      "description": "竞品官方网站",
+      "priority": "高",
+      "update_frequency": "每周",
+      "access_method": "爬虫",
+      "keywords": ["产品发布", "技术更新", "新闻动态"]
+    },
+    {
+      "id": "ecommerce",
+      "name": "电商平台",
+      "type": "ecommerce",
+      "url": "https://www.jd.com/",
+      "description": "京东电商平台",
+      "priority": "中",
+      "update_frequency": "每日",
+      "access_method": "爬虫",
+      "keywords": ["产品评价", "销量", "价格"]
+    },
+    {
+      "id": "social_media",
+      "name": "社交媒体",
+      "type": "social",
+      "url": "https://weibo.com/",
+      "description": "微博社交媒体平台",
+      "priority": "中",
+      "update_frequency": "实时",
+      "access_method": "API",
+      "keywords": ["用户反馈", "品牌口碑", "市场动态"]
+    }
+  ]
+}

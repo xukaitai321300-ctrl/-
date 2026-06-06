@@ -1,0 +1,140 @@
+{
+  "logo_processes": [
+    {
+      "id": "laser_marking",
+      "name": "激光打标",
+      "category": "marking",
+      "min_order_quantity": 1,
+      "plate_cost": 0,
+      "cost_per_cup": "¥0.1-0.5",
+      "production_cycle": "1-3天",
+      "environmental_grade": "优秀",
+      "durability": "优秀",
+      "precision": "高",
+      "application": "小批量、永久性",
+      "advantages": ["精度高", "成本低", "永久性", "环保"],
+      "disadvantages": ["配套工厂较少", "部分材质不适用"]
+    },
+    {
+      "id": "screen_printing",
+      "name": "丝网印刷",
+      "category": "printing",
+      "min_order_quantity": 500,
+      "plate_cost": "¥500-2000",
+      "cost_per_cup": "¥0.3-0.8",
+      "production_cycle": "7-10天",
+      "environmental_grade": "良好",
+      "durability": "中等",
+      "precision": "中等",
+      "application": "大批量生产",
+      "advantages": ["工艺成熟", "成本低", "适合大批量"],
+      "disadvantages": ["制版成本高", "改版周期长"]
+    },
+    {
+      "id": "heat_transfer_printing",
+      "name": "热转印",
+      "category": "printing",
+      "min_order_quantity": 1000,
+      "plate_cost": "¥500-2000",
+      "cost_per_cup": "¥0.3-0.8",
+      "production_cycle": "7-10天",
+      "environmental_grade": "一般",
+      "durability": "中等",
+      "precision": "高",
+      "application": "中批量生产",
+      "advantages": ["图案丰富", "中批量成本低"],
+      "disadvantages": ["制版成本高", "改版周期长", "耐久性一般"]
+    },
+    {
+      "id": "3d_uv_printing",
+      "name": "3D UV打印",
+      "category": "advanced_manufacturing",
+      "min_order_quantity": 1,
+      "plate_cost": 0,
+      "cost_per_cup": "¥1.0-3.0",
+      "production_cycle": "3-5天",
+      "environmental_grade": "优秀",
+      "durability": "优秀",
+      "precision": "高",
+      "application": "高端定制",
+      "advantages": ["立体效果", "无需制版", "图案复杂"],
+      "disadvantages": ["设备成本高", "材料成本高"]
+    },
+    {
+      "id": "electroplating",
+      "name": "电镀",
+      "category": "advanced_manufacturing",
+      "min_order_quantity": 1000,
+      "plate_cost": "高",
+      "cost_per_cup": "¥2.0-5.0",
+      "production_cycle": "10-15天",
+      "environmental_grade": "差",
+      "durability": "优秀",
+      "precision": "高",
+      "application": "高端金属质感需求",
+      "advantages": ["金属质感", "耐用性好"],
+      "disadvantages": ["环保成本高", "工艺复杂"]
+    },
+    {
+      "id": "uv_coating",
+      "name": "UV镀",
+      "category": "advanced_manufacturing",
+      "min_order_quantity": 1000,
+      "plate_cost": "中等",
+      "cost_per_cup": "¥1.5-3.5",
+      "production_cycle": "10-15天",
+      "environmental_grade": "优秀",
+      "durability": "优秀",
+      "precision": "高",
+      "application": "透明或半透明效果需求",
+      "advantages": ["高透明度", "耐用性好", "环保"],
+      "disadvantages": ["成本较高"]
+    },
+    {
+      "id": "gold_foil_sticking",
+      "name": "贴金",
+      "category": "special_process",
+      "min_order_quantity": 500,
+      "plate_cost": "¥300-1000",
+      "cost_per_cup": "¥2.0-5.0",
+      "production_cycle": "7-12天",
+      "environmental_grade": "良好",
+      "durability": "中等",
+      "precision": "高",
+      "application": "高端礼品",
+      "advantages": ["奢华感", "高端"],
+      "disadvantages": ["成本高", "耐久性一般"]
+    },
+    {
+      "id": "air_dye_printing",
+      "name": "气染印",
+      "category": "printing",
+      "min_order_quantity": 1000,
+      "plate_cost": "¥500-1500",
+      "cost_per_cup": "¥0.5-1.2",
+      "production_cycle": "7-10天",
+      "environmental_grade": "一般",
+      "durability": "中等",
+      "precision": "高",
+      "application": "复杂图案、色彩丰富",
+      "advantages": ["色彩丰富", "图案复杂"],
+      "disadvantages": ["制版成本高", "耐久性一般"]
+    }
+  ],
+  "process_comparison": {
+    "by_cost": {
+      "low": ["laser_marking", "screen_printing"],
+      "medium": ["heat_transfer_printing", "air_dye_printing"],
+      "high": ["3d_uv_printing", "electroplating", "uv_coating", "gold_foil_sticking"]
+    },
+    "by_batch": {
+      "small": ["laser_marking", "3d_uv_printing"],
+      "medium": ["screen_printing", "heat_transfer_printing", "air_dye_printing"],
+      "large": ["electroplating", "uv_coating", "gold_foil_sticking"]
+    },
+    "by_durability": {
+      "excellent": ["laser_marking", "3d_uv_printing", "electroplating", "uv_coating"],
+      "medium": ["screen_printing", "heat_transfer_printing", "air_dye_printing", "gold_foil_sticking"]
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "prompt_templates": [
+    {
+      "id": "template_001",
+      "name": "产品描述模板",
+      "description": "用于生成产品描述的Prompt模板",
+      "template": "{style}风格的{product}，采用{materials}，具有{features}等功能，{description_style}的设计风格",
+      "variables": ["style", "product", "materials", "features", "description_style"],
+      "example": "现代简约风格的弹跳盖保温杯，采用镁合金杯身和PP内胆，具有轻量化、防误触、车载适配等功能，简洁实用的设计风格",
+      "tags": ["产品描述", "通用"]
+    },
+    {
+      "id": "template_002",
+      "name": "材质强调模板",
+      "description": "用于强调产品材质的Prompt模板",
+      "template": "{product}，{material}材质，{material_features}，{style}风格",
+      "variables": ["product", "material", "material_features", "style"],
+      "example": "弹跳盖保温杯，镁合金材质，轻量化且强度高，现代简约风格",
+      "tags": ["材质", "金属"]
+    },
+    {
+      "id": "template_003",
+      "name": "功能强调模板",
+      "description": "用于强调产品功能的Prompt模板",
+      "template": "{product}，{features}，适合{scenarios}，{style}风格",
+      "variables": ["product", "features", "scenarios", "style"],
+      "example": "弹跳盖保温杯，轻量化、防误触、车载适配，适合车载和办公场景，现代简约风格",
+      "tags": ["功能", "场景"]
+    },
+    {
+      "id": "template_004",
+      "name": "场景应用模板",
+      "description": "用于强调产品应用场景的Prompt模板",
+      "template": "{product}在{scenario}中的应用，{features}，{style}风格",
+      "variables": ["product", "scenario", "features", "style"],
+      "example": "弹跳盖保温杯在车载场景中的应用，USB加热和磁吸固定，科技风风格",
+      "tags": ["场景", "车载"]
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "market_forecast": {
+    "forecast_period": "2026-06 至 2027-06",
+    "predicted_trends": [
+      {
+        "name": "轻量化保温杯",
+        "growth_rate": 25,
+        "market_share_2027": "20%",
+        "key_drivers": ["健康意识", "户外运动", "通勤便利"],
+        "risk_factors": ["材料成本高", "技术门槛高"]
+      },
+      {
+        "name": "智能保温杯",
+        "growth_rate": 40,
+        "market_share_2027": "12%",
+        "key_drivers": ["科技普及", "消费升级", "年轻消费者"],
+        "risk_factors": ["实用性待验证", "成本高", "市场教育难"]
+      },
+      {
+        "name": "环保材料保温杯",
+        "growth_rate": 30,
+        "market_share_2027": "8%",
+        "key_drivers": ["环保意识", "政策推动", "可持续发展"],
+        "risk_factors": ["材料成本高", "技术不成熟", "消费者认知不足"]
+      },
+      {
+        "name": "个性化定制保温杯",
+        "growth_rate": 15,
+        "market_share_2027": "15%",
+        "key_drivers": ["消费升级", "个性化需求", "礼品市场"],
+        "risk_factors": ["生产成本高", "交货周期长", "设计门槛高"]
+      }
+    ],
+    "opportunities": [
+      {
+        "opportunity_type": "市场机会",
+        "description": "轻量化保温杯需求激增，市场供给不足",
+        "potential_impact": "高",
+        "action_suggestion": "在3个月内推出轻量化新产品线"
+      },
+      {
+        "opportunity_type": "技术机会",
+        "description": "智能温控技术成熟度提升，成本下降",
+        "potential_impact": "中高",
+        "action_suggestion": "与科技公司合作，开发智能保温杯"
+      },
+      {
+        "opportunity_type": "渠道机会",
+        "description": "直播电商、社群营销等新兴渠道崛起",
+        "potential_impact": "中",
+        "action_suggestion": "加强新兴渠道布局，提升线上销售占比"
+      }
+    ],
+    "risks": [
+      {
+        "risk_type": "市场风险",
+        "description": "市场饱和度提升，价格战风险增加",
+        "probability": "中等",
+        "impact": "高",
+        "mitigation_suggestion": "加强产品差异化，提升品牌附加值"
+      },
+      {
+        "risk_type": "供应链风险",
+        "description": "纯钛、镁合金等新材料供应不稳定",
+        "probability": "中等",
+        "impact": "中高",
+        "mitigation_suggestion": "建立多元化供应链，与本地供应商建立战略合作"
+      },
+      {
+        "risk_type": "技术风险",
+        "description": "智能保温杯技术快速迭代，产品生命周期短",
+        "probability": "高",
+        "impact": "中",
+        "mitigation_suggestion": "加强研发投入，建立快速迭代机制"
+      }
+    ],
+    "overall_market_forecast": {
+      "total_market_size_2026": "320亿元",
+      "total_market_size_2027": "380亿元",
+      "cagr": "18.75%",
+      "key_growth_drivers": ["健康意识提升", "消费升级", "产品创新"],
+      "key_challenges": ["市场竞争加剧", "成本压力增大", "消费者需求多样化"]
+    }
+  },
+  "alert_system": {
+    "alert_types": [
+      {
+        "type": "机会预警",
+        "description": "识别市场机会，提醒及时行动",
+        "frequency": "实时",
+        "threshold": "高潜力机会 (impact='高')"
+      },
+      {
+        "type": "风险预警",
+        "description": "识别市场风险，提醒制定应对措施",
+        "frequency": "实时",
+        "threshold": "高风险 (impact='高' AND probability='高')"
+      },
+      {
+        "type": "竞争预警",
+        "description": "跟踪竞争对手动态，提醒及时响应",
+        "frequency": "每日",
+        "threshold": "重要动态 (event_type IN ['新品发布', '价格调整', '营销策略变化'])"
+      },
+      {
+        "type": "需求预警",
+        "description": "跟踪消费者需求变化，提醒调整产品策略",
+        "frequency": "每周",
+        "threshold": "需求显著变化 (change_rate > 20%)"
+      }
+    ],
+    "alert_log": [
+      {
+        "date": "2026-06-05",
+        "alert_type": "机会预警",
+        "content": "轻量化保温杯需求激增，建议加大研发投入",
+        "urgency": "高",
+        "suggested_action": "在3个月内推出轻量化新产品线"
+      },
+      {
+        "date": "2026-06-05",
+        "alert_type": "竞争预警",
+        "content": "膳魔师推出轻量化系列，可能抢占市场份额",
+        "urgency": "中高",
+        "suggested_action": "加快自身轻量化产品研发，提升营销力度"
+      },
+      {
+        "date": "2026-06-05",
+        "alert_type": "需求预警",
+        "content": "智能保温杯需求快速增长，年轻消费者关注度提升",
+        "urgency": "中",
+        "suggested_action": "评估智能保温杯市场机会，考虑产品布局"
+      }
+    ]
+  },
+  "data_source": "行业报告、市场研究、专家访谈、历史数据分析",
+  "last_updated": "2026-06-05",
+  "next_update": "2026-07-05"
+}

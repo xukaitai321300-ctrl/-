@@ -1,0 +1,118 @@
+{
+  "competitors": [
+    {
+      "id": "thermos",
+      "name": "膳魔师",
+      "english_name": "Thermos",
+      "market_share": 18.5,
+      "price_positioning": "高端",
+      "price_range": "¥300-800",
+      "product_strategy": ["高端化", "轻量化", "智能化"],
+      "latest_activity": "推出轻量化系列 (2026-03-15)",
+      "strengths": ["品牌知名度高", "技术实力强", "产品质量好"],
+      "weaknesses": ["价格高", "设计偏保守", "本地化不足"],
+      "materials_used": ["304不锈钢", "纯钛", "玻璃真空层"],
+      "sales_channels": ["电商平台", "线下专柜", "礼品定制"]
+    },
+    {
+      "id": "tiger",
+      "name": "虎牌",
+      "english_name": "Tiger",
+      "market_share": 15.2,
+      "price_positioning": "高端",
+      "price_range": "¥250-600",
+      "product_strategy": ["高端化", "轻量化", "真空技术"],
+      "latest_activity": "升级真空保温技术 (2026-02-20)",
+      "strengths": ["真空技术强", "保温效果好", "产品耐用"],
+      "weaknesses": ["设计传统", "智能化不足", "价格偏高"],
+      "materials_used": ["316不锈钢", "真空层", "铜箔反射层"],
+      "sales_channels": ["电商平台", "线下专柜", "企业采购"]
+    },
+    {
+      "id": "zojirushi",
+      "name": "象印",
+      "english_name": "Zojirushi",
+      "market_share": 12.8,
+      "price_positioning": "高端",
+      "price_range": "¥280-750",
+      "product_strategy": ["高端化", "智能化", "人性化设计"],
+      "latest_activity": "推出智能温控系列 (2026-04-10)",
+      "strengths": ["人性化设计", "智能化程度高", "产品质量好"],
+      "weaknesses": ["价格高", "维修不便", "市场推广不足"],
+      "materials_used": ["304不锈钢", "智能温控芯片", "手机APP连接"],
+      "sales_channels": ["电商平台", "高端商场", "海外代购"]
+    },
+    {
+      "id": "domestic_brand_1",
+      "name": "国产品牌A",
+      "english_name": "N/A",
+      "market_share": 8.5,
+      "price_positioning": "中端",
+      "price_range": "¥100-300",
+      "product_strategy": ["性价比", "电商营销", "快速迭代"],
+      "latest_activity": "推出平价轻量化系列 (2026-05-01)",
+      "strengths": ["价格优势", "电商运营强", "快速响应市场"],
+      "weaknesses": ["品牌力弱", "技术创新不足", "产品质量不稳定"],
+      "materials_used": ["304不锈钢", "喷漆", "热转印"],
+      "sales_channels": ["电商平台", "直播带货", "社群营销"]
+    },
+    {
+      "id": "domestic_brand_2",
+      "name": "国产品牌B",
+      "english_name": "N/A",
+      "market_share": 6.3,
+      "price_positioning": "中低端",
+      "price_range": "¥80-250",
+      "product_strategy": ["低价策略", "大批量生产", "渠道下沉"],
+      "latest_activity": "扩大生产线 (2026-04-20)",
+      "strengths": ["价格低", "产量大", "渠道广"],
+      "weaknesses": ["产品同质化", "品牌力弱", "利润薄"],
+      "materials_used": ["304不锈钢", "喷漆", "丝网印刷"],
+      "sales_channels": ["电商平台", "线下超市", "批发市场"]
+    }
+  ],
+  "competitor_analysis": {
+    "analysis_date": "2026-06-05",
+    "market_concentration": "中等",
+    "top3_market_share": "46.5%",
+    "competition_intensity": "高",
+    "price_war_risk": "中等",
+    "differentiation_opportunity": "高",
+    "emerging_competitors": ["新消费品牌", "跨境电商品牌", "智能硬件品牌"]
+  },
+  "tracking_log": [
+    {
+      "date": "2026-03-15",
+      "competitor": "膳魔师",
+      "event_type": "新品发布",
+      "event_details": "推出轻量化系列，使用纯钛材料，重量减轻35%"
+    },
+    {
+      "date": "2026-02-20",
+      "competitor": "虎牌",
+      "event_type": "技术升级",
+      "event_details": "升级真空保温技术，保温时间延长至36小时"
+    },
+    {
+      "date": "2026-04-10",
+      "competitor": "象印",
+      "event_type": "新品发布",
+      "event_details": "推出智能温控系列，支持手机APP控制温度"
+    },
+    {
+      "date": "2026-05-01",
+      "competitor": "国产品牌A",
+      "event_type": "新品发布",
+      "event_details": "推出平价轻量化系列，使用304不锈钢，价格¥150-250"
+    },
+    {
+      "date": "2026-04-20",
+      "competitor": "国产品牌B",
+      "event_type": "产能扩张",
+      "event_details": "扩大生产线，月产能提升至100万个"
+    }
+  ],
+  "data_source": "行业报告、电商平台、公司公告、市场调研",
+  "last_updated": "2026-06-05",
+  "next_update": "2026-06-20"
+}

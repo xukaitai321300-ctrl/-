@@ -1,0 +1,66 @@
+{
+  "rule": "by_priority",
+  "total_tasks": 5,
+  "schedule_time": "2026-06-06T00:49:26.012660",
+  "tasks": [
+    {
+      "id": "task1",
+      "name": "需求分析",
+      "priority": "high",
+      "expertise": "requirement_analysis",
+      "start_time": 0,
+      "end_time": 2,
+      "duration": 2,
+      "dependencies": []
+    },
+    {
+      "id": "task3",
+      "name": "产品设计",
+      "priority": "high",
+      "expertise": "product_design",
+      "start_time": 2,
+      "end_time": 6,
+      "duration": 4,
+      "dependencies": [
+        "task1"
+      ]
+    },
+    {
+      "id": "task5",
+      "name": "设计评审",
+      "priority": "high",
+      "expertise": "design_review",
+      "start_time": 6,
+      "end_time": 7,
+      "duration": 1,
+      "dependencies": [
+        "task4"
+      ]
+    },
+    {
+      "id": "task2",
+      "name": "市场调研",
+      "priority": "medium",
+      "expertise": "market_research",
+      "start_time": 7,
+      "end_time": 10,
+      "duration": 3,
+      "dependencies": [
+        "task1"
+      ]
+    },
+    {
+      "id": "task4",
+      "name": "AI生图",
+      "priority": "medium",
+      "expertise": "ai_image_generation",
+      "start_time": 10,
+      "end_time": 15,
+      "duration": 5,
+      "dependencies": [
+        "task3"
+      ]
+    }
+  ],
+  "total_duration": 15
+}

@@ -1,0 +1,48 @@
+{
+  "style_references": [
+    {
+      "id": "style_001",
+      "name": "现代简约",
+      "description": "简洁、实用、功能性强",
+      "key_features": ["简洁", "实用", "功能性"],
+      "keywords": ["现代", "简约", "实用", "功能", "简洁"],
+      "reference_images": ["modern_minimalist_01.jpg", "modern_minimalist_02.jpg"],
+      "application_scenarios": ["电动轮椅", "保温杯", "家居产品"],
+      "prompt_templates": ["现代简约风格的{产品}", "简洁实用的{产品}设计"],
+      "tags": ["现代", "简约", "实用"]
+    },
+    {
+      "id": "style_002",
+      "name": "工业风",
+      "description": "硬朗、机械感、金属质感",
+      "key_features": ["硬朗", "机械感", "金属质感"],
+      "keywords": ["工业", "硬朗", "机械", "金属", "质感"],
+      "reference_images": ["industrial_01.jpg", "industrial_02.jpg"],
+      "application_scenarios": ["电动轮椅车架", "金属配件"],
+      "prompt_templates": ["工业风的{产品}", "硬朗机械的{产品}设计"],
+      "tags": ["工业", "硬朗", "机械"]
+    },
+    {
+      "id": "style_003",
+      "name": "科技风",
+      "description": "未来感、智能、科技感",
+      "key_features": ["未来感", "智能", "科技感"],
+      "keywords": ["科技", "未来", "智能", "创新", "数字"],
+      "reference_images": ["tech_01.jpg", "tech_02.jpg"],
+      "application_scenarios": ["智能电动轮椅", "智能保温杯"],
+      "prompt_templates": ["科技感的{产品}", "未来智能的{产品}设计"],
+      "tags": ["科技", "未来", "智能"]
+    },
+    {
+      "id": "style_004",
+      "name": "自然风",
+      "description": "环保、自然、有机",
+      "key_features": ["环保", "自然", "有机"],
+      "keywords": ["自然", "环保", "有机", "生态", "绿色"],
+      "reference_images": ["natural_01.jpg", "natural_02.jpg"],
+      "application_scenarios": ["环保材料产品", "有机食品容器"],
+      "prompt_templates": ["自然环保的{产品}", "有机生态的{产品}设计"],
+      "tags": ["自然", "环保", "有机"]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "summary": {
+    "total_requirements": 1,
+    "high_priority": 0,
+    "medium_priority": 0,
+    "low_priority": 1,
+    "categories": {
+      "design": 1
+    }
+  },
+  "requirements": [
+    {
+      "text": "我们需要设计一款新的保温杯，要求轻量化，希望成本控制在50元以内，目标是在3个月内完成设计。",
+      "source": "我们需要设计一款新的保温杯，要求轻量化，希望成本控制在50元以内，目标是在3个月内完成设计。",
+      "priority": "low",
+      "category": "design",
+      "status": "extracted",
+      "created_at": "2026-06-06T00:47:24.583099"
+    }
+  ],
+  "analysis_time": "2026-06-06T00:47:24.583260"
+}

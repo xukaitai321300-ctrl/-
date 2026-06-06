@@ -1,0 +1,64 @@
+{
+  "effect_templates": [
+    {
+      "id": "template_001",
+      "name": "喷漆效果模板",
+      "treatment_type": "喷漆",
+      "description": "喷漆效果模板，包括高光、哑光、金属漆等效果",
+      "parameters": {
+        "color": "红色",
+        "finish": "高光",
+        "material": "镁合金",
+        "thickness": 50
+      },
+      "effect_description": "高光红色漆面，表面光滑，金属质感强",
+      "example_image": "examples/painting_glossy_red.png",
+      "prompt_template": "{color} {finish} 喷漆效果，{material}材质，厚度{thickness}μm"
+    },
+    {
+      "id": "template_002",
+      "name": "喷塑效果模板",
+      "treatment_type": "喷塑",
+      "description": "喷塑效果模板，包括纹理、颜色、厚度等效果",
+      "parameters": {
+        "color": "蓝色",
+        "texture": "细纹",
+        "material": "铝合金",
+        "thickness": 80
+      },
+      "effect_description": "蓝色细纹喷塑，表面有细腻纹理，触感舒适",
+      "example_image": "examples/spraying_fine_blue.png",
+      "prompt_template": "{color} {texture} 喷塑效果，{material}材质，厚度{thickness}μm"
+    },
+    {
+      "id": "template_003",
+      "name": "热转印效果模板",
+      "treatment_type": "热转印",
+      "description": "热转印效果模板，包括图案、纹理、颜色等效果",
+      "parameters": {
+        "pattern": "木纹",
+        "material": "PP",
+        "temperature": 180,
+        "pressure": 0.5
+      },
+      "effect_description": "木纹热转印，图案逼真，纹理清晰",
+      "example_image": "examples/heat_transfer_wood.png",
+      "prompt_template": "{pattern} 热转印效果，{material}材质，温度{temperature}℃，压力{pressure}MPa"
+    },
+    {
+      "id": "template_004",
+      "name": "激光雕刻效果模板",
+      "treatment_type": "激光雕刻",
+      "description": "激光雕刻效果模板，包括深度、精度、图案等效果",
+      "parameters": {
+        "pattern": "LOGO",
+        "material": "不锈钢",
+        "depth": 0.2,
+        "precision": 0.01
+      },
+      "effect_description": "LOGO激光雕刻，深度0.2mm，精度0.01mm，图案清晰",
+      "example_image": "examples/laser_engraving_logo.png",
+      "prompt_template": "{pattern} 激光雕刻效果，{material}材质，深度{depth}mm，精度{precision}mm"
+    }
+  ]
+}

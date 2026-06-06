@@ -1,0 +1,44 @@
+{
+  "review_criteria": [
+    {
+      "id": "criterion_001",
+      "name": "图像质量",
+      "description": "评估AI生成图像的质量，包括清晰度、细节丰富度、真实性等",
+      "weight": 0.3,
+      "scoring_method": "基于图像质量评估指标（PSNR、SSIM等）和人工评审",
+      "pass_threshold": 80
+    },
+    {
+      "id": "criterion_002",
+      "name": "风格一致性",
+      "description": "评估AI生成图像与风格参考的一致性",
+      "weight": 0.25,
+      "scoring_method": "基于风格关键词匹配和特征提取",
+      "pass_threshold": 75
+    },
+    {
+      "id": "criterion_003",
+      "name": "产品特征准确性",
+      "description": "评估AI生成图像中产品特征的准确性",
+      "weight": 0.2,
+      "scoring_method": "基于产品特征匹配和人工评审",
+      "pass_threshold": 85
+    },
+    {
+      "id": "criterion_004",
+      "name": "提示词遵从度",
+      "description": "评估AI生成图像对提示词的遵从程度",
+      "weight": 0.15,
+      "scoring_method": "基于提示词关键词匹配和图像内容分析",
+      "pass_threshold": 80
+    },
+    {
+      "id": "criterion_005",
+      "name": "创新性",
+      "description": "评估AI生成图像的创新性和设计价值",
+      "weight": 0.1,
+      "scoring_method": "基于人工评审和设计评估",
+      "pass_threshold": 70
+    }
+  ]
+}

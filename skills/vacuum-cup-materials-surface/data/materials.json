@@ -1,0 +1,124 @@
+{
+  "materials": [
+    {
+      "id": "304_stainless_steel",
+      "name": "304不锈钢",
+      "type": "stainless_steel",
+      "density": 7.93,
+      "density_unit": "g/cm³",
+      "corrosion_resistance": "good",
+      "safety_level": "food_grade",
+      "cost_index": 1.0,
+      "application": "常规保温杯",
+      "tensile_strength": "520-750 MPa",
+      "yield_strength": "205-450 MPa",
+      "elongation": "≥40%",
+      "hardness": "≤187 HB",
+      "thermal_conductivity": "16.3 W/(m·K)",
+      "thermal_expansion": "17.2×10⁻⁶/K",
+      "weight_500ml": "200-280g",
+      "insulation_performance": "6-12小时",
+      "processing_difficulty": "medium",
+      "local_supply": true,
+      "moq": "500kg",
+      "supplier_location": "永康本地"
+    },
+    {
+      "id": "316_stainless_steel",
+      "name": "316不锈钢",
+      "type": "stainless_steel",
+      "density": 7.98,
+      "density_unit": "g/cm³",
+      "corrosion_resistance": "excellent",
+      "safety_level": "medical_grade",
+      "cost_index": 1.3,
+      "application": "高端保温杯、儿童杯",
+      "tensile_strength": "550-780 MPa",
+      "yield_strength": "220-500 MPa",
+      "elongation": "≥40%",
+      "hardness": "≤187 HB",
+      "thermal_conductivity": "16.3 W/(m·K)",
+      "thermal_expansion": "17.2×10⁻⁶/K",
+      "weight_500ml": "200-280g",
+      "insulation_performance": "6-12小时",
+      "processing_difficulty": "medium",
+      "local_supply": true,
+      "moq": "500kg",
+      "supplier_location": "永康本地"
+    },
+    {
+      "id": "ta1_titanium",
+      "name": "TA1纯钛",
+      "type": "titanium",
+      "density": 4.51,
+      "density_unit": "g/cm³",
+      "corrosion_resistance": "exceptional",
+      "safety_level": "biocompatible",
+      "cost_index": 3.5,
+      "application": "高端轻量化杯",
+      "tensile_strength": "370-540 MPa",
+      "yield_strength": "250-450 MPa",
+      "elongation": "≥24%",
+      "hardness": "≤195 HB",
+      "thermal_conductivity": "15.6 W/(m·K)",
+      "thermal_expansion": "8.6×10⁻⁶/K",
+      "weight_500ml": "130-180g",
+      "insulation_performance": "6-12小时",
+      "processing_difficulty": "high",
+      "local_supply": false,
+      "moq": "100kg",
+      "supplier_location": "外地采购"
+    },
+    {
+      "id": "ta2_titanium",
+      "name": "TA2纯钛",
+      "type": "titanium",
+      "density": 4.51,
+      "density_unit": "g/cm³",
+      "corrosion_resistance": "exceptional",
+      "safety_level": "biocompatible",
+      "cost_index": 3.0,
+      "application": "轻量化保温杯",
+      "tensile_strength": "440-590 MPa",
+      "yield_strength": "320-460 MPa",
+      "elongation": "≥22%",
+      "hardness": "≤195 HB",
+      "thermal_conductivity": "15.6 W/(m·K)",
+      "thermal_expansion": "8.6×10⁻⁶/K",
+      "weight_500ml": "130-180g",
+      "insulation_performance": "6-12小时",
+      "processing_difficulty": "high",
+      "local_supply": false,
+      "moq": "100kg",
+      "supplier_location": "外地采购"
+    }
+  ],
+  "comparison": {
+    "density_comparison": {
+      "304_stainless_steel": 100,
+      "316_stainless_steel": 101,
+      "ta1_titanium": 57,
+      "ta2_titanium": 57
+    },
+    "cost_comparison": {
+      "304_stainless_steel": 1.0,
+      "316_stainless_steel": 1.3,
+      "ta1_titanium": 3.5,
+      "ta2_titanium": 3.0
+    }
+  },
+  "test_data": {
+    "heavy_metal_migration": {
+      "304_stainless_steel": "符合国家标准",
+      "316_stainless_steel": "符合国家标准",
+      "ta1_titanium": "远低于国家标准",
+      "ta2_titanium": "远低于国家标准"
+    },
+    "insulation_performance": {
+      "304_stainless_steel": "6-12小时",
+      "316_stainless_steel": "6-12小时",
+      "ta1_titanium": "6-12小时",
+      "ta2_titanium": "6-12小时"
+    }
+  }
+}

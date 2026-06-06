@@ -1,0 +1,372 @@
+{
+  "craftsmanship_database": {
+    "metadata": {
+      "name": "保温杯工艺知识数据库",
+      "version": "1.0.0",
+      "last_updated": "2026-06-05",
+      "description": "保温杯完整工艺知识体系（材料、表面处理、注塑、组装）",
+      "applicable_products": ["保温杯", "弹跳盖保温杯", "车载保温杯", "智能保温杯"]
+    },
+    "materials": {
+      "metals": {
+        "stainless_steel": {
+          "304": {
+            "name": "304不锈钢",
+            "density": 7.93,
+            "corrosion_resistance": 85,
+            "safety_level": "食品级",
+            "cost_index": 60,
+            "applications": ["保温杯内胆", "保温杯外壳", "杯盖"],
+            "advantages": ["性价比高", "耐腐蚀性好", "加工性能好"],
+            "disadvantages": ["不够轻便", "导热快"]
+          },
+          "316": {
+            "name": "316不锈钢",
+            "density": 7.98,
+            "corrosion_resistance": 95,
+            "safety_level": "医疗级",
+            "cost_index": 85,
+            "applications": ["高端保温杯内胆", "医疗级保温杯"],
+            "advantages": ["耐腐蚀性极佳", "安全性高"],
+            "disadvantages": ["成本高", "加工难度大"]
+          },
+          "316L": {
+            "name": "316L不锈钢",
+            "density": 7.98,
+            "corrosion_resistance": 98,
+            "safety_level": "医疗级",
+            "cost_index": 90,
+            "applications": ["顶级保温杯内胆", "特种保温杯"],
+            "advantages": ["耐腐蚀性和316相当", "更环保（低碳）", "焊接性能好"],
+            "disadvantages": ["成本极高", "加工难度极大"]
+          }
+        },
+        "titanium": {
+          "TA1": {
+            "name": "TA1纯钛",
+            "density": 4.51,
+            "corrosion_resistance": 99,
+            "safety_level": "医疗级",
+            "cost_index": 95,
+            "applications": ["高端保温杯", "轻量化保温杯"],
+            "advantages": [" lightweight（轻量化）", "biocompatible（生物相容性）", "corrosion-resistant（耐腐蚀）"],
+            "disadvantages": ["成本高", "加工难度大", "导热性差"]
+          },
+          "TA2": {
+            "name": "TA2纯钛",
+            "density": 4.51,
+            "corrosion_resistance": 99,
+            "safety_level": "医疗级",
+            "cost_index": 90,
+            "applications": ["中高端保温杯", "轻量化保温杯"],
+            "advantages": ["轻量化", "生物相容性", "耐腐蚀性"],
+            "disadvantages": ["成本较高", "加工难度较大"]
+          },
+          "TC4": {
+            "name": "TC4钛合金",
+            "density": 4.43,
+            "corrosion_resistance": 99,
+            "safety_level": "医疗级",
+            "cost_index": 98,
+            "applications": ["顶级保温杯", "特种保温杯", "航空级保温杯"],
+            "advantages": ["强度高", "轻量化", "耐腐蚀性极佳"],
+            "disadvantages": ["成本极高", "加工难度极大"]
+          }
+        }
+      },
+      "plastics": {
+        "PP": {
+          "name": "食品级PP",
+          "density": 0.90,
+          "temperature_resistance": 120,
+          "safety_level": "食品级",
+          "cost_index": 40,
+          "applications": ["保温杯塑料盖", "密封圈"],
+          "advantages": ["轻便", "耐温性好", "成本低"],
+          "disadvantages": ["易老化", "不耐寒"]
+        },
+        "TRITAN": {
+          "name": "TRITAN",
+          "density": 1.05,
+          "temperature_resistance": 109,
+          "safety_level": "食品级（不含BPA）",
+          "cost_index": 70,
+          "applications": ["高端保温杯塑料盖", "儿童保温杯"],
+          "advantages": ["安全（不含BPA）", "透明", "耐温性好"],
+          "disadvantages": ["成本高", "加工难度大"]
+        },
+        "silicone": {
+          "name": "食品级硅胶",
+          "density": 1.10,
+          "temperature_resistance": 200,
+          "safety_level": "食品级",
+          "cost_index": 50,
+          "applications": ["保温杯密封圈", "防滑垫"],
+          "advantages": ["耐高温", "柔软", "密封性好"],
+          "disadvantages": ["易吸附灰尘", "易老化"]
+        },
+        "ABS": {
+          "name": "食品级ABS",
+          "density": 1.05,
+          "temperature_resistance": 80,
+          "safety_level": "食品级",
+          "cost_index": 45,
+          "applications": ["保温杯塑料盖", "按钮"],
+          "advantages": ["强度高", "表面光泽好", "易电镀"],
+          "disadvantages": ["不耐高温", "易老化"]
+        },
+        "PC": {
+          "name": "食品级PC",
+          "density": 1.20,
+          "temperature_resistance": 120,
+          "safety_level": "食品级（不含BPA）",
+          "cost_index": 60,
+          "applications": ["透明保温杯", "高端保温杯塑料盖"],
+          "advantages": ["透明", "强度高", "耐温性好"],
+          "disadvantages": ["成本高", "易刮花"]
+        }
+      }
+    },
+    "surface_treatments": {
+      "metal_surface": {
+        "spray_painting": {
+          "name": "喷漆",
+          "cost": 15,
+          "lead_time": 3,
+          "durability": 70,
+          "applications": ["保温杯外壳", "杯盖"],
+          "advantages": ["颜色丰富", "成本低"],
+          "disadvantages": ["耐磨性差", "易脱落"]
+        },
+        "spray_plastic": {
+          "name": "喷塑",
+          "cost": 18,
+          "lead_time": 4,
+          "durability": 85,
+          "applications": ["保温杯外壳", "杯盖"],
+          "advantages": ["耐磨性好", "颜色丰富"],
+          "disadvantages": ["成本较高", "工艺复杂"]
+        },
+        "laser_marking": {
+          "name": "激光打标",
+          "cost": 8,
+          "lead_time": 1,
+          "durability": 95,
+          "applications": ["LOGO打标", "图案雕刻"],
+          "advantages": ["永久性", "精度高", "环保"],
+          "disadvantages": ["颜色单一", "不可彩色"]
+        },
+        "heat_transfer": {
+          "name": "热转印",
+          "cost": 12,
+          "lead_time": 2,
+          "durability": 80,
+          "applications": ["图案印刷", "彩色LOGO"],
+          "advantages": ["颜色丰富", "图案精细"],
+          "disadvantages": ["耐磨性一般", "成本较高"]
+        },
+        "3d_uv_printing": {
+          "name": "3D UV打印",
+          "cost": 25,
+          "lead_time": 2,
+          "durability": 90,
+          "applications": ["3D图案", "浮雕效果"],
+          "advantages": ["立体感强", "颜色丰富", "耐磨性好"],
+          "disadvantages": ["成本极高", "工艺复杂"]
+        },
+        "electroplating": {
+          "name": "电镀",
+          "cost": 30,
+          "lead_time": 5,
+          "durability": 95,
+          "applications": ["金属质感", "高档保温杯"],
+          "advantages": ["金属质感强", "耐磨性极佳"],
+          "disadvantages": ["成本极高", "环保问题"]
+        },
+        "uv_coating": {
+          "name": "UV镀",
+          "cost": 20,
+          "lead_time": 3,
+          "durability": 88,
+          "applications": ["高光泽表面", "彩色金属质感"],
+          "advantages": ["光泽度好", "颜色丰富", "耐磨性好"],
+          "disadvantages": ["成本较高", "工艺复杂"]
+        }
+      },
+      "plastic_surface": {
+        "plastic_spray_painting": {
+          "name": "塑料喷漆",
+          "cost": 12,
+          "lead_time": 3,
+          "durability": 65,
+          "applications": ["塑料盖", "按钮"],
+          "advantages": ["颜色丰富", "成本低"],
+          "disadvantages": ["耐磨性差", "易脱落"]
+        },
+        "plastic_uv_coating": {
+          "name": "塑料UV镀",
+          "cost": 18,
+          "lead_time": 3,
+          "durability": 85,
+          "applications": ["塑料盖", "装饰件"],
+          "advantages": ["光泽度好", "耐磨性好"],
+          "disadvantages": ["成本较高", "工艺复杂"]
+        },
+        "plastic_electroplating": {
+          "name": "塑料电镀",
+          "cost": 25,
+          "lead_time": 5,
+          "durability": 90,
+          "applications": ["塑料盖", "金属质感装饰"],
+          "advantages": ["金属质感强", "耐磨性极佳"],
+          "disadvantages": ["成本极高", "环保问题"]
+        },
+        "imd": {
+          "name": "IMD（模内装饰）",
+          "cost": 15,
+          "lead_time": 4,
+          "durability": 88,
+          "applications": ["塑料盖", "图案装饰"],
+          "advantages": ["图案精细", "耐磨性好", "环保"],
+          "disadvantages": ["成本较高", "工艺复杂"]
+        }
+      }
+    },
+    "injection_molding": {
+      "PP": {
+        "mold_temperature": "40-80°C",
+        "melt_temperature": "200-280°C",
+        "injection_pressure": "70-120 MPa",
+        "cycle_time": "20-40秒",
+        "shrinkage_rate": "1.0-2.5%",
+        "applications": ["保温杯塑料盖", "密封圈"]
+      },
+      "TRITAN": {
+        "mold_temperature": "50-80°C",
+        "melt_temperature": "260-290°C",
+        "injection_pressure": "80-130 MPa",
+        "cycle_time": "25-45秒",
+        "shrinkage_rate": "0.5-0.7%",
+        "applications": ["高端保温杯塑料盖", "儿童保温杯"]
+      },
+      "ABS": {
+        "mold_temperature": "50-80°C",
+        "melt_temperature": "200-240°C",
+        "injection_pressure": "70-120 MPa",
+        "cycle_time": "20-40秒",
+        "shrinkage_rate": "0.4-0.9%",
+        "applications": ["保温杯塑料盖", "按钮"]
+      },
+      "PC": {
+        "mold_temperature": "80-120°C",
+        "melt_temperature": "280-320°C",
+        "injection_pressure": "80-150 MPa",
+        "cycle_time": "25-50秒",
+        "shrinkage_rate": "0.6-0.8%",
+        "applications": ["透明保温杯", "高端保温杯塑料盖"]
+      },
+      "silicone": {
+        "mold_temperature": "150-200°C",
+        "melt_temperature": "N/A（热固化）",
+        "injection_pressure": "10-30 MPa",
+        "cycle_time": "30-120秒",
+        "shrinkage_rate": "2.0-3.0%",
+        "applications": ["保温杯密封圈", "防滑垫"]
+      }
+    },
+    "assembly_process": {
+      "ultrasonic_welding": {
+        "name": "超声波焊接",
+        "strength": 85,
+        "efficiency": 90,
+        "cost": 60,
+        "applications": ["塑料盖焊接", "组件固定"],
+        "advantages": ["强度高", "效率高", "环保"],
+        "disadvantages": ["设备成本高", "模具要求高"]
+      },
+      "hot_plate_welding": {
+        "name": "热板焊接",
+        "strength": 80,
+        "efficiency": 70,
+        "cost": 40,
+        "applications": ["大型塑料件焊接"],
+        "advantages": ["强度高", "成本低"],
+        "disadvantages": ["效率较低", "表面有溢料"]
+      },
+      "screw_fixation": {
+        "name": "螺丝固定",
+        "strength": 90,
+        "efficiency": 60,
+        "cost": 70,
+        "applications": ["杯盖固定", "手柄固定"],
+        "advantages": ["强度高", "可拆卸"],
+        "disadvantages": ["效率较低", "成本较高"]
+      },
+      "buckle_assembly": {
+        "name": "卡扣装配",
+        "strength": 70,
+        "efficiency": 95,
+        "cost": 30,
+        "applications": ["卡扣式杯盖", "快捷装配"],
+        "advantages": ["效率高", "成本低", "可拆卸"],
+        "disadvantages": ["强度较低", "易断裂"]
+      },
+      "glue_bonding": {
+        "name": "胶水粘合",
+        "strength": 60,
+        "efficiency": 50,
+        "cost": 40,
+        "applications": ["装饰件粘合", "标签粘合"],
+        "advantages": ["成本低", "适用于复杂形状"],
+        "disadvantages": ["强度低", "效率低", "环保问题"]
+      }
+    },
+    "logo_process": {
+      "laser_marking": {
+        "name": "激光打标",
+        "cost": 8,
+        "lead_time": 1,
+        "durability": 95,
+        "applications": ["金属表面", "塑料表面"],
+        "advantages": ["永久性", "精度高", "环保"],
+        "disadvantages": ["颜色单一"]
+      },
+      "screen_printing": {
+        "name": "丝网印刷",
+        "cost": 10,
+        "lead_time": 2,
+        "durability": 75,
+        "applications": ["平面印刷", "曲面印刷"],
+        "advantages": ["成本低", "颜色丰富"],
+        "disadvantages": ["耐磨性一般", "效率低"]
+      },
+      "heat_transfer": {
+        "name": "热转印",
+        "cost": 12,
+        "lead_time": 2,
+        "durability": 80,
+        "applications": ["曲面印刷", "彩色图案"],
+        "advantages": ["颜色丰富", "图案精细"],
+        "disadvantages": ["耐磨性一般", "成本较高"]
+      },
+      "3d_uv_printing": {
+        "name": "3D UV打印",
+        "cost": 25,
+        "lead_time": 2,
+        "durability": 90,
+        "applications": ["3D图案", "浮雕效果"],
+        "advantages": ["立体感强", "颜色丰富", "耐磨性好"],
+        "disadvantages": ["成本极高", "工艺复杂"]
+      },
+      "electroplating": {
+        "name": "电镀",
+        "cost": 30,
+        "lead_time": 5,
+        "durability": 95,
+        "applications": ["金属质感LOGO", "高档产品"],
+        "advantages": ["金属质感强", "耐磨性极佳"],
+        "disadvantages": ["成本极高", "环保问题"]
+      }
+    }
+  }
+}

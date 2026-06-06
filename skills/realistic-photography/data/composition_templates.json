@@ -1,0 +1,146 @@
+{
+  "composition_templates": [
+    {
+      "id": "front_view",
+      "name": "主视角",
+      "name_zh": "主视角",
+      "description": "产品正面视角，展现产品整体造型和主要功能部件",
+      "description_zh": "产品正面视角，展现产品整体造型和主要功能部件",
+      "application": "保温杯主视角展示，展现杯身造型、杯盖设计、LOGO位置",
+      "application_zh": "保温杯主视角展示，展现杯身造型、杯盖设计、LOGO位置",
+      "composition_rules": {
+        "camera_angle": "与产品中心平行（水平视角）",
+        "camera_angle_zh": "与产品中心平行（水平视角）",
+        "camera_distance": "产品高度的1.5-2倍",
+        "camera_distance_zh": "产品高度的1.5-2倍",
+        "framing": "产品占据画面的70-80%，留白20-30%",
+        "framing_zh": "产品占据画面的70-80%，留白20-30%",
+        "background": "纯色背景（白色/灰色/黑色）或渐变背景",
+        "background_zh": "纯色背景（白色/灰色/黑色）或渐变背景",
+        "lighting": "三点布光（主光+补光+轮廓光）",
+        "lighting_zh": "三点布光（主光+补光+轮廓光）",
+        "depth_of_field": "小光圈（f/8-f/11），确保整体清晰",
+        "depth_of_field_zh": "小光圈（f/8-f/11），确保整体清晰"
+      },
+      "prompt_keywords": {
+        "english": "front view, product photography, vacuum cup front view, centered composition, professional product shot, clean background, studio lighting, 8k resolution",
+        "chinese": "正面视角，产品摄影，保温杯正面视图，居中构图，专业产品拍摄，干净背景，影棚灯光，8K分辨率"
+      }
+    },
+    {
+      "id": "side_view",
+      "name": "侧视角",
+      "name_zh": "侧视角",
+      "description": "产品侧面视角，展现产品厚度、曲线设计和表面处理效果",
+      "description_zh": "产品侧面视角，展现产品厚度、曲线设计和表面处理效果",
+      "application": "保温杯侧视角展示，展现杯身曲线、表面处理效果（拉丝/喷漆/喷塑）",
+      "application_zh": "保温杯侧视角展示，展现杯身曲线、表面处理效果（拉丝/喷漆/喷塑）",
+      "composition_rules": {
+        "camera_angle": "与产品中心平行（水平视角），从侧面45°角",
+        "camera_angle_zh": "与产品中心平行（水平视角），从侧面45°角",
+        "camera_distance": "产品高度的1.2-1.5倍",
+        "camera_distance_zh": "产品高度的1.2-1.5倍",
+        "framing": "产品占据画面的60-70%，留白30-40%",
+        "framing_zh": "产品占据画面的60-70%，留白30-40%",
+        "background": "纯色背景（白色/灰色/黑色）或渐变背景",
+        "background_zh": "纯色背景（白色/灰色/黑色）或渐变背景",
+        "lighting": "顶光或侧光，强调曲面和纹理",
+        "lighting_zh": "顶光或侧光，强调曲面和纹理",
+        "depth_of_field": "中小光圈（f/5.6-f/8），确保整体清晰",
+        "depth_of_field_zh": "中小光圈（f/5.6-f/8），确保整体清晰"
+      },
+      "prompt_keywords": {
+        "english": "side view, product photography, vacuum cup side view, curved body, surface treatment display, studio lighting, profile shot, 8k resolution",
+        "chinese": "侧面视角，产品摄影，保温杯侧面视图，曲面杯身，表面处理展示，影棚灯光，轮廓拍摄，8K分辨率"
+      }
+    },
+    {
+      "id": "top_view",
+      "name": "顶视角",
+      "name_zh": "顶视角",
+      "description": "产品顶部视角，展现杯盖设计、LOGO细节和顶部功能",
+      "description_zh": "产品顶部视角，展现杯盖设计、LOGO细节和顶部功能",
+      "application": "保温杯顶视角展示，展现杯盖设计、LOGO工艺、弹跳盖机构",
+      "application_zh": "保温杯顶视角展示，展现杯盖设计、LOGO工艺、弹跳盖机构",
+      "composition_rules": {
+        "camera_angle": "产品正上方，垂直向下（俯视）",
+        "camera_angle_zh": "产品正上方，垂直向下（俯视）",
+        "camera_distance": "距离产品0.5-1米",
+        "camera_distance_zh": "距离产品0.5-1米",
+        "framing": "产品占据画面的80-90%，留白10-20%",
+        "framing_zh": "产品占据画面的80-90%，留白10-20%",
+        "background": "纯色背景（白色/灰色/黑色）或与杯盖颜色对比的背景",
+        "background_zh": "纯色背景（白色/灰色/黑色）或与杯盖颜色对比的背景",
+        "lighting": "顶光布光（主光+补光+背景光）",
+        "lighting_zh": "顶光布光（主光+补光+背景光）",
+        "depth_of_field": "大光圈（f/11-f/16），确保整体清晰",
+        "depth_of_field_zh": "大光圈（f/11-f/16），确保整体清晰"
+      },
+      "prompt_keywords": {
+        "english": "top view, overhead shot, product photography, vacuum cup lid detail, LOGO detail, overhead lighting, studio lighting, 8k resolution",
+        "chinese": "顶视角，俯视拍摄，产品摄影，保温杯杯盖细节，LOGO细节，顶光照明，影棚灯光，8K分辨率"
+      }
+    },
+    {
+      "id": "detail_closeup",
+      "name": "细节特写",
+      "name_zh": "细节特写",
+      "description": "产品细节特写视角，展现材质纹理、工艺细节和功能性部件",
+      "description_zh": "产品细节特写视角，展现材质纹理、工艺细节和功能性部件",
+      "application": "保温杯细节特写，展现材质纹理（拉丝/喷漆）、LOGO工艺、弹跳盖机构、密封圈细节",
+      "application_zh": "保温杯细节特写，展现材质纹理（拉丝/喷漆）、LOGO工艺、弹跳盖机构、密封圈细节",
+      "composition_rules": {
+        "camera_angle": "根据细节位置调整（通常平行或垂直）",
+        "camera_angle_zh": "根据细节位置调整（通常平行或垂直）",
+        "camera_distance": "非常近（0.3-0.5米），使用微距镜头",
+        "camera_distance_zh": "非常近（0.3-0.5米），使用微距镜头",
+        "framing": "细节占据画面的90-100%，几乎无留白",
+        "framing_zh": "细节占据画面的90-100%，几乎无留白",
+        "background": "纯色背景（与细节颜色对比）或透明背景",
+        "background_zh": "纯色背景（与细节颜色对比）或透明背景",
+        "lighting": "侧光或顶光，强调纹理和细节",
+        "lighting_zh": "侧光或顶光，强调纹理和细节",
+        "depth_of_field": "中小光圈（f/5.6-f/8），确保细节清晰",
+        "depth_of_field_zh": "中小光圈（f/5.6-f/8），确保细节清晰"
+      },
+      "prompt_keywords": {
+        "english": "macro photography, close-up detail, product detail shot, material texture close-up, LOGO detail close-up, studio lighting, shallow depth of field, 8k resolution",
+        "chinese": "微距摄影，细节特写，产品细节拍摄，材质纹理特写，LOGO细节特写，影棚灯光，浅景深，8K分辨率"
+      }
+    },
+    {
+      "id": "scene_matching",
+      "name": "场景搭配",
+      "name_zh": "场景搭配",
+      "description": "产品与生活场景搭配视角，展现产品使用环境和生活方式",
+      "description_zh": "产品与生活场景搭配视角，展现产品使用环境和生活方式",
+      "application": "保温杯场景搭配，展现办公室场景、户外场景、家居场景、运动场景",
+      "application_zh": "保温杯场景搭配，展现办公室场景、户外场景、家居场景、运动场景",
+      "composition_rules": {
+        "camera_angle": "自然视角（模仿人眼视角）",
+        "camera_angle_zh": "自然视角（模仿人眼视角）",
+        "camera_distance": "中距离（2-5米），展现产品和部分场景",
+        "camera_distance_zh": "中距离（2-5米），展现产品和部分场景",
+        "framing": "产品占据画面的30-50%，场景占据50-70%",
+        "framing_zh": "产品占据画面的30-50%，场景占据50-70%",
+        "background": "自然背景（办公室/户外/家居/运动场）",
+        "background_zh": "自然背景（办公室/户外/家居/运动场）",
+        "lighting": "自然光（窗光/阳光）或柔和人工光",
+        "lighting_zh": "自然光（窗光/阳光）或柔和人工光",
+        "depth_of_field": "中大光圈（f/2.8-f/5.6），营造浅景深",
+        "depth_of_field_zh": "中大光圈（f/2.8-f/5.6），营造浅景深"
+      },
+      "prompt_keywords": {
+        "english": "lifestyle photography, product in scene, vacuum cup in office, vacuum cup outdoor, natural lighting, cozy atmosphere, lifestyle shot, 8k resolution",
+        "chinese": "生活风格摄影，产品场景搭配，保温杯在办公室，保温杯在户外，自然光照明，舒适氛围，生活场景拍摄，8K分辨率"
+      }
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "last_updated": "2026-06-05",
+    "total_templates": 5,
+    "application": "保温杯产品真实摄影生图 - 产品摄影构图",
+    "application_zh": "保温杯产品真实摄影生图 - 产品摄影构图"
+  }
+}

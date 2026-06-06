@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Project
+*.log
+.DS_Store
+*.bak
+*.tmp
+
+# Data
+*.xlsx
+*.xls
+*.csv
+*.pptx
+*.docx
+*.pdf
+
+# Test
+htmlcov/
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Others
+node_modules/

@@ -1,0 +1,59 @@
+{
+  "process_parameters": [
+    {
+      "id": "param_001",
+      "treatment_type": "喷漆",
+      "parameter_name": "温度",
+      "parameter_unit": "℃",
+      "typical_range": [15, 35],
+      "optimal_value": 25,
+      "effect_on_quality": "温度过低，油漆粘度大，雾化不良；温度过高，溶剂挥发过快，易产生橘皮",
+      "effect_on_efficiency": "温度适宜，喷涂效率高；温度不适宜，需要多次喷涂",
+      "control_method": "恒温车间，温度控制系统"
+    },
+    {
+      "id": "param_002",
+      "treatment_type": "喷漆",
+      "parameter_name": "湿度",
+      "parameter_unit": "%RH",
+      "typical_range": [40, 70],
+      "optimal_value": 60,
+      "effect_on_quality": "湿度过高，易产生气泡、针孔；湿度过低，易产生静电，吸附灰尘",
+      "effect_on_efficiency": "湿度适宜，喷涂效率高；湿度不适宜，需要多次喷涂",
+      "control_method": "恒湿车间，湿度控制系统"
+    },
+    {
+      "id": "param_003",
+      "treatment_type": "喷塑",
+      "parameter_name": "固化温度",
+      "parameter_unit": "℃",
+      "typical_range": [180, 220],
+      "optimal_value": 200,
+      "effect_on_quality": "温度过低，固化不完全，附着力差；温度过高，涂层变脆，易开裂",
+      "effect_on_efficiency": "温度适宜，固化时间短，效率高；温度不适宜，固化时间长，效率低",
+      "control_method": "烘箱或烘道温度控制"
+    },
+    {
+      "id": "param_004",
+      "treatment_type": "热转印",
+      "parameter_name": "转印温度",
+      "parameter_unit": "℃",
+      "typical_range": [160, 200],
+      "optimal_value": 180,
+      "effect_on_quality": "温度过低，转印不完全，图案不清晰；温度过高，图案变形，色彩失真",
+      "effect_on_efficiency": "温度适宜，转印时间短，效率高；温度不适宜，转印时间长，效率低",
+      "control_method": "热转印机温度控制"
+    },
+    {
+      "id": "param_005",
+      "treatment_type": "激光雕刻",
+      "parameter_name": "激光功率",
+      "parameter_unit": "W",
+      "typical_range": [10, 100],
+      "optimal_value": 50,
+      "effect_on_quality": "功率过低，雕刻深度不足，图案不清晰；功率过高，材料烧焦，边缘毛糙",
+      "effect_on_efficiency": "功率适宜，雕刻速度快，效率高；功率不适宜，雕刻速度慢，效率低",
+      "control_method": "激光雕刻机功率控制"
+    }
+  ]
+}

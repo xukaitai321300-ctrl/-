@@ -1,0 +1,224 @@
+{
+  "lighting_setups": [
+    {
+      "id": "three_point",
+      "name": "三点布光",
+      "name_zh": "三点布光",
+      "description": "经典产品摄影布光方案，包含主光、补光、轮廓光",
+      "description_zh": "经典产品摄影布光方案，包含主光、补光、轮廓光",
+      "application": "保温杯产品主视角拍摄",
+      "application_zh": "保温杯产品主视角拍摄",
+      "lights": [
+        {
+          "type": "key_light",
+          "type_zh": "主光",
+          "position": "产品左前方45°，高于产品30°",
+          "position_zh": "产品左前方45°，高于产品30°",
+          "intensity": "高强度（80-100%）",
+          "intensity_zh": "高强度（80-100%）",
+          "softbox": "大尺寸柔光箱（120cm×90cm）",
+          "softbox_zh": "大尺寸柔光箱（120cm×90cm）",
+          "purpose": "提供主要照明，塑造产品立体感",
+          "purpose_zh": "提供主要照明，塑造产品立体感"
+        },
+        {
+          "type": "fill_light",
+          "type_zh": "补光",
+          "position": "产品右前方45°，与产品同高",
+          "position_zh": "产品右前方45°，与产品同高",
+          "intensity": "中低强度（40-60%）",
+          "intensity_zh": "中低强度（40-60%）",
+          "softbox": "中尺寸柔光箱（90cm×60cm）或反光板",
+          "softbox_zh": "中尺寸柔光箱（90cm×60cm）或反光板",
+          "purpose": "填充阴影区域，降低光比",
+          "purpose_zh": "填充阴影区域，降低光比"
+        },
+        {
+          "type": "rim_light",
+          "type_zh": "轮廓光",
+          "position": "产品后方左右各一盏，与产品成135°角",
+          "position_zh": "产品后方左右各一盏，与产品成135°角",
+          "intensity": "中高强度（60-80%）",
+          "intensity_zh": "中高强度（60-80%）",
+          "modifier": "标准罩或蜂窝罩",
+          "modifier_zh": "标准罩或蜂窝罩",
+          "purpose": "勾勒产品轮廓，隔离背景",
+          "purpose_zh": "勾勒产品轮廓，隔离背景"
+        }
+      ],
+      "camera_settings": {
+        "aperture": "f/8-f/11",
+        "aperture_zh": "f/8-f/11",
+        "shutter_speed": "1/125s",
+        "shutter_speed_zh": "1/125s",
+        "iso": "ISO 100",
+        "iso_zh": "ISO 100",
+        "white_balance": "闪光灯预设（约5500K）",
+        "white_balance_zh": "闪光灯预设（约5500K）",
+        "focus_mode": "手动对焦（MF）",
+        "focus_mode_zh": "手动对焦（MF）"
+      },
+      "background": {
+        "type": "纯色背景纸（白色/灰色/黑色）",
+        "type_zh": "纯色背景纸（白色/灰色/黑色）",
+        "distance": "产品与背景距离1.5-2米",
+        "distance_zh": "产品与背景距离1.5-2米",
+        "lighting": "背景光独立控制，可创造渐变效果",
+        "lighting_zh": "背景光独立控制，可创造渐变效果"
+      },
+      "prompt_keywords": {
+        "english": "professional product photography, three-point lighting setup, softbox lighting, rim lighting, studio lighting, high-key lighting, product photography lighting, vacuum cup photography, stainless steel texture, realistic lighting, 8k resolution",
+        "chinese": "专业产品摄影，三点布光，柔光箱照明，轮廓光，影棚灯光，高调照明，产品摄影布光，保温杯摄影，不锈钢纹理，真实灯光，8K分辨率"
+      }
+    },
+    {
+      "id": "top_light",
+      "name": "顶光布光",
+      "name_zh": "顶光布光",
+      "description": "强调产品顶部细节和材质纹理的布光方案",
+      "description_zh": "强调产品顶部细节和材质纹理的布光方案",
+      "application": "保温杯杯盖细节展示、顶部LOGO展示",
+      "application_zh": "保温杯杯盖细节展示、顶部LOGO展示",
+      "lights": [
+        {
+          "type": "overhead_light",
+          "type_zh": "顶光",
+          "position": "产品正上方，距离产品1-1.5米",
+          "position_zh": "产品正上方，距离产品1-1.5米",
+          "intensity": "中高强度（70-90%）",
+          "intensity_zh": "中高强度（70-90%）",
+          "modifier": "大尺寸柔光箱（120cm×120cm）或八角柔光箱",
+          "modifier_zh": "大尺寸柔光箱（120cm×120cm）或八角柔光箱",
+          "purpose": "强调产品顶部细节，展现材质纹理",
+          "purpose_zh": "强调产品顶部细节，展现材质纹理"
+        },
+        {
+          "type": "fill_light",
+          "type_zh": "补光",
+          "position": "产品前方左右各一盏，与产品同高",
+          "position_zh": "产品前方左右各一盏，与产品同高",
+          "intensity": "低强度（30-50%）",
+          "intensity_zh": "低强度（30-50%）",
+          "modifier": "小型柔光箱或反光板",
+          "modifier_zh": "小型柔光箱或反光板",
+          "purpose": "填充顶部阴影，降低光比",
+          "purpose_zh": "填充顶部阴影，降低光比"
+        },
+        {
+          "type": "background_light",
+          "type_zh": "背景光",
+          "position": "背景正后方，向上照射",
+          "position_zh": "背景正后方，向上照射",
+          "intensity": "低强度（20-40%）",
+          "intensity_zh": "低强度（20-40%）",
+          "modifier": "标准罩",
+          "modifier_zh": "标准罩",
+          "purpose": "创造渐变背景效果",
+          "purpose_zh": "创造渐变背景效果"
+        }
+      ],
+      "camera_settings": {
+        "aperture": "f/11-f/16",
+        "aperture_zh": "f/11-f/16",
+        "shutter_speed": "1/60s",
+        "shutter_speed_zh": "1/60s",
+        "iso": "ISO 100-200",
+        "iso_zh": "ISO 100-200",
+        "white_balance": "闪光灯预设（约5500K）",
+        "white_balance_zh": "闪光灯预设（约5500K）",
+        "focus_mode": "手动对焦（MF）",
+        "focus_mode_zh": "手动对焦（MF）"
+      },
+      "background": {
+        "type": "渐变背景纸（从白色渐变到灰色）",
+        "type_zh": "渐变背景纸（从白色渐变到灰色）",
+        "distance": "产品与背景距离1-1.5米",
+        "distance_zh": "产品与背景距离1-1.5米",
+        "lighting": "背景光独立控制，创造渐变效果",
+        "lighting_zh": "背景光独立控制，创造渐变效果"
+      },
+      "prompt_keywords": {
+        "english": "overhead lighting, top-down lighting, product top view, detail photography, material texture close-up, vacuum cup lid detail, LOGO detail, studio lighting, soft overhead light, realistic texture, 8k resolution",
+        "chinese": "顶光照明，俯视照明，产品顶视图，细节摄影，材质纹理特写，保温杯杯盖细节，LOGO细节，影棚灯光，柔和顶光，真实纹理，8K分辨率"
+      }
+    },
+    {
+      "id": "window_light",
+      "name": "窗光布光",
+      "name_zh": "窗光布光",
+      "description": "利用自然窗光创造柔和、真实感的布光方案",
+      "description_zh": "利用自然窗光创造柔和、真实感的布光方案",
+      "application": "保温杯生活场景拍摄、自然光感展示",
+      "application_zh": "保温杯生活场景拍摄、自然光感展示",
+      "lights": [
+        {
+          "type": "window_light_main",
+          "type_zh": "窗光主光",
+          "position": "靠近大窗户（北向或南向），产品距离窗户1-2米",
+          "position_zh": "靠近大窗户（北向或南向），产品距离窗户1-2米",
+          "intensity": "自然光强度（取决于天气和 time）",
+          "intensity_zh": "自然光强度（取决于天气和时间）",
+          "modifier": "白色窗帘或柔光屏（柔化光线）",
+          "modifier_zh": "白色窗帘或柔光屏（柔化光线）",
+          "purpose": "提供主要照明，创造自然、柔和的光感",
+          "purpose_zh": "提供主要照明，创造自然、柔和的光感"
+        },
+        {
+          "type": "reflector_fill",
+          "type_zh": "反光板补光",
+          "position": "产品阴影侧，反射窗光",
+          "position_zh": "产品阴影侧，反射窗光",
+          "intensity": "低强度（反射光）",
+          "intensity_zh": "低强度（反射光）",
+          "modifier": "白色或银色反光板",
+          "modifier_zh": "白色或银色反光板",
+          "purpose": "填充阴影区域，降低光比",
+          "purpose_zh": "填充阴影区域，降低光比"
+        },
+        {
+          "type": "background_reflector",
+          "type_zh": "背景反光板",
+          "position": "产品后方，反射窗光到背景",
+          "position_zh": "产品后方，反射窗光到背景",
+          "intensity": "极低强度（反射光）",
+          "intensity_zh": "极低强度（反射光）",
+          "modifier": "白色反光板",
+          "modifier_zh": "白色反光板",
+          "purpose": "提升背景亮度，创造明亮感",
+          "purpose_zh": "提升背景亮度，创造明亮感"
+        }
+      ],
+      "camera_settings": {
+        "aperture": "f/2.8-f/5.6",
+        "aperture_zh": "f/2.8-f/5.6",
+        "shutter_speed": "1/60s-1/125s",
+        "shutter_speed_zh": "1/60s-1/125s",
+        "iso": "ISO 400-800（取决于自然光强度）",
+        "iso_zh": "ISO 400-800（取决于自然光强度）",
+        "white_balance": "自动白平衡或日光预设（约5200K）",
+        "white_balance_zh": "自动白平衡或日光预设（约5200K）",
+        "focus_mode": "自动对焦（AF）或手动对焦（MF）",
+        "focus_mode_zh": "自动对焦（AF）或手动对焦（MF）"
+      },
+      "background": {
+        "type": "自然背景（桌面、大理石、木纹等）",
+        "type_zh": "自然背景（桌面、大理石、木纹等）",
+        "distance": "产品与背景距离0.5-1米",
+        "distance_zh": "产品与背景距离0.5-1米",
+        "lighting": "利用自然窗光，创造真实生活感",
+        "lighting_zh": "利用自然窗光，创造真实生活感"
+      },
+      "prompt_keywords": {
+        "english": "natural window light, soft daylight, product photography, lifestyle photography, realistic lighting, natural shadow, soft sunlight, vacuum cup lifestyle, stainless steel in natural light, cozy atmosphere, 8k resolution",
+        "chinese": "自然窗光，柔和日光，产品摄影，生活风格摄影，真实灯光，自然阴影，柔和阳光，保温杯生活场景，不锈钢在自然光下，舒适氛围，8K分辨率"
+      }
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "last_updated": "2026-06-05",
+    "total_setups": 3,
+    "application": "保温杯产品真实摄影生图",
+    "application_zh": "保温杯产品真实摄影生图"
+  }
+}

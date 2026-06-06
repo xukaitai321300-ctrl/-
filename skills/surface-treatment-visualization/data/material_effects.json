@@ -1,0 +1,54 @@
+{
+  "material_effects": [
+    {
+      "id": "effect_001",
+      "material": "镁合金",
+      "treatment_type": "喷漆",
+      "effect_description": "镁合金喷漆后，表面光滑，金属质感强，颜色鲜艳",
+      "advantages": ["轻量化", "金属质感", "颜色丰富"],
+      "disadvantages": ["需要底漆", "成本较高"],
+      "example_image": "examples/magnesium_alloy_painting.png",
+      "prompt_keywords": ["镁合金", "喷漆", "金属质感", "轻量化"]
+    },
+    {
+      "id": "effect_002",
+      "material": "铝合金",
+      "treatment_type": "阳极氧化",
+      "effect_description": "铝合金阳极氧化后，表面形成氧化膜，耐腐蚀，颜色丰富",
+      "advantages": ["耐腐蚀", "耐磨", "颜色丰富"],
+      "disadvantages": ["成本较高", "颜色选择有限"],
+      "example_image": "examples/aluminum_alloy_anodizing.png",
+      "prompt_keywords": ["铝合金", "阳极氧化", "耐腐蚀", "氧化着色"]
+    },
+    {
+      "id": "effect_003",
+      "material": "PP",
+      "treatment_type": "热转印",
+      "effect_description": "PP材料热转印后，图案精美，色彩鲜艳，耐久性好",
+      "advantages": ["图案精美", "色彩鲜艳", "耐久性好"],
+      "disadvantages": ["成本较高", "不适合复杂曲面"],
+      "example_image": "examples/pp_heat_transfer.png",
+      "prompt_keywords": ["PP", "热转印", "图案转印", "色彩鲜艳"]
+    },
+    {
+      "id": "effect_004",
+      "material": "不锈钢",
+      "treatment_type": "激光雕刻",
+      "effect_description": "不锈钢激光雕刻后，图案清晰，精度高，耐久性好",
+      "advantages": ["精度高", "耐久性好", "无污染"],
+      "disadvantages": ["颜色单一", "成本较高"],
+      "example_image": "examples/stainless_steel_laser_engraving.png",
+      "prompt_keywords": ["不锈钢", "激光雕刻", "精密雕刻", "图案清晰"]
+    },
+    {
+      "id": "effect_005",
+      "material": "碳纤维",
+      "treatment_type": "喷漆",
+      "effect_description": "碳纤维喷漆后，表面光滑，科技感强，高端大气",
+      "advantages": ["科技感", "高端", "轻量化"],
+      "disadvantages": ["成本高", "工艺复杂"],
+      "example_image": "examples/carbon_fiber_painting.png",
+      "prompt_keywords": ["碳纤维", "喷漆", "科技感", "高端"]
+    }
+  ]
+}

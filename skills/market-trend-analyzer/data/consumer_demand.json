@@ -1,0 +1,113 @@
+{
+  "consumer_demand": {
+    "demand_trend": {
+      "function_demand": {
+        "heat_preservation": {"importance": 9.2, "trend": "平稳"},
+        "light_weight": {"importance": 8.8, "trend": "上升"},
+        "smart_features": {"importance": 7.5, "trend": "上升"},
+        "durability": {"importance": 8.5, "trend": "平稳"},
+        "eco_friendly": {"importance": 7.8, "trend": "上升"}
+      },
+      "appearance_demand": {
+        "color": {"preference": ["简约白", "莫兰迪色", "金属原色"], "trend": "个性化"},
+        "design": {"preference": ["简约", "轻奢", "户外风格"], "trend": "多元化"},
+        "customization": {"importance": 7.2, "trend": "上升"}
+      },
+      "price_sensitivity": {
+        "overall": "中等",
+        "mid_range": {"range": "¥100-300", "preference": "65%"},
+        "high_end": {"range": "¥300-800", "preference": "25%"},
+        "low_end": {"range": "<¥100", "preference": "10%"}
+      }
+    },
+    "consumer_profile": {
+      "age_distribution": {
+        "18-25": "15%",
+        "26-35": "35%",
+        "36-45": "30%",
+        "46-60": "15%",
+        "60+": "5%"
+      },
+      "gender_distribution": {
+        "female": "58%",
+        "male": "42%"
+      },
+      "region_distribution": {
+        "tier1_cities": "25%",
+        "tier2-3_cities": "45%",
+        "others": "30%"
+      },
+      "purchase_motivation": {
+        "daily_use": "45%",
+        "gift": "25%",
+        "outdoor_activity": "20%",
+        "health_protection": "10%"
+      }
+    },
+    "demand_forecast": {
+      "forecast_period": "2026-06 至 2028-06",
+      "forecast_trends": [
+        {
+          "trend": "轻量化需求持续增长",
+          "growth_rate": "+20%",
+          "key_drivers": ["健康意识", "户外运动", "通勤便利"]
+        },
+        {
+          "trend": "智能化需求快速上升",
+          "growth_rate": "+35%",
+          "key_drivers": ["科技普及", "消费升级", "年轻消费者"]
+        },
+        {
+          "trend": "环保材料需求增长",
+          "growth_rate": "+25%",
+          "key_drivers": ["环保意识", "政策推动", "可持续发展"]
+        }
+      ]
+    },
+    "pain_points": {
+      "product_pain_points": [
+        {
+          "issue": "重量过重",
+          "severity": 8.5,
+          "related_to": "通勤、户外使用",
+          "solution_direction": "轻量化设计、新材料应用"
+        },
+        {
+          "issue": "保温效果不持久",
+          "severity": 7.8,
+          "related_to": "长时间保冷/保温需求",
+          "solution_direction": "真空层优化、新材料应用"
+        },
+        {
+          "issue": "外观设计同质化",
+          "severity": 7.2,
+          "related_to": "个性化需求",
+          "solution_direction": "差异化设计、定制化服务"
+        },
+        {
+          "issue": "智能功能实用性不强",
+          "severity": 6.8,
+          "related_to": "智能温控产品",
+          "solution_direction": "提升实用性、优化用户体验"
+        }
+      ],
+      "service_pain_points": [
+        {
+          "issue": "售后服务不完善",
+          "severity": 7.5,
+          "related_to": "产品维修、退换货",
+          "solution_direction": "完善售后体系、提升服务质量"
+        },
+        {
+          "issue": "物流包装不够环保",
+          "severity": 6.5,
+          "related_to": "环保意识消费者",
+          "solution_direction": "使用环保包装材料"
+        }
+      ]
+    }
+  },
+  "data_source": "用户调研、电商平台评论、社交媒体分析、行业报告",
+  "last_updated": "2026-06-05",
+  "next_update": "2026-09-05"
+}

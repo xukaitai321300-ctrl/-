@@ -1,0 +1,126 @@
+{
+  "high_resolution_details": [
+    {
+      "id": "material_surface_detail",
+      "name": "材质表面细节",
+      "name_zh": "材质表面细节",
+      "description": "展现材料表面纹理、光泽和真实感的细节处理",
+      "description_zh": "展现材料表面纹理、光泽和真实感的细节处理",
+      "application": "不锈钢拉丝纹理、钛金属氧化膜、塑料哑光/光面效果",
+      "application_zh": "不锈钢拉丝纹理、钛金属氧化膜、塑料哑光/光面效果",
+      "processing_techniques": {
+        "upscaling": "使用AI放大工具（如Real-ESRGAN、Topaz Gigapixel）将图像放大到4K/8K",
+        "upscaling_zh": "使用AI放大工具（如Real-ESRGAN、Topaz Gigapixel）将图像放大到4K/8K",
+        "sharpening": "适度锐化以展现纹理细节，但避免过度锐化产生噪点",
+        "sharpening_zh": "适度锐化以展现纹理细节，但避免过度锐化产生噪点",
+        "noise_reduction": "使用AI降噪工具（如Topaz Denoise AI）减少噪点，保留细节",
+        "noise_reduction_zh": "使用AI降噪工具（如Topaz Denoise AI）减少噪点，保留细节",
+        "texture_enhancement": "使用高频提升或纹理增强滤镜适度增强纹理",
+        "texture_enhancement_zh": "使用高频提升或纹理增强滤镜适度增强纹理"
+      },
+      "prompt_keywords": {
+        "english": "high-resolution material texture, close-up detail, surface texture, material realism, 8k resolution, ultra-detailed, sharp focus, macro photography",
+        "chinese": "高分辨率材质纹理，特写细节，表面纹理，材质真实感，8K分辨率，超详细，锐利对焦，微距摄影"
+      }
+    },
+    {
+      "id": "logo_process_detail",
+      "name": "LOGO工艺细节",
+      "name_zh": "LOGO工艺细节",
+      "description": "展现LOGO工艺细节、精度和质感的处理",
+      "description_zh": "展现LOGO工艺细节、精度和质感的处理",
+      "application": "激光打标纹理、丝网印刷油墨质感、3D UV打印立体感、电镀/UV镀光泽",
+      "application_zh": "激光打标纹理、丝网印刷油墨质感、3D UV打印立体感、电镀/UV镀光泽",
+      "processing_techniques": {
+        "edge_enhancement": "适度增强LOGO边缘，展现工艺精度",
+        "edge_enhancement_zh": "适度增强LOGO边缘，展现工艺精度",
+        "color_accuracy": "准确还原LOGO颜色，特别是电镀/UV镀的彩色效果",
+        "color_accuracy_zh": "准确还原LOGO颜色，特别是电镀/UV镀的彩色效果",
+        "depth_accentuation": "对于3D UV打印，适度增强立体感",
+        "depth_accentuation_zh": "对于3D UV打印，适度增强立体感",
+        "highlight_control": "控制高光，避免LOGO区域过曝",
+        "highlight_control_zh": "控制高光，避免LOGO区域过曝"
+      },
+      "prompt_keywords": {
+        "english": "LOGO detail, process precision, laser engraving texture, 3D UV printing depth, electroplating shine, high-resolution LOGO, sharp detail",
+        "chinese": "LOGO细节，工艺精度，激光打标纹理，3D UV打印立体感，电镀光泽，高分辨率LOGO，锐利细节"
+      }
+    },
+    {
+      "id": "assembly_seam_detail",
+      "name": "组装缝隙细节",
+      "name_zh": "组装缝隙细节",
+      "description": "展现组装工艺精度、缝隙均匀度和整体质感的处理",
+      "description_zh": "展现组装工艺精度、缝隙均匀度和整体质感的处理",
+      "application": "杯身与杯盖缝隙、螺纹精度、焊接缝处理、卡扣装配精度",
+      "application_zh": "杯身与杯盖缝隙、螺纹精度、焊接缝处理、卡扣装配精度",
+      "processing_techniques": {
+        "shadow_enhancement": "适度增强缝隙阴影，展现组装精度",
+        "shadow_enhancement_zh": "适度增强缝隙阴影，展现组装精度",
+        "edge_smoothing": "平滑边缘，避免锯齿感",
+        "edge_smoothing_zh": "平滑边缘，避免锯齿感",
+        "contour_clarity": "确保轮廓清晰，展现产品整体造型",
+        "contour_clarity_zh": "确保轮廓清晰，展现产品整体造型",
+        "uniformity_check": "检查缝隙均匀度，避免局部过宽/过窄",
+        "uniformity_check_zh": "检查缝隙均匀度，避免局部过宽/过窄"
+      },
+      "prompt_keywords": {
+        "english": "assembly seam detail, gap uniformity, threading precision, welding seam treatment, high-resolution assembly, product precision, sharp contour",
+        "chinese": "组装缝隙细节，缝隙均匀度，螺纹精度，焊接缝处理，高分辨率组装，产品精度，锐利轮廓"
+      }
+    },
+    {
+      "id": "lighting_reflection_detail",
+      "name": "灯光反射细节",
+      "name_zh": "灯光反射细节",
+      "description": "控制灯光反射、高光位置和强度的处理",
+      "description_zh": "控制灯光反射、高光位置和强度的处理",
+      "application": "不锈钢/钛金属高光控制、塑料反光处理、硅胶无反光特性展现",
+      "application_zh": "不锈钢/钛金属高光控制、塑料反光处理、硅胶无反光特性展现",
+      "processing_techniques": {
+        "highlight_positioning": "将高光放置在能展现产品造型的位置",
+        "highlight_positioning_zh": "将高光放置在能展现产品造型的位置",
+        "reflection_control": "使用偏振镜或后期处理减少不必要反射",
+        "reflection_control_zh": "使用偏振镜或后期处理减少不必要反射",
+        "specular_highlight": "保留必要的镜面高光，展现材质质感",
+        "specular_highlight_zh": "保留必要的镜面高光，展现材质质感",
+        "diffuse_reflection": "确保漫反射自然，避免不真实的平面感",
+        "diffuse_reflection_zh": "确保漫反射自然，避免不真实的平面感"
+      },
+      "prompt_keywords": {
+        "english": "lighting reflection detail, specular highlight control, material reflection realism, studio lighting setup, highlight positioning, realistic reflection, 8k resolution",
+        "chinese": "灯光反射细节，镜面高光控制，材质反射真实感，影棚灯光设置，高光定位，真实反射，8K分辨率"
+      }
+    },
+    {
+      "id": "color_accuracy_detail",
+      "name": "颜色准确性细节",
+      "name_zh": "颜色准确性细节",
+      "description": "确保产品颜色准确还原的处理",
+      "description_zh": "确保产品颜色准确还原的处理",
+      "application": "喷漆/喷塑颜色准确性、塑料原色准确性、硅胶颜色准确性",
+      "application_zh": "喷漆/喷塑颜色准确性、塑料原色准确性、硅胶颜色准确性",
+      "processing_techniques": {
+        "white_balance": "正确设置白平衡，确保颜色不失真",
+        "white_balance_zh": "正确设置白平衡，确保颜色不失真",
+        "color_calibration": "使用色卡进行颜色校准",
+        "color_calibration_zh": "使用色卡进行颜色校准",
+        "saturation_control": "适度控制饱和度，避免颜色过饱和或欠饱和",
+        "saturation_control_zh": "适度控制饱和度，避免颜色过饱和或欠饱和",
+        "color_consistency": "确保整个画面颜色一致性，避免色偏",
+        "color_consistency_zh": "确保整个画面颜色一致性，避免色偏"
+      },
+      "prompt_keywords": {
+        "english": "color accuracy detail, realistic color reproduction, accurate material color, color calibration, natural saturation, professional product photography, 8k resolution",
+        "chinese": "颜色准确性细节，真实颜色还原，准确材质颜色，颜色校准，自然饱和度，专业产品摄影，8K分辨率"
+      }
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "last_updated": "2026-06-05",
+    "total_detail_types": 5,
+    "application": "保温杯产品真实摄影生图 - 高清细节处理",
+    "application_zh": "保温杯产品真实摄影生图 - 高清细节处理"
+  }
+}

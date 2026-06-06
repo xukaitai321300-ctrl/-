@@ -1,0 +1,59 @@
+{
+  "user_feedback": [
+    {
+      "id": "feedback_001",
+      "product": "电动轮椅",
+      "user_type": "老年人",
+      "feedback_type": "痛点",
+      "content": "电动轮椅太重，不方便搬运",
+      "priority": "高",
+      "source": "用户访谈",
+      "date": "2026-05-10",
+      "related_features": ["轻量化设计", "折叠便携"]
+    },
+    {
+      "id": "feedback_002",
+      "product": "电动轮椅",
+      "user_type": "老年人",
+      "feedback_type": "需求",
+      "content": "希望电动轮椅有健康监测功能",
+      "priority": "高",
+      "source": "用户访谈",
+      "date": "2026-05-15",
+      "related_features": ["健康监测", "智能显示"]
+    },
+    {
+      "id": "feedback_003",
+      "product": "保温杯",
+      "user_type": "上班族",
+      "feedback_type": "痛点",
+      "content": "弹跳盖容易误触，热水溅出",
+      "priority": "中",
+      "source": "电商平台评价",
+      "date": "2026-05-20",
+      "related_features": ["防误触设计", "安全锁"]
+    },
+    {
+      "id": "feedback_004",
+      "product": "保温杯",
+      "user_type": "车主",
+      "feedback_type": "需求",
+      "content": "希望保温杯能在车里加热",
+      "priority": "高",
+      "source": "社交媒体",
+      "date": "2026-05-25",
+      "related_features": ["USB加热", "车载适配"]
+    },
+    {
+      "id": "feedback_005",
+      "product": "保温杯",
+      "user_type": "家长",
+      "feedback_type": "痛点",
+      "content": "儿童保温杯容易摔坏",
+      "priority": "中",
+      "source": "电商平台评价",
+      "date": "2026-05-28",
+      "related_features": ["防摔设计", "耐用材料"]
+    }
+  ]
+}

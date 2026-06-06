@@ -1,0 +1,100 @@
+{
+  "prompt_templates": {
+    "metadata": {
+      "name": "保温杯提示词模板数据库",
+      "version": "1.0.0",
+      "last_updated": "2026-06-05",
+      "description": "保温杯AI生图提示词模板，融合材料、表面处理、注塑、组装工艺知识",
+      "applicable_products": ["保温杯", "弹跳盖保温杯", "车载保温杯", "智能保温杯"]
+    },
+    "children_cup": {
+      "base": "professional product photography of a children's vacuum cup",
+      "materials": {
+        "304_stainless_steel": "304 stainless steel interior, food-grade safety",
+        "316_stainless_steel": "316 stainless steel interior, medical-grade safety",
+        "PP_plastic": "food-grade PP plastic lid, lightweight and durable",
+        "TRITAN_plastic": "TRITAN plastic lid, BPA-free, crystal clear"
+      },
+      "surface_treatments": {
+        "matte_spray_painting": "matte spray painting exterior, soft touch finish",
+        "cute_cartoon_pattern": "cute cartoon pattern, child-friendly design",
+        "laser_marked_LOGO": "laser marked LOGO on body, permanent marking"
+      },
+      "scene": "kids room, soft lighting, colorful background",
+      "lighting": "softbox lighting, 3-point lighting, gentle shadows",
+      "composition": "main view, detail showcase, scene matching, usage scene"
+    },
+    "bounce_lid_cup": {
+      "base": "professional product photography of a bounce-lid vacuum cup",
+      "materials": {
+        "304_stainless_steel": "304 stainless steel body, brushed finish",
+        "TA2_pure_titanium": "TA2 pure titanium body, lightweight and premium"
+      },
+      "surface_treatments": {
+        "brushed_finish": "brushed finish, metallic texture, premium feel",
+        "laser_marked_LOGO": "laser marked LOGO on body, precise and permanent"
+      },
+      "assembly_process": {
+        "bounce_lid_assembly": "bounce lid mechanism, ultrasonic welding assembly, precise and durable"
+      },
+      "scene": "car cup holder, office desk, outdoor activity",
+      "lighting": "sunlight through car window, desk lamp, natural outdoor light",
+      "composition": "main view, detail showcase, scene matching, usage scene"
+    },
+    "smart_cup": {
+      "base": "professional product photography of a smart vacuum cup",
+      "materials": {
+        "316L_stainless_steel": "316L stainless steel interior, medical-grade safety, digital temperature display"
+      },
+      "surface_treatments": {
+        "LED_indicator_light": "LED indicator light, touch control panel, high-tech feel",
+        "UV_coating": "UV coating, high gloss finish, premium look"
+      },
+      "assembly_process": {
+        "electronic_component_assembly": "electronic component assembly, precision assembly, waterproof sealing"
+      },
+      "scene": "modern home, high-tech office, smart home scene",
+      "lighting": "soft indoor lighting, high-tech blue glow, modern ambient light",
+      "composition": "main view, detail showcase, smart feature showcase, APP interface"
+    },
+    "injection_molding_integration": {
+      "PP_lid": "food-grade PP lid, injection molded, precise dimensions, smooth surface finish",
+      "TRITAN_lid": "TRITAN lid, injection molded, BPA-free, crystal clear, high light transmittance",
+      "silicone_sealing_ring": "food-grade silicone sealing ring, injection molded, high temperature resistance, excellent sealing"
+    },
+    "assembly_process_integration": {
+      "ultrasonic_welding": "ultrasonic welding assembly, high strength, precise and durable",
+      "screw_fixation": "screw fixation, removable and sturdy, reliable connection",
+      "buckle_assembly": "buckle assembly, quick and easy, convenient operation",
+      "sealing_ring_assembly": "sealing ring assembly, excellent sealing, leak-proof guarantee"
+    }
+  },
+  "craftsmanship_integration": {
+    "materials_knowledge": {
+      "stainless_steel": "stainless steel texture, metallic luster, brushed or mirror finish, cold touch",
+      "pure_titanium": "pure titanium texture, lightweight feel, matte or polished finish, premium biocompatible material",
+      "plastics": "plastic texture, smooth or textured surface, lightweight and durable, various colors available"
+    },
+    "surface_treatment_effects": {
+      "spray_painting": "spray painting effect, uniform color, matte or glossy finish, cost-effective",
+      "spray_coating": "spray coating effect, textured surface, durable and wear-resistant, premium feel",
+      "laser_marking": "laser marking effect, precise and permanent, high contrast, fine details",
+      "heat_transfer": "heat transfer effect, colorful pattern, precise details, medium durability",
+      "3D_UV_printing": "3D UV printing effect, embossed texture,立体感强, high durability",
+      "electroplating": "electroplating effect, metallic luster, mirror or matte finish, premium and luxurious",
+      "UV_coating": "UV coating effect, high gloss finish, colorful and durable, excellent wear resistance"
+    },
+    "injection_molding_quality": {
+      "PP": "PP injection molded part, smooth surface, precise dimensions, cost-effective",
+      "TRITAN": "TRITAN injection molded part, crystal clear, BPA-free, high light transmittance, premium feel",
+      "ABS": "ABS injection molded part, high strength, excellent surface gloss, easy to plate",
+      "PC": "PC injection molded part, high transparency, high strength, heat-resistant"
+    },
+    "assembly_quality": {
+      "ultrasonic_welding": "ultrasonic welding assembly, high strength, seamless connection, durable and reliable",
+      "screw_fixation": "screw fixation, removable and sturdy, reliable connection, easy maintenance",
+      "buckle_assembly": "buckle assembly, quick and easy operation, convenient to use, user-friendly",
+      "sealing_ring_assembly": "sealing ring assembly, excellent sealing performance, leak-proof guarantee, safe to use"
+    }
+  }
+}

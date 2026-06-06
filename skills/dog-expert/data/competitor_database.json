@@ -1,0 +1,58 @@
+{
+  "competitors": [
+    {
+      "id": "competitor_a",
+      "name": "竞品A",
+      "industry": "电动轮椅/老年代步车",
+      "website": "https://www.competitor-a.com/",
+      "description": "主要竞争对手A，专注于电动轮椅和老年代步车",
+      "products": [
+        {
+          "name": "智能电动轮椅Pro",
+          "price": "¥3,999",
+          "features": ["轻量化设计", "智能导航", "健康监测"],
+          "release_date": "2026-06-03"
+        }
+      ],
+      "patents": [
+        {
+          "title": "一种轻量化电动轮椅框架结构",
+          "patent_number": "CN202610000001.0",
+          "filing_date": "2026-01-15",
+          "status": "审查中"
+        }
+      ],
+      "marketing_strategy": "线上电商 + 线下体验店",
+      "market_performance": "市场份额约15%",
+      "supply_chain": "永康本地供应链",
+      "cost_structure": "材料成本60%，人工成本20%，其他20%"
+    },
+    {
+      "id": "competitor_b",
+      "name": "竞品B",
+      "industry": "保温杯",
+      "website": "https://www.competitor-b.com/",
+      "description": "主要竞争对手B，专注于保温杯和车载用品",
+      "products": [
+        {
+          "name": "弹跳盖保温杯Pro",
+          "price": "¥199",
+          "features": ["弹跳盖设计", "车载适配", "24小时保温"],
+          "release_date": "2026-05-20"
+        }
+      ],
+      "patents": [
+        {
+          "title": "一种防误触弹跳盖结构",
+          "patent_number": "CN202520000002.0",
+          "filing_date": "2025-11-10",
+          "status": "已授权"
+        }
+      ],
+      "marketing_strategy": "社交媒体 + KOL推广",
+      "market_performance": "市场份额约8%",
+      "supply_chain": "永康本地供应链 + 部分外协",
+      "cost_structure": "材料成本50%，人工成本25%，其他25%"
+    }
+  ]
+}

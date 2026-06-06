@@ -1,0 +1,52 @@
+{
+  "style_prompt_mappings": [
+    {
+      "style_id": "style_001",
+      "style_name": "现代简约",
+      "prompt_keywords": ["现代", "简约", "实用", "功能", "简洁"],
+      "prompt_templates": ["template_001", "template_003"],
+      "material_preferences": ["镁合金", "铝合金", "PP"],
+      "feature_preferences": ["轻量化", "实用", "功能性"],
+      "example_prompts": [
+        "现代简约风格的弹跳盖保温杯，采用镁合金杯身和PP内胆，具有轻量化、防误触、车载适配等功能，简洁实用的设计风格",
+        "简洁实用的电动轮椅，铝合金车架，折叠便携，现代简约风格"
+      ]
+    },
+    {
+      "style_id": "style_002",
+      "style_name": "工业风",
+      "prompt_keywords": ["工业", "硬朗", "机械", "金属", "质感"],
+      "prompt_templates": ["template_002"],
+      "material_preferences": ["镁合金", "不锈钢", "碳纤维"],
+      "feature_preferences": ["硬朗", "机械感", "耐用"],
+      "example_prompts": [
+        "工业风的电动轮椅车架，镁合金材质，硬朗机械的设计风格",
+        "硬朗机械的保温杯，不锈钢材质，工业风风格"
+      ]
+    },
+    {
+      "style_id": "style_003",
+      "style_name": "科技风",
+      "prompt_keywords": ["科技", "未来", "智能", "创新", "数字"],
+      "prompt_templates": ["template_001", "template_004"],
+      "material_preferences": ["碳纤维", "钛合金", "智能材料"],
+      "feature_preferences": ["智能", "未来感", "创新"],
+      "example_prompts": [
+        "科技感的智能电动轮椅，碳纤维车身，具有智能导航和健康监测功能，未来智能的设计风格",
+        "未来感的智能保温杯，钛合金材质，USB加热和智能显示，科技风风格"
+      ]
+    },
+    {
+      "style_id": "style_004",
+      "style_name": "自然风",
+      "prompt_keywords": ["自然", "环保", "有机", "生态", "绿色"],
+      "prompt_templates": ["template_001"],
+      "material_preferences": ["木材", "玻璃", "陶瓷", "环保塑料"],
+      "feature_preferences": ["环保", "自然", "有机"],
+      "example_prompts": [
+        "自然环保的保温杯，陶瓷材质， organic and eco-friendly design style",
+        "环保材料的电动轮椅，木材和金属结合，自然生态的设计风格"
+      ]
+    }
+  ]
+}

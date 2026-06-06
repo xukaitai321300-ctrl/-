@@ -1,0 +1,185 @@
+---
+name: rabbit-expert
+description: 兔专家（图像分析专家）技能包，负责分析生成图质量、特征提取。包含生成图质量分析、特征提取、图像对比分析等功能。是十二生肖团的图像分析者。
+version: 1.2.0
+author: 速凡团队（浙江永康）
+last_updated: 2026-06-06
+tags: [rabbit-expert, image-analysis, feature-extraction, image-comparison, twelve-zodiac-team]
+dependencies: [python>=3.8, json, argparse, PIL, opencv-python]
+---
+
+# 兔专家（图像分析专家）技能包#
+
+## 功能概述#
+
+本技能包提供图像分析功能，包含：
+
+1. **生成图质量分析** - 清晰度、色彩准确性、构图合理性
+2. **特征提取** - 边缘检测、纹理分析、颜色直方图
+3. **图像对比分析** - 与竞品图像对比、与参考图像对比
+
+兔专家是十二生肖团的**图像分析者**，负责定量分析生成图质量。
+
+## 详细功能说明#
+
+### 1. 生成图质量分析
+分析ComfyUI生成图的质量，包括以下维度：
+- **清晰度**：图像清晰度（使用拉普拉斯算子计算方差）
+- **色彩准确性**：颜色还原度（与参考图像对比）
+- **构图合理性**：构图是否符合美学原则（如：三分法、黄金分割等）
+
+**使用场景**：
+- 需要评估生成图质量
+- 需要对比不同参数设置的效果
+- 需要优化生成图质量
+
+### 2. 特征提取
+提取图像的特征，用于后续分析：
+- **边缘检测**：使用Canny算子检测图像边缘
+- **纹理分析**：分析图像纹理（如：粗糙度、对比度等）
+- **颜色直方图**：统计图像颜色分布
+
+**使用场景**：
+- 需要提取图像特征
+- 需要进行图像相似度对比
+- 需要建立图像特征库
+
+### 3. 图像对比分析
+对比两幅图像的相似度：
+- **与竞品图像对比**：生成图与竞品图片对比
+- **与参考图像对比**：生成图与参考图片对比
+- **相似度计算**：使用结构相似度（SSIM）计算相似度
+
+**使用场景**：
+- 需要评估生成图与竞品的相似度
+- 需要评估生成图与参考图的相似度
+- 需要选择最相似的竞品图片
+
+## 安装 (Installation)#
+
+1. 确保已安装 Python 3.8+。
+2. 安装依赖：`pip install pillow opencv-python numpy scikit-image`
+
+## 使用方法 (Usage)#
+
+### 命令行使用 (Command Line Usage)#
+
+```bash
+# 分析生成图质量
+python scripts/image_quality_analyzer.py --image "path/to/generated_image.jpg" --output "data/quality_report.json"
+
+# 提取图像特征
+python scripts/feature_extractor.py --image "path/to/image.jpg" --output "data/features.json"
+
+# 图像对比分析（生成图 vs 竞品图）
+python scripts/image_comparison.py --image1 "path/to/generated_image.jpg" --image2 "path/to/competitor_image.jpg" --output "data/comparison_report.json"
+```
+
+### 输出文件格式#
+
+#### 1. 生成图质量分析报告（quality_report.json）
+```json
+{
+  "image_file": "generated_image.jpg",
+  "clarity": {
+    "score": 85.2,
+    "max_score": 100,
+    "pass": true
+  },
+  "color_accuracy": {
+    "score": 78.5,
+    "max_score": 100,
+    "pass": true
+  },
+  "composition": {
+    "score": 82.0,
+    "max_score": 100,
+    "pass": true
+  },
+  "overall_score": 81.9,
+  "pass": true
+}
+```
+
+#### 2. 图像特征提取报告（features.json）
+```json
+{
+  "image_file": "image.jpg",
+  "edge_detection": {
+    "edge_count": 1250,
+    "edge_density": 0.15
+  },
+  "texture_analysis": {
+    "roughness": 0.35,
+    "contrast": 0.68
+  },
+  "color_histogram": {
+    "red": [0.1, 0.2, ...],
+    "green": [0.1, 0.2, ...],
+    "blue": [0.1, 0.2, ...]
+  }
+}
+```
+
+#### 3. 图像对比分析报告（comparison_report.json）
+```json
+{
+  "image1": "generated_image.jpg",
+  "image2": "competitor_image.jpg",
+  "similarity_score": 0.75,
+  "max_score": 1.0,
+  "pass": true,
+  "details": {
+    "ssim": 0.78,
+    "psnr": 28.5,
+    "mse": 0.02
+  }
+}
+```
+
+## 与其他技能包的数据传输#
+
+### 输入（接收其他技能包的数据）
+- **虎专家**：接收竞品图片集（供图像对比分析）
+- **羊专家**：接收生成图文件（供生成图质量分析）
+- **猴专家**：接收生成图文件（供参数调优效果评估）
+
+### 输出（向其他技能包传输数据）
+- **鸡专家**：输出生成图质量分析报告（供质量评审）
+- **蛇专家**：输出图像特征提取报告（供产品设计参考）
+- **马专家**：输出图像对比分析报告（供工作流优化参考）
+
+### 数据传输格式
+- **文件传输**：JSON文件（quality_report.json、features.json、comparison_report.json）
+- **元数据传输**：JSON文件（含分析时间、分析参数等）
+
+## 案例分析
+
+本文档的案例分析已合并到通用文档中，详见：`E:\AI日记\Claw\技能包通用文档\案例分析集_20260606_v1.0.md`
+
+## 常见问题解答 (FAQ)#
+
+### Q1：生成图质量分析失败怎么办？
+**A**：检查图像文件是否存在、格式是否正确（支持JPG/PNG格式）。可以尝试使用图像预处理工具（如：虎专家的图像预处理功能）。
+
+### Q2：特征提取结果不准确怎么办？
+**A**：调整特征提取参数（如：边缘检测阈值、纹理分析窗口大小等）。可以尝试使用不同的特征提取算法。
+
+### Q3：图像对比分析结果相似度过低怎么办？
+**A**：检查两幅图像是否对齐（如：角度、尺寸、亮度等）。可以尝试使用图像预处理工具（如：图像对齐、亮度归一化等）。
+
+## 技能包质量#
+
+本技能包设计目标质量分数：**90+**（目标：100/100）
+
+### 质量改进记录
+| 版本 | 日期 | 改进内容 |
+|------|------|---------|
+| v1.0.0 | 2026-06-05 | 初始版本 |
+| v1.1.0 | 2026-06-06 | 增加详细功能说明、使用示例、输出文件格式、数据传输说明、案例分析、FAQ |
+
+---
+
+**技能包结束**
+
+*本技能包是十二生肖团的图像分析者，负责定量分析生成图质量。*

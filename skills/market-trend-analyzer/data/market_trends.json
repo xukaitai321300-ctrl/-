@@ -1,0 +1,90 @@
+{
+  "market_trends": [
+    {
+      "id": "light_weight_design",
+      "name": "轻量化设计",
+      "time_period": "2024-01 至 2026-05",
+      "direction": "上升",
+      "market_heat": 8.5,
+      "key_drivers": ["健康意识提升", "户外运动流行", "轻量化需求"],
+      "relevance": 0.95,
+      "growth_potential": "高",
+      "key_features": ["重量减轻", "便携性提升", "材料创新"],
+      "related_materials": ["纯钛", "镁合金", "碳纤维"],
+      "market_share": "15% (2026年预计)",
+      "forecast_growth": "+25% (2026-2027)"
+    },
+    {
+      "id": "smart_temperature_control",
+      "name": "智能温控",
+      "time_period": "2024-01 至 2026-05",
+      "direction": "上升",
+      "market_heat": 7.8,
+      "key_drivers": ["科技普及", "消费升级", "智能化需求"],
+      "relevance": 0.88,
+      "growth_potential": "高",
+      "key_features": ["温度显示", "APP控制", "智能提醒"],
+      "related_technologies": ["温度传感器", "蓝牙连接", "手机APP"],
+      "market_share": "8% (2026年预计)",
+      "forecast_growth": "+40% (2026-2027)"
+    },
+    {
+      "id": "eco_friendly_materials",
+      "name": "环保材料",
+      "time_period": "2024-01 至 2026-05",
+      "direction": "上升",
+      "market_heat": 7.2,
+      "key_drivers": ["环保意识提升", "政策推动", "可持续发展"],
+      "relevance": 0.82,
+      "growth_potential": "中高",
+      "key_features": ["可降解材料", "回收材料", "低碳生产"],
+      "related_materials": ["再生不锈钢", "生物基塑料", "可降解涂层"],
+      "market_share": "5% (2026年预计)",
+      "forecast_growth": "+30% (2026-2027)"
+    },
+    {
+      "id": "personalized_customization",
+      "name": "个性化定制",
+      "time_period": "2024-01 至 2026-05",
+      "direction": "上升",
+      "market_heat": 6.8,
+      "key_drivers": ["消费升级", "个性化需求", "礼品市场"],
+      "relevance": 0.78,
+      "growth_potential": "中",
+      "key_features": ["图案定制", "文字刻印", "颜色选择"],
+      "related_processes": ["激光打标", "3D UV打印", "热转印"],
+      "market_share": "12% (2026年预计)",
+      "forecast_growth": "+15% (2026-2027)"
+    },
+    {
+      "id": "multi_function_integration",
+      "name": "多功能集成",
+      "time_period": "2024-01 至 2026-05",
+      "direction": "平稳",
+      "market_heat": 6.2,
+      "key_drivers": ["空间节省", "功能多样化", "便携需求"],
+      "relevance": 0.72,
+      "growth_potential": "中",
+      "key_features": ["充电功能", "照明功能", "通讯功能"],
+      "related_functions": ["无线充电", "LED照明", "蓝牙音箱"],
+      "market_share": "3% (2026年预计)",
+      "forecast_growth": "+10% (2026-2027)"
+    }
+  ],
+  "trend_analysis": {
+    "analysis_period": "2024-01 至 2026-05",
+    "overall_direction": "上升",
+    "average_market_heat": 7.3,
+    "top_drivers": ["健康意识提升", "消费升级", "智能化需求", "环保意识提升", "个性化需求"],
+    "emerging_trends_count": 5,
+    "high_potential_trends": ["轻量化设计", "智能温控", "环保材料"],
+    "market_segments": {
+      "high_end": {"share": "35%", "growth": "+18%"},
+      "mid_range": {"share": "45%", "growth": "+12%"},
+      "low_end": {"share": "20%", "growth": "+5%"}
+    }
+  },
+  "data_source": "行业报告、电商平台、社交媒体、用户调研",
+  "last_updated": "2026-06-05",
+  "next_update": "2026-07-05"
+}

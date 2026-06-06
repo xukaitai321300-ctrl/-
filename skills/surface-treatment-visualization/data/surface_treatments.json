@@ -1,0 +1,100 @@
+{
+  "surface_treatments": [
+    {
+      "id": "treatment_001",
+      "name": "喷漆",
+      "description": "使用喷枪将油漆均匀喷涂在物体表面",
+      "effect_types": ["高光", "哑光", "金属漆", "珠光漆", "锤纹漆"],
+      "parameters": {
+        "color": "颜色",
+        "glossiness": "光泽度（0-100）",
+        "thickness": "厚度（μm）",
+        "layers": "层数"
+      },
+      "application_scenarios": ["金属杯体", "塑料外壳", "配件"],
+      "advantages": ["色彩丰富", "表面光滑", "装饰性好"],
+      "disadvantages": ["环保性差", "耐腐蚀性一般"],
+      "prompt_keywords": ["喷漆", "油漆", "高光", "哑光", "金属漆"]
+    },
+    {
+      "id": "treatment_002",
+      "name": "喷塑",
+      "description": "将塑料粉末喷涂在物体表面，经加热熔化形成涂层",
+      "effect_types": ["纹理", "颜色", "厚度"],
+      "parameters": {
+        "color": "颜色",
+        "texture_type": "纹理类型（细纹、粗纹、橘纹等）",
+        "thickness": "厚度（μm）",
+        "temperature": "温度（℃）"
+      },
+      "application_scenarios": ["金属框架", "塑料外壳"],
+      "advantages": ["环保", "耐腐蚀", "耐磨"],
+      "disadvantages": ["色彩相对较少", "表面硬度较低"],
+      "prompt_keywords": ["喷塑", "粉末喷涂", "塑料涂层"]
+    },
+    {
+      "id": "treatment_003",
+      "name": "热转印",
+      "description": "将图案或纹理通过热转印纸转移到物体表面",
+      "effect_types": ["图案", "纹理", "颜色"],
+      "parameters": {
+        "pattern": "图案",
+        "temperature": "温度（℃）",
+        "pressure": "压力（MPa）",
+        "time": "时间（s）"
+      },
+      "application_scenarios": ["杯体图案", "LOGO", "装饰"],
+      "advantages": ["图案精美", "色彩鲜艳", "耐久性好"],
+      "disadvantages": ["成本较高", "不适合复杂曲面"],
+      "prompt_keywords": ["热转印", "图案转印", "纹理转印"]
+    },
+    {
+      "id": "treatment_004",
+      "name": "激光雕刻",
+      "description": "使用激光在物体表面雕刻图案或文字",
+      "effect_types": ["深度", "精度", "图案"],
+      "parameters": {
+        "depth": "深度（mm）",
+        "precision": "精度（mm）",
+        "speed": "速度（mm/s）",
+        "power": "功率（W）"
+      },
+      "application_scenarios": ["LOGO雕刻", "图案雕刻", "文字雕刻"],
+      "advantages": ["精度高", "耐久性好", "无污染"],
+      "disadvantages": ["颜色单一", "成本较高"],
+      "prompt_keywords": ["激光雕刻", "激光打标", "精密雕刻"]
+    },
+    {
+      "id": "treatment_005",
+      "name": "阳极氧化",
+      "description": "通过电解作用在金属表面形成氧化膜",
+      "effect_types": ["颜色", "光泽", "厚度"],
+      "parameters": {
+        "color": "颜色",
+        "thickness": "厚度（μm）",
+        "temperature": "温度（℃）",
+        "time": "时间（min）"
+      },
+      "application_scenarios": ["铝合金杯体", "配件"],
+      "advantages": ["耐腐蚀", "耐磨", "装饰性好"],
+      "disadvantages": ["成本较高", "颜色选择有限"],
+      "prompt_keywords": ["阳极氧化", "氧化着色", "金属氧化"]
+    },
+    {
+      "id": "treatment_006",
+      "name": "电镀",
+      "description": "通过电解作用在金属表面镀上一层金属膜",
+      "effect_types": ["颜色", "光泽", "厚度"],
+      "parameters": {
+        "plating_type": "镀层类型（铬、镍、铜等）",
+        "thickness": "厚度（μm）",
+        "temperature": "温度（℃）",
+        "current": "电流（A）"
+      },
+      "application_scenarios": ["金属配件", "装饰件"],
+      "advantages": ["装饰性好", "耐腐蚀", "耐磨"],
+      "disadvantages": ["环保性差", "成本较高"],
+      "prompt_keywords": ["电镀", "镀铬", "镀镍", "金属镀层"]
+    }
+  ]
+}

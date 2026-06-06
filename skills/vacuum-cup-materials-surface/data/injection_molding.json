@@ -1,0 +1,143 @@
+{
+  "injection_molding": {
+    "equipment": {
+      "machine_specs": {
+        "tonnage_range": "80-1000吨",
+        "screw_diameter": "25-120mm",
+        "injection_capacity": "50-5000g",
+        "clamping_force": "80-1000吨"
+      },
+      "recommended_machine": {
+        "small_part": "80-150吨（杯盖、小零件）",
+        "medium_part": "150-300吨（杯体、手柄）",
+        "large_part": "300-600吨（大型外壳）"
+      }
+    },
+    "process_parameters": {
+      "pp": {
+        "melt_temperature": "180-240°C",
+        "mold_temperature": "40-80°C",
+        "injection_pressure": "60-100 MPa",
+        "holding_pressure": "40-70 MPa",
+        "injection_speed": "中速-高速",
+        "cooling_time": "10-30秒",
+        "cycle_time": "20-40秒",
+        "shrinkage": "1.0-2.5%"
+      },
+      "tritan": {
+        "melt_temperature": "260-290°C",
+        "mold_temperature": "70-110°C",
+        "injection_pressure": "80-120 MPa",
+        "holding_pressure": "50-80 MPa",
+        "injection_speed": "中速-高速",
+        "cooling_time": "15-35秒",
+        "cycle_time": "25-45秒",
+        "shrinkage": "0.5-0.7%"
+      },
+      "abs": {
+        "melt_temperature": "200-240°C",
+        "mold_temperature": "60-90°C",
+        "injection_pressure": "70-110 MPa",
+        "holding_pressure": "50-80 MPa",
+        "injection_speed": "中速-高速",
+        "cooling_time": "15-30秒",
+        "cycle_time": "20-35秒",
+        "shrinkage": "0.4-0.7%"
+      },
+      "pc": {
+        "melt_temperature": "280-320°C",
+        "mold_temperature": "80-120°C",
+        "injection_pressure": "80-130 MPa",
+        "holding_pressure": "60-100 MPa",
+        "injection_speed": "中速-高速",
+        "cooling_time": "20-40秒",
+        "cycle_time": "25-40秒",
+        "shrinkage": "0.5-0.7%"
+      },
+      "silicone": {
+        "melt_temperature": "150-200°C",
+        "mold_temperature": "170-200°C",
+        "injection_pressure": "10-30 MPa",
+        "holding_pressure": "5-20 MPa",
+        "injection_speed": "低速-中速",
+        "curing_time": "5-15分钟",
+        "cycle_time": "5-15分钟",
+        "shrinkage": "2.0-3.5%"
+      }
+    },
+    "mold_design": {
+      "gate_types": {
+        "direct_gate": "直接浇口（大型零件）",
+        "pin_point_gate": "针点浇口（精密零件）",
+        "submarine_gate": "潜伏式浇口（自动化生产）",
+        "fan_gate": "扇形浇口（扁平零件）"
+      },
+      "cooling_system": {
+        "channel_diameter": "8-12mm",
+        "channel_spacing": "3-5倍直径",
+        "distance_from_surface": "1.5-2倍直径",
+        "cooling_time_effect": "冷却不均匀会导致翘曲变形"
+      },
+      "venting": {
+        "vent_depth": "0.01-0.03mm",
+        "vent_width": "5-10mm",
+        "vent_location": "熔体流动末端"
+      }
+    },
+    "quality_control": {
+      "common_defects": {
+        "short_shot": {
+          "cause": "注射压力不足、模具温度过低、排气不良",
+          "solution": "提高注射压力、提高模温、增加排气槽"
+        },
+        "flash": {
+          "cause": "锁模力不足、模具配合不良、注射压力过高",
+          "solution": "提高锁模力、修复模具、降低注射压力"
+        },
+        "sink_mark": {
+          "cause": "保压不足、冷却不均匀、壁厚过大",
+          "solution": "延长保压时间、优化冷却系统、优化壁厚设计"
+        },
+        "warpage": {
+          "cause": "冷却不均匀、分子取向、模具设计不合理",
+          "solution": "优化冷却系统、调整工艺参数、优化模具设计"
+        },
+        "burn_mark": {
+          "cause": "排气不良、注射速度过快、熔体温度过高",
+          "solution": "增加排气槽、降低注射速度、降低熔体温度"
+        }
+      },
+      "inspection_standards": {
+        "dimensional_accuracy": "GB/T 14486-2008",
+        "surface_finish": "GB/T 14234-1993",
+        "mechanical_properties": "GB/T 1040-2006"
+      }
+    },
+    "cost_estimation": {
+      "mold_cost": {
+        "single_cavity": "¥5,000-20,000",
+        "multi_cavity": "¥15,000-50,000",
+        "high_precision": "¥50,000-200,000"
+      },
+      "machine_hour_rate": {
+        "80-150吨": "¥80-150/小时",
+        "150-300吨": "¥150-250/小时",
+        "300-600吨": "¥250-400/小时"
+      },
+      "material_cost": {
+        "pp": "¥10-15/kg",
+        "tritan": "¥40-60/kg",
+        "abs": "¥15-25/kg",
+        "pc": "¥25-40/kg",
+        "silicone": "¥50-80/kg"
+      }
+    },
+    "local_suppliers": {
+      "yongkang": {
+        "mold_makers": "永康模具城（50+家）",
+        "injection_shops": "永康注塑加工厂（100+家）",
+        "lead_time": "模具制作 15-30天，注塑加工 3-7天"
+      }
+    }
+  }
+}

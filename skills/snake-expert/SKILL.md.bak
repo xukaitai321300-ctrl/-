@@ -1,0 +1,656 @@
+---
+name: snake-expert
+description: 蛇专家（产品设计专家）技能包，负责产品设计、CMF设计、保温杯专项设计。包含产品设计流程、CMF设计指南、保温杯专项设计等功能。是十二生肖团的产品设计者。
+version: 1.0.0
+author: 速凡团队（浙江永康）
+last_updated: 2026-06-06
+tags: [snake-expert, product-design, CMF-design, vacuum-cup-design, twelve-zodiac-team]
+dependencies: [python>=3.8, json, argparse, matplotlib, PIL]
+---
+
+# 蛇专家（产品设计专家）技能包
+
+## 功能概述
+
+本技能包提供产品设计功能，包含：
+
+1. **产品设计流程** - 需求分析、概念设计、详细设计、设计验证、设计迭代
+2. **CMF设计指南** - 颜色设计、材料设计、表面处理设计、CMF趋势分析
+3. **保温杯专项设计** - 弹跳盖设计、轻量化设计、车载场景设计、智能功能设计
+4. **设计评审** - 设计评审标准、评审流程、评审报告生成
+
+蛇专家是十二生肖团的**产品设计者**，负责产品设计、CMF设计、保温杯专项设计。在十二生肖团工作流中，蛇专家位于第3阶段（产品设计阶段），接收鼠专家的需求分析结果，进行产品设计，然后将设计方案传递给牛专家进行成本分析，再传递给马专家/羊专家进行AI生图。
+
+## 安装 (Installation)
+
+1. 确保已安装 Python 3.8+。
+2. 安装依赖库：
+   ```bash
+   pip install matplotlib Pillow numpy pandas
+   ```
+3. 本技能包无需额外配置，开箱即用。
+
+## 使用方法 (Usage)
+
+### 命令行使用 (Command Line Usage)
+
+```bash
+# 获取产品设计流程（概念设计阶段）
+python scripts/product_design_tool.py --stage concept_design --project "弹跳盖保温杯"
+
+# 获取CMF设计指南（材料设计）
+python scripts/cmf_design_tool.py --material "magnesium_alloy" --application "vacuum_cup"
+
+# 获取保温杯专项设计（弹跳盖设计）
+python scripts/vacuum_cup_design_tool.py --feature "pop_lid" --design_goal "lightweight"
+
+# 执行设计评审
+python scripts/design_review_tool.py --design_doc "path/to/design_doc.md" --review_standard "strict"
+```
+
+### Python 使用 (Python Usage)
+
+```python
+from snake_expert import ProductDesigner, CMFDesigner, VacuumCupDesigner
+
+# 创建产品设计师
+designer = ProductDesigner()
+
+# 执行需求分析
+requirements = designer.analyzeRequirements(
+    project_name="弹跳盖保温杯",
+    user_needs=["轻量化", "防漏", "车载使用"],
+    constraints={"weight": "<300g", "capacity": "400-500ml"}
+)
+
+# 执行概念设计
+concept_design = designer.conceptDesign(
+    requirements=requirements,
+    design_direction="轻量化+车载场景"
+)
+
+# 创建CMF设计师
+cmf_designer = CMFDesigner()
+
+# 执行CMF设计
+cmf_design = cmf_designer.designCMF(
+    product_type="vacuum_cup",
+    target_market="premium",
+    design_trend="lightweight+intelligent"
+)
+
+# 创建保温杯设计师
+vacuum_cup_designer = VacuumCupDesigner()
+
+# 执行弹跳盖设计
+pop_lid_design = vacuum_cup_designer.designPopLid(
+    design_goal="lightweight",
+    material="magnesium_alloy",
+    mechanism_type="one_handed"
+)
+```
+
+## 详细功能说明
+
+### 1. 产品设计流程 (Product Design Process)
+
+#### 1.1 需求分析 (Requirements Analysis)
+
+**功能**：分析用户需求、市场趋势、技术约束，生成需求分析报告。
+
+**输入**：
+- `project_name`：项目名称（例如："弹跳盖保温杯"）
+- `user_needs`：用户需求列表（例如：["轻量化", "防漏", "车载使用"]）
+- `constraints`：约束条件（例如：{"weight": "<300g", "capacity": "400-500ml"}）
+
+**输出**：
+- `requirements_analysis_report.md`：需求分析报告，包含：
+  - 项目概述
+  - 用户需求分析
+  - 市场趋势分析
+  - 技术约束分析
+  - 设计目标
+
+**示例**：
+```bash
+python scripts/product_design_tool.py --stage requirements_analysis --project "弹跳盖保温杯" --user_needs "轻量化,防漏,车载使用" --constraints "weight:<300g,capacity:400-500ml"
+```
+
+**输出文件示例** (`requirements_analysis_report.md`)：
+```markdown
+# 需求分析报告：弹跳盖保温杯
+
+## 1. 项目概述
+- 项目名称：弹跳盖保温杯
+- 设计目标：轻量化、防漏、车载使用
+- 目标市场：高端市场（价格带：300-500元）
+
+## 2. 用户需求分析
+- 轻量化：重量 < 300g
+- 防漏：360° 防漏
+- 车载使用：适配标准车载杯架（直径 ≤ 75mm）
+
+## 3. 市场趋势分析
+- 轻量化趋势：镁合金应用增加
+- 车载场景：车载保温杯市场增长迅速
+- 智能化趋势：USB加热、温度显示
+
+## 4. 技术约束分析
+- 重量约束：< 300g
+- 容量约束：400-500ml
+- 成本约束：目标成本 < 80元
+
+## 5. 设计目标
+- 重量：280g
+- 容量：450ml
+- 材料：镁合金 AE44（杯身）、食品级PP（杯盖）
+- 功能：弹跳盖、防漏、车载适配
+```
+
+#### 1.2 概念设计 (Concept Design)
+
+**功能**：基于需求分析报告，生成概念设计方案。
+
+**输入**：
+- `requirements`：需求分析报告（文件路径）
+- `design_direction`：设计方向（例如："轻量化+车载场景"）
+
+**输出**：
+- `concept_design_report.md`：概念设计报告，包含：
+  - 设计理念
+  - 概念草图（描述）
+  - 材料选择
+  - 功能定义
+  - 设计亮点
+
+**示例**：
+```bash
+python scripts/product_design_tool.py --stage concept_design --requirements "requirements_analysis_report.md" --design_direction "轻量化+车载场景"
+```
+
+#### 1.3 详细设计 (Detailed Design)
+
+**功能**：基于概念设计方案，生成详细设计图纸和技术规格。
+
+**输入**：
+- `concept_design`：概念设计报告（文件路径）
+- `detail_level`：详细程度（例如："high"，可选："low"、"medium"、"high"）
+
+**输出**：
+- `detailed_design_report.md`：详细设计报告，包含：
+  - 结构设计
+  - 尺寸规格
+  - 材料规格
+  - 工艺要求
+  - 装配说明
+- `detailed_design_drawing.png`：详细设计图纸（如有）
+
+**示例**：
+```bash
+python scripts/product_design_tool.py --stage detailed_design --concept_design "concept_design_report.md" --detail_level "high"
+```
+
+#### 1.4 设计验证 (Design Verification)
+
+**功能**：验证详细设计是否符合需求，是否可制造。
+
+**输入**：
+- `detailed_design`：详细设计报告（文件路径）
+- `verification_criteria`：验证标准（例如："manufacturability"、"cost"、"quality"）
+
+**输出**：
+- `design_verification_report.md`：设计验证报告，包含：
+  - 验证结果（通过/不通过）
+  - 问题列表
+  - 改进建议
+
+**示例**：
+```bash
+python scripts/product_design_tool.py --stage design_verification --detailed_design "detailed_design_report.md" --verification_criteria "manufacturability,cost,quality"
+```
+
+#### 1.5 设计迭代 (Design Iteration)
+
+**功能**：根据设计验证结果，迭代优化设计。
+
+**输入**：
+- `design_verification_report`：设计验证报告（文件路径）
+- `iteration_count`：迭代次数（默认：3）
+
+**输出**：
+- `design_iteration_report.md`：设计迭代报告，包含：
+  - 迭代历史
+  - 每次迭代的改进点
+  - 最终设计方案
+
+**示例**：
+```bash
+python scripts/product_design_tool.py --stage design_iteration --design_verification_report "design_verification_report.md" --iteration_count 3
+```
+
+### 2. CMF设计指南 (CMF Design Guide)
+
+#### 2.1 颜色设计 (Color Design)
+
+**功能**：设计产品颜色方案，考虑市场趋势、用户偏好、品牌识别。
+
+**输入**：
+- `product_type`：产品类型（例如："vacuum_cup"）
+- `target_market`：目标市场（例如："premium"，可选："low-end"、"mid-range"、"premium"）
+- `color_trend`：颜色趋势（例如："minimalist"、"tech"、"nature"）
+
+**输出**：
+- `color_design_report.md`：颜色设计报告，包含：
+  - 主色调
+  - 辅助色调
+  - 颜色搭配方案
+  - 颜色工艺建议
+
+**示例**：
+```bash
+python scripts/cmf_design_tool.py --color --product_type "vacuum_cup" --target_market "premium" --color_trend "minimalist"
+```
+
+#### 2.2 材料设计 (Material Design)
+
+**功能**：设计产品材料方案，考虑性能、成本、可制造性。
+
+**输入**：
+- `product_type`：产品类型（例如："vacuum_cup"）
+- `material_requirements`：材料需求（例如：["lightweight", "corrosion-resistant", "food-safe"]）
+- `cost_constraint`：成本约束（例如："<80元"）
+
+**输出**：
+- `material_design_report.md`：材料设计报告，包含：
+  - 主材料
+  - 辅助材料
+  - 材料性能对比
+  - 材料成本分析
+
+**示例**：
+```bash
+python scripts/cmf_design_tool.py --material --product_type "vacuum_cup" --material_requirements "lightweight,corrosion-resistant,food-safe" --cost_constraint "<80元"
+```
+
+#### 2.3 表面处理设计 (Surface Treatment Design)
+
+**功能**：设计产品表面处理方案，考虑美观、触感、耐用性。
+
+**输入**：
+- `material`：材料类型（例如："magnesium_alloy"）
+- `surface_treatment_requirements`：表面处理需求（例如：["scratch-resistant", "anti-fingerprint", "soft-touch"]）
+
+**输出**：
+- `surface_treatment_design_report.md`：表面处理设计报告，包含：
+  - 表面处理工艺
+  - 表面处理效果
+  - 表面处理成本分析
+
+**示例**：
+```bash
+python scripts/cmf_design_tool.py --surface_treatment --material "magnesium_alloy" --surface_treatment_requirements "scratch-resistant,anti-fingerprint,soft-touch"
+```
+
+#### 2.4 CMF趋势分析 (CMF Trend Analysis)
+
+**功能**：分析CMF趋势，为设计提供灵感。
+
+**输入**：
+- `industry`：行业（例如："vacuum_cup"）
+- `year`：年份（例如：2026）
+
+**输出**：
+- `cmf_trend_analysis_report.md`：CMF趋势分析报告，包含：
+  - 颜色趋势
+  - 材料趋势
+  - 表面处理趋势
+  - 设计建议
+
+**示例**：
+```bash
+python scripts/cmf_design_tool.py --trend_analysis --industry "vacuum_cup" --year 2026
+```
+
+### 3. 保温杯专项设计 (Vacuum Cup Special Design)
+
+#### 3.1 弹跳盖设计 (Pop Lid Design)
+
+**功能**：设计弹跳盖结构，考虑防漏、单手操作、耐用性。
+
+**输入**：
+- `design_goal`：设计目标（例如："lightweight"，可选："lightweight"、"leak-proof"、"one-handed-operation"）
+- `material`：材料（例如："magnesium_alloy"）
+- `mechanism_type`：机械结构类型（例如："one_handed"，可选："one_handed"、"push_button"、"auto_open"）
+
+**输出**：
+- `pop_lid_design_report.md`：弹跳盖设计报告，包含：
+  - 结构设计
+  - 材料选择
+  - 机械原理
+  - 防漏设计
+  - 测试标准
+
+**示例**：
+```bash
+python scripts/vacuum_cup_design_tool.py --pop_lid --design_goal "lightweight" --material "magnesium_alloy" --mechanism_type "one_handed"
+```
+
+#### 3.2 轻量化设计 (Lightweight Design)
+
+**功能**：设计轻量化方案，考虑材料选择、结构优化、工艺选择。
+
+**输入**：
+- `target_weight`：目标重量（例如："<280g"）
+- `capacity`：容量（例如："450ml"）
+- `material_options`：材料选项（例如：["magnesium_alloy", "aluminum_alloy", "carbon_fiber"]）
+
+**输出**：
+- `lightweight_design_report.md`：轻量化设计报告，包含：
+  - 轻量化方案
+  - 材料对比
+  - 结构优化建议
+  - 成本分析
+
+**示例**：
+```bash
+python scripts/vacuum_cup_design_tool.py --lightweight --target_weight "<280g" --capacity "450ml" --material_options "magnesium_alloy,aluminum_alloy,carbon_fiber"
+```
+
+#### 3.3 车载场景设计 (Car Scene Design)
+
+**功能**：设计车载场景适配方案，考虑杯架适配、防泼洒、USB充电等。
+
+**输入**：
+- `car_cup_holder_diameter`：车载杯架直径（例如："≤75mm"）
+- `features`：功能列表（例如：["anti-spill", "USB-heating", "temperature-display"]）
+
+**输出**：
+- `car_scene_design_report.md`：车载场景设计报告，包含：
+  - 杯架适配设计
+  - 防泼洒设计
+  - USB加热设计
+  - 温度显示设计
+
+**示例**：
+```bash
+python scripts/vacuum_cup_design_tool.py --car_scene --car_cup_holder_diameter "≤75mm" --features "anti-spill,USB-heating,temperature-display"
+```
+
+#### 3.4 智能功能设计 (Smart Function Design)
+
+**功能**：设计智能功能，考虑USB加热、温度显示、APP连接等。
+
+**输入**：
+- `smart_features`：智能功能列表（例如：["USB-heating", "temperature-display", "APP-connection"]）
+- `power_source`：电源（例如："USB-C"，可选："USB-C"、"wireless-charging"、"battery"）
+
+**输出**：
+- `smart_function_design_report.md`：智能功能设计报告，包含：
+  - 功能定义
+  - 技术方案
+  - 功耗分析
+  - 成本分析
+
+**示例**：
+```bash
+python scripts/vacuum_cup_design_tool.py --smart_function --smart_features "USB-heating,temperature-display,APP-connection" --power_source "USB-C"
+```
+
+### 4. 设计评审 (Design Review)
+
+#### 4.1 设计评审标准 (Design Review Standards)
+
+**功能**：制定设计评审标准，确保设计质量。
+
+**输入**：
+- `review_type`：评审类型（例如："concept_design"，可选："concept_design"、"detailed_design"、"final_design"）
+- `review_standard`：评审标准（例如："strict"，可选："lenient"、"normal"、"strict"）
+
+**输出**：
+- `design_review_standards.md`：设计评审标准文档，包含：
+  - 评审维度
+  - 评分标准
+  - 通过条件
+
+**示例**：
+```bash
+python scripts/design_review_tool.py --standards --review_type "concept_design" --review_standard "strict"
+```
+
+#### 4.2 设计评审流程 (Design Review Process)
+
+**功能**：执行设计评审流程，生成评审报告。
+
+**输入**：
+- `design_doc`：设计文档（文件路径）
+- `review_standards`：评审标准（文件路径）
+
+**输出**：
+- `design_review_report.md`：设计评审报告，包含：
+  - 评审结果（通过/不通过）
+  - 评审维度评分
+  - 问题列表
+  - 改进建议
+
+**示例**：
+```bash
+python scripts/design_review_tool.py --review --design_doc "concept_design_report.md" --review_standards "design_review_standards.md"
+```
+
+## 输出文件格式
+
+所有输出文件均为 **Markdown 格式** 或 **JSON 格式**，具体格式如下：
+
+### 1. `requirements_analysis_report.md`（需求分析报告）
+
+```markdown
+# 需求分析报告：[项目名称]
+
+## 1. 项目概述
+- 项目名称：
+- 设计目标：
+- 目标市场：
+
+## 2. 用户需求分析
+- 需求1：
+- 需求2：
+
+## 3. 市场趋势分析
+- 趋势1：
+- 趋势2：
+
+## 4. 技术约束分析
+- 约束1：
+- 约束2：
+
+## 5. 设计目标
+- 目标1：
+- 目标2：
+```
+
+### 2. `concept_design_report.md`（概念设计报告）
+
+```markdown
+# 概念设计报告：[项目名称]
+
+## 1. 设计理念
+- 理念1：
+- 理念2：
+
+## 2. 概念草图
+- 草图描述1：
+- 草图描述2：
+
+## 3. 材料选择
+- 材料1：
+- 材料2：
+
+## 4. 功能定义
+- 功能1：
+- 功能2：
+
+## 5. 设计亮点
+- 亮点1：
+- 亮点2：
+```
+
+### 3. `cmf_design_report.md`（CMF设计报告）
+
+```markdown
+# CMF设计报告：[项目名称]
+
+## 1. 颜色设计
+- 主色调：
+- 辅助色调：
+- 颜色搭配方案：
+
+## 2. 材料设计
+- 主材料：
+- 辅助材料：
+- 材料性能对比：
+
+## 3. 表面处理设计
+- 表面处理工艺：
+- 表面处理效果：
+- 表面处理成本分析：
+
+## 4. 设计渲染图
+- 渲染图描述：
+```
+
+## 数据传输说明
+
+蛇专家在十二生肖团工作流中，与以下角色有数据传输：
+
+### 输入（接收数据）
+
+1. **来自鼠专家**：
+   - 文件：`requirements_analysis_report.md`（需求分析报告）
+   - 格式：Markdown报告文件
+   - 内容：项目概述、用户需求分析、市场趋势分析、技术约束分析、设计目标
+
+### 输出（发送数据）
+
+1. **发送给牛专家**：
+   - 文件：`design_scheme_report.md`（设计方案报告）
+   - 格式：Markdown报告文件
+   - 内容：设计理念、概念草图、材料选择、功能定义、设计亮点、详细设计、CMF设计
+
+2. **发送给马专家/羊专家**：
+   - 文件：`design_scheme_for_ai_generator.md`（AI生图用设计方案）
+   - 格式：Markdown报告文件
+   - 内容：设计描述、关键特征、材质要求、风格要求、视角要求
+
+3. **发送给鼠专家**（通过最终输出）：
+   - 文件：`product_design_report.md`（产品设计报告）
+   - 格式：Markdown报告文件
+   - 内容：需求分析、概念设计、详细设计、CMF设计、设计验证、设计迭代
+
+## 案例分析
+
+### 案例1：弹跳盖保温杯产品设计
+
+**背景**：鼠专家完成了需求分析，项目目标是设计一款轻量化、防漏、车载使用的弹跳盖保温杯。
+
+**执行过程**：
+1. 蛇专家接收鼠专家的需求分析报告 (`requirements_analysis_report.md`)
+2. 执行概念设计：
+   - 设计理念："轻量化+车载场景"
+   - 概念草图：弹跳盖保温杯（镁合金杯身、食品级PP杯盖、硅胶密封圈）
+   - 材料选择：镁合金 AE44（杯身）、食品级PP（杯盖）、硅胶（密封圈）
+   - 功能定义：弹跳盖、防漏、车载适配、轻量化
+3. 执行详细设计：
+   - 结构设计：弹跳盖机械结构、杯身旋薄结构
+   - 尺寸规格：杯身直径 75mm、高度 200mm、容量 450ml
+   - 材料规格：镁合金 AE44（厚度 0.8mm）、食品级PP（厚度 2.0mm）
+   - 工艺要求：旋薄工艺（杯身）、压铸工艺（杯盖）、微弧氧化（表面处理）
+4. 执行CMF设计：
+   - 颜色设计：主色调（深空灰）、辅助色调（黑色）
+   - 材料设计：镁合金 AE44（杯身）、食品级PP（杯盖）
+   - 表面处理设计：微弧氧化（杯身）、喷砂（杯盖）
+5. 输出设计方案报告 (`design_scheme_report.md`) 给牛专家
+
+**设计结果**：
+- 重量：280g（达到目标 < 300g）
+- 容量：450ml
+- 材料：镁合金 AE44（杯身）、食品级PP（杯盖）
+- 功能：弹跳盖、防漏、车载适配
+- 成本：约 75元（达到目标 < 80元）
+
+### 案例2：车载保温杯CMF设计
+
+**背景**：项目目标是设计一款高端车载保温杯，要求CMF设计符合高端市场趋势。
+
+**执行过程**：
+1. 蛇专家执行CMF设计：
+   - 颜色设计：主色调（深空灰 + 黑色）、辅助色调（蓝色点缀）
+   - 材料设计：镁合金 AE44（杯身）、食品级PP（杯盖）、硅胶（密封圈）
+   - 表面处理设计：微弧氧化（杯身，耐磨、防指纹）、喷砂（杯盖，柔软触感）
+2. 执行CMF趋势分析：
+   - 颜色趋势：极简主义（深色系 + 亮色点缀）
+   - 材料趋势：轻量化（镁合金、碳纤维）
+   - 表面处理趋势：防指纹、柔软触感
+3. 输出CMF设计报告 (`cmf_design_report.md`)
+
+**设计结果**：
+- 颜色方案：深空灰（杯身） + 黑色（杯盖） + 蓝色点缀（按钮）
+- 材料方案：镁合金 AE44（杯身） + 食品级PP（杯盖） + 硅胶（密封圈）
+- 表面处理方案：微弧氧化（杯身） + 喷砂（杯盖）
+- 成本增加：约 15元（可接受范围）
+
+## FAQ（常见问题）
+
+### Q1：产品设计流程需要多长时间？
+**A**：取决于设计复杂度。通常，一个完整的产品设计流程（需求分析 → 概念设计 → 详细设计 → 设计验证 → 设计迭代）需要 3-5 天；如果是快速原型设计，可以压缩到 1-2 天。
+
+### Q2：如何选择CMF设计方案？
+**A**：可以通过以下因素选择：
+1. **目标市场**：高端市场选择 premium 材料（镁合金、碳纤维）；中端市场选择 mid-range 材料（铝合金、食品级PP）
+2. **成本约束**：成本敏感项目选择成本较低的材料（铝合金、食品级PP）；成本宽松项目选择 premium 材料（镁合金、碳纤维）
+3. **市场趋势**：参考CMF趋势分析，选择符合趋势的设计方案
+
+### Q3：设计评审标准如何制定？
+**A**：可以根据项目要求制定：
+1. **宽松标准**（lenient）：适用于快速原型项目，评审维度较少，通过条件较宽松
+2. **正常标准**（normal）：适用于大多数项目，评审维度适中，通过条件适中
+3. **严格标准**（strict）：适用于高端项目，评审维度全面，通过条件严格
+
+### Q4：如何处理设计评审不通过的情况？
+**A**：可以按照以下流程处理：
+1. **分析不通过原因**：阅读设计评审报告，识别问题列表
+2. **制定改进计划**：根据改进建议，制定改进计划
+3. **执行设计迭代**：改进设计，重新输出设计文档
+4. **重新评审**：将改进后的设计文档重新提交评审
+
+### Q5：蛇专家的设计方案如何影响后续工作？
+**A**：蛇专家的设计方案会直接影响后续工作：
+1. **牛专家的成本分析**：设计方案中的材料、工艺直接影响成本分析结果
+2. **马专家/羊专家的AI生图**：设计方案中的设计描述、关键特征、材质要求、风格要求直接影响AI生图效果
+3. **最终产品设计**：设计方案是最终产品设计的基础，决定了产品的外观、功能、成本
+
+## 技能包质量
+
+本技能包设计目标质量分数：**95+**（目标：100/100）
+
+**当前质量分数**：92/100
+
+**质量改进计划**：
+1. **补充更多案例**（2026-06）：增加3个实际案例（车载保温杯、智能保温杯、儿童保温杯）
+2. **优化设计评审标准**（2026-07）：增加更多评审维度，提升评审准确性
+3. **增加CMF趋势分析数据**（2026-08）：定期更新CMF趋势数据，确保设计方案符合最新趋势
+
+## 版本历史
+
+- **v1.0.0** (2026-06-06)：初始版本，包含产品设计流程、CMF设计指南、保温杯专项设计、设计评审功能
+- **v0.9.0** (2026-06-05)：测试版本，仅包含基本功能框架
+
+## 联系方式
+
+如有问题或建议，请联系：
+- **速凡团队（浙江永康）**
+- **邮箱**：example@sufan.com
+- **电话**：+86 138-xxxx-xxxx
+
+---
+
+**注意**：本技能包是十二生肖团工作流的重要组成部分，与鼠专家、牛专家、马专家、羊专家紧密协作。请确保数据传输格式正确，以免影响工作流执行效率。

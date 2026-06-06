@@ -1,0 +1,171 @@
+{
+  "requirement_analysis_templates": [
+    {
+      "id": "product_design",
+      "name": "产品设计需求分析模板",
+      "name_zh": "产品设计需求分析模板",
+      "description": "用于分析保温杯产品设计需求的模板",
+      "description_zh": "用于分析保温杯产品设计需求的模板",
+      "fields": [
+        "product_type",
+        "target_users",
+        "core_functionality",
+        "material_requirements",
+        "surface_treatment_requirements",
+        "craftsmanship_requirements",
+        "cost_target",
+        "production_volume",
+        "timeline"
+      ],
+      "fields_zh": [
+        "产品类型",
+        "目标用户",
+        "核心功能",
+        "材料要求",
+        "表面处理要求",
+        "工艺要求",
+        "成本目标",
+        "生产量",
+        "时间线"
+      ],
+      "example": {
+        "product_type": "vacuum cup",
+        "target_users": "office workers",
+        "core_functionality": "keep warm for 12 hours",
+        "material_requirements": "stainless steel 316 inner, stainless steel 304 outer",
+        "surface_treatment_requirements": "matte spray paint, laser LOGO",
+        "craftsmanship_requirements": "injection molding PP lid, ultrasonic welding assembly",
+        "cost_target": "¥50-80 per unit",
+        "production_volume": "100,000 units/month",
+        "timeline": "3 months for design, 6 months for production"
+      }
+    },
+    {
+      "id": "market_research",
+      "name": "市场调研需求分析模板",
+      "name_zh": "市场调研需求分析模板",
+      "description": "用于分析保温杯市场调研需求的模板",
+      "description_zh": "用于分析保温杯市场调研需求的模板",
+      "fields": [
+        "research_scope",
+        "target_market",
+        "competitors",
+        "consumer_demographics",
+        "key_research_questions",
+        "data_sources",
+        "deliverables"
+      ],
+      "fields_zh": [
+        "调研范围",
+        "目标市场",
+        "竞争对手",
+        "消费者人群",
+        "关键调研问题",
+        "数据来源",
+        "交付成果"
+      ],
+      "example": {
+        "research_scope": "high-end vacuum cup market in China",
+        "target_market": "premium vacuum cups priced ¥300-800",
+        "competitors": ["Thermos", "Tiger", "Zojirushi", "local premium brands"],
+        "consumer_demographics": "25-40 years old, urban, middle-to-high income",
+        "key_research_questions": ["What features are most valued?", "What price points are acceptable?", "What distribution channels are preferred?"],
+        "data_sources": ["online surveys", "focus groups", "competitor product analysis", "sales data"],
+        "deliverables": "market research report with consumer insights and recommendations"
+      }
+    }
+  ],
+  "task_sorting_rules": [
+    {
+      "id": "by_priority",
+      "name": "按优先级排序",
+      "name_zh": "按优先级排序",
+      "description": "根据任务优先级（P0/P1/P2/P3）进行排序",
+      "description_zh": "根据任务优先级（P0/P1/P2/P3）进行排序",
+      "rule": "P0 > P1 > P2 > P3",
+      "rule_zh": "P0 > P1 > P2 > P3",
+      "example": "Task A (P0) → Task B (P1) → Task C (P2) → Task D (P3)"
+    },
+    {
+      "id": "by_dependency",
+      "name": "按依赖关系排序",
+      "name_zh": "按依赖关系排序",
+      "description": "根据任务依赖关系进行排序，被依赖的任务先执行",
+      "description_zh": "根据任务依赖关系进行排序，被依赖的任务先执行",
+      "rule": "if Task B depends on Task A, then Task A → Task B",
+      "rule_zh": "如果任务B依赖于任务A，则任务A → 任务B",
+      "example": "Task A (design) → Task B (prototype) → Task C (testing)"
+    },
+    {
+      "id": "by_expertise",
+      "name": "按专业领域排序",
+      "name_zh": "按专业领域排序",
+      "description": "根据任务所需专业领域匹配最合适的专家",
+      "description_zh": "根据任务所需专业领域匹配最合适的专家",
+      "rule": "match task expertise requirement with expert's core responsibility",
+      "rule_zh": "匹配任务专业领域要求与专家核心职责",
+      "example": "product design task → Snake expert; image generation task → Sheep expert; competitive analysis task → Dragon expert"
+    }
+  ],
+  "team_coordination_workflows": [
+    {
+      "id": "design_to_production",
+      "name": "设计到生产协调流程",
+      "name_zh": "设计到生产协调流程",
+      "description": "协调产品设计团队与生产团队的工作流程",
+      "description_zh": "协调产品设计团队与生产团队的工作流程",
+      "steps": [
+        "Step 1: Snake expert (product design) completes product design",
+        "Step 2: Rat expert (requirements analysis) reviews design against original requirements",
+        "Step 3: Rat expert communicates design to Ox expert (workflow standards) for manufacturability review",
+        "Step 4: Rat expert coordinates with Horse expert (workflow optimization) for production process design",
+        "Step 5: Rat expert coordinates with Monkey expert (parameter tuning) for production parameter optimization",
+        "Step 6: Rat expert coordinates with Rooster expert (image review) for product photography planning",
+        "Step 7: Rat expert confirms all teams are aligned before production starts"
+      ],
+      "steps_zh": [
+        "步骤1：蛇专家（产品设计）完成产品设计",
+        "步骤2：鼠专家（需求分析）审核设计与原始需求的一致性",
+        "步骤3：鼠专家将设计传达给牛专家（工作流标准）进行可制造性审核",
+        "步骤4：鼠专家协调马专家（工作流优化）进行生产工艺设计",
+        "步骤5：鼠专家协调猴专家（参数调优）进行生产参数优化",
+        "步骤6：鼠专家协调鸡专家（图像评审）进行产品摄影规划",
+        "步骤7：鼠专家确认所有团队在生产开始前达成一致"
+      ]
+    },
+    {
+      "id": "market_research_to_design",
+      "name": "市场调研到设计协调流程",
+      "name_zh": "市场调研到设计协调流程",
+      "description": "协调市场调研团队与产品设计团队的工作流程",
+      "description_zh": "协调市场调研团队与产品设计团队的工作流程",
+      "steps": [
+        "Step 1: Dog expert (intelligence gathering) collects market intelligence",
+        "Step 2: Dragon expert (competitive analysis) analyzes competitors",
+        "Step 3: Rat expert (requirements analysis) synthesizes market research into design requirements",
+        "Step 4: Rat expert communicates design requirements to Snake expert (product design)",
+        "Step 5: Snake expert creates initial design",
+        "Step 6: Rat expert reviews initial design against requirements",
+        "Step 7: Rat expert coordinates feedback loop between market research team and design team"
+      ],
+      "steps_zh": [
+        "步骤1：狗专家（情报收集）收集市场情报",
+        "步骤2：龙专家（竞品分析）分析竞争对手",
+        "步骤3：鼠专家（需求分析）综合市场调研结果形成设计需求",
+        "步骤4：鼠专家将设计需求传达给蛇专家（产品设计）",
+        "步骤5：蛇专家创建初步设计",
+        "步骤6：鼠专家审核初步设计是否符合需求",
+        "步骤7：鼠专家协调市场调研团队与设计团队之间的反馈循环"
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "last_updated": "2026-06-05",
+    "total_templates": 2,
+    "total_rules": 3,
+    "total_workflows": 2,
+    "application": "十二生肖团需求分析与团队协调",
+    "application_zh": "十二生肖团需求分析与团队协调"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "materials": [
+    {
+      "id": "material_001",
+      "name": "镁合金 AE44",
+      "type": "金属",
+      "description": "轻量化镁合金，比铝轻35%+",
+      "features": ["轻量化", "高强度", "耐腐蚀"],
+      "applications": ["电动轮椅车架", "保温杯杯体", "结构件"],
+      "prompt_keywords": ["镁合金", "轻量化", "金属质感", "强度高"],
+      "local_supply": "永康古山压铸",
+      "cost": "中"
+    },
+    {
+      "id": "material_002",
+      "name": "碳纤维 T300",
+      "type": "复合材料",
+      "description": "高强度碳纤维，比钢轻70%+",
+      "features": ["轻量化", "高强度", "高端"],
+      "applications": ["高端限量系列", "电动轮椅配件"],
+      "prompt_keywords": ["碳纤维", "高端", "科技感", "轻量化"],
+      "local_supply": "东阳碳纤厂",
+      "cost": "高"
+    },
+    {
+      "id": "material_003",
+      "name": "PP (聚丙烯)",
+      "type": "塑料",
+      "description": "食品级安全塑料，耐化学性好",
+      "features": ["安全", "耐化学", "成本低"],
+      "applications": ["保温杯内胆", "电动轮椅外壳"],
+      "prompt_keywords": ["PP", "食品级", "安全", "塑料"],
+      "local_supply": "永康本地",
+      "cost": "低"
+    },
+    {
+      "id": "material_004",
+      "name": "硅胶",
+      "type": "弹性体",
+      "description": "食品级安全硅胶，耐高温",
+      "features": ["安全", "耐高温", "弹性好"],
+      "applications": ["保温杯密封圈", "电动轮椅把手"],
+      "prompt_keywords": ["硅胶", "食品级", "耐高温", "密封"],
+      "local_supply": "永康本地",
+      "cost": "低"
+    },
+    {
+      "id": "material_005",
+      "name": "铝合金 A7003",
+      "type": "金属",
+      "description": "航空铝合金，减重30%+",
+      "features": ["轻量化", "耐腐蚀", "加工性好"],
+      "applications": ["常规量产杯体", "电动轮椅框架"],
+      "prompt_keywords": ["铝合金", "航空级", "轻量化", "金属质感"],
+      "local_supply": "本地旋薄",
+      "cost": "中"
+    }
+  ]
+}

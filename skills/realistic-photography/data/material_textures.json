@@ -1,0 +1,209 @@
+{
+  "material_textures": [
+    {
+      "id": "stainless_steel_304",
+      "name": "不锈钢304",
+      "name_zh": "不锈钢304",
+      "type": "metal",
+      "type_zh": "金属",
+      "texture_properties": {
+        "reflectivity": "高（85-95%）",
+        "reflectivity_zh": "高（85-95%）",
+        "specular_highlight": "明亮、锐利的高光",
+        "specular_highlight_zh": "明亮、锐利的高光",
+        "surface_pattern": "拉丝纹理（横向或纵向）或镜面抛光",
+        "surface_pattern_zh": "拉丝纹理（横向或纵向）或镜面抛光",
+        "color_variation": "银白色，可能有轻微色差",
+        "color_variation_zh": "银白色，可能有轻微色差",
+        "scratch_visibility": "中等（拉丝纹理可隐藏细小划痕）",
+        "scratch_visibility_zh": "中等（拉丝纹理可隐藏细小划痕）",
+        "fingerprint_resistance": "低（易留指纹）",
+        "fingerprint_resistance_zh": "低（易留指纹）"
+      },
+      "photography_tips": {
+        "lighting": "使用大尺寸柔光箱，避免直接反射光源。使用偏振镜减少反光。",
+        "lighting_zh": "使用大尺寸柔光箱，避免直接反射光源。使用偏振镜减少反光。",
+        "camera_angle": "避免与光源平行的角度，减少直接反射",
+        "camera_angle_zh": "避免与光源平行的角度，减少直接反射",
+        "post_processing": "保留真实的高光和阴影，不要过度提亮阴影或压暗高光",
+        "post_processing_zh": "保留真实的高光和阴影，不要过度提亮阴影或压暗高光"
+      },
+      "prompt_keywords": {
+        "english": "stainless steel 304, brushed metal texture, specular highlight, metallic reflection, silver white color, realistic metal material, vacuum cup body, product photography, 8k resolution",
+        "chinese": "不锈钢304，拉丝金属纹理，镜面高光，金属反射，银白色，真实金属材质，保温杯杯身，产品摄影，8K分辨率"
+      }
+    },
+    {
+      "id": "stainless_steel_316",
+      "name": "不锈钢316",
+      "name_zh": "不锈钢316",
+      "type": "metal",
+      "type_zh": "金属",
+      "texture_properties": {
+        "reflectivity": "高（85-95%）",
+        "reflectivity_zh": "高（85-95%）",
+        "specular_highlight": "明亮、锐利的高光，比304更明亮",
+        "specular_highlight_zh": "明亮、锐利的高光，比304更明亮",
+        "surface_pattern": "拉丝纹理（更细腻）或镜面抛光",
+        "surface_pattern_zh": "拉丝纹理（更细腻）或镜面抛光",
+        "color_variation": "银白色，色泽更均匀",
+        "color_variation_zh": "银白色，色泽更均匀",
+        "scratch_visibility": "中等（拉丝纹理可隐藏细小划痕）",
+        "scratch_visibility_zh": "中等（拉丝纹理可隐藏细小划痕）",
+        "fingerprint_resistance": "低（易留指纹）",
+        "fingerprint_resistance_zh": "低（易留指纹）"
+      },
+      "photography_tips": {
+        "lighting": "使用大尺寸柔光箱，比304需要更柔和的灯光以展现更细腻的纹理",
+        "lighting_zh": "使用大尺寸柔光箱，比304需要更柔和的灯光以展现更细腻的纹理",
+        "camera_angle": "避免与光源平行的角度，减少直接反射",
+        "camera_angle_zh": "避免与光源平行的角度，减少直接反射",
+        "post_processing": "保留真实的高光和阴影，可以适当提升对比度以展现材质差异",
+        "post_processing_zh": "保留真实的高光和阴影，可以适当提升对比度以展现材质差异"
+      },
+      "prompt_keywords": {
+        "english": "stainless steel 316, high-grade brushed metal, finer texture, brighter highlight, premium material, metallic reflection, realistic metal material, vacuum cup body, product photography, 8k resolution",
+        "chinese": "不锈钢316，高档拉丝金属，更细腻纹理，更明亮高光， premium材质，金属反射，真实金属材质，保温杯杯身，产品摄影，8K分辨率"
+      }
+    },
+    {
+      "id": "titanium_ta1",
+      "name": "纯钛TA1",
+      "name_zh": "纯钛TA1",
+      "type": "metal",
+      "type_zh": "金属",
+      "texture_properties": {
+        "reflectivity": "中高（70-85%）",
+        "reflectivity_zh": "中高（70-85%）",
+        "specular_highlight": "柔和、弥散的高光",
+        "specular_highlight_zh": "柔和、弥散的高光",
+        "surface_pattern": "细微的钛金属纹理，可能有轻微氧化色",
+        "surface_pattern_zh": "细微的钛金属纹理，可能有轻微氧化色",
+        "color_variation": "深灰色，可能有彩虹色氧化膜",
+        "color_variation_zh": "深灰色，可能有彩虹色氧化膜",
+        "scratch_visibility": "低（钛金属划痕不明显）",
+        "scratch_visibility_zh": "低（钛金属划痕不明显）",
+        "fingerprint_resistance": "高（不易留指纹）",
+        "fingerprint_resistance_zh": "高（不易留指纹）"
+      },
+      "photography_tips": {
+        "lighting": "使用中等尺寸柔光箱，可以保留一定的直接反射以展现钛金属的独特质感",
+        "lighting_zh": "使用中等尺寸柔光箱，可以保留一定的直接反射以展现钛金属的独特质感",
+        "camera_angle": "可以尝试与光源成中等角度，展现钛金属的彩虹色氧化膜",
+        "camera_angle_zh": "可以尝试与光源成中等角度，展现钛金属的彩虹色氧化膜",
+        "post_processing": "可以适当提升饱和度以展现钛金属的独特色彩",
+        "post_processing_zh": "可以适当提升饱和度以展现钛金属的独特色彩"
+      },
+      "prompt_keywords": {
+        "english": "pure titanium TA1, dark gray metallic color, iridescent oxide film, soft specular highlight, premium titanium texture, lightweight material, vacuum cup body, product photography, 8k resolution",
+        "chinese": "纯钛TA1，深灰色金属色泽，彩虹色氧化膜，柔和镜面高光， premium钛金属纹理，轻量化材料，保温杯杯身，产品摄影，8K分辨率"
+      }
+    },
+    {
+      "id": "plastic_pp",
+      "name": "食品级PP",
+      "name_zh": "食品级PP",
+      "type": "plastic",
+      "type_zh": "塑料",
+      "texture_properties": {
+        "reflectivity": "低（5-15%）",
+        "reflectivity_zh": "低（5-15%）",
+        "specular_highlight": "微弱、弥散的高光",
+        "specular_highlight_zh": "微弱、弥散的高光",
+        "surface_pattern": "哑光或轻微纹理",
+        "surface_pattern_zh": "哑光或轻微纹理",
+        "color_variation": "半透明或白色，色泽均匀",
+        "color_variation_zh": "半透明或白色，色泽均匀",
+        "scratch_visibility": "高（塑料划痕明显）",
+        "scratch_visibility_zh": "高（塑料划痕明显）",
+        "fingerprint_resistance": "高（不易留指纹）",
+        "fingerprint_resistance_zh": "高（不易留指纹）"
+      },
+      "photography_tips": {
+        "lighting": "使用柔和的灯光，避免产生强烈反光。可以使用偏振镜进一步减少反光。",
+        "lighting_zh": "使用柔和的灯光，避免产生强烈反光。可以使用偏振镜进一步减少反光。",
+        "camera_angle": "几乎任何角度都可以，塑料反光很弱",
+        "camera_angle_zh": "几乎任何角度都可以，塑料反光很弱",
+        "post_processing": "可以适当提升清晰度以展现塑料纹理",
+        "post_processing_zh": "可以适当提升清晰度以展现塑料纹理"
+      },
+      "prompt_keywords": {
+        "english": "food-grade PP plastic, matte finish, translucent white color, low reflectivity, soft specular highlight, plastic texture, vacuum cup lid, product photography, 8k resolution",
+        "chinese": "食品级PP塑料，哑光表面，半透明白色，低反射率，柔和镜面高光，塑料纹理，保温杯杯盖，产品摄影，8K分辨率"
+      }
+    },
+    {
+      "id": "tritan",
+      "name": "TRITAN",
+      "name_zh": "TRITAN",
+      "type": "plastic",
+      "type_zh": "塑料",
+      "texture_properties": {
+        "reflectivity": "中低（15-30%）",
+        "reflectivity_zh": "中低（15-30%）",
+        "specular_highlight": "中等、清晰的高光",
+        "specular_highlight_zh": "中等、清晰的高光",
+        "surface_pattern": "透明或哑光，可能有轻微纹理",
+        "surface_pattern_zh": "透明或哑光，可能有轻微纹理",
+        "color_variation": "透明或浅色，色泽均匀",
+        "color_variation_zh": "透明或浅色，色泽均匀",
+        "scratch_visibility": "中等（比PP耐刮擦）",
+        "scratch_visibility_zh": "中等（比PP耐刮擦）",
+        "fingerprint_resistance": "高（不易留指纹）",
+        "fingerprint_resistance_zh": "高（不易留指纹）"
+      },
+      "photography_tips": {
+        "lighting": "使用中等柔和灯光，可以保留一定的直接反射以展现TRITAN的透明感或光泽感",
+        "lighting_zh": "使用中等柔和灯光，可以保留一定的直接反射以展现TRITAN的透明感或光泽感",
+        "camera_angle": "可以尝试与光源成中等角度，展现TRITAN的光泽",
+        "camera_angle_zh": "可以尝试与光源成中等角度，展现TRITAN的光泽",
+        "post_processing": "可以适当提升对比度和清晰度以展现TRITAN的质感",
+        "post_processing_zh": "可以适当提升对比度和清晰度以展现TRITAN的质感"
+      },
+      "prompt_keywords": {
+        "english": "TRITAN material, transparent or matte finish, medium reflectivity, clear specular highlight, BPA-free plastic, premium plastic texture, vacuum cup lid, product photography, 8k resolution",
+        "chinese": "TRITAN材料，透明或哑光表面，中等反射率，清晰镜面高光，BPA-free塑料，premium塑料纹理，保温杯杯盖，产品摄影，8K分辨率"
+      }
+    },
+    {
+      "id": "silicone",
+      "name": "食品级硅胶",
+      "name_zh": "食品级硅胶",
+      "type": "elastomer",
+      "type_zh": "弹性体",
+      "texture_properties": {
+        "reflectivity": "极低（3-10%）",
+        "reflectivity_zh": "极低（3-10%）",
+        "specular_highlight": "几乎无高光",
+        "specular_highlight_zh": "几乎无高光",
+        "surface_pattern": "哑光，可能有细微纹理",
+        "surface_pattern_zh": "哑光，可能有细微纹理",
+        "color_variation": "半透明或各种颜色，色泽均匀",
+        "color_variation_zh": "半透明或各种颜色，色泽均匀",
+        "scratch_visibility": "极低（硅胶柔软，不易划伤）",
+        "scratch_visibility_zh": "极低（硅胶柔软，不易划伤）",
+        "fingerprint_resistance": "极高（完全不留指纹）",
+        "fingerprint_resistance_zh": "极高（完全不留指纹）"
+      },
+      "photography_tips": {
+        "lighting": "使用非常柔和的灯光，几乎任何灯光设置都可以",
+        "lighting_zh": "使用非常柔和的灯光，几乎任何灯光设置都可以",
+        "camera_angle": "几乎任何角度都可以，硅胶几乎不反光",
+        "camera_angle_zh": "几乎任何角度都可以，硅胶几乎不反光",
+        "post_processing": "可以适当提升饱和度以展现硅胶的颜色",
+        "post_processing_zh": "可以适当提升饱和度以展现硅胶的颜色"
+      },
+      "prompt_keywords": {
+        "english": "food-grade silicone, matte finish, translucent or colored, very low reflectivity, soft material, flexible seal ring, vacuum cup seal, product photography, 8k resolution",
+        "chinese": "食品级硅胶，哑光表面，半透明或各种颜色，极低反射率，柔软材料，柔性密封圈，保温杯密封件，产品摄影，8K分辨率"
+      }
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "last_updated": "2026-06-05",
+    "total_materials": 6,
+    "application": "保温杯产品真实摄影生图 - 材质纹理增强",
+    "application_zh": "保温杯产品真实摄影生图 - 材质纹理增强"
+  }
+}
