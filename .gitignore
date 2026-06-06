@@ -1,0 +1,176 @@
+# ===== E:\AI日记\Claw .gitignore（最终版）=====
+
+# === 系统缓存 ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python/
+*.egg-info/
+*.egg
+*.spec
+
+# === 根目录临时脚本（不提交，仅根目录）===
+/[a-z]*_*.py
+/build_*.py
+/analyze_*.py
+/audit_*.py
+/add_*.py
+/check_*.py
+/fix_*.py
+/update_*.py
+/auto_*.py
+/batch_*.py
+/organize_*.py
+/analyze_all*.py
+/audit_all*.py
+/fix_experts*.py
+/update_skills*.py
+/add_phase*.py
+/add_triggers*.py
+/cleanup_*.py
+/clean_*.py
+/gen_*.py
+/verify_*.py
+/debug_*.py
+/test_*.py
+/100轮测试_*.py
+/ComfyUI_*.py
+
+# === 根目录临时报告/文档（不提交）===
+/*报告*.md
+/*学习笔记*.md
+/*周报*.md
+/*任务单*.md
+/*评审*.md
+/*分析*.md
+/*总结*.md
+/*进化*.md
+/*优化*.md
+/*审计*.md
+/*_完整版*.md
+/*_总结报告*.md
+/complete_*.md
+/core_*.md
+/distilled_*.md
+/evolution_*.md
+/file_*.md
+/phase*.md
+/skill_*.md
+/system_*.md
+/知识库_*.md
+/设计迭代_*.md
+
+# === 所有JSON（生成数据，不提交）===
+*.json
+
+# === 所有文本日志（不提交）===
+*.txt
+*.log
+
+# === 所有图片（不提交）===
+*.jpg
+*.png
+*.jpeg
+*.gif
+*.bmp
+*.webp
+
+# === 所有CSV（不提交）===
+*.csv
+
+# === 所有HTML（不提交）===
+*.html
+
+# === 所有Shell/Bat（不提交）===
+*.sh
+*.bat
+
+# === WorkBuddy 本地数据 ===
+.workbuddy/memory/
+.workbuddy/sessions/
+.workbuddy/backup/
+.workbuddy/tasks/
+.workbuddy/automations/
+.workbuddy/.codebuddy/
+.workbuddy/.minimax/
+.workbuddy/skills/
+.workbuddy/plugins/
+.workbuddy/connectors-marketplace/
+.workbuddy/evolution/
+.workbuddy/personalities/
+.workbuddy/teams/
+.workbuddy/knowledge/
+.workbuddy/skills-marketplace/
+
+# === Clawhub 本地配置 ===
+.clawhub/
+
+# === 临时目录 ===
+analysis/
+analysis_output/
+backups/
+NUL
+temp/
+temp_*/
+cached/
+output/
+outputs/
+generated-images/
+ai_generated_images/
+design_output/
+review_output/
+ptx_extracted/
+docx_extracted/
+pdf_extracts/
+comfyui_workflows/
+skill-analyzer/
+migration_package/
+sufan_ptx_media/
+
+# === 测试目录 ===
+100轮测试_*/
+100轮测试_原始数据/
+100轮测试_阶段报告/
+100轮测试_分析报告/
+
+# === 大文件/模型 ===
+*.ckpt
+*.safetensors
+*.bin
+*.pth
+*.pt
+*.onnx
+*.pb
+*.h5
+*.weights
+safetensor
+
+# === 产品图片库 ===
+产品图片库/
+参考图片/
+reference_images/
+
+# === CI/CD 临时 ===
+CI_CD流水线/
+
+# === 编辑器 ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.Spotlight-V100
+.Trashes
+
+# === OS ===
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# === 其他生成文件 ===
+scripts/
+  *.zip
+  *.tar.gz
+  *.rar
+  *.7z
