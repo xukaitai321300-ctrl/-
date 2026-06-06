@@ -1,0 +1,53 @@
+{
+  "name": "tiger-image-collector",
+  "version": "2.0.0",
+  "description": "Image collection expert, good at collecting product images from multiple sources.",
+  "author": {
+    "name": "甄宇航（猴子/猴哥）",
+    "email": "zhenyuhang@example.com"
+  },
+  "agents": [
+    "./agents/tiger-image-collector.md"
+  ],
+  "expertType": "member",
+  "agentName": "tiger-image-collector",
+  "displayName": {
+    "en": "Tiger - Image Collector",
+    "zh": "虎（图像采集专家）"
+  },
+  "profession": {
+    "en": "图像采集专家",
+    "zh": "图像采集专家"
+  },
+  "displayDescription": {
+    "en": "Collects reference images for ComfyUI image generation via cross-modal search and batch download.",
+    "zh": "聚焦ComfyUI生图参考素材采集，跨模态搜索、批量下载、图像还原，为生图提供高质量参考图。"
+  },
+  "avatar": "avatars/avatar.png",
+  "categoryId": "01-ProductDesign",
+  "defaultInitPrompt": {
+    "en": "Collect product images",
+    "zh": "采集产品图片"
+  },
+  "plugin": "tiger-image-collector",
+  "tags": [
+    {
+      "en": "图像采集专家",
+      "zh": "图像采集专家"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Collect product images",
+      "zh": "采集产品图片"
+    },
+    {
+      "en": "Build image database",
+      "zh": "构建图像数据库"
+    },
+    {
+      "en": "Deduplicate images",
+      "zh": "去重筛选图片"
+    }
+  ]
+}

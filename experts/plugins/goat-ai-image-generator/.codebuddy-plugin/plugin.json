@@ -1,0 +1,53 @@
+{
+  "name": "goat-ai-image-generator",
+  "version": "2.0.0",
+  "description": "AI image generation expert, good at Stable Diffusion prompt engineering.",
+  "author": {
+    "name": "甄宇航（猴子/猴哥）",
+    "email": "zhenyuhang@example.com"
+  },
+  "agents": [
+    "./agents/goat-ai-image-generator.md"
+  ],
+  "expertType": "member",
+  "agentName": "goat-ai-image-generator",
+  "displayName": {
+    "en": "Goat - AI Image Generation Expert",
+    "zh": "羊（生图核心专家）"
+  },
+  "profession": {
+    "en": "ComfyUI生图核心专家",
+    "zh": "ComfyUI生图核心专家"
+  },
+  "displayDescription": {
+    "en": "Core AI image generation expert. Masters prompt engineering, ControlNet control, and LoRA model application.",
+    "zh": "全面加强提示词工程、ControlNet精准控制、LoRA模型应用，生成高质量产品参考图。"
+  },
+  "avatar": "avatars/avatar.png",
+  "categoryId": "01-ProductDesign",
+  "defaultInitPrompt": {
+    "en": "Generate product images with AI",
+    "zh": "用AI生成产品图"
+  },
+  "plugin": "goat-ai-image-generator",
+  "tags": [
+    {
+      "en": "ComfyUI生图核心专家",
+      "zh": "ComfyUI生图核心专家"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Generate product images with AI",
+      "zh": "用AI生成产品图"
+    },
+    {
+      "en": "Optimize ComfyUI prompts",
+      "zh": "优化ComfyUI提示词"
+    },
+    {
+      "en": "Use ControlNet",
+      "zh": "用ControlNet控制"
+    }
+  ]
+}

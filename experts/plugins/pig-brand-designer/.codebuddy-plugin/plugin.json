@@ -1,0 +1,53 @@
+{
+  "name": "pig-brand-designer",
+  "version": "2.0.0",
+  "description": "Brand design expert, good at brand visual design and packaging design.",
+  "author": {
+    "name": "甄宇航（猴子/猴哥）",
+    "email": "zhenyuhang@example.com"
+  },
+  "agents": [
+    "./agents/pig-brand-designer.md"
+  ],
+  "expertType": "member",
+  "agentName": "pig-brand-designer",
+  "displayName": {
+    "en": "Pig - Style Reference & Prompt Expert",
+    "zh": "猪（风格参考与素材专家）"
+  },
+  "profession": {
+    "en": "风格参考与Prompt素材专家",
+    "zh": "风格参考与Prompt素材专家"
+  },
+  "displayDescription": {
+    "en": "Manages style references, organizes prompt material libraries, and defines generation styles for AI image generation.",
+    "zh": "风格参考管理、Prompt素材库整理、生图风格定义，为AI生图提供高质量风格参考和提示词素材。"
+  },
+  "avatar": "avatars/avatar.png",
+  "categoryId": "01-ProductDesign",
+  "defaultInitPrompt": {
+    "en": "Design brand visual identity",
+    "zh": "设计品牌视觉识别"
+  },
+  "plugin": "pig-brand-designer",
+  "tags": [
+    {
+      "en": "风格参考与Prompt素材专家",
+      "zh": "风格参考与Prompt素材专家"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Design brand visual identity",
+      "zh": "设计品牌视觉识别"
+    },
+    {
+      "en": "Design product packaging",
+      "zh": "设计产品包装"
+    },
+    {
+      "en": "Generate marketing materials",
+      "zh": "生成营销物料"
+    }
+  ]
+}

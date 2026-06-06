@@ -1,0 +1,7 @@
+{
+  "name": "data-ai-experts",
+  "version": "1.0.0",
+  "description": "AI/ML, data engineering, database optimization, data analytics experts",
+  "agents": "./agents/",
+  "expertType": "agent"
+}

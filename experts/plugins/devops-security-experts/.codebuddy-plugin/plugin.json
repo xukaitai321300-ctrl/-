@@ -1,0 +1,7 @@
+{
+  "name": "devops-security-experts",
+  "version": "1.0.0",
+  "description": "DevOps, security, SRE, incident response, embedded engineering experts",
+  "agents": "./agents/",
+  "expertType": "agent"
+}

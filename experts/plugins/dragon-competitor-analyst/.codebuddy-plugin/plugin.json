@@ -1,0 +1,53 @@
+{
+  "name": "dragon-competitor-analyst",
+  "version": "2.0.0",
+  "description": "Competitor analysis expert, good at systematic competitor research.",
+  "author": {
+    "name": "甄宇航（猴子/猴哥）",
+    "email": "zhenyuhang@example.com"
+  },
+  "agents": [
+    "./agents/dragon-competitor-analyst.md"
+  ],
+  "expertType": "member",
+  "agentName": "dragon-competitor-analyst",
+  "displayName": {
+    "en": "Dragon - Competitor Analyst",
+    "zh": "龙（竞品分析专家）"
+  },
+  "profession": {
+    "en": "竞品分析专家",
+    "zh": "竞品分析专家"
+  },
+  "displayDescription": {
+    "en": "Analyzes competitor ComfyUI workflows, generation strategies, and prompt engineering approaches.",
+    "zh": "聚焦竞品ComfyUI工作流策略，深度解构竞品生图方案、技术路线、提示词工程，输出竞品分析报告。"
+  },
+  "avatar": "avatars/avatar.png",
+  "categoryId": "01-ProductDesign",
+  "defaultInitPrompt": {
+    "en": "Generate competitor report",
+    "zh": "生成竞品分析报告"
+  },
+  "plugin": "dragon-competitor-analyst",
+  "tags": [
+    {
+      "en": "竞品分析专家",
+      "zh": "竞品分析专家"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Generate competitor report",
+      "zh": "生成竞品分析报告"
+    },
+    {
+      "en": "Conduct SWOT analysis",
+      "zh": "做SWOT分析"
+    },
+    {
+      "en": "Find differentiation",
+      "zh": "找出差异化机会"
+    }
+  ]
+}

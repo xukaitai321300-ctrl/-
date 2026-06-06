@@ -1,0 +1,53 @@
+{
+  "name": "snake-product-designer",
+  "version": "2.0.0",
+  "description": "Product design expert, good at product concept design and CMF design.",
+  "author": {
+    "name": "甄宇航（猴子/猴哥）",
+    "email": "zhenyuhang@example.com"
+  },
+  "agents": [
+    "./agents/snake-product-designer.md"
+  ],
+  "expertType": "member",
+  "agentName": "snake-product-designer",
+  "displayName": {
+    "en": "Snake - Product Designer",
+    "zh": "蛇（产品设计专家）"
+  },
+  "profession": {
+    "en": "产品设计专家",
+    "zh": "产品设计专家"
+  },
+  "displayDescription": {
+    "en": "Designs thermal flask products optimized for ComfyUI AI image generation, covering appearance, structure, and CMF.",
+    "zh": "围绕ComfyUI生图能力进行保温杯产品设计，涵盖外观、结构、CMF设计，输出可生图的产品设计方案。"
+  },
+  "avatar": "avatars/avatar.png",
+  "categoryId": "01-ProductDesign",
+  "defaultInitPrompt": {
+    "en": "Design smart insulated cup",
+    "zh": "设计智能保温杯"
+  },
+  "plugin": "snake-product-designer",
+  "tags": [
+    {
+      "en": "产品设计专家",
+      "zh": "产品设计专家"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Design smart insulated cup",
+      "zh": "设计智能保温杯"
+    },
+    {
+      "en": "Provide CMF design",
+      "zh": "给出CMF方案"
+    },
+    {
+      "en": "Optimize structural design",
+      "zh": "优化结构设计"
+    }
+  ]
+}

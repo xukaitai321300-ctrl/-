@@ -1,0 +1,235 @@
+{
+  "name": "zodiac-team",
+  "version": "1.0.0",
+  "description": "Twelve Zodiac intelligent agent team for product design.",
+  "author": {
+    "name": "甄宇航（猴子/猴哥）",
+    "email": "zhenyuhang@example.com"
+  },
+  "agents": [
+    "./agents/team.md"
+  ],
+  "expertType": "team",
+  "agentName": "team",
+  "teamInfo": {
+    "leadAgent": "rat-product-researcher",
+    "memberAgents": [
+      "ox-standards-analyst",
+      "tiger-image-collector",
+      "rabbit-image-analyst",
+      "dragon-competitor-analyst",
+      "snake-product-designer",
+      "horse-rendering-expert",
+      "goat-ai-image-generator",
+      "monkey-design-adjuster",
+      "rooster-design-reviewer",
+      "dog-cost-analyst",
+      "pig-brand-designer"
+    ]
+  },
+  "displayName": {
+    "en": "Zodiac Team",
+    "zh": "十二生肖团"
+  },
+  "profession": {
+    "en": "Zodiac Team",
+    "zh": "十二生肖团"
+  },
+  "displayDescription": {
+    "en": "ComfyUI-centric AI product design team covering requirement analysis, prompt engineering, workflow optimization, and design review. Coordinated by Rat (team lead).",
+    "zh": "以ComfyUI生图为核心的AI产品设计团队，涵盖需求分析、提示词工程、工作流优化、生图评审等全流程，由鼠（主理人）协调各成员协作完成复杂设计任务。"
+  },
+  "avatar": "avatars/avatar.png",
+  "categoryId": "01-ProductDesign",
+  "defaultInitPrompt": {
+    "en": "Launch Zodiac Team for product design.",
+    "zh": "启动十二生肖团，完成保温杯产品设计"
+  },
+  "plugin": "zodiac-team",
+  "tags": [
+    {
+      "en": "Product Design",
+      "zh": "产品设计"
+    },
+    {
+      "en": "Market Research",
+      "zh": "市场调研"
+    },
+    {
+      "en": "Design Review",
+      "zh": "设计评审"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Launch Zodiac Team",
+      "zh": "启动十二生肖团，完成保温杯产品设计"
+    },
+    {
+      "en": "Generate design proposal",
+      "zh": "生成完整的产品设计方案"
+    },
+    {
+      "en": "Review and optimize design",
+      "zh": "评审并优化产品设计"
+    }
+  ],
+  "members": [
+    {
+      "id": "rat-product-researcher",
+      "displayName": {
+        "en": "需求分析专家（主理人）",
+        "zh": "鼠（需求分析专家（主理人））"
+      },
+      "profession": {
+        "en": "需求分析专家（主理人）",
+        "zh": "需求分析专家（主理人）"
+      },
+      "avatar": "avatars/rat-product-researcher.png",
+      "role": "lead"
+    },
+    {
+      "id": "ox-standards-analyst",
+      "displayName": {
+        "en": "ComfyUI工作流标准专家",
+        "zh": "牛（ComfyUI工作流标准专家）"
+      },
+      "profession": {
+        "en": "ComfyUI工作流标准专家",
+        "zh": "ComfyUI工作流标准专家"
+      },
+      "avatar": "avatars/ox-standards-analyst.png",
+      "role": "member"
+    },
+    {
+      "id": "tiger-image-collector",
+      "displayName": {
+        "en": "图像采集专家",
+        "zh": "虎（图像采集专家）"
+      },
+      "profession": {
+        "en": "图像采集专家",
+        "zh": "图像采集专家"
+      },
+      "avatar": "avatars/tiger-image-collector.png",
+      "role": "member"
+    },
+    {
+      "id": "rabbit-image-analyst",
+      "displayName": {
+        "en": "图像分析专家",
+        "zh": "兔（图像分析专家）"
+      },
+      "profession": {
+        "en": "图像分析专家",
+        "zh": "图像分析专家"
+      },
+      "avatar": "avatars/rabbit-image-analyst.png",
+      "role": "member"
+    },
+    {
+      "id": "dragon-competitor-analyst",
+      "displayName": {
+        "en": "竞品分析专家",
+        "zh": "龙（竞品分析专家）"
+      },
+      "profession": {
+        "en": "竞品分析专家",
+        "zh": "竞品分析专家"
+      },
+      "avatar": "avatars/dragon-competitor-analyst.png",
+      "role": "member"
+    },
+    {
+      "id": "snake-product-designer",
+      "displayName": {
+        "en": "产品设计专家",
+        "zh": "蛇（产品设计专家）"
+      },
+      "profession": {
+        "en": "产品设计专家",
+        "zh": "产品设计专家"
+      },
+      "avatar": "avatars/snake-product-designer.png",
+      "role": "member"
+    },
+    {
+      "id": "horse-rendering-expert",
+      "displayName": {
+        "en": "ComfyUI工作流优化专家",
+        "zh": "马（ComfyUI工作流优化专家）"
+      },
+      "profession": {
+        "en": "ComfyUI工作流优化专家",
+        "zh": "ComfyUI工作流优化专家"
+      },
+      "avatar": "avatars/horse-rendering-expert.png",
+      "role": "member"
+    },
+    {
+      "id": "goat-ai-image-generator",
+      "displayName": {
+        "en": "ComfyUI生图核心专家",
+        "zh": "羊（ComfyUI生图核心专家）"
+      },
+      "profession": {
+        "en": "ComfyUI生图核心专家",
+        "zh": "ComfyUI生图核心专家"
+      },
+      "avatar": "avatars/goat-ai-image-generator.png",
+      "role": "member"
+    },
+    {
+      "id": "monkey-design-adjuster",
+      "displayName": {
+        "en": "ComfyUI参数调优专家",
+        "zh": "猴（ComfyUI参数调优专家）"
+      },
+      "profession": {
+        "en": "ComfyUI参数调优专家",
+        "zh": "ComfyUI参数调优专家"
+      },
+      "avatar": "avatars/monkey-design-adjuster.png",
+      "role": "member"
+    },
+    {
+      "id": "rooster-design-reviewer",
+      "displayName": {
+        "en": "AI生图评审专家",
+        "zh": "鸡（AI生图评审专家）"
+      },
+      "profession": {
+        "en": "AI生图评审专家",
+        "zh": "AI生图评审专家"
+      },
+      "avatar": "avatars/rooster-design-reviewer.png",
+      "role": "member"
+    },
+    {
+      "id": "dog-cost-analyst",
+      "displayName": {
+        "en": "情报收集专家（狗仔）",
+        "zh": "狗（情报收集专家（狗仔））"
+      },
+      "profession": {
+        "en": "情报收集专家（狗仔）",
+        "zh": "情报收集专家（狗仔）"
+      },
+      "avatar": "avatars/dog-cost-analyst.png",
+      "role": "member"
+    },
+    {
+      "id": "pig-brand-designer",
+      "displayName": {
+        "en": "风格参考与Prompt素材专家",
+        "zh": "猪（风格参考与Prompt素材专家）"
+      },
+      "profession": {
+        "en": "风格参考与Prompt素材专家",
+        "zh": "风格参考与Prompt素材专家"
+      },
+      "avatar": "avatars/pig-brand-designer.png",
+      "role": "member"
+    }
+  ]
+}

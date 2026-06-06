@@ -1,0 +1,86 @@
+{
+  "version": "2.0.0",
+  "mcpServers": {},
+  "env": {},
+  "rules": [
+    "十二生肖团联动规则：执行层（生肖技能）与顾问层（专家团）双向联动",
+    "执行层遇到超出自身能力的问题时，调用对应的专家包作为顾问",
+    "顾问层给出建议后，需要执行落地时，调用对应的生肖技能作为执行工具",
+    "鼠（主理人）负责整体协调，所有联动必经鼠"
+  ],
+  "knowledgeBases": [],
+  "linkageMap": {
+    "rat-product-researcher": {
+      "skill": "zheng10-product-researcher",
+      "expert": "rat-product-researcher",
+      "direction": "bidirectional",
+      "description": "需求分析 ↔ 行业研究"
+    },
+    "ox-standards-analyst": {
+      "skill": "zheng10-standards-analyst",
+      "expert": "ox-standards-analyst",
+      "direction": "bidirectional",
+      "description": "工作流标准 ↔ 标准分析"
+    },
+    "tiger-image-collector": {
+      "skill": "zheng10-image-collector",
+      "expert": "tiger-image-collector",
+      "direction": "bidirectional",
+      "description": "图像采集 ↔ 图像采集"
+    },
+    "rabbit-image-analyst": {
+      "skill": "zheng10-image-analyst",
+      "expert": "rabbit-image-analyst",
+      "direction": "bidirectional",
+      "description": "图像分析 ↔ 图像分析"
+    },
+    "dragon-competitor-analyst": {
+      "skill": "zheng10-competitor-analyst",
+      "expert": "dragon-competitor-analyst",
+      "direction": "bidirectional",
+      "description": "竞品分析 ↔ 竞品分析"
+    },
+    "snake-product-designer": {
+      "skill": "zheng10-product-designer",
+      "expert": "snake-product-designer",
+      "direction": "bidirectional",
+      "description": "产品设计 ↔ 产品设计"
+    },
+    "horse-rendering-expert": {
+      "skill": "zheng10-sd-comfy-expert",
+      "expert": "horse-rendering-expert",
+      "direction": "bidirectional",
+      "description": "ComfyUI工作流 ↔ 渲染专家"
+    },
+    "goat-ai-image-generator": {
+      "skill": "zheng10-ai-image-generator",
+      "expert": "goat-ai-image-generator",
+      "direction": "bidirectional",
+      "description": "AI生图 ↔ AI图像生成"
+    },
+    "monkey-design-adjuster": {
+      "skill": "zheng10-design-adjuster",
+      "expert": "monkey-design-adjuster",
+      "direction": "bidirectional",
+      "description": "参数调优 ↔ 设计调整"
+    },
+    "rooster-design-reviewer": {
+      "skill": "zheng10-design-reviewer",
+      "expert": "rooster-design-reviewer",
+      "direction": "bidirectional",
+      "description": "设计评审 ↔ 设计评审"
+    },
+    "dog-cost-analyst": {
+      "skill": "zheng10-cost-analyst",
+      "expert": "dog-cost-analyst",
+      "direction": "bidirectional",
+      "description": "情报收集 ↔ 成本分析"
+    },
+    "pig-brand-designer": {
+      "skill": "zheng10-brand-designer",
+      "expert": "pig-brand-designer",
+      "direction": "bidirectional",
+      "description": "风格参考 ↔ 品牌设计"
+    }
+  }
+}

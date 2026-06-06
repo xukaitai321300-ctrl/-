@@ -1,0 +1,53 @@
+{
+  "name": "rat-product-researcher",
+  "version": "2.0.0",
+  "description": "Product research expert, good at user profiling, market trend prediction, and competitor analysis.",
+  "author": {
+    "name": "甄宇航（猴子/猴哥）",
+    "email": "zhenyuhang@example.com"
+  },
+  "agents": [
+    "./agents/rat-product-researcher.md"
+  ],
+  "expertType": "lead",
+  "agentName": "rat-product-researcher",
+  "displayName": {
+    "en": "Rat - Product Researcher",
+    "zh": "鼠（需求分析专家）"
+  },
+  "profession": {
+    "en": "需求分析专家（主理人）",
+    "zh": "需求分析专家（主理人）"
+  },
+  "displayDescription": {
+    "en": "Lead of Zodiac Team. Handles requirement analysis, task dispatching, and team coordination.",
+    "zh": "十二生肖团主理人，负责需求沟通、任务分拣、协调各成员工作，是团队与用户之间的沟通桥梁。"
+  },
+  "avatar": "avatars/avatar.png",
+  "categoryId": "01-ProductDesign",
+  "defaultInitPrompt": {
+    "en": "Analyze market trends",
+    "zh": "分析保温杯市场趋势"
+  },
+  "plugin": "rat-product-researcher",
+  "tags": [
+    {
+      "en": "需求分析专家（主理人）",
+      "zh": "需求分析专家（主理人）"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Analyze market trends",
+      "zh": "分析保温杯市场趋势"
+    },
+    {
+      "en": "Generate competitor report",
+      "zh": "生成竞品调研报告"
+    },
+    {
+      "en": "Predict design trends",
+      "zh": "预测产品设计趋势"
+    }
+  ]
+}

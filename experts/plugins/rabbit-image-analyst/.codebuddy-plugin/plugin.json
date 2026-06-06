@@ -1,0 +1,53 @@
+{
+  "name": "rabbit-image-analyst",
+  "version": "2.0.0",
+  "description": "Image analysis expert, good at product image semantic analysis.",
+  "author": {
+    "name": "甄宇航（猴子/猴哥）",
+    "email": "zhenyuhang@example.com"
+  },
+  "agents": [
+    "./agents/rabbit-image-analyst.md"
+  ],
+  "expertType": "member",
+  "agentName": "rabbit-image-analyst",
+  "displayName": {
+    "en": "Rabbit - Image Analyst",
+    "zh": "兔（图像分析专家）"
+  },
+  "profession": {
+    "en": "图像分析专家",
+    "zh": "图像分析专家"
+  },
+  "displayDescription": {
+    "en": "Analyzes ComfyUI-generated images for quality, feature extraction, and style assessment.",
+    "zh": "加强分析ComfyUI生成图质量，特征提取、量化分析、风格评估，输出可操作的改进建议。"
+  },
+  "avatar": "avatars/avatar.png",
+  "categoryId": "01-ProductDesign",
+  "defaultInitPrompt": {
+    "en": "Analyze image material",
+    "zh": "分析图片材质工艺"
+  },
+  "plugin": "rabbit-image-analyst",
+  "tags": [
+    {
+      "en": "图像分析专家",
+      "zh": "图像分析专家"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Analyze image material",
+      "zh": "分析图片材质工艺"
+    },
+    {
+      "en": "Extract design elements",
+      "zh": "提取设计元素"
+    },
+    {
+      "en": "Compare visual design",
+      "zh": "对比竞品视觉"
+    }
+  ]
+}

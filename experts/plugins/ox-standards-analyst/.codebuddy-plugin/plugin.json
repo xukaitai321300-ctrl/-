@@ -1,0 +1,53 @@
+{
+  "name": "ox-standards-analyst",
+  "version": "2.0.0",
+  "description": "Manufacturing and DFM expert, good at design for manufacturability.",
+  "author": {
+    "name": "甄宇航（猴子/猴哥）",
+    "email": "zhenyuhang@example.com"
+  },
+  "agents": [
+    "./agents/ox-standards-analyst.md"
+  ],
+  "expertType": "member",
+  "agentName": "ox-standards-analyst",
+  "displayName": {
+    "en": "Ox - Workflow Standards Expert",
+    "zh": "牛（工作流标准专家）"
+  },
+  "profession": {
+    "en": "ComfyUI工作流标准专家",
+    "zh": "ComfyUI工作流标准专家"
+  },
+  "displayDescription": {
+    "en": "Defines ComfyUI workflow standards, node configuration specs, and quality review criteria.",
+    "zh": "制定ComfyUI工作流规范、标准节点配置、工作流质量评审标准，确保生图工作流可复用、可维护。"
+  },
+  "avatar": "avatars/avatar.png",
+  "categoryId": "01-ProductDesign",
+  "defaultInitPrompt": {
+    "en": "Analyze manufacturability",
+    "zh": "分析生产可行性"
+  },
+  "plugin": "ox-standards-analyst",
+  "tags": [
+    {
+      "en": "ComfyUI工作流标准专家",
+      "zh": "ComfyUI工作流标准专家"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Analyze manufacturability",
+      "zh": "分析生产可行性"
+    },
+    {
+      "en": "Give DFM suggestions",
+      "zh": "给出DFM建议"
+    },
+    {
+      "en": "Estimate mold cost",
+      "zh": "评估模具成本"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "name": "dog-cost-analyst",
+  "version": "2.0.0",
+  "description": "Cost analysis expert, good at product cost estimation and BOM cost breakdown.",
+  "author": {
+    "name": "甄宇航（猴子/猴哥）",
+    "email": "zhenyuhang@example.com"
+  },
+  "agents": [
+    "./agents/dog-cost-analyst.md"
+  ],
+  "expertType": "member",
+  "agentName": "dog-cost-analyst",
+  "displayName": {
+    "en": "Dog - Intelligence Collector",
+    "zh": "狗（情报收集专家）"
+  },
+  "profession": {
+    "en": "情报收集专家（狗仔）",
+    "zh": "情报收集专家（狗仔）"
+  },
+  "displayDescription": {
+    "en": "Collects ComfyUI model/workflow/technique intelligence and tracks AI image generation ecosystem trends.",
+    "zh": "收集ComfyUI模型/工作流/技术情报，追踪AI生图生态最新动态，为团队提供技术情报支持。"
+  },
+  "avatar": "avatars/avatar.png",
+  "categoryId": "01-ProductDesign",
+  "defaultInitPrompt": {
+    "en": "Estimate manufacturing cost",
+    "zh": "估算制造成本"
+  },
+  "plugin": "dog-cost-analyst",
+  "tags": [
+    {
+      "en": "情报收集专家（狗仔）",
+      "zh": "情报收集专家（狗仔）"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Estimate manufacturing cost",
+      "zh": "估算制造成本"
+    },
+    {
+      "en": "Break down BOM cost",
+      "zh": "分解BOM成本"
+    },
+    {
+      "en": "Calculate mold amortization",
+      "zh": "计算模具分摊"
+    }
+  ]
+}

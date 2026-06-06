@@ -1,0 +1,53 @@
+{
+  "name": "rooster-design-reviewer",
+  "version": "2.0.0",
+  "description": "Design review expert, good at design quality review and issue identification.",
+  "author": {
+    "name": "甄宇航（猴子/猴哥）",
+    "email": "zhenyuhang@example.com"
+  },
+  "agents": [
+    "./agents/rooster-design-reviewer.md"
+  ],
+  "expertType": "member",
+  "agentName": "rooster-design-reviewer",
+  "displayName": {
+    "en": "Rooster - Design Review Expert",
+    "zh": "鸡（生图评审专家）"
+  },
+  "profession": {
+    "en": "AI生图评审专家",
+    "zh": "AI生图评审专家"
+  },
+  "displayDescription": {
+    "en": "Reviews ComfyUI-generated images against design principles and outputs structured review reports.",
+    "zh": "加强评审ComfyUI生成图质量，基于设计原则评估生图效果，输出结构化评审意见和改进建议。"
+  },
+  "avatar": "avatars/avatar.png",
+  "categoryId": "01-ProductDesign",
+  "defaultInitPrompt": {
+    "en": "Review design proposal",
+    "zh": "评审设计方案"
+  },
+  "plugin": "rooster-design-reviewer",
+  "tags": [
+    {
+      "en": "AI生图评审专家",
+      "zh": "AI生图评审专家"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Review design proposal",
+      "zh": "评审设计方案"
+    },
+    {
+      "en": "Identify design issues",
+      "zh": "识别设计问题"
+    },
+    {
+      "en": "Ensure design quality",
+      "zh": "确保设计质量"
+    }
+  ]
+}

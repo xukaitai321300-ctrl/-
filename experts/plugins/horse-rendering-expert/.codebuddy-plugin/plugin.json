@@ -1,0 +1,53 @@
+{
+  "name": "horse-rendering-expert",
+  "version": "2.0.0",
+  "description": "Rendering expert, good at KeyShot high-quality rendering.",
+  "author": {
+    "name": "甄宇航（猴子/猴哥）",
+    "email": "zhenyuhang@example.com"
+  },
+  "agents": [
+    "./agents/horse-rendering-expert.md"
+  ],
+  "expertType": "member",
+  "agentName": "horse-rendering-expert",
+  "displayName": {
+    "en": "Horse - Workflow Optimization Expert",
+    "zh": "马（工作流优化专家）"
+  },
+  "profession": {
+    "en": "ComfyUI工作流优化专家",
+    "zh": "ComfyUI工作流优化专家"
+  },
+  "displayDescription": {
+    "en": "Optimizes ComfyUI workflows for stable and efficient image generation with node configuration tuning.",
+    "zh": "ComfyUI工作流设计优化、节点配置调优、生图效率提升，确保工作流稳定高效运行。"
+  },
+  "avatar": "avatars/avatar.png",
+  "categoryId": "01-ProductDesign",
+  "defaultInitPrompt": {
+    "en": "Render with KeyShot",
+    "zh": "用KeyShot渲染"
+  },
+  "plugin": "horse-rendering-expert",
+  "tags": [
+    {
+      "en": "ComfyUI工作流优化专家",
+      "zh": "ComfyUI工作流优化专家"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Render with KeyShot",
+      "zh": "用KeyShot渲染"
+    },
+    {
+      "en": "Setup ceramic material",
+      "zh": "设置陶瓷材质"
+    },
+    {
+      "en": "Generate rendering images",
+      "zh": "生成渲染图"
+    }
+  ]
+}
