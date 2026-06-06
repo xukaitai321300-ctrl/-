@@ -36,6 +36,65 @@ __pycache__/
 /test_*.py
 /100轮测试_*.py
 /ComfyUI_*.py
+/deep_analyze*.py
+/list_untracked*.py
+
+# === 所有Python脚本（递归）===
+**/*.py
+
+# === 根目录临时报告/文档（不提交）===
+/*报告*.md
+/*学习笔记*.md
+/*周报*.md
+/*任务单*.md
+/*评审*.md
+/*分析*.md
+/*总结*.md
+/*进化*.md
+/*优化*.md
+/*审计*.md
+/*_完整版*.md
+/*_总结报告*.md
+/complete_*.md
+/core_*.md
+/distilled_*.md
+/evolution_*.md
+/file_*.md
+/phase*.md
+/skill_*.md
+/system_*.md
+/知识库_*.md
+/设计迭代_*.md
+/100轮测试_*.md
+/ComfyUI_*.md
+/开源协议_*.md
+/优化方案_*.md
+/全链路压测_*.md
+/智能路由架构_*.md
+/能力进化_*.md
+
+# === 所有Markdown（递归，除了重要文档）===
+**/*.md
+!README.md
+!.gitignore
+!LICENSE
+!/docs/**/*.md
+
+# === 临时目录 ===
+/CI_CD流水线/
+/100轮测试_原始数据/
+/**/输出/
+/**/output/
+/**/temp/
+/**/cache/
+/cleanup_*.py
+/clean_*.py
+/gen_*.py
+/verify_*.py
+/debug_*.py
+/test_*.py
+/100轮测试_*.py
+/ComfyUI_*.py
 
 # === 根目录临时报告/文档（不提交）===
 /*报告*.md
@@ -168,9 +227,8 @@ Thumbs.db
 Desktop.ini
 .DS_Store
 
-# === 其他生成文件 ===
-scripts/
-  *.zip
-  *.tar.gz
-  *.rar
-  *.7z
+# === 压缩包 ===
+*.zip
+*.tar.gz
+*.rar
+*.7z
