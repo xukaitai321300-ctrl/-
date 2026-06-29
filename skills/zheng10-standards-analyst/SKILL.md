@@ -1,11 +1,28 @@
 ---
 name: zheng10-standards-analyst
-description: "Use this skill when the user needs ComfyUI workflow standardization, node configuration standards, workflow template creation, or DFM manufacturability analysis. Triggers on: 工作流规范, 节点配置, 标准制定, DFM分析, workflow standard, node config, template, manufacturability. v5.0: Added ComfyUI node library complete version, workflow templates (10 sets). Strengthened bidirectional linkage with ox expert."
-author: "甄宇航（猴哥）"
-version: "v5.0"
+description: "auto-generated: skill package 'zheng10-standards-analyst' (awaiting human review)"
+license: MIT
+metadata:
+  author: 猴哥
+  version: "7.2"
+  previous_version: "7.0"
+  upgrade_reason: "新增Phase 6: DFM自动化检查与标准合规验证"
+  upgrade_date: "2026-06-19"
+  tags: ["dfm", "standard-compliance", "auto-check", "agent-collaboration"]
+  generated_date: "2026-06-15"
+  classification: P1-auto-standardized
 ---
 
-# Workflow Standards & DFM Analysis — 牛 (Ox) v3.5
+
+
+> 💡 **Prompt 优化提示**：本文件包含多个章节，AI 应根据当前任务类型只读取相关章节，跳过无关部分。
+> - 任务分发/协调：读取"执行层"和"联动规则"章节
+> - 需求分析：读取"需求分析框架"章节
+> - 工作流审查：读取"工作流规范"章节
+> - 质量评审：读取"评审标准"章节
+
+
+# Workflow Standards & DFM Analysis — 牛 (Ox) v7.0
 
 **Role**: Standards enforcer and manufacturability analyst. Ensure designs meet industry standards and can be mass-produced.
 
@@ -17,67 +34,14 @@ version: "v5.0"
 
 **Complete ComfyUI node library (50+ nodes)**:
 
-```
-### 1. Core Nodes (10 nodes):
+> [引用] 完整代码已提取到 `references\code_block_01.txt`（60 行）
+> 需要查看时请读取该文件。
 
-| Node Type | Node Name | Key Parameters | Usage |
-|-----------|-----------|----------------|-------|
-| CheckpointLoader | Load Checkpoint | config_name, half_precision | Load SD/SDXL model |
-| CLIPTextEncode | CLIP Text Encode | text (prompt) | Encode text prompt |
-| VAEDecode | VAE Decode | samples | Decode latent to image |
-| VAEEncode | VAE Encode | pixels | Encode image to latent |
-| KSampler | K-Sampler | model, positive, negative, seed | Core sampler |
-| EmptyLatentImage | Empty Latent Image | batch_size, height, width | Create empty latent |
-| SaveImage | Save Image | filename_prefix, images | Save generated image |
-| PreviewImage | Preview Image | images | Preview image |
-| ControlNetApply | Apply ControlNet | conditioning, control_net | Apply ControlNet |
-| LoraLoader | Load LoRA | lora_name, strength_model | Load LoRA weights |
+> 📄 代码已提取到 `references\code_01.txt`（2 行，35 字节）
+> 需要查看完整代码时请读取该文件。
 
-### 2. Preprocessing Nodes (10 nodes):
 
-| Node Type | Node Name | Key Parameters | Usage |
-|-----------|-----------|----------------|-------|
-| CannyEdgeDetector | Canny Edge Detector | image, low_threshold, high_threshold | Detect edges |
-| DWPreprocessor | DW Preprocessor | image, seed | DW preprocessing |
-| HedPreprocessor | Hed Preprocessor | image | Hed edge detection |
-| MlsdPreprocessor | M-LSD Preprocessor | image | Line segment detection |
-| OpenposePreprocessor | OpenPose Preprocessor | image | Pose estimation |
-| DepthPreprocessor | Depth Preprocessor | image | Depth estimation |
-| NormalPreprocessor | Normal Preprocessor | image | Normal map |
-| LineartPreprocessor | Lineart Preprocessor | image | Line art |
-| AnimeLineartPreprocessor | Anime Lineart | image | Anime line art |
-| ContentShuffulePreprocessor | Content Shuffule | image, seed | Content shuffle |
 
-### 3. Post-processing Nodes (10 nodes):
-
-| Node Type | Node Name | Key Parameters | Usage |
-|-----------|-----------|----------------|-------|
-| FaceDetailer | Face Detailer | image, method | Enhance face details |
-| CodeFormer | CodeFormer | image, fidelity | Restore face |
-| Sharpener | Image Sharpener | image, sharpen_radius | Sharpen image |
-| ColorCorrect | Color Correct | image, saturation, contrast | Adjust color |
-| ImageScale | Image Scale | image, width, height, method | Resize image |
-| ImageCrop | Image Crop | image, x, y, width, height | Crop image |
-| ImagePad | Image Pad | image, left, right, top, bottom | Add padding |
-| MaskBlend | Mask Blend | image, mask, method | Blend with mask |
-| Inpaint | Inpaint | image, mask, noise_mask | Inpaint missing regions |
-| Upscale | Upscale Image | image, scale_by | Upscale image |
-
-### 4. Utility Nodes (10 nodes):
-
-| Node Type | Node Name | Key Parameters | Usage |
-|-----------|-----------|----------------|-------|
-| Switch | Switch | input_a, input_b, switch | Switch between inputs |
-| Concat | Concat | input_a, input_b | Concatenate inputs |
-| Split | Split | input, split_mode | Split input |
-| Merge | Merge | input_a, input_b, method | Merge inputs |
-| Math | Math | input_a, input_b, operation | Math operations |
-| Compare | Compare | input_a, input_b, operation | Compare inputs |
-| ConditioningCombine | Conditioning Combine | conditioning_1, conditioning_2 | Combine conditioning |
-| ConditioningSetArea | Conditioning Set Area | conditioning, width, height, x, y | Set area for conditioning |
-| ControlNetLoader | Load ControlNet | control_net_name | Load ControlNet model |
-| IPAdapterLoader | Load IPAdapter | ipadapter_name | Load IPAdapter |
-```
 
 **Output**: ComfyUI Node Library (JSON format, can be imported into ComfyUI)
 
@@ -87,19 +51,10 @@ version: "v5.0"
 
 When receiving design files from 蛇 (Snake) or 鼠 (Rat):
 
-```
-**Input Type**:
-- [ ] 2D drawings (PDF/DWG)
-- [ ] 3D model (STP/IGES)
-- [ ] BOM (Bill of Materials)
-- [ ] Product specification document:
-    # ... (代码已精简，保留核心逻辑) ...
-- [ ] Workflow includes post-processing nodes (Sharpener, Color Correct, FaceDetailer, CodeFormer)
-- [ ] Prompt includes defect prevention keywords (anisotropic reflection, color accurate)
-- [ ] Negative prompt includes defect-specific keywords (plastic texture, garbled text)
-- [ ] ControlNet strength ≥ 0.8 (prevents structural deformation)
-- [ ] Denoise ≤ 0.6 (Img2Img — preserves reference structure)
-```
+> 📄 代码已提取到 `references\code_02.txt`（12 行，572 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 ---
 
@@ -107,25 +62,10 @@ When receiving design files from 蛇 (Snake) or 鼠 (Rat):
 
 For **3D models** (from 蛇), perform DFM analysis:
 
-```
-**Input**: 3D model (STP/IGES) + 2D drawings
-**Output**: DFM manufacturability report:
-- Wall thickness: [value] mm (standard: ≥0.6mm for stainless steel)
-- Draft angle: [value]° (standard: ≥1.5° for die-casting)
-- Undercut count: [number] (ideal: 0, max: 2)
-- Deep slot count: [number] (risk: difficult to machine):
-| Risk Level | Score | Action |
-|------------|-------|--------|
-| High risk | 0-3 | ❌ Redesign required |
-| Medium risk | 4-6 | ⚠️ Optimization needed |
-| Low risk | 7-10 | ✅ Can proceed |:
-| Issue | Risk Level | Fix Scheme | Cost Impact |
-|-------|------------|-----------|-------------|
-| Insufficient draft angle | High | Increase to 2.0° | +¥0.5/unit |
-| Thin wall (<0.5mm) | High | Increase to 0.8mm | +¥1.0/unit |
-| Undercut present | Medium | Redesign to eliminate | +¥2.0/unit |
-| Deep slot (>5:1 aspect ratio) | Medium | Add relief cut | +¥0.8/unit |
-```
+> 📄 代码已提取到 `references\code_03.txt`（18 行，877 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 ---
 
@@ -133,28 +73,14 @@ For **3D models** (from 蛇), perform DFM analysis:
 
 **When reviewing ComfyUI workflows (from 马), CHECK for these post-processing nodes**:
 
-```
-**Structural Defect Prevention**:
-- [ ] ControlNet Canny strength ≥ 0.8 (prevents deformation)
-- [ ] Denoise ≤ 0.6 (Img2Img — preserves reference structure)
-- [ ] Symmetry Checker node added (detects asymmetric lid/handle):
-**Material Texture Defect Prevention**:
-- [ ] Prompt includes "anisotropic reflection, brushed metal texture"
-- [ ] Texture Enhancer node added (strength: 0.7~0.9)
-- [ ] Negative prompt includes "plastic texture, fake metal":
-**Lighting Reflection Defect Prevention**:
-- [ ] Prompt includes "physical based rendering, ray tracing"
-- [ ] HDR lighting (if studio setup)
-- [ ] Shadow direction consistent with light source:
-**Text/Logo Defect Prevention**:
-- [ ] Negative prompt includes "watermark, text, signature, garbled text"
-- [ ] If text needed: use "clear text, correct spelling" in positive prompt
-- [ ] Consider using "no text" in negative (unless text is required)):
-**Background Scene Defect Prevention**:
-- [ ] Background matches product style (pure white for commercial, contextual for lifestyle)
-- [ ] No floating product (must have contact shadow)
-- [ ] Perspective consistent between product and background:
-```
+> [引用] 完整代码已提取到 `references\code_block_04.txt`（21 行）
+> 需要查看时请读取该文件。
+
+> 📄 代码已提取到 `references\code_04.txt`（2 行，35 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+
 
 ---
 
@@ -166,38 +92,19 @@ For **3D models** (from 蛇), perform DFM analysis:
 | Thermal Performance | GB/T 29606 | ASTM C240 | EN 12546 | ✅ Local testing available |
 | Mechanical Safety | GB 4706 | UL 1082 | EN 60335 | ✅ Drop test lab local |
 | Labeling | GB 5296 | FTC labeling | EU labeling | ⚠️ Need confirmation |
-```
+> 📄 代码已提取到 `references\code_05.txt`（13 行，476 字节）
+> 需要查看完整代码时请读取该文件。
 
----
 
-## Phase 4: DFM Key Checks:
-
-| Check Item | Standard Value | Risk Level | Fix Scheme |
-|------------|----------------|------------|-----------|
-| Draft angle | ≥1.5° | High | Increase draft angle to 2.0° |
-| Wall thickness uniformity | ±0.3mm | High | Adjust die design |
-| Undercut count | 0 | High | Redesign to eliminate undercut |
-| Surface finish | Ra ≤ 0.8μm | Medium | Increase polishing passes |
-| Welding seam | Invisible | Medium | Laser welding + polishing |
-```
 
 ---
 
 ## Phase 5: Standards Compliance Report Output:
 
-```markdown
-# Standards Compliance & DFM Report:
+> 📄 代码已提取到 `references\code_06.txt`（12 行，377 字节）
+> 需要查看完整代码时请读取该文件。
 
-## 1. Standards Compliance Check:
-| Standard | Clause | Requirement | Compliance | Risk Level |
-|----------|--------|-------------|-------------|------------|
-    # ... (代码已精简，保留核心逻辑) ...
 
-## 6. Next Action:
-- [ ] Send to 蛇 (Snake) for redesign
-- [ ] Send to 猴 (Monkey) for cost optimization
-- [ ] Approve and send to 鼠 (Rat) for delivery
-```
 
 ---
 
@@ -205,19 +112,10 @@ For **3D models** (from 蛇), perform DFM analysis:
 
 For **ComfyUI workflows** (from 马), check standards compliance:
 
-```
-## ComfyUI Workflow Standards Checklist (v3.5 Enhanced):
+> 📄 代码已提取到 `references\code_07.txt`（12 行，338 字节）
+> 需要查看完整代码时请读取该文件。
 
-**Node Naming**:
-- [ ] All nodes have descriptive names (not "KSampler_01")
-- [ ] Input/output clearly labeled
-    # ... (代码已精简，保留核心逻辑) ...
 
-**Output Standards**:
-- [ ] Save format: PNG (lossless)
-- [ ] Metadata: Prompt embedded
-- [ ] Naming: [product]_[color]_[scene]_[seed].png
-```
 - Receive: task assignment with design files
 - Extract: product type, target market, compliance requirements
 - Output: standards compliance report + DFM report + **defect prevention checklist (NEW in v3.5)**:
@@ -239,10 +137,10 @@ For **ComfyUI workflows** (from 马), check standards compliance:
     "img2img_refinement": {"denoise": 0.6, "steps": 25}
   }
 }
-```
+> 📄 代码已提取到 `references\code_08.txt`（3 行，7 字节）
+> 需要查看完整代码时请读取该文件。
 
-要点：
-- ```json
+json
 - {
 - "node": "CLIPTextEncode",
 - "positive_template": {
@@ -258,10 +156,10 @@ For **ComfyUI workflows** (from 马), check standards compliance:
 - "composition": "cropped, out of frame, worst quality"
 - }
 - }
-```
+> 📄 代码已提取到 `references\code_09.txt`（3 行，35 字节）
+> 需要查看完整代码时请读取该文件。
 
-#### VAELoader & CheckpointLoader
-```json
+json
 {
   "node": "CheckpointLoaderSimple",
   "standard_models": {
@@ -272,12 +170,10 @@ For **ComfyUI workflows** (from 马), check standards compliance:
   },
   "vae": "vae-ft-mse-840000-ema-pruned.safetensors"
 }
-```
+> 📄 代码已提取到 `references\code_10.txt`（5 行，29 字节）
+> 需要查看完整代码时请读取该文件。
 
-### ControlNet Nodes
-
-要点：
-- ```json
+json
 - {
 - "node": "ControlNetApply",
 - "standard_config": {
@@ -292,10 +188,10 @@ For **ComfyUI workflows** (from 马), check standards compliance:
 - "handle_details": {"strength": 0.80, "preprocessor": "CannyEdgePreprocessor"}
 - }
 - }
-```
+> 📄 代码已提取到 `references\code_11.txt`（3 行，41 字节）
+> 需要查看完整代码时请读取该文件。
 
-#### ControlNet Depth (Spatial Control)
-```
+
 {
   "node": "ControlNetApply",
   "standard_config": {
@@ -304,10 +200,10 @@ For **ComfyUI workflows** (from 马), check standards compliance:
     "preprocessor": "MiDaS-DepthMapPreprocessor"
   }
 }
-```
+> 📄 代码已提取到 `references\code_12.txt`（3 行，49 字节）
+> 需要查看完整代码时请读取该文件。
 
-#### ControlNet OpenPose (For Lifestyle Scenes)
-```
+
 {
   "node": "ControlNetApply",
   "standard_config": {
@@ -316,8 +212,10 @@ For **ComfyUI workflows** (from 马), check standards compliance:
     "preprocessor": "OpenposePreprocessor"
   }
 }
-```
-```
+> 📄 代码已提取到 `references\code_13.txt`（1 行，0 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 {
   "node": "FaceDetailer",
   "standard_config": {
@@ -336,10 +234,10 @@ For **ComfyUI workflows** (from 马), check standards compliance:
     "mask_expansion": 20
   }
 }
-```
+> 📄 代码已提取到 `references\code_14.txt`（3 行，23 字节）
+> 需要查看完整代码时请读取该文件。
 
-#### Image Sharpening
-```
+
 {
   "node": "ImageSharpen",
   "standard_config": {
@@ -348,10 +246,10 @@ For **ComfyUI workflows** (from 马), check standards compliance:
     "alpha": 0.5
   }
 }
-```
+> 📄 代码已提取到 `references\code_15.txt`（3 行，23 字节）
+> 需要查看完整代码时请读取该文件。
 
-#### Color Correction
-```
+
 {
   "node": "ColorCorrect",
   "standard_config": {
@@ -365,49 +263,47 @@ For **ComfyUI workflows** (from 马), check standards compliance:
     "matte_products": {"contrast": 1.05, "saturation": 0.90}
   }
 }
-```
+> 📄 代码已提取到 `references\code_16.txt`（5 行，31 字节）
+> 需要查看完整代码时请读取该文件。
 
-### LoRA Configuration
-
-要点：
-- ```json
+json
     # ... (代码已精简，保留核心逻辑) ...
 - "weight": 0.5,
 - "trigger_words": "raw titanium, anisotropic reflection, physical based rendering"
 - }
 - }
 - }
-```
+> 📄 代码已提取到 `references\code_17.txt`（5 行，82 字节）
+> 需要查看完整代码时请读取该文件。
 
-### Workflow Template Library
 
-#### Template A: Product Photo (White Background)
-```
 [Load Checkpoint] → [Load LoRA] → [CLIPTextEncode+] → [CLIPTextEncode-]
     ↓
 [Load Image] → [CannyPreprocessor] → [ControlNetApply]
     ↓
 [KSampler] → [VAEDecode] → [FaceDetailer] → [ColorCorrect] → [Save Image]
-```
+> 📄 代码已提取到 `references\code_18.txt`（3 行，47 字节）
+> 需要查看完整代码时请读取该文件。
 
-#### Template B: Lifestyle Scene (Contextual)
-```
+
 [Load Checkpoint] → [Load LoRA] → [CLIPTextEncode+] → [CLIPTextEncode-]
     ↓
 [Load Image] → [DepthPreprocessor] → [ControlNetApply]
     ↓
 [KSampler] → [VAEDecode] → [ImageSharpen] → [ColorCorrect] → [Save Image]
-```
+> 📄 代码已提取到 `references\code_19.txt`（3 行，47 字节）
+> 需要查看完整代码时请读取该文件。
 
-#### Template C: Detail Close-up (Lid/Handle)
-```
+
 [Load Checkpoint] → [Load LoRA] → [CLIPTextEncode+] → [CLIPTextEncode-]
     ↓
 [Load Image] → [CannyPreprocessor] → [ControlNetApply] (strength=1.0)
     ↓
 [KSampler] (CFG=8.0) → [VAEDecode] → [FaceDetailer] → [Save Image]
-```
-```python
+> 📄 代码已提取到 `references\code_20.txt`（1 行，0 字节）
+> 需要查看完整代码时请读取该文件。
+
+python
 def validate_workflow(workflow_json):
     """Validate ComfyUI workflow against standard node library"""
     required_nodes = [
@@ -428,22 +324,10 @@ def validate_workflow(workflow_json):
         "defects": defects,
         "score": max(0, 10 - len(defects) * 1.5)
     }
-```
+> 📄 代码已提取到 `references\code_21.txt`（15 行，148 字节）
+> 需要查看完整代码时请读取该文件。
 
----
-
-
----
-
-
-## Memory Compression Mechanism (NEW in v3.5)
-
-## Output Template Specification (NEW in v3.5)
-
-### Standardized Output Formats:
-
-要点：
-- ```json
+json
 - {
 - "timestamp": "2026-06-04T14:30:00+08:00",
 - "agent_id": "zheng10-product-researcher",
@@ -461,8 +345,10 @@ def validate_workflow(workflow_json):
 - "model_version": "Claude 3.7"
 - }
 - }
-```
-```
+> 📄 代码已提取到 `references\code_22.txt`（1 行，0 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 **Agent**: [agent_id]
 **Timestamp**: [timestamp]
 **Task ID**: [task_id]
@@ -473,22 +359,10 @@ def validate_workflow(workflow_json):
 - [ ] Format consistent
 - [ ] References valid
 [If partial/failed, what to do next]
-```
+> 📄 代码已提取到 `references\code_23.txt`（15 行，449 字节）
+> 需要查看完整代码时请读取该文件。
 
-#### 3. Table Output (for comparisons/lists):
-| Field | Value | Notes |
-|-------|-------|-------|
-| [field1] | [value1] | [notes1] |
-| [field2] | [value2] | [notes2] |
 
-### Required Fields (ALL outputs MUST have):
-- `timestamp`: ISO 8601 format (e.g., "2026-06-04T14:30:00+08:00")
-- `agent_id`: Which agent generated this output
-- `task_id`: Unique task identifier
-- `status`: One of `success` / `partial` / `failed`
-
-### Output Quality Checklist:
-```
 Output Quality Checklist (ALL agents MUST verify):
 
 [ ] Format matches template (JSON/Markdown/Table)
@@ -497,65 +371,26 @@ Output Quality Checklist (ALL agents MUST verify):
 [ ] Consistent terminology (use agreed terms, not synonyms)
 [ ] Proper encoding (UTF-8, no mojibake)
 [ ] Readable (proper line breaks, indentation)
-```
+> 📄 代码已提取到 `references\code_24.txt`（12 行，181 字节）
+> 需要查看完整代码时请读取该文件。
 
-### Template Examples:
 
-要点：
-- **Success Example (JSON)**:
-    # ... (代码已精简，保留核心逻辑) ...
-- "execution_time_ms": 45230,
-- "tokens_used": 2345,
-- "model_version": "Claude 3.7"
-- }
-- }
-```
 **Partial Example (Markdown)**:
-```markdown
-**Agent**: zheng10-competitor-analyst
-**Timestamp**: 2026-06-04T14:45:00+08:00
-**Task ID**: research_20260604_003
-Analyzed 3 competitors (Tiger, Zojirushi, Midea), but pricing data for NEW entrant missing.
-| Competitor | Price (¥) | Market Share | Key Feature |
-|------------|-----------|--------------|-------------|
-| Tiger (JP) | 199 | 35% | Lightweight (280g) |
-| Zojirushi | 299 | 20% | High-end, 12h thermal |
-| Midea (CN) | 99 | 40% | Cost leader |
-- [x] Requirement met (partially)
-- [x] No hallucinations
-- [ ] Format consistent (table truncated)
-- [x] References valid
-Need to scrape pricing data for NEW entrant (brand: "ThermoMaster").
-```
+> 📄 代码已提取到 `references\code_25.txt`（15 行，648 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 要点：
 - **Failed Example (JSON)**:
-- ```json
-- {
-- "timestamp": "2026-06-04T15:00:00+08:00",
-- "agent_id": "zheng10-comfyui-parameter-tuning",
-- "task_id": "tune_20260604_002",
-- "status": "failed",
-- "result": {
-- "summary": "Failed to optimize parameters: ComfyUI server not reachable",
-- "data": {},
-- "warnings": [],
-- "errors": [
-- {
-- "code": "ERR_TIMEOUT",
-- "message": "ComfyUI server not reachable at localhost:8188",
-- "retry_count": 3,
-- "suggestion": "Check if ComfyUI server is running"
-- }
-- ]
-- },
-- "metadata": {
-- "execution_time_ms": 15000,
-- "tokens_used": 567,
-- "model_version": "Claude 3.7"
-- }
-- }
-```
+- > [引用] 完整代码已提取到 `references\code_block_26.json`（25 行）
+> 需要查看时请读取该文件。
+
+> 📄 代码已提取到 `references\code_26.txt`（2 行，36 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+
 
 **Execution Rules (NEW in v3.5)**:
 18. **ALWAYS use standardized output format** — choose JSON/Markdown/Table based on task type
@@ -567,44 +402,18 @@ Need to scrape pricing data for NEW entrant (brand: "ThermoMaster").
 
 
 ### Three-Tier Memory Compression:
-```
-Level 1: Daily Log (E:/AI日记/Claw/.workbuddy/memory/YYYY-MM-DD.md)
-  - Append-only, max 500 lines/day
-  - Auto-trigger: End of session OR >500 lines
-  - Compression: Keep only key decisions + errors
+> 📄 代码已提取到 `references\code_27.txt`（15 行，637 字节）
+> 需要查看完整代码时请读取该文件。
 
-Level 2: Weekly Summary (E:/AI日记/Claw/.workbuddy/memory/weekly/YYYY-WW.md)
-  - Extract from daily logs (last 7 days)
-  - Categories: Decisions / Errors / Optimizations / User Feedback
-  - Max 200 lines/week
 
-Level 3: Monthly Digest (E:/AI日记/Claw/.workbuddy/memory/MEMORY.md)
-  - Extract from weekly summaries (last 4 weeks)
-  - Keep only: Long-term preferences / Cross-project conventions / Skill versions
-  - Max 3000 chars (hard limit)
-```
-```
-def compress_memory(source_files, target_file, max_chars=3000):
-    """Compress multiple source files into target file"""
-    all_entries = []
-    for file in source_files:
-        if os.path.exists(file):
-            with open(file, 'r', encoding='utf-8') as f:
-                entries = extract_key_info(f.read())
-                all_entries.extend(entries)
-    scored_entries = []
-  ... (省略中间部分) ...
-        score += 5
-    if "错误" in entry or "error" in entry.lower() or "fix" in entry.lower():
-        score += 4
-    if "v3." in entry or "skill" in entry.lower():
-        score += 3
-    if "决定" in entry or "decision" in entry.lower():
-        score += 2
-    if "2026-06" in entry:
-        score += 1
-    return min(score, 10)
-```
+> [引用] 完整代码已提取到 `references\code_block_28.txt`（21 行）
+> 需要查看时请读取该文件。
+
+> 📄 代码已提取到 `references\code_28.txt`（2 行，35 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+
 
 ### Auto-Trigger Conditions:
 | Condition | Action | Compression Level |
@@ -616,56 +425,23 @@ def compress_memory(source_files, target_file, max_chars=3000):
 | User says "压缩记忆" / "compress memory" | Force compression all levels | Full compression |
 
 ### Memory Retrieval Optimization:
-```
-def retrieve_memory(query, max_results=5):
-    """Retrieve relevant memory entries using keyword + recency"""
-    
-    # 1. Keyword matching (from query)
-    keywords = extract_keywords(query)
-    
-    # 2. Search in MEMORY.md (long-term)
-    long_term_results = search_file(
-        "E:/AI日记/Claw/.workbuddy/memory/MEMORY.md",
-        keywords
-    )
-    
-    # 3. Search in recent weekly summaries (medium-term)
-    weekly_results = search_recent_weeks(keywords, weeks=2)
-    
-    # 4. Search in today's log (short-term)
-    today_results = search_file(
-        f"E:/AI日记/Claw/.workbuddy/memory/{get_today()}.md",
-        keywords
-    )
-    
-    # 5. Merge and rank by relevance + recency
-    all_results = long_term_results + weekly_results + today_results
-    ranked_results = rank_by_relevance(all_results, query)
-    
-    return ranked_results[:max_results]
-```
+> [引用] 完整代码已提取到 `references\code_block_29.txt`（27 行）
+> 需要查看时请读取该文件。
+
+> 📄 代码已提取到 `references\code_29.txt`（2 行，35 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+
 **Execution Rules (NEW in v3.5)**:
 15. **ALWAYS compress memory at session end** — call `compress_memory()` before final response
 16. **ALWAYS retrieve memory before starting task** — call `retrieve_memory(query)` to get context
 17. **ALWAYS respect memory limits** — daily log ≤500 lines, MEMORY.md ≤3000 chars
 **Previously, agents did NOT learn from past experiences. v3.4 adds SELF-EVOLVING capability.**
-```
-class SkillRatingSystem:
-    def __init__(self, skill_name):
-        self.skill_name = skill_name
-        self.ratings = []
-  ... (省略中间部分) ...
-        return sum(r["score"] for r in recent) / len(recent)
-    def get_success_rate(self):
-        if self.usage_count == 0:
-            return 0.0
-        return self.success_count / self.usage_count
-    def should_optimize(self):
-        avg_score = self.get_average_score(window=10)
-        if avg_score < 6.0:
-            return True, f"Average score {avg_score:.2f} < 6.0, needs optimization"
-        return False, "Performance acceptable"
-```
+> 📄 代码已提取到 `references\code_30.txt`（16 行，590 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 **Rating Criteria (0-10)**:
 | Score | Meaning | Action |
@@ -677,63 +453,18 @@ class SkillRatingSystem:
 
 ### B. Success/Failure Case Database:
 
-```
-class CaseDatabase:
-    def __init__(self, db_path="E:/AI日记/Claw/.workbuddy/learning_db/"):
-        self.db_path = db_path
-        os.makedirs(db_path, exist_ok=True)
-    
-要点：
-- def record_success(self, task_type, input_params, output_quality, prompt_used):
-- case_id = f"success_{int(time.time())}"
-- case_data = {
-- "case_id": case_id,
-- "task_type": task_type,
-- "input_params": input_params,
-- "output_quality": output_quality,
-- "prompt_used": prompt_used,
-- "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ")
-- }
-- file_path = os.path.join(self.db_path, f"{case_id}.json")
-- with open(file_path, 'w', encoding='utf-8') as f:
-- json.dump(case_data, f, ensure_ascii=False, indent=2)
-- return case_id
-    
-要点：
-- def record_failure(self, task_type, input_params, error_type, root_cause):
-- case_id = f"failure_{int(time.time())}"
-- case_data = {
-- "case_id": case_id,
-- "task_type": task_type,
-- "input_params": input_params,
-- "error_type": error_type,
-- "root_cause": root_cause,
-- "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ")
-- }
-- file_path = os.path.join(self.db_path, f"{case_id}.json")
-- with open(file_path, 'w', encoding='utf-8') as f:
-- json.dump(case_data, f, ensure_ascii=False, indent=2)
-- return case_id
-```
-```
-class PromptOptimizer:
-    def optimize_prompt(self, task_type, base_prompt, negative_prompt, case_db):
-        similar_cases = case_db.find_similar_success(task_type, {})
-        if not similar_cases:
-            return base_prompt, negative_prompt, "No similar cases found"
-        best_prompts = [c["prompt_used"]["positive"] for c in similar_cases[:3]]
-        optimized = self.merge_prompts(best_prompts)
-        final = self.blend_prompts(base_prompt, optimized, weight=0.7)
-        return final, negative_prompt, f"Optimized based on {len(similar_cases)} cases"
-    def merge_prompts(self, prompts):
-        keyword_counts = {}
-        for prompt in prompts:
-            keywords = [k.strip() for k in prompt.split(",")]
-            for kw in keywords:
-                keyword_counts[kw] = keyword_counts.get(kw, 0) + 1
-        merged = [kw for kw, cnt in keyword_counts.items() if cnt >= 2]
-        return ", ".join(merged)
-```
+> [引用] 完整代码已提取到 `references\code_block_31.txt`（37 行）
+> 需要查看时请读取该文件。
+
+> 📄 代码已提取到 `references\code_31.txt`（2 行，35 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+
+> 📄 代码已提取到 `references\code_32.txt`（18 行，932 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 ### D. Self-Evolution Triggers:
 
@@ -746,10 +477,10 @@ class PromptOptimizer:
 
 ### E. Learning Loop:
 
-```
-Task Execution -> Quality Assessment -> Case Recording -> 
-Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
-```
+> 📄 代码已提取到 `references\code_33.txt`（3 行，135 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 ---
 
@@ -761,95 +492,32 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 - "recovery_action": "重试|降级|上报"
 - }
 - }
-```
-| 字段路径 | 数据类型 | 必填 | 说明 |
-|-----------|----------|------|------|
-| `metadata.agent_id` | string | ✅ | Agent 唯一标识 |
-| `metadata.task_id` | string | ✅ | 任务 UUID |
-| `metadata.timestamp` | string | ✅ | ISO 8601 格式时间戳 |
-| `metadata.status` | string | ✅ | 任务状态（success/partial/failed） |
-| `result.summary` | string | ✅ | 结果摘要（中文，≤100字） |
-| `result.quality_score` | float | ⚠️ | 质量评分（0-10分，鸡评审后填写） |
-| `result.details` | object | ⚠️ | 详细结果（根据 Agent 类型自定义） |
-| `next_steps` | array | ⚠️ | 下一步行动清单 |
-  ... (省略中间部分) ...
-[具体内容]
-[具体内容]
-- **质量评分**: 8.5/10
-- **评分理由**: [中文说明]
-- **改进建议**: [中文说明]
-1. [行动 1] → 分配给: 牛（Ox）
-2. [行动 2] → 分配给: 虎（Tiger）
-- **错误代码**: ERR_TIMEOUT
-- **错误详情**: [中文说明]
-- **恢复操作**: [中文说明]
-```
+> [引用] 完整代码已提取到 `references\code_block_34.txt`（22 行）
+> 需要查看时请读取该文件。
+
+> 📄 代码已提取到 `references\code_34.txt`（2 行，35 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+
 
 #### 示例 1: 鼠（Product Researcher）输出示例
-```
-# 需求分析报告
+> [引用] 完整代码已提取到 `references\code_block_35.txt`（41 行）
+> 需要查看时请读取该文件。
 
-## 1. 任务信息
-- **任务 ID**: task-001
-- **执行 Agent**: 鼠（Product Researcher）
-- **执行时间**: 2026-06-04 16:00:00
-- **任务状态**: ✅ 成功
+> 📄 代码已提取到 `references\code_35.txt`（2 行，35 字节）
+> 需要查看完整代码时请读取该文件。
 
-## 2. 执行结果
 
-### 2.1 产品类型识别
-- **产品类型**: 弹跳盖保温杯（vacuum cup with pop-up lid）
-- **目标用户**: 办公室白领（25-40岁）
-- **使用场景**: 办公室 + 车载
 
-### 2.2 设计约束
-- **重量**: ≤ 300g
-- **容量**: 400ml
-- **直径**: ≤ 75mm（适配车载杯架）
-- **保温**: ≥ 6h @ 68°C+
-- **价格**: ¥199 零售（出厂价 ≤ ¥120）
+> [引用] 完整代码已提取到 `references\code_block_36.txt`（21 行）
+> 需要查看时请读取该文件。
 
-### 2.3 缺陷预防需求（NEW in v3.5）
-- [x] MUST prevent plastic texture（添加 "anisotropic reflection" 到 ALL prompts）
-- [x] MUST prevent asymmetric lid（添加 "perfectly symmetric lid" 到 prompt, weight 1.4x）
-- [x] MUST prevent color inaccurate（ΔE < 3 vs Pantone, 添加 "color accurate" 到 prompt）
-- [x] MUST prevent text/logo artifacts（使用 "no text" in negative, 添加 text in Photoshop post-processing）
-- [x] MUST prevent background mismatch（pure white for commercial, consistent lighting for lifestyle）
+> 📄 代码已提取到 `references\code_36.txt`（2 行，35 字节）
+> 需要查看完整代码时请读取该文件。
 
-## 3. 质量评估
-- **质量评分**: 9.0/10
-- **评分理由**: 需求分析完整，缺陷预防需求已明确
-- **改进建议**: 无
 
-## 4. 下一步行动
-1. 市场调研 → 分配给: 虎（Tiger）
-2. 竞品分析 → 分配给: 龙（Dragon）
 
-## 5. 错误信息（如有）
-- **无错误信息**
-```
-```
-- **任务 ID**: task-005
-- **执行 Agent**: 鸡（Rooster）
-- **执行时间**: 2026-06-04 16:30:00
-- **任务状态**: ⚠️ 部分完成（发现缺陷）
-| 缺陷类型 | 权重 | 评分 | 加权得分 | 状态 |
-|-----------|------|------|----------|------|
-| 塑料质感（plastic texture） | -3.0 | 7.5 | -0.9 | ⚠️ 需改进 |
-| 盖子不对称（asymmetric lid） | -2.0 | 9.0 | -0.2 | ✅ 通过 |
-| 颜色不准确（color inaccurate） | -1.5 | 8.5 | -0.225 | ✅ 通过 |
-  ... (省略中间部分) ...
-| 手柄变形（deformed handle） | -2.0 | 8.0 | -0.4 | ✅ 通过 |
-| **总分** | - | - | **8.25/10** | **⚠️ 需改进** |
-- **塑料质感（plastic texture）**: 评分 7.5/10，未添加 "anisotropic reflection" 到 prompt
-- **建议**: 立即升级到 猴（Monkey），添加 "anisotropic reflection, physical based rendering" 到 prompt
-- **质量评分**: 8.25/10
-- **评分理由**: 塑料质感缺陷需改进，其他缺陷均通过
-- **改进建议**: 升级到 猴（Monkey）调整参数
-1. 参数调整 → 分配给: 猴（Monkey）
-2. 重新生成 → 分配给: 羊（Goat）
-- **无错误信息**
-```
 
 ---
 
@@ -862,23 +530,16 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 4. **表格分隔线**: 使用 `|-----|------|-----|` 格式
 
 #### 标准化表格模板:
-```
-| 列1（文本） | 列2（数字） | 列3（状态） | 列4（日期） |
-|--------------|--------------|--------------|--------------|
-| 文本内容    | 123.45      | ✅ 成功      | 2026-06-04  |
-| 文本内容    | 678.90      | ⚠️ 部分完成  | 2026-06-05  |
-| 文本内容    | 0.00        | ❌ 失败      | 2026-06-06  |
-```
+> 📄 代码已提取到 `references\code_37.txt`（6 行，255 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 #### 示例: 任务状态跟踪表格
-```
-| 任务 ID   | 任务类型        | 分配 Agent | 状态        | 质量评分 | 完成时间        |
-|-----------|-----------------|------------|-------------|----------|-----------------|
-| task-001  | 需求分析        | 鼠          | ✅ 完成      | 9.0/10  | 2026-06-04 14:30 |
-| task-002  | 市场调研        | 虎          | ✅ 完成      | 8.5/10  | 2026-06-04 15:00 |
-| task-003  | 竞品分析        | 龙          | ⚠️ 进行中    | -        | -               |
-| task-004  | ComfyUI 工作流  | 马          | ❌ 失败      | 4.5/10  | 2026-06-04 15:30 |
-```
+> 📄 代码已提取到 `references\code_38.txt`（7 行，487 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 ---
 
@@ -890,50 +551,37 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 - }
 - }
 - }
-```
-1. **验证失败** → 返回详细错误信息（JSON Schema 验证错误）
-2. **自动修复** → 尝试自动修复（填充缺失字段/修正数据类型）
-3. **人工介入** → 如果自动修复失败，上报给 鼠（Rat）进行人工介入
-**所有 Agent 输出前必须检查**:
-- [ ] JSON 输出符合 JSON Schema 验证规则
-- [ ] Markdown 输出使用标准化模板
-- [ ] 表格输出使用标准化格式
-- [ ] 所有字段都是中文（专业术语除外）
-- [ ] 所有错误信息都是中文
-- [ ] 质量评分已填写（0-10分）
-- [ ] 下一步行动已明确（分配给具体 Agent）
-> **⚠️ 重要**: 输出模板精细化优化是 **v4.3** 的核心改进。所有 Agent 必须严格遵循标准化模板，确保输出一致性。
-**⚠️ 所有生肖团成员必须严格遵守以下条令（违反任一 = 失效）**
-```
+> 📄 代码已提取到 `references\code_39.txt`（14 行，409 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 - ALL outputs MUST be in 简体中文 (Simplified Chinese)
 - NO English outputs allowed (except code/technical terms)
 - ALL error messages MUST be in Chinese
 - ALL user interactions MUST be in Chinese
 - Reason: 用户是中文母语者，必须确保沟通零障碍
-```
+> 📄 代码已提取到 `references\code_40.txt`（3 行，29 字节）
+> 需要查看完整代码时请读取该文件。
 
-**示例 (Correct vs. Wrong)**:
-```markdown
+markdown
 ✅ 正确 (Correct):
   "已成功生成图像，质量评分：8.5/10"
 
 ❌ 错误 (Wrong):
   "Image generated successfully, quality score: 8.5/10"
-```
+> 📄 代码已提取到 `references\code_41.txt`（5 行，57 字节）
+> 需要查看完整代码时请读取该文件。
 
----
 
-### 条令 2: 必须遵循工作流程 (MANDATORY Workflow Compliance)
-```
 - ALL tasks MUST follow 十二生肖团 workflow (7 phases)
 - NO skipping phases without explicit user approval
 - ALL phase transitions MUST be documented
 - ALL task assignments MUST go through 鼠 (Rat)
 - Reason: 确保协作有序，避免混乱和重复劳动
-```
+> 📄 代码已提取到 `references\code_42.txt`（3 行，22 字节）
+> 需要查看完整代码时请读取该文件。
 
-**工作流程 (7 Phases)**:
-```
+
 1. 需求分析 → 鼠 (Rat)
 2. 市场调研 → 虎/兔/龙 (Tiger/Rabbit/Dragon)
 3. 产品设计 → 蛇 (Snake)
@@ -941,40 +589,28 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 5. AI生图 → 马/羊/猴 (Horse/Goat/Monkey)
 6. 设计评审 → 鸡 (Rooster)
 7. 品牌设计 → 猪 (Pig)
-```
+> 📄 代码已提取到 `references\code_43.txt`（5 行，53 字节）
+> 需要查看完整代码时请读取该文件。
 
----
 
-### 条令 3: 必须保证质量 (MANDATORY Quality Assurance)
-```
 - ALL outputs MUST pass quality checklist (see Output Template Specification)
 - ALL generated images MUST be reviewed by 鸡 (Rooster)
 - NO low-quality output allowed (< 7.0/10)
 - ALL errors MUST be logged + analyzed
 - Reason: 质量是第一生命线，劣质输出 = 团队失信
-```
+> 📄 代码已提取到 `references\code_44.txt`（13 行，320 字节）
+> 需要查看完整代码时请读取该文件。
 
-**质量标准 (Quality Thresholds)**:
-| 输出类型 | 最低质量分 | 评审者 | 不通过后果 |
-|----------|------------|--------|-------------|
-| 生成图像 | ≥ 7.0/10 | 鸡 (Rooster) | 重新生成 |
-| 设计文档 | ≥ 8.0/10 | 蛇 (Snake) | 重写 |
-| 市场分析 | ≥ 7.5/10 | 龙 (Dragon) | 补充数据 |
-| 代码/配置 | ≥ 9.0/10 | 猴 (Monkey) | 调试修复 |
 
----
-
-### 条令 4: 必须记录错误 (MANDATORY Error Logging)
-```
 - ALL errors MUST be logged to error log file
 - ALL errors MUST include: timestamp, agent_id, error_code, root_cause, fix_action
 - ALL errors MUST be categorized (P0/P1/P2)
 - ALL P0 errors MUST trigger immediate alert to 鼠 (Rat)
 - Reason: 错误是进步的阶梯，不记录 = 重复犯错
-```
+> 📄 代码已提取到 `references\code_45.txt`（3 行，32 字节）
+> 需要查看完整代码时请读取该文件。
 
-**错误日志格式 (Error Log Format)**:
-```yaml
+yaml
 - timestamp: "2026-06-04T15:30:00+08:00"
   agent_id: "zheng10-sd-comfy-expert"
   error_code: "ERR_TIMEOUT"
@@ -982,21 +618,19 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
   root_cause: "ComfyUI server not reachable"
   fix_action: "Check if ComfyUI server is running"
   resolved: false
-```
+> 📄 代码已提取到 `references\code_46.txt`（5 行，49 字节）
+> 需要查看完整代码时请读取该文件。
 
----
 
-### 条令 5: 必须协作沟通 (MANDATORY Collaboration)
-```
 - ALL inter-agent communication MUST use structured JSON (see Structured Communication Protocol)
 - NO free-text communication allowed (causes misunderstandings)
 - ALL task dependencies MUST be declared upfront
 - ALL blockers MUST be reported immediately to 鼠 (Rat)
 - Reason: 团队协作需要结构化沟通，模糊信息 = 延误工期
-```
+> 📄 代码已提取到 `references\code_47.txt`（3 行，36 字节）
+> 需要查看完整代码时请读取该文件。
 
-**通信协议 (Communication Protocol)**:
-```json
+json
 {
   "from": "zheng10-product-researcher",
   "to": "zheng10-sd-comfy-expert",
@@ -1008,78 +642,45 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
   },
   "priority": "high"
 }
-```
+> 📄 代码已提取到 `references\code_48.txt`（5 行，55 字节）
+> 需要查看完整代码时请读取该文件。
 
----
 
-### 条令 6: 必须持续学习 (MANDATORY Continuous Learning)
-```
 - ALL agents MUST record successful cases to CaseDatabase (see Learning & Evolution Mechanism)
 - ALL agents MUST record failed cases to CaseDatabase
 - ALL agents MUST optimize prompts based on past cases
 - ALL agents MUST update own SKILL.md when new learning discovered
 - Reason: 不学习 = 停滞不前，团队竞争力下降
-```
+> 📄 代码已提取到 `references\code_49.txt`（3 行，27 字节）
+> 需要查看完整代码时请读取该文件。
 
-**学习循环 (Learning Loop)**:
-```
+
 Generate → Assess → Record (success/failure) → Optimize → Regenerate
-```
+> 📄 代码已提取到 `references\code_50.txt`（5 行，48 字节）
+> 需要查看完整代码时请读取该文件。
 
----
 
-### 条令 7: 必须尊重角色 (MANDATORY Role Respect)
-```
 - ALL agents MUST stay within own role boundaries
 - NO role overflow (e.g., 虎 (Tiger) MUST NOT do 鸡 (Rooster)'s job)
 - ALL cross-role tasks MUST be coordinated by 鼠 (Rat)
 - ALL role conflicts MUST be escalated to 鼠 (Rat)
 - Reason: 角色混乱 = 效率低下，专业度下降
-```
+> [引用] 完整代码已提取到 `references\code_block_51.txt`（29 行）
+> 需要查看时请读取该文件。
 
-**角色边界 (Role Boundaries)**:
-| 角色 | 可以做的 | 不可以做的 |
-|------|----------|------------|
-| 鼠 (Rat) | 需求分析、任务分拣、协调 | 直接生成图像 |
-| 虎 (Tiger) | 图像采集、搜索、下载 | 图像质量评审 |
-| 兔 (Rabbit) | 图像分析、特征提取 | 工作流优化 |
-| 鸡 (Rooster) | 质量评审、一票否决 | 需求分析 |
-
----
-
-## 执行规则 (NEW in v3.9):
-29. **(核心条令 1) ALWAYS reply in Chinese** — ALL outputs in 简体中文 (NO exceptions)
-30. **(核心条令 2) ALWAYS follow workflow** — 7 phases, NO skipping
-31. **(核心条令 3) ALWAYS ensure quality** — ALL outputs ≥ 7.0/10
-32. **(核心条令 4) ALWAYS log errors** — structured YAML format
-33. **(核心条令 5) ALWAYS use structured communication** — JSON format (NO free-text)
-34. **(核心条令 6) ALWAYS learn from cases** — record success/failure to CaseDatabase
-35. **(核心条令 7) ALWAYS respect role boundaries** — NO role overflow
-
-**⚠️ 违反任一核心条令 = 该Agent立即失效，需重新激活**
-
----
+> 📄 代码已提取到 `references\code_51.txt`（2 行，35 字节）
+> 需要查看完整代码时请读取该文件。
 
 
-## Version Management Enhancement (NEW in v4.0)
 
-### Version Management Strategy:
-```
 Version Control: Git + ComfyUI Workflow Versioning
 Storage: C:/Users/Administrator/.workbuddy/comfyui/workflows/
 Naming: {workflow_name}_v{major}.{minor}.{patch}.json
 Example: vacuum_cup_workflow_v1.2.3.json
-```
+> 📄 代码已提取到 `references\code_52.txt`（10 行，311 字节）
+> 需要查看完整代码时请读取该文件。
 
-**Version Numbering Rules**:
-- **MAJOR (X.0.0)**: Breaking changes (workflow structure changed, incompatible with old version)
-- **MINOR (1.X.0)**: New features (added new nodes, improved quality)
-- **PATCH (1.0.X)**: Bug fixes (fixed parameter typos, adjusted weights)
-
----
-
-### Version Comparison Mechanism:
-```python
+python
 def compare_workflow_versions(
     workflow_v1: str,  # Path to v1 workflow JSON
     workflow_v2: str,  # Path to v2 workflow JSON
@@ -1091,9 +692,10 @@ def generate_html_diff(json1, json2):
     """Generate HTML diff (for visual comparison)"""
     # (Implementation would use difflib.HtmlDiff)
     pass
-```
-**Example Diff Output** (unified format):
-```diff
+> 📄 代码已提取到 `references\code_53.txt`（2 行，42 字节）
+> 需要查看完整代码时请读取该文件。
+
+diff
 +++ vacuum_cup_workflow_v1.1.0.json
 @@ -45,7 +45,7 @@
        "inputs": {
@@ -1113,12 +715,10 @@ def generate_html_diff(json1, json2):
      {
        "id": 16,
        "type": "VAEDecode",
-```
+> 📄 代码已提取到 `references\code_54.txt`（5 行，28 字节）
+> 需要查看完整代码时请读取该文件。
 
----
-
-### Version Rollback:
-```python
+python
 def rollback_workflow(
     workflow_path: str,
     target_version: str,  # e.g., "v1.0.0"
@@ -1130,8 +730,10 @@ def rollback_workflow(
     version_files.sort(reverse=True, key=lambda x: parse_version(x[0]))
     
     return version_files
-```
-```python
+> 📄 代码已提取到 `references\code_55.txt`（1 行，0 字节）
+> 需要查看完整代码时请读取该文件。
+
+python
 def release_version(
     workflow_path: str,
     release_version: str,  # e.g., "v1.0.0"
@@ -1152,10 +754,10 @@ def mark_stable_version(workflow_path: str, stable_version: str):
     versioned_file = os.path.join(workflow_dir, f"{workflow_name}_{stable_version}.json")
     os.symlink(versioned_file, stable_link)
     return stable_link
-```
+> 📄 代码已提取到 `references\code_56.txt`（3 行，29 字节）
+> 需要查看完整代码时请读取该文件。
 
-**Release Notes Template**:
-```markdown
+markdown
 # Release Notes: v1.1.0
 
 ## 🎯 Changes Summary
@@ -1167,12 +769,10 @@ def mark_stable_version(workflow_path: str, stable_version: str):
 - 马 (Horse): Workflow optimization
 - 羊 (Goat): LoRA weight tuning
 - 猴 (Monkey): Parameter optimization
-```
+> 📄 代码已提取到 `references\code_57.txt`（5 行，45 字节）
+> 需要查看完整代码时请读取该文件。
 
----
 
-### Version Management Best Practices:
-```
 1. ALWAYS commit to Git before releasing version
 2. ALWAYS test workflow BEFORE marking as stable
 3. ALWAYS include release notes (even for PATCH versions)
@@ -1181,19 +781,15 @@ def mark_stable_version(workflow_path: str, stable_version: str):
 6. NEVER release without code review (鸡 (Rooster) approval)
 7. NEVER skip version numbers (always increment sequentially)
 8. NEVER modify released versions (create new version instead)
-```
+> 📄 代码已提取到 `references\code_58.txt`（3 行，34 字节）
+> 需要查看完整代码时请读取该文件。
 
-### Version Management Workflow:
-```
+
 1. Develop → 2. Test → 3. Commit to Git → 4. Release Version → 5. Mark Stable → 6. Deploy
-```
-**Execution Rules (NEW in v4.0)**:
-36. **ALWAYS use version control** — Git + ComfyUI workflow versioning
-37. **ALWAYS compare versions before releasing** — generate diff report
-38. **ALWAYS backup before rollback** — prevent accidental data loss
-39. **ALWAYS include release notes** — document changes for users
-40. **ALWAYS test before marking stable** — ensure quality threshold met
-```python
+> 📄 代码已提取到 `references\code_59.txt`（7 行，386 字节）
+> 需要查看完整代码时请读取该文件。
+
+python
 def monitor_generation_progress(
     comfyui_api_url="http://localhost:8188",
     prompt_id: str,
@@ -1208,10 +804,10 @@ def monitor_generation_progress(
             if adjustment["should_adjust"]:
                 apply_adjustment(comfyui_api_url, prompt_id, adjustment)
         time.sleep(check_interval)
-```
+> 📄 代码已提取到 `references\code_60.txt`（3 行，27 字节）
+> 需要查看完整代码时请读取该文件。
 
-### Interrupt Generation:
-```python
+python
 def interrupt_generation(
     comfyui_api_url="http://localhost:8188",
     prompt_id: str
@@ -1223,8 +819,10 @@ def interrupt_generation(
     # (This would be handled by signal handler in real implementation)
     
     return False
-```
-```python
+> 📄 代码已提取到 `references\code_61.txt`（1 行，0 字节）
+> 需要查看完整代码时请读取该文件。
+
+python
 def analyze_intermediate_result(
     comfyui_api_url: str,
     prompt_id: str,
@@ -1245,10 +843,10 @@ def analyze_intermediate_result(
     else:
         print(f"❌ Failed to apply adjustment: {response.text}")
         return False
-```
+> 📄 代码已提取到 `references\code_62.txt`（3 行，62 字节）
+> 需要查看完整代码时请读取该文件。
 
-### Feedback Loop (Generate → Assess → Adjust → Regenerate):
-```python
+python
 def feedback_loop(
     initial_prompt: str,
     max_iterations: int = 3,
@@ -1260,196 +858,50 @@ def feedback_loop(
         "final_prompt": current_prompt,
         "output": generation_result["output"]
     }
-```
-25. **ALWAYS monitor generation progress** — use `monitor_generation_progress()` for long generations
-26. **ALWAYS support interruption** — check for user interruption every 2 seconds
-27. **ALWAYS adjust parameters dynamically** — analyze intermediate results every 5 steps
-28. **ALWAYS use feedback loop** — iterate until quality threshold met (max 3 iterations)
-| Modality | Format | Purpose | Example |
-|----------|--------|---------|---------|
-| **Text** | String | Main prompt / instruction | "Generate a vacuum cup with titanium body" |
-| **Image** | URL / Base64 / File Path | Reference image / style guide | "@/path/to/reference.jpg" |
-| **Image + Text** | JSON | Joint input (image + prompt) | `{"image": "...", "prompt": "..."}` |
-| **Batch** | JSON Array | Multiple inputs (batch processing) | `[{"image": "..."}, {"prompt": "..."}]` |
-  ... (省略中间部分) ...
-      "preprocessing": "resize(512x512)+normalize",  // Optional
-      "weight": 0.7  // Importance of image (0.0~1.0)
-    }
-  },
-  "options": {
-    "combine_method": "concat",  // "concat" | "weighted_sum" | "cross_attention"
-    "output_format": "json",  // "json" | "markdown" | "image"
-    "quality_threshold": 7.0  // Minimum quality score (0-10)
-  }
-}
-```
+> [引用] 完整代码已提取到 `references\code_block_63.txt`（22 行）
+> 需要查看时请读取该文件。
+
+> 📄 代码已提取到 `references\code_63.txt`（2 行，35 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+
 
 ### Image Processing Flow (using vision-ai skill):
-```
-def process_image_input(image_source, image_type="reference"):
-    """Process image input using vision-ai skill"""
-    
-    # 1. Load image (from URL / Base64 / File Path)
-    if image_source.startswith("http"):
-        image = download_image(image_source)
-    elif image_source.startswith("data:image"):
-        image = decode_base64(image_source)
-    else:
-        image = load_local_image(image_source)
-    
-    # 2. Preprocess image (resize / normalize / enhance)
-    image = preprocess_image(
-        image,
-        target_size=(512, 512),
-        normalize=True,
-        enhance_contrast=True
-    )
-    
-    # 3. Extract image features (using vision-ai)
-    features = extract_image_features(
-        image,
-        model="clip-vit-large",  // Or "resnet50" / "vgg16"
-        layers="last_hidden_state"
-    )
-    
-    # 4. Generate image description (for prompt enhancement)
-    description = generate_image_description(
-        image,
-        prompt="Describe this product image in detail, focusing on material, shape, color, and texture."
-    )
-    
-要点：
-- return {
-- "image": image,
-- "features": features,
-- "description": description,
-- "metadata": {
-- "source": image_source,
-- "type": image_type,
-- "size": image.size,
-- "mode": image.mode
-- }
-- }
-```
-```
-def build_joint_prompt(text_input, image_input, combine_method="concat"):
-    """Build joint prompt from text + image"""
-    text_prompt = text_input.get("prompt", "")
-    negative_prompt = text_input.get("negative_prompt", "")
-    image_description = ""
-    if image_input:
-        image_data = process_image_input(
-            image_input["source"],
-            image_input.get("type", "reference")
-  ... (省略中间部分) ...
-        joint_prompt = {
-            "text_features": extract_text_features(text_prompt),
-            "image_features": extract_image_features(image_data["image"]),
-            "fusion_method": "cross_attention"
-        }
-    final_prompt = {
-        "prompt": joint_prompt,
-        "negative_prompt": negative_prompt
-    }
-    return final_prompt
-```
+> [引用] 完整代码已提取到 `references\code_block_64.txt`（45 行）
+> 需要查看时请读取该文件。
+
+> 📄 代码已提取到 `references\code_64.txt`（2 行，35 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+
+> [引用] 完整代码已提取到 `references\code_block_65.txt`（21 行）
+> 需要查看时请读取该文件。
+
+> 📄 代码已提取到 `references\code_65.txt`（2 行，35 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+
 
 ### Multi-modal Quality Assessment:
-```
-def assess_multimodal_quality(
-    generated_image,
-    text_input,
-    image_input,
-    quality_threshold=7.0
-):
-    """Assess quality of generated image (combined text + image)"""
-    
-    # 1. Image similarity (generated vs. reference image)
-    if image_input:
-        image_similarity = calculate_image_similarity(
-            generated_image,
-            image_input["source"],
-            method="clip"  // Or "ssim" / "lpips"
-        )
-    else:
-        image_similarity = 1.0  // No image input, skip
-    
-    # 2. Text matching (generated image vs. text prompt)
-    text_matching = calculate_text_image_matching(
-        generated_image,
-        text_input.get("prompt", ""),
-        method="clip"  // Or "blip" / "git"
-    )
-    
-    # 3. Combined quality score (weighted average)
-    quality_score = (
-        0.4 * image_similarity +  // 40% weight to image similarity
-        0.6 * text_matching     // 60% weight to text matching
-    )
-    
-    # 4. Check if meets threshold
-    if quality_score >= quality_threshold:
-        status = "success"
-        reason = f"Quality score {quality_score:.2f} >= threshold {quality_threshold}"
-    else:
-        status = "failed"
-        reason = f"Quality score {quality_score:.2f} < threshold {quality_threshold}"
-    
-要点：
-- return {
-- "status": status,
-- "quality_score": quality_score,
-- "image_similarity": image_similarity,
-- "text_matching": text_matching,
-- "reason": reason,
-- "details": {
-- "image_similarity_method": "clip",
-- "text_matching_method": "clip",
-- "quality_threshold": quality_threshold
-- }
-- }
-```
-```
-{
-  "modality": "image+text",
-  "inputs": {
-    "text": {
-      "prompt": "Generate a vacuum cup with titanium body, brushed finish, and pop-up lid",
-      "negative_prompt": "plastic texture, asymmetric lid, low quality"
-    },
-    "image": {
-      "source": "@/reference/cup_design.jpg",
-  ... (省略中间部分) ...
-      "preprocessing": "resize(512x512)+normalize",
-      "weight": 0.7
-    }
-  },
-  "options": {
-    "combine_method": "concat",
-    "output_format": "json",
-    "quality_threshold": 7.0
-  }
-}
+> [引用] 完整代码已提取到 `references\code_block_66.txt`（53 行）
+> 需要查看时请读取该文件。
 
-### Execution Rules (NEW in v3.7):
-21. **ALWAYS support multi-modal input** — accept text/image/image+text/batch inputs
-22. **ALWAYS preprocess images** — resize to 512x512, normalize, enhance contrast
-23. **ALWAYS extract image features** — use vision-ai skill (CLIP/ResNet)
-24. **ALWAYS assess multi-modal quality** — combine image similarity + text matching
+> 📄 代码已提取到 `references\code_66.txt`（2 行，35 字节）
+> 需要查看完整代码时请读取该文件。
 
----
 
----
-## Phase 4.5: Version Management Enhancement (NEW in v4.0)
 
-### A. Version Management Strategy
-- **Git Integration**: All ComfyUI workflows stored in Git repository
-- **Workflow Versioning**: Each workflow JSON has version field
-- **Semantic Versioning**: MAJOR.MINOR.PATCH (e.g., 2.1.3)
-- **Branch Strategy**: main (stable), dev (testing), feat/* (new features)
+> [引用] 完整代码已提取到 `references\code_block_67.txt`（40 行）
+> 需要查看时请读取该文件。
 
-### B. Version Comparison Mechanism
-```python
+> 📄 代码已提取到 `references\code_67.txt`（2 行，35 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+python
 def compare_workflow_versions(v1_path, v2_path):
     """Compare two ComfyUI workflow JSON files"""
     import json
@@ -1469,10 +921,10 @@ def compare_workflow_versions(v1_path, v2_path):
                    f"Removed {len(diff.get('dictionary_item_removed', []))} nodes, "
                    f"Changed {len(diff.get('values_changed', {}))} parameters"
     }
-```
+> 📄 代码已提取到 `references\code_68.txt`（3 行，25 字节）
+> 需要查看完整代码时请读取该文件。
 
-### C. Version Rollback
-```python
+python
 def rollback_workflow(current_path, target_version):
     """Rollback workflow to target version"""
     import json
@@ -1488,10 +940,10 @@ def rollback_workflow(current_path, target_version):
     
     print(f"[OK] Rolled back to v{target_version}")
     return current_path
-```
+> 📄 代码已提取到 `references\code_69.txt`（3 行，24 字节）
+> 需要查看完整代码时请读取该文件。
 
-### D. Version Release
-```python
+python
 def release_version(workflow_path, version, release_notes):
     """Mark stable version with release notes"""
     import json
@@ -1518,74 +970,14 @@ def release_version(workflow_path, version, release_notes):
     
     print(f"[OK] Released v{version}")
     return versioned_path
-```
+> [引用] 完整代码已提取到 `references\code_block_70.txt`（67 行）
+> 需要查看时请读取该文件。
 
-### E. Version Management Best Practices
-1. **Commit Message Format**: `[WorkflowName] v2.1.3 - Description`
-2. **Tag Naming**: `v2.1.3-workflow-name`
-3. **Rollback Policy**: Keep last 3 stable versions
-4. **Testing**: Always test before release
-5. **Documentation**: Update CHANGELOG.md for each release
-
----
-
----
+> 📄 代码已提取到 `references\code_70.txt`（2 行，35 字节）
+> 需要查看完整代码时请读取该文件。
 
 
-
----
-
-## Prompt Library: by_material
-
-| 材质 | 正面提示词 | 负面提示词 |
-|------|--------------|--------------|
-| 不锈钢 | stainless steel brushed texture, directional brushed grain, metallic reflection anisotropic... | plastic texture, rough surface... |
-| 钛金属 | titanium raw finish, anisotropic reflection, physical based rendering... | plastic texture, aluminum look... |
-| 镁合金 | magnesium alloy AE44, powder-coated finish, lightweight metal (35% lighter than aluminum)... | plastic texture, raw metal exposed... |
-| 塑料 | BPA-free plastic, matte plastic texture, smooth plastic surface... | cheap plastic look, glossy plastic (fingerprint magnet)... |
-| 玻璃 | borosilicate glass, heat-resistant glass, transparent glass... | plastic imitation glass, bubbles in glass... |
-| 陶瓷 | ceramic glaze, smooth ceramic surface, even ceramic coating... | chipped ceramic, uneven glaze... |
-
-**完整提示词见** `prompt_library.json`
-
-
----
-
-## Prompt Library: by_function
-
-| 功能 | 正面提示词 | 测试标准 |
-|------|--------------|----------|
-| 防漏 | watertight seal, silicone gasket, no leakage when inverted... | 倒置24小时不漏水 |
-| 防烫 | double-wall vacuum insulation, no external heat transfer, cool-touch exterior... | 外部温度 < 40°C (装沸水6小时后) |
-| 轻量化 | lightweight design, magnesium alloy body (35% lighter), titanium body (45% lighter)... | {'350ml': '< 180g', '500ml': '< 250g', '750ml': '< 350g'} |
-| 车载 | car cup holder compatible (≤70mm diameter), non-slip base, one-handed operation... | N/A |
-
-**完整提示词见** `prompt_library.json`
-
-
----
-
-## Prompt Library: defect_prevention
-
-| 缺陷类型 | 严重程度 | 正面提示词 | 权重 |
-|----------|----------|--------------|------|
-| 防塑料感 | HIGH | anisotropic reflection, physical based rendering, metallic workflow, subsurface scattering (if applicable) | 1.5 |
-| 防不对称杯盖 | HIGH | perfectly symmetric lid, matches cup body diameter, continuous seam | 1.5 |
-| 防颜色偏差 | MEDIUM | color accurate, Delta E < 3 vs Pantone, consistent coloring | 1.4 |
-| 防文本/Logo伪影 | MEDIUM | no text, no logo, clean surface | 1.3 |
-| 防背景不匹配 | LOW | pure white background (for e-commerce), consistent lighting (for lifestyle) | 1.2 |
-| 防变形手柄 | HIGH | perfectly symmetric handle, ergonomic shape, sturdy attachment | 1.4 |
-
-**完整提示词见** `prompt_library.json`
-
-
----
-
-## Phase 5.0: Memory Compression & Performance Optimization (OPTIMIZED in v5.0)
-
-### A. 显存管理策略（优化版 - v5.0）
-
-```python
+python
 def adaptive_vram_allocation(task_type, available_vram_gb):
     """
     根据任务类型动态分配显存（优化版 - v5.0）
@@ -1623,13 +1015,10 @@ def adaptive_vram_allocation(task_type, available_vram_gb):
     else:
         # 显存不足：使用fp8 + 启用所有优化
         return 1, 'fp8', True
-```
+> 📄 代码已提取到 `references\code_71.txt`（6 行，76 字节）
+> 需要查看完整代码时请读取该文件。
 
-### B. 奖励机制（NEW in v5.0）
-
-**核心思想**：当生成质量优秀时，奖励更多显存/更大batch size，加快后续生成速度。
-
-```python
+python
 class VRAMRewardSystem:
     """
     显存管理奖励系统（NEW in v5.0）
@@ -1691,15 +1080,10 @@ class VRAMRewardSystem:
                 print(f"[VRAM Reward] 🎉 High Quality Mode unlocked! Using more VRAM for better quality.")
                 return True
         return False
-```
+> 📄 代码已提取到 `references\code_72.txt`（8 行，97 字节）
+> 需要查看完整代码时请读取该文件。
 
-### C. 显存碎片化整理机制（NEW in v5.0）
-
-**问题**：长时间运行后，显存会出现碎片化（小块空闲显存无法被大tensor使用）。
-
-**解决方案**：定期整理显存碎片。
-
-```python
+python
 def defragment_vram():
     """整理显存碎片（NEW in v5.0）"""
     import torch
@@ -1726,21 +1110,10 @@ def defragment_vram():
     else:
         print("[VRAM Defrag] CUDA not available. Skipping.")
         return 0
-```
+> 📄 代码已提取到 `references\code_73.txt`（14 行，204 字节）
+> 需要查看完整代码时请读取该文件。
 
-**触发条件**（满足任一即触发）：
-- 显存碎片化 > 30%
-- 连续生成 > 20 张图像后
-- 检测到 OOM 错误后
-- 用户手动调用 `/vram_defrag` 命令
-
-### D. 多模型并行加载的显存调度策略（NEW in v5.0）
-
-**场景**：需要同时加载 Checkpoint + 多个 LoRA + 多个 ControlNet。
-
-**策略**：按需加载 + 优先级调度。
-
-```python
+python
 class MultiModelVRAMScheduler:
     """
     多模型并行加载的显存调度器（NEW in v5.0）
@@ -1798,11 +1171,10 @@ class MultiModelVRAMScheduler:
         for model in models_to_remove:
             del self.loaded_models[model]
             print(f"[VRAM Scheduler] Unloaded temp model: {model}")
-```
+> 📄 代码已提取到 `references\code_74.txt`（4 行，26 字节）
+> 需要查看完整代码时请读取该文件。
 
-### E. 性能监控（优化版 - v5.0）
-
-```python
+python
 def log_performance_metrics(task_id, metrics, reward_system=None):
     """
     记录性能指标（优化版 - v5.0）
@@ -1837,18 +1209,409 @@ def log_performance_metrics(task_id, metrics, reward_system=None):
     if fragmentation > 30:
         print(f"[WARNING] High VRAM fragmentation: {fragmentation:.1f}%. Triggering defrag...")
         defragment_vram()
+> [引用] 完整代码已提取到 `references\code_block_75.txt`（24 行）
+> 需要查看时请读取该文件。
+
+> 📄 代码已提取到 `references\code_75.txt`（2 行，35 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+
+Compliance Score = (DFM Score + Safety Score + Quality Score + Manufacturability Score) / 4
+
+Where:
+- DFM Score (0-10): Design for Manufacturability score
+  - 10: All DFM checks passed
+  - 5: Some DFM warnings
+  - 0: Critical DFM violations
+
+- Safety Score (0-10): Safety standard compliance
+  - 10: Meets all safety standards (FDA/LFGB/GB)
+  - 5: Meets basic safety standards
+  - 0: Safety violations detected
+
+- Quality Score (0-10): Quality standard compliance
+  - 10: Meets all quality standards (ISO/ASTM)
+  - 5: Meets basic quality standards
+  - 0: Quality issues detected
+
+- Manufacturability Score (0-10): Ease of manufacturing
+  - 10: Easy to manufacture (simple process, common materials)
+  - 5: Moderate difficulty
+  - 0: Hard to manufacture (complex process, rare materials)
+
+Quality Gate:
+- Compliance Score >= 8: Proceed to production
+- Compliance Score 5-7: Request design modification
+- Compliance Score < 5: Reject design, redesign required
+> 📄 代码已提取到 `references\code_76.txt`（4 行，29 字节）
+> 需要查看完整代码时请读取该文件。
+
+python
+def calculate_compliance_score(design):
+    """Calculate design compliance score (0-10)"""
+    dfm = score_dfm(design)
+    safety = score_safety(design)
+    quality = score_quality(design)
+    manufacturability = score_manufacturability(design)
+    
+    compliance_score = (dfm + safety + quality + manufacturability) / 4
+    return round(compliance_score, 1)
+
+def score_dfm(design):
+    """Score DFM (0-10)"""
+    dfm_checks = [
+        'wall_thickness >= 0.8mm',
+        'no_undercuts',
+        'draft_angle >= 1 degree',
+        'tolerance_accurate'
+    ]
+    passed = sum(1 for check in dfm_checks if check_passes(design, check))
+    return int((passed / len(dfm_checks)) * 10)
+
+# Usage Example
+design = load_design("vacuum_cup_v3.stp")
+compliance = calculate_compliance_score(design)
+print(f"Compliance Score: {compliance}/10")
+
+if compliance >= 8:
+    print("✅ Proceed to production")
+elif compliance >= 5:
+    print("⚠️ Request design modification")
+else:
+    print("❌ Reject design, redesign required")
+> 📄 代码已提取到 `references\code_77.txt`（10 行，239 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+1. Extract Product Type + Key Standards from Design
+   ↓
+2. Search Standards Database for Similar Products (past 30 days)
+   ↓
+3. Compare with Top 3 Similar Designs
+   - Compliance Similarity Score (0-1): How similar is the compliance?
+   - Gap Detection: Does the new design have compliance gaps?
+   - Best Practice Reuse: Can we reuse successful compliance patterns?
+   ↓
+4. Output Comparative Compliance Report
+> 📄 代码已提取到 `references\code_78.txt`（4 行，33 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+Design A: 保温杯 316内胆 0.8mm壁厚 符合FDA
+Design B: 保温杯 304内胆 0.6mm壁厚 符合GB
+
+Compliance Difference Map:
+- Material: 316 vs 304 (BETTER, 316 more corrosion resistant)
+- Wall Thickness: 0.8mm vs 0.6mm (BETTER, exceeds DFM minimum)
+- Standards: FDA vs GB (EQUIVALENT, both food-grade)
+- Overall: Design A has better compliance
+> [引用] 完整代码已提取到 `references\code_block_79.txt`（27 行）
+> 需要查看时请读取该文件。
+
+> 📄 代码已提取到 `references\code_79.txt`（2 行，35 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+python
+class StandardsMemory:
+    def __init__(self):
+        self.standards_db = {}  # Compressed standards database
+        self.dfm_checklist = []  # Compressed DFM checklist
+    
+    def load_for_product(self, product_type):
+        """Load only relevant standards for product type"""
+        if product_type == "vacuum_cup":
+            self.standards_db = load_standards(["GB/T 29606", "FDA", "LFGB"])
+        elif product_type == "electric_wheelchair":
+            self.standards_db = load_standards(["ISO 7176", "GB/T 12996"])
+        
+        # Compress to top 10 standards
+        self.standards_db = compress_to_top_10(self.standards_db)
+    
+    def get_dfm_checklist(self, material, process):
+        """Get compressed DFM checklist"""
+        checklist = load_dfm_checklist(material, process)
+        # Keep only critical checks (P0)
+        self.dfm_checklist = [c for c in checklist if c.priority == "P0"]
+        return self.dfm_checklist
+
+# Usage
+memory = StandardsMemory()
+memory.load_for_product("vacuum_cup")
+checklist = memory.get_dfm_checklist("316_stainless_steel", "deep_drawing")
+print(f"Loaded {len(memory.standards_db)} standards, {len(checklist)} DFM checks")
 ```
 
-### F. 最佳实践（优化版 - v5.0）
 
-1. **优先使用 FP16**（半精度）- 节省50%显存
-2. **及时卸载模型** - 生成任务完成后立即调用 `unload_all_temp_models()`
-3. **使用 xFormers** - 进一步优化显存使用（需要安装 `xformers`）
-4. **避免同时加载多个大模型** - 使用 `MultiModelVRAMScheduler` 进行调度
-5. **定期整理显存碎片** - 每生成20张图像或碎片化 > 30% 时触发
-6. **监控奖励系统状态** - 如果 `high_quality_mode` 解锁，可以享受更高质量的生成
-7. **OOM 后自动降级** - 如果检测到 OOM，自动切换到 fp8 + batch_size=1
+### Usage
 
-**版本** : v5.0 (2026-06-05)
-**优化内容**: 添加奖励机制、显存碎片化整理、多模型调度策略
+当需要此技能时，按以下步骤执行：
 
+1. **理解需求**: 明确用户的核心意图
+2. **调用流程**: 按照核心职责定义执行
+3. **输出验证**: 检查输出是否符合预期
+4. **反馈迭代**: 根据评审结果调整方案
+
+## 注意事项
+
+- 执行前确保依赖工具已安装
+- 如遇报错请查看详细日志输出
+- 重要步骤需人工确认后再执行
+
+
+## 语言说明
+本文档使用简体中文编写，请确保所有操作输出也为中文。
+
+## Language Note
+建议使用中文输出。
+
+## Language Note
+建议使用中文输出。
+
+---
+
+## ComfyUI API集成（New in v7.0）
+
+### 标准分析后的ComfyUI API工作流规范检查
+
+🐮 牛在标准分析后，可调用ComfyUI API**验证工作流规范性**：
+
+```python
+import requests
+import json
+
+# ComfyUI API地址
+COMFYUI_API = "http://127.0.0.1:8188"
+
+def validate_comfyui_workflow(workflow_path):
+    """验证ComfyUI工作流规范性"""
+    # 1. 读取工作流
+    with open(workflow_path, 'r') as f:
+        workflow = json.load(f)
+    
+    # 2. 检查必填节点
+    required_nodes = ["CheckpointLoaderSimple", "KSampler", "VAEDecode", "SaveImage"]
+    missing_nodes = []
+    
+    for req_node in required_nodes:
+        if not any(node["type"] == req_node for node in workflow["nodes"]):
+            missing_nodes.append(req_node)
+    
+    # 3. 检查参数范围
+    warnings = []
+    for node in workflow["nodes"]:
+        if node["type"] == "KSampler":
+            steps = node["inputs"]["steps"]
+            cfg = node["inputs"]["cfg"]
+            
+            if steps < 20 or steps > 50:
+                warnings.append(f"KSampler steps={steps} 超出推荐范围[20, 50]")
+            
+            if cfg < 5.0 or cfg > 15.0:
+                warnings.append(f"KSampler cfg={cfg} 超出推荐范围[5.0, 15.0]")
+    
+    # 4. 返回验证报告
+    return {
+        "valid": len(missing_nodes) == 0,
+        "missing_nodes": missing_nodes,
+        "warnings": warnings
+    }
+```
+
+**使用场景**：
+- 检查ComfyUI工作流规范性
+- 确保工作流符合最佳实践
+- 生成工作流质量报告
+
+---
+
+
+---
+
+## Phase 6: DFM自动化检查与标准合规验证 (NEW in v7.2)
+
+### 6.1 DFM自动化检查流程
+
+**DFM检查目标**：
+- 面向制造的设计（Design for Manufacturability）
+- 成本优化（减少加工难度、提升良率）
+- 标准化合规（符合行业标准和规范）
+- 可装配性（简化装配流程、减少零件数量）
+
+**自动化检查流程**：
+```
+1. 接收产品设计文件（从🐍蛇/用户）
+2. 识别产品类型和制造工艺
+3. 执行DFM检查（尺寸、公差、材料、工艺）
+4. 生成DFM检查报告
+5. 提供设计优化建议
+6. 通知🐍蛇设计需要优化
+```
+
+**DFM检查清单**：
+
+| 检查项 | 检查内容 | 目标值 |
+|--------|----------|--------|
+| **尺寸合理性** | 最小壁厚、最大尺寸、公差范围 | 符合制造能力 |
+| **材料选择** | 材料可加工性、成本、可用性 | 最优材料组合 |
+| **工艺可行性** | 加工工艺、装配工艺、表面处理 | 工艺可行 |
+| **成本控制** | 加工成本、材料成本、装配成本 | 成本最优 |
+| **标准化合规** | 符合国标/行标/企标 | 100%合规 |
+
+### 6.2 标准合规自动验证
+
+**合规验证目标**：
+- 保温杯：符合GB/T 29606-2013、QB/T 2332-2017
+- 电动轮椅：符合GB/T 12996-2012、ISO 7176
+- ComfyUI工作流：符合最佳实践和标准规范
+
+**自动验证流程**：
+```
+1. 识别产品类型和适用标准
+2. 读取标准文档（本地/在线）
+3. 对比设计参数与标准要求
+4. 生成合规验证报告
+5. 标记不合规项
+6. 提供整改建议
+```
+
+**合规验证报告格式**：
+```json
+{
+  "verification_id": "DFM-2026-0619-001",
+  "product_type": "保温杯",
+  "standard": "GB/T 29606-2013",
+  "compliance_rate": 0.92,
+  "non_compliant_items": [
+    {
+      "item": "保温性能",
+      "requirement": "≥6h (60℃→40℃)",
+      "actual": "5.5h",
+      "status": "不合规",
+      "suggestion": "增加真空层厚度至0.8mm"
+    }
+  ],
+  "optimization_suggestions": [
+    "内胆材质从304不锈钢升级到316不锈钢",
+    "真空层厚度从0.5mm增加到0.8mm"
+  ]
+}
+```
+
+### 6.3 与十四生肖团其他Agent的联动
+
+**联动链1：🐮→🐍→🐔（标准检查→产品设计→设计评审）**
+```
+🐮接收设计文件 → 执行DFM检查
+→ 生成DFM报告 → 调用🐍进行设计优化
+→ 🐍优化完成 → 调用🐔进行设计评审
+→ 🐔评审完成 → 🐮验证合规性
+→ 生成最终合规报告
+```
+
+**联动链2：🐮→🐶（标准检查→成本分析）**
+```
+🐮执行DFM检查 → 识别成本优化点
+→ 调用🐶进行成本分析
+→ 🐶分析完成 → 🐮验证成本优化方案可行性
+→ 生成成本+DFM综合优化报告
+```
+
+**联动链3：🐮→🐴（标准检查→ComfyUI工作流）**
+```
+🐴生成ComfyUI工作流 → 调用🐮进行规范性检查
+→ 🐮检查完成 → 标记不规范节点
+→ 生成工作流规范性报告
+→ 调用🐴进行工作流优化
+```
+
+### 6.4 DFM知识库与最佳实践
+
+**知识库内容**：
+- 历史DFM检查记录（设计参数 + DFM问题 + 优化方案）
+- 材料数据库（可加工性、成本、性能）
+- 工艺数据库（加工工艺、公差能力、表面处理）
+- 标准文档库（GB/QB/ISO标准）
+- DFM最佳实践（经验总结）
+
+**知识库查询**：
+- 根据产品类型查询DFM检查清单
+- 根据材料查询可加工性评级
+- 根据工艺查询公差能力
+- 根据标准查询合规要求
+
+**知识库更新流程**：
+```
+1. 每次DFM检查完成后 → 记录检查数据
+2. 定期分析DFM数据 → 提取最佳实践
+3. 更新知识库 → 新增/修改/删除条目
+4. 知识库版本管理 → 记录每次更新
+```
+
+### 6.5 DFM优化效果评估
+
+**评估指标**：
+- 合规性提升（合规率 before vs after）
+- 成本降低（成本 before vs after）
+- 可制造性提升（加工难度评分 before vs after）
+- 良率提升（良率 before vs after）
+
+**自动评估流程**：
+```
+1. DFM优化前基线测试（检查10个设计）
+2. 应用DFM优化建议
+3. DFM优化后测试（检查10个设计）
+4. 对比分析（计算提升百分比）
+5. 生成评估报告
+6. 决策（如果合规率提升>5%，则应用优化建议；否则重新分析）
+```
+
+**评估报告格式**：
+```json
+{
+  "dfm_optimization_id": "DFM-OPT-2026-0619-001",
+  "before": {
+    "compliance_rate": 0.85,
+    "cost": 150.0,
+    "manufacturability_score": 7.5,
+    "yield_rate": 0.92
+  },
+  "after": {
+    "compliance_rate": 0.93,
+    "cost": 135.0,
+    "manufacturability_score": 8.3,
+    "yield_rate": 0.96
+  },
+  "improvement": {
+    "compliance_rate": "+0.08 (+9.4%)",
+    "cost": "-15.0 (-10.0%)",
+    "manufacturability_score": "+0.8 (+10.7%)",
+    "yield_rate": "+0.04 (+4.3%)"
+  },
+  "decision": "应用DFM优化建议",
+  "confidence": 0.94
+}
+```
+
+---
+
+## 参考资料
+
+### ComfyUI API集成
+
+- **统一指南**: `H:/AI日记/Claw/十二生肖团_ComfyUI_API集成统一指南_V1.0_2026-06-18.md`
+  - 所有API接口调用示例
+  - 工作流JSON模板说明
+  - 错误处理与性能优化
+
+### 相关文档
+
+| 文档 | 路径 | 说明 |
+|------|------|------|
+| ComfyUI安装指南 | `H:/AI日记/Claw/ComfyUI_安装与API化指南_V1.0.md` | 安装与配置 |
+| ComfyUI API调用指南 | `H:/AI日记/Claw/ComfyUI_工作流API调用指南_V1.0.md` | 详细API文档 |
+| ComfyUI工作流模板库 | `H:/AI日记/Claw/ComfyUI_工作流模板库_V1.0.md` | 工作流模板 |
+| 框架报告V8.0 | `H:/AI日记/Claw/十二生肖团_完整详细框架报告_V8.0_2026-06-18.md` | 最新框架 |
+
+---

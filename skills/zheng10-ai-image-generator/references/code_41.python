@@ -1,0 +1,11 @@
+class SkillRatingSystem:
+    def __init__(self, skill_name):
+        self.skill_name = skill_name
+        self.ratings = []
+        self.usage_count = 0
+    # ... (代码已精简，保留核心逻辑) ...
+    def should_optimize(self):
+        avg_score = self.get_average_score(window=10)
+        if avg_score < 6.0:
+            return True, f"Average score {avg_score:.2f} < 6.0, needs optimization"
+        return False, "Performance acceptable"

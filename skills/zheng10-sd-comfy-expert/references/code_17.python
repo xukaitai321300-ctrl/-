@@ -1,0 +1,11 @@
+import requests
+import json
+import time
+
+def call_comfyui_api(workflow_path, comfyui_url="http://localhost:8188"):
+    # ... (代码已精简，保留核心逻辑) ...
+    
+    return prompt_id
+
+# Usage
+call_comfyui_api("E:/AI日记/Claw/comfyui_workflows/Img2Img.json")

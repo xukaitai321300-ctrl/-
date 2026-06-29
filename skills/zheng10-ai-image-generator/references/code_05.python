@@ -1,0 +1,14 @@
+# In ComfyUI workflow JSON
+"controlnet_apply": {
+    "class_type": "ControlNetApply",
+    "inputs": {
+        "conditioning": ["clip_positive", 0],
+        "control_net": ["control_net_loader", 0],
+        "image": ["canny_preprocessor", 0]
+    }
+}
+
+# Parameters (v3.5 — stronger control for defect prevention)
+controlnet_strength = 0.9  # Higher = stricter edge control (prevents deformation)
+start_percent = 0.0      # Apply from beginning
+end_percent = 0.85        # Stop at 85% (slightly later for more flexibility)

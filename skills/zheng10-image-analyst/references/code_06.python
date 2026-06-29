@@ -1,0 +1,11 @@
+def quality_gate(results):
+    """Automated quality gate based on computed metrics"""
+    gates = {
+        'psnr': {'min': 30, 'weight': 0.25},
+        'ssim': {'min': 0.90, 'weight': 0.25},
+    # ... (代码已精简，保留核心逻辑) ...
+    return {
+        'passed': len(failures) == 0,
+        'score': total_score * 10,  # Scale to 0-10
+        'failures': failures
+    }

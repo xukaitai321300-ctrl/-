@@ -1,0 +1,20 @@
+def interrupt_generation(
+    comfyui_api_url="http://localhost:8188",
+    prompt_id: str
+):
+    """Interrupt ComfyUI generation process"""
+    response = requests.post(
+        f"{comfyui_api_url}/prompt/interrupt",
+        json={"prompt_id": prompt_id}
+    )
+  ... (省略中间部分) ...
+    else:
+        print(f"❌ Failed to interrupt: {response.text}")
+        return False
+def check_interruption():
+    """Check if user requested interruption"""
+    interruption_file = "E:/AI日记/Claw/.workbuddy/interrupt.flag"
+    if os.path.exists(interruption_file):
+        os.remove(interruption_file)  # Clear flag
+        return True
+    return False

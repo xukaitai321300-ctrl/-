@@ -1,0 +1,20 @@
+def assess_multimodal_quality(
+    generated_image,
+    text_input,
+    image_input,
+    quality_threshold=7.0
+):
+    """Assess quality of generated image (combined text + image)"""
+    if image_input:
+        image_similarity = calculate_image_similarity(
+  ... (省略中间部分) ...
+        "quality_score": quality_score,
+        "image_similarity": image_similarity,
+        "text_matching": text_matching,
+        "reason": reason,
+        "details": {
+            "image_similarity_method": "clip",
+            "text_matching_method": "clip",
+            "quality_threshold": quality_threshold
+        }
+    }

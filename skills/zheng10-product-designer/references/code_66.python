@@ -1,0 +1,8 @@
+def compare_design(current_design, competitor_designs):
+    """Compare design with competitors"""
+    comparison = {
+        'aesthetics_diff': compare_aesthetics(current_design, competitor_designs),
+        'functionality_diff': compare_functionality(current_design, competitor_designs),
+        'innovation_diff': compare_innovation(current_design, competitor_designs)
+    }
+    return comparison

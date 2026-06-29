@@ -1,0 +1,14 @@
+import os
+import glob
+def analyze_comfyui_output(output_dir, reference_path=None):
+    """Analyze all images in ComfyUI output directory"""
+    image_files = glob.glob(os.path.join(output_dir, "*.png")) + \
+                  glob.glob(os.path.join(output_dir, "*.jpg"))
+    analyzer = IQAAnalyzer()
+    results = []
+    for img_path in sorted(image_files):
+        result = analyzer.analyze_single_image(img_path, reference_path)
+        result['filename'] = os.path.basename(img_path)
+        results.append(result)
+    results.sort(key=lambda x: x.get('psnr', x['sharpness']), reverse=True)
+    return results

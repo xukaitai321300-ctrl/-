@@ -1,0 +1,11 @@
+  ... (省略中间部分) ...
+    else:
+        adjusted_strength = base_strength
+        reason = "Score in acceptable range (7.0~8.5)"
+    if defect_type == "asymmetric_lid":
+        adjusted_strength = 1.0  # Maximum strictness
+        reason += ", defect=asymmetric_lid → strength=1.0"
+    elif defect_type == "deformed_handle":
+        adjusted_strength = min(1.0, adjusted_strength + 0.15)
+        reason += ", defect=deformed_handle → strength+=0.15"
+    return adjusted_strength, reason

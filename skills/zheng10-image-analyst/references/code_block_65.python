@@ -1,0 +1,57 @@
+class MultiModelVRAMScheduler:
+    """
+    多模型并行加载的显存调度器（NEW in v5.0）
+    
+    模型优先级（高 → 低）：
+    1. Checkpoint（必须加载，否则无法生成）
+    2. ControlNet（影响生成质量，优先级高）
+    3. LoRA（影响风格，优先级中）
+    4. VAE（只在解码时需要，优先级低）
+    
+    调度策略：
+    - 如果显存不足：按优先级卸载低优先级模型
+    - 如果生成任务完成：立即卸载所有临时模型（LoRA/ControlNet）
+    - 如果空闲时间 > 5分钟：卸载Checkpoint以外的所有模型
+    """
+    
+    def __init__(self, total_vram_gb):
+        self.total_vram = total_vram_gb
+        self.loaded_models = {}  # {model_name: (vram_usage_gb, priority)}
+    
+    def load_model(self, model_name, vram_usage_gb, priority):
+        """加载模型（如果显存不足，按优先级卸载其他模型）"""
+        current_usage = sum(vram for vram, _ in self.loaded_models.values())
+        
+        # 如果显存充足：直接加载
+        if current_usage + vram_usage_gb <= self.total_vram * 0.9:  # 保留10%余量
+            self.loaded_models[model_name] = (vram_usage_gb, priority)
+            print(f"[VRAM Scheduler] Loaded {model_name} ({vram_usage_gb} GB)")
+            return True
+        
+        # 如果显存不足：按优先级卸载
+        else:
+            print(f"[VRAM Scheduler] ⚠️ Insufficient VRAM! Unloading low-priority models...")
+            
+            # 按优先级排序（低优先级先卸载）
+            sorted_models = sorted(self.loaded_models.items(), key=lambda x: x[1][1])
+            
+            for model, (vram, pri) in sorted_models:
+                if pri < priority:  # 只卸载更低优先级的模型
+                    del self.loaded_models[model]
+                    print(f"[VRAM Scheduler] Unloaded {model} ({vram} GB)")
+                    
+                    # 检查是否现在有足够显存
+                    if current_usage + vram_usage_gb <= self.total_vram * 0.9:
+                        self.loaded_models[model_name] = (vram_usage_gb, priority)
+                        return True
+            
+            # 如果仍然显存不足：返回False（加载失败）
+            print(f"[VRAM Scheduler] ❌ Failed to load {model_name}: insufficient VRAM even after unloading.")
+            return False
+    
+    def unload_all_temp_models(self):
+        """卸载所有临时模型（LoRA/ControlNet），保留Checkpoint"""
+        models_to_remove = [name for name, (_, priority) in self.loaded_models.items() if priority < 10]
+        for model in models_to_remove:
+            del self.loaded_models[model]
+            print(f"[VRAM Scheduler] Unloaded temp model: {model}")

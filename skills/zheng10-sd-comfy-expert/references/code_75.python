@@ -1,0 +1,16 @@
+def calculate_workflow_performance(workflow):
+    """Calculate workflow performance score (0-10)"""
+    # Speed (0-10): Generation time
+    speed = score_speed(workflow)
+    
+    # Quality (0-10): Output image quality
+    quality = score_quality(workflow)
+    
+    # Stability (0-10): Error rate
+    stability = score_stability(workflow)
+    
+    # Resource Efficiency (0-10): GPU memory usage
+    resource_eff = score_resource_efficiency(workflow)
+    
+    performance_score = (speed + quality + stability + resource_eff) / 4
+    return round(performance_score, 1)

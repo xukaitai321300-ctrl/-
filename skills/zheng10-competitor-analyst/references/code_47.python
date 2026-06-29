@@ -1,0 +1,11 @@
+def monitor_generation_progress(
+    comfyui_api_url="http://localhost:8188",
+    prompt_id: str,
+    check_interval: int = 2  # seconds
+):
+    # ... (代码已精简，保留核心逻辑) ...
+            if adjustment["should_adjust"]:
+                apply_adjustment(comfyui_api_url, prompt_id, adjustment)
+        
+        # 7. Wait before next check
+        time.sleep(check_interval)

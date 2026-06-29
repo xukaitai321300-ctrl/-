@@ -1,0 +1,20 @@
+def feedback_loop(
+    initial_prompt: str,
+    max_iterations: int = 3,
+    quality_threshold: float = 7.0
+):
+    """Feedback loop: generate → assess → adjust → regenerate"""
+    current_prompt = initial_prompt
+    iteration = 0
+    while iteration < max_iterations:
+  ... (省略中间部分) ...
+        adjustment = analyze_quality_issues(assessment)
+        current_prompt = adjust_prompt(current_prompt, adjustment)
+        iteration += 1
+    return {
+        "status": "success" if iteration < max_iterations else "max_iterations_reached",
+        "iterations": iteration,
+        "final_quality_score": quality_score,
+        "final_prompt": current_prompt,
+        "output": generation_result["output"]
+    }

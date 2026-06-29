@@ -1,0 +1,11 @@
+def release_version(
+    workflow_path: str,
+    release_version: str,  # e.g., "v1.0.0"
+    release_notes: str,  # Release notes (markdown)
+    mark_as_stable: bool = True
+    # ... (代码已精简，保留核心逻辑) ...
+    
+    versioned_file = os.path.join(workflow_dir, f"{workflow_name}_{stable_version}.json")
+    os.symlink(versioned_file, stable_link)
+    
+    return stable_link

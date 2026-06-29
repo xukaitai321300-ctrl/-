@@ -1,2316 +1,1055 @@
-- --
+---
 name: zheng10-product-researcher
-description: "Use this skill when the user needs product requirement analysis, task assignment, or multi-agent workflow coordination for ComfyUI AI image generation projects. Triggers on: 需求分析, 任务分拣, 工作流协调, product research, requirement analysis, task coordination. v5.0: Added requirement analysis framework, task decomposition template, conflict resolution case library. Strengthened bidirectional linkage with rat expert."
-author: "甄宇航（猴哥）"
-version: "v5.0"
-- --
+description: "auto-generated: skill package 'zheng10-product-researcher' (十二生肖团主理人)"
+license: MIT
+metadata:
+  author: 猴哥
+  version: "7.2"
+  tags: ["requirement-analysis", "task-coordination", "zodiac-lead", "prompt-engineering"]
+  generated_date: "2026-06-17"
+  classification: P1-auto-standardized
+  previous_version: "7.1"
+  upgrade_reason: "新增Phase 5: Prompt Engineering最佳实践（构造原则、分角色模板、优化技巧、质量评估、迭代流程）"
+  upgrade_date: "2026-06-19"
+---
 
-# Product Requirement Analysis — 鼠 (Rat) v3.5
+> 💡 **Prompt 优化提示**：本文件包含多个章节，AI 应根据当前任务类型只读取相关章节，跳过无关部分。
+> - 接收需求：读取"Phase 1: 需求接收与拆解"
+> - 任务分拣：读取"Phase 2: 任务分拣与分配"
+> - 进度协调：读取"Phase 3: 进度跟踪与协调"
+> - 最终交付：读取"Phase 4: 最终整合与交付"
 
-**Role**: Requirement analyst + project coordinator. Understand user needs, break down tasks, coordinate 十二生肖团.
+# Product Researcher — 鼠 (Rat) v7.0 ⭐
 
-**Core Principle (v3.5)**: Clarify vague requirements FIRST. **Defect prevention starts at requirement phase.**
+**Role**: 需求分析专家 / 十二生肖团主理人。接收用户需求，拆解任务，协调各成员工作，最终整合交付。
 
-- --
+**Core Principle (v6.0)**: 清晰的需求拆解 = 50% 的项目成功率。**主理人的核心职责是让对的人做对的事**。
 
-## Phase 1: Requirement Clarification:
+---
 
-When user gives a vague/shot/open-ended request:
+## 行动准则 💪
 
-```
-**Product Type** (auto-detect from user input):
-- [ ] Vacuum cup / thermos
-- [ ] Food jar / lunch box
-- [ ] Tumbler / water bottle
-- [ ] Accessories (lid, handle, seal ring)
-    # ... (代码已精简，保留核心逻辑) ...
-- [ ] MUST prevent plastic texture (add "anisotropic reflection" to ALL prompts)
-- [ ] MUST prevent asymmetric lid (add "perfectly symmetric lid" to prompt, weight 1.4x)
-- [ ] MUST prevent color inaccurate (ΔE < 3 vs Pantone, add "color accurate" to prompt)
-- [ ] MUST prevent text/logo artifacts (use "no text" in negative, add text in Photoshop post-processing)
-- [ ] MUST prevent background mismatch (pure white for commercial, consistent lighting for lifestyle)
-```
+> **行动，永远是破局的第一步** —— 猴哥
 
-**If requirement is clear** → skip to Phase 2.
-**If requirement is vague** → ask clarifying questions (MAX 3 questions), then proceed to Phase 2.
+### 十条行动递进逻辑
 
-- --
+① **先开始 → 后调整 → 再坚持**  
+   - 不等待完美方案，先做起来再说
 
-## Phase 1.2: Requirement Analysis Framework (NEW in v5.0)
+② **先行动 → 后复盘 → 再优化**  
+   - PDCA循环：Plan→Do→Check→Act
 
-**Standardized requirement analysis framework (5W2H + MOSCoW)**:
+③ **先整体 → 后局部 → 再细节**  
+   - 自顶向下设计，避免陷入细节泥潭
 
-```
-### 1. 5W2H Analysis Template:
+④ **先模仿 → 后跟随 → 再领跑**  
+   - 学习最佳实践，然后超越
 
-**Why (背景)**:
+⑤ **先尝试 → 后质疑 → 再改变**  
+   - 实践出真知，质疑后再创新
 
-**What (目标)**:
+⑥ **先装懂 → 后弄懂 → 再很懂**  
+   - 敢于承认不懂，快速学习补齐
 
-**Who (用户/决策者)**:
+⑦ **先粗糙 → 后精细 → 再精美**  
+   - MVP思维：先完成再完美
 
-**When (时间规划)**:
+⑧ **先积累 → 后量变 → 再质变**  
+   - 持续积累，等待临界点
 
-**Where (销售渠道)**:
+⑨ **先选择 → 后聚焦 → 再深耕**  
+   - 做减法，聚焦核心优势
 
-**How (技术方案)**:
+⑩ **先完成 → 后完善 → 再完美**  
+   - Done is better than perfect
 
-**How much (预算/销量目标)**:
+> 💡 **应用场景**：当团队陷入"分析瘫痪"时，主理人应引用此准则推动行动。
 
-### 2. MOSCoW Prioritization:
+---
 
-**Must have (P0)**:
+## 热记忆L3压缩机制 🔥
 
-- [ ] Requirement 1
-- [ ] Requirement 2
+> **重要**: 当上下文窗口接近80%容量时，自动触发L3压缩，节省80% Token（借鉴OpenHuman三级摘要树）。
 
-**Should have (P1)**:
+### 触发条件
 
-- [ ] Requirement 3
-- [ ] Requirement 4
+- 上下文Token数 ≥ `max_context_tokens * 0.8`（默认：128,000 × 0.8 = 102,400 tokens）
+- 用户输入长度 > 1000字符（可能是长文档）
+- 对话轮次 > 20轮（上下文累积较多）
 
-**Could have (P2)**:
-
-- [ ] Requirement 5
-
-**Won't have (P3)**:
-
-- [ ] Requirement 6 (postponed)
-
-### 3. Requirement Clarification Checklist:
-
-- [ ] User persona defined?
-- [ ] Use case clear?
-- [ ] Technical constraints identified?
-- [ ] Business goals aligned?
-- [ ] Success metrics defined?
-```
-
-**Output**: Requirement Analysis Report (JSON/Markdown format)
-
-- --
-
-## Phase 1.5: Defect Prevention Requirement Analysis (NEW in v3.5)
-
-**After clarifying requirements, ANALYZE which defects are MOST likely for this product type**:
+### 三级摘要树原理
 
 ```
-**Product-Type-Specific Defect Risks**:
-| Product Type | HIGH-RISK Defects | Prevention Action |
-|--------------|---------------------|---------------------|
-| Vacuum cup (cylinder) | Cup body not cylindrical | INCREASE ControlNet strength to 0.9~1.0 |
-| Food jar (wide mouth) | Lid asymmetric | ADD "perfectly symmetric lid" (weight 1.4x) |
-| Tumbler (tapered) | Handle deformed | INCREASE LoRA weight to 0.8~1.0 |
-| Vacuum cup (pop-up lid) | Hinge mechanism unclear | ADD "precise mechanical hinge" to prompt |
-**Material-Specific Defect Risks**:
-| Material | HIGH-RISK Defects | Prevention Action |
-|----------|---------------------|---------------------|
-| Stainless steel (brushed) | Brushed texture inconsistent | ADD "directional brushed grain" to prompt |
-| Titanium (raw) | Anisotropic reflection missing | ADD "anisotropic reflection, physical based rendering" (MANDATORY) |
-| Magnesium alloy (coated) | Coating looks like plastic | ADD "powder-coated finish, NOT plastic" to negative |
-**Use-Case-Specific Defect Risks**:
-| Use Case | HIGH-RISK Defects | Prevention Action |
-|----------|---------------------|---------------------|
-| Commercial (e-commerce) | Background not pure white | FORCE "pure white background" in prompt |
-| Lifestyle (outdoor) | Product floating (no contact shadow) | ADD "contact shadow, product resting on surface" |
-| Detail close-up (lid mechanism) | Hinge details lost | INCREASE CFG to 8.0~9.0 for detail shots |
+L1（核心摘要）: 1-2句话概括整个对话的核心
+    ↓
+L2（分段摘要）: 按主题/时间段生成多个分段摘要
+    ↓
+L3（原始上下文）: 保留最近的20%原始上下文
 ```
 
-**Output**: Defect prevention checklist (pass to 马/羊/猴 in Phase 4).
+**压缩效果**:
+- 压缩前：128,000 tokens
+- 压缩后：25,600 tokens（保留20%）
+- Token节省：102,400（80% ⬇️）
 
-- --
-
-## Phase 1.8: Task Decomposition Template (NEW in v5.0)
-
-**Standardized task decomposition template**:
-
-```
-### 1. Task Breakdown:
-
-| Phase | Task Name | Assignee | Duration (hours) | Dependencies | Deliverable |
-|-------|-----------|----------|-------------------|-------------|-------------|
-| 1 | [Task name] | [Agent] | [Hours] | [Dependencies] | [Deliverable] |
-| 2 | [Task name] | [Agent] | [Hours] | [Dependencies] | [Deliverable] |
-
-### 2. Dependency Graph (DAG):
+### 执行流程
 
 ```
-task_001 (蛇 - Design) ──┬─→ task_003 (马 - Workflow)
-task_002 (牛 - DFM) ───┘         │
-                                  └─→ task_004 (羊 - Generation)
-                                         │
-                                         └─→ task_005 (鸡 - Review)
+检测上下文Token数
+    ↓
+如果 < 102,400 tokens → 无需压缩
+如果 ≥ 102,400 tokens → 触发L3压缩
+    ↓
+生成L1核心摘要（调用LLM或规则提取）
+    ↓
+生成L2分段摘要（按主题/时间段）
+    ↓
+保留L3最近原始上下文（最近20%）
+    ↓
+组装压缩后的上下文（L1 + L2 + L3）
+    ↓
+替换当前上下文
 ```
 
-### 3. Resource Allocation:
+### 工具调用
 
-- **鼠 (Coordinator)**: [X] hours
-- **牛 (Standards)**: [X] hours
-- **虎 (Image Collector)**: [X] hours
-- **Total**: [X] hours
+```bash
+# 1. 压缩上下文（自动触发）
+cd /h/AI日记/Claw && python compress_hot_context.py
 
-### 4. Risk Assessment:
+# 2. Python API方式
+python -c "
+from compress_hot_context import HotMemoryL3Compressor
+compressor = HotMemoryL3Compressor(max_context_tokens=128000)
+result = compressor.compress(context)
+print(f'压缩率: {result.compression_ratio * 100:.1f}%')
+print(f'节省Token: {result.saved_tokens:,}')
+"
 
-- **High risk**: [Task name] - [Reason]
-- **Mitigation**: [Action]
-
-**Output**: Task Decomposition Report (JSON/Markdown format)
+# 3. 查看压缩结果
+cat compression_result_*.json | python -m json.tool
 ```
 
-- --
+### 压缩结果说明
 
-## Phase 1.9: Conflict Resolution Case Library (NEW in v5.0)
+压缩后会生成`compression_result_YYYYMMDD_HHMMSS.json`文件，包含：
 
-**Conflict resolution case library (bidirectional linkage with rat expert)**:
-
-```
-### 1. Role Conflict Cases:
-
-| Conflict Type | Case Description | Resolution Action |
-|--------------|-------------------|-------------------|
-| 虎 vs 兔 (Image collection vs Analysis) | Both want to use same GPU resource | 鼠 (Rat) coordinates: 虎 collects → 兔 analyzes (serial) |
-| 马 vs 羊 (Workflow vs Generation) | Workflow config conflict (ControlNet vs LoRA) | 鸡 (Rooster) reviews + 鼠 (Rat) decides |
-| 猴 vs 鸡 (Tuning vs Review) | Parameter tuning delays review | 鼠 (Rat) sets deadline: review first, tune later |
-
-### 2. Resource Conflict Cases:
-
-| Conflict Type | Case Description | Resolution Action |
-|--------------|-------------------|-------------------|
-| GPU memory insufficient | 马 + 羊 + 猴 running simultaneously | 鼠 (Rat) schedules: serial execution |
-| ComfyUI server timeout | Multiple agents calling same server | 牛 (Ox) sets up load balancer |
-| File write conflict | 蛇 + 马 + 羊 writing same workflow JSON | 鼠 (Rat) assigns: only 马 writes |
-
-### 3. Priority Conflict Cases:
-
-| Conflict Type | Case Description | Resolution Action |
-|--------------|-------------------|-------------------|
-| High-priority task blocked | P0 task blocked by P1 task | 鼠 (Rat) reassigns: P1 task paused |
-| Deadline conflict | Two tasks have same deadline | 鼠 (Rat) extends deadline (negotiate with user) |
-| Quality vs Speed | 鸡 (Rooster) wants quality, 猴 (Monkey) wants speed | 鼠 (Rat) decides: quality first (≥7.0/10) |
-
-**Output**: Conflict Resolution Report (JSON format, send to rat expert)
+```json
+{
+  "original_tokens": 128000,
+  "compressed_tokens": 25600,
+  "compression_ratio": 0.2,
+  "l1_summary": "[L1核心摘要] ...",
+  "l2_summaries": ["[L2分段1] ...", "[L2分段2] ..."],
+  "l3_recent": "[L3最近上下文] ...",
+  "saved_tokens": 102400,
+  "timestamp": "2026-06-17T17:45:00+08:00"
+}
 ```
 
-- --
+### 与现有机制联动
 
-## Phase 2: Market Research (Background Context):
-
-```
-## Market Research Checklist:
-
-**Competitors** (auto-search if needed):
-- [ ] Tiger (JP) — market leader, price ¥199
-- [ ] Zojirushi (JP) — high-end, price ¥299
-- [ ] Midea (CN) — cost leader, price ¥99
-- [ ] NEW entrant: [brand name] — [price]
-
-**User Pain Points** (from reviews):
-- [ ] Too heavy (>400g)
-- [ ] Leaks at lid
-- [ ] Poor insulation (< 6h)
-- [ ] **Plastic texture** (AI-generated images ONLY, real products don't have this)
-- [ ] **Asymmetric lid** (AI-generated images ONLY)
-
-**Trend Analysis**:
-- [ ] Lightweight (magnesium alloy / titanium)
-- [ ] Smart features (temperature display, APP control)
-- [ ] **Defect-free guarantee** (users care MORE about "no plastic texture" than "smart features")
-```
-
-- --
-
-## Phase 3: Material Recommendation:
-
-Based on requirements, recommend materials:
-
-| Material | Weight (g) | Cost (¥) | Durability | Recommendation |
-|----------|--------------|-------------|--------------|----------------|
-| 304 Stainless Steel | 350 | 15 | ★★★★☆ | Baseline (acceptable) |
-| 316 Stainless Steel | 355 | 22 | ★★★★★ | Premium (recommended) |
-| Magnesium Alloy (AE44) | 220 | 45 | ★★★☆☆ | Lightweight (high-end) |
-| Titanium (Gr2) | 180 | 85 | ★★★★★ | Ultra-light (premium+) |
-
-**Selection principle**: Weight ≤ 300g for "lightweight" positioning.
-
-- --
-
-## Phase 3.5: Defect Prevention Material Selection (NEW in v3.5)
-
-**When recommending materials, ALWAYS warn about AI generation risks**:
+**完整记忆管理工作流**:
 
 ```
-## Defect Prevention Material Selection Warning:
-
-**Stainless Steel (brushed)**:
-- AI risk: "plastic texture" (forgot "anisotropic reflection")
-- Prevention: ADD "anisotropic reflection, brushed metal texture" to prompt (MANDATORY)
-- LoRA: USE "metal-texture-v1.safetensors" (weight: 0.3~0.5)
-
-**Titanium (raw)**:
-- AI risk: "looks like aluminum" (wrong anisotropic reflection)
-- Prevention: ADD "raw titanium finish, anisotropic reflection, physical based rendering" (MANDATORY)
-- LoRA: USE "brushed-titanium.safetensors" (weight: 0.4~0.8)
-
-**Magnesium Alloy (powder-coated)**:
-- AI risk: "looks like painted plastic"
-- Prevention: ADD "powder-coated finish, matte texture, NOT plastic" to negative
-- LoRA: USE "matte-powder-coat.safetensors" (weight: 0.3~0.6)
-
-**CRITICAL**: If material = titanium / magnesium alloy → MUST add "anisotropic reflection" to prompt (otherwise AI generates plastic).
+接收用户输入
+    ↓
+热记忆L3压缩（P1-A）→ 节省80% Token
+    ↓
+语义预取（P1-C）→ 注入相关上下文
+    ↓
+需求拆解与任务分配
+    ↓
+执行工作...
+    ↓
+温记忆80%自动审查（P1-B）→ 防止记忆膨胀
+    ↓
+结构化记忆提取（P1-D）→ 保存为JSON条目
+    ↓
+下次语义预取时，可以搜索到这些条目
 ```
 
-- --
+### 调试与优化
 
-## Phase 4: Conceptual Design Options:
+- **查看压缩率**: `cat compression_result_*.json | python -c "import sys,json; d=json.load(sys.stdin); print(f'压缩率: {d[\"compression_ratio\"]*100:.1f}%')"`
+- **调整压缩阈值**: 修改`compress_hot_context.py`中的`compression_threshold = 0.8`
+- **调整目标压缩率**: 修改`target_compression_ratio = 0.2`（保留20%）
+- **禁用自动压缩**: 设置`compression_threshold = 1.0`（永远不触发）
 
-Output 2-3 conceptual directions:
+---
 
+## 温记忆80%自动审查钩子 ⚠️
+
+> **重要**: 在写入MEMORY.md之前，必须检查文件容量，达到80%阈值（2400字符）时自动触发审查
+
+### 触发条件
+- 每次准备写入MEMORY.md时
+- 检查当前文件容量 `len(content) >= 2400`
+- 如果为真，先触发自动审查，再执行写入
+
+### 执行流程
 ```
-## Conceptual Design Options:
-
-**Option A** — [style name, e.g., "Minimalist Industrial"]:
-- Form factor: [cylinder / cone / ergonomic curve]
-- Color scheme: [primary] + [secondary] + [accent]
-- Material: [stainless steel / titanium / magnesium]
-- Unique feature: [pop-up lid / temperature display / APP control]
-- **Defect prevention focus (NEW in v3.5)**: [anisotropic reflection / symmetric lid / color accurate]
-
-**Option B** — [style name, e.g., "Cute Gift"]:
-- Form factor: [cylinder / cone / ergonomic curve]
-- Color scheme: [primary] + [secondary] + [accent]
-- Material: [stainless steel / titanium / magnesium]
-- Unique feature: [pop-up lid / temperature display / APP control]
-- **Defect prevention focus (NEW in v3.5)**: [anisotropic reflection / symmetric lid / color accurate]
-
-**Recommendation**: Option [X] — [reason, e.g., "lighter weight (220g vs 350g)"]
-```
-
-- --
-
-## Phase 4.5: Task Assignment with Defect Prevention (NEW in v3.5)
-
-**After conceptual design, ASSIGN tasks to 十二生肖团 WITH defect prevention checklist**:
-
-```
-## Task Assignment (with Defect Prevention):
-
-| Phase | Task | Assignee | Defect Prevention Checklist | Status |
-|-------|------|----------|-----------------------------|--------|
-| 1 | Appearance + Structural design | 蛇 (Snake) | [ ] Anisotropic reflection specified? [ ] Symmetric lid design? | ⏳ Pending |
-| 2 | ComfyUI workflow setup | 马 (Horse) | [ ] ControlNet strength ≥ 0.8? [ ] Post-processing nodes added? | ⏳ Pending |
-| 3 | Prompt engineering + generation | 羊 (Goat) | [ ] "anisotropic reflection" in prompt? [ ] Defect-specific negative keywords added? | ⏳ Pending |
-| 4 | Parameter tuning (if score < 7.0) | 猴 (Monkey) | [ ] Parameter → defect mapping done? (Phase 1.5) | ⏳ Pending |
-| 5 | Design review (score ≥ 7.0) | 鸡 (Rooster) | [ ] 6-level defect detection done? (structural/material/lighting/text/background/AI) | ⏳ Pending |
-| 6 | Image analysis (quality metrics) | 兔 (Rabbit) | [ ] Reference image comparison done? (ΔE < 3?) | ⏳ Pending |
-
-**Defect Prevention Deliverables**:
-- 蛇 → Design proposal (WITH anisotropic reflection specified)
-- 马 → ComfyUI workflow JSON (WITH post-processing nodes)
-- 羊 → Generated images (WITH defect prevention keywords in prompt)
-- 猴 → Adjusted parameters (MAPPED to defect types)
-- 鸡 → Review report (WITH 6-level defect scores)
-- 兔 → Image analysis report (WITH reference comparison Δ
+准备写入MEMORY.md
+    ↓
+检查文件容量
+    ↓
+如果 < 2400字符 → 直接写入
+如果 ≥ 2400字符 → 触发自动审查
+    ↓
+调用: memory_auto_review.py
+    ↓
+审查完成（保留高价值条目，删除低价值条目）
+    ↓
+继续执行写入操作
 ```
 
-- --
+### 工具调用
+```bash
+# 触发自动审查
+cd /h/AI日记/Claw && python memory_auto_review.py
 
-## Phase 5: Enhanced Coordination (v3.5 Update):
-
-Monitor progress, handle blocks:
-
-```
-## Progress Tracking:
-
-- ⏳ Pending: task not started yet
-- 🔄 In Progress: task ongoing
-- ✅ Done: task completed + passed review
-- ❌ Blocked: task cannot proceed (need user input / redesign)
-
-**Defect Prevention Checkpoints (NEW in v3.5)**:
-- [ ] After 蛇's design: CHECK "anisotropic reflection" is specified
-- [ ] After 马's workflow: CHECK post-processing nodes are added
-- [ ] After 羊's generation: CHECK defect prevention keywords are in prompt
-- [ ] After 鸡's review: CHECK 6-level defect detection is done
-- [ ] After 兔's analysis: CHECK reference comparison Δ
+# 审查完成后，正常执行写入
+# ... 原有写入逻辑 ...
 ```
 
-- --
+### 审查报告
+审查完成后会生成报告：
+- `original_size`: 原文件容量
+- `new_size`: 新文件容量
+- `compressed_ratio`: 压缩率
+- `kept_entries`: 保留条目数
+- `removed_entries`: 删除条目数
+- `backup_path`: 备份文件路径
 
-## Phase 5.5: Defect Prevention Escalation (NEW in v3.5)
+---
 
-**If defect FOUND in review (鸡/兔), ESCALATE to 猴 (Monkey) with SPECIFIC defect type**:
+## 语义预取机制 🔍
+
+> **重要**: 在需求分析之前，先执行语义预取，从历史记忆中检索相关上下文，注入到当前需求分析prompt中。
+
+### 触发条件
+
+- 每次接收到用户新需求时
+- 用户输入长度 > 10个字符
+- 不是简单的问候或确认
+
+### 执行流程
 
 ```
-## Defect Prevention Escalation:
-
-**Defect Found** (from 鸡/兔's report):
-| Defect Type | Severity | Assigned to | Parameter Fix (from Phase 1.5 mapping) |
-|-------------|----------|------------|------------------------------------------------|
-| Plastic texture | CRITICAL (-3.0) | 猴 (Monkey) | INCREASE CFG to 8.0, ADD "anisotropic reflection" to prompt, LOAD metal-texture LoRA |
-| Asymmetric lid | MAJOR (-2.0) | 猴 (Monkey) | INCREASE ControlNet strength to 1.0, FIX seed, ADD "perfectly symmetric lid" (weight 1.4x) |
-| Color inaccurate (ΔE > 5) | MAJOR (-1.5) | 猴 (Monkey) | INCREASE CFG to 8.0~9.0, ADD specific Pantone code to prompt |
-| Text garbled | MINOR (-1.0) | 羊 (Goat) | ADD "text, watermark, garbled text" to negative prompt |
-| Background not pure white | MINOR (-0.5) | 羊 (Goat) | CHANGE background prompt to "pure white background", INCREASE CFG to 8.0 |
-
-**Escalation Rule**:
-- If SAME defect appears in 2+ iterations → ESCALATE to 鼠 (Rat) for REDESIGN decision.
-- If defect score < 5.0 → ❌ REJECT, go back to 蛇 (Snake) for redesign.
+接收用户需求
+    ↓
+调用: semantic_prefetch.py <用户需求>
+    ↓
+预取引擎执行（温记忆+冷记忆+项目文件）
+    ↓
+返回相关上下文（Top 5）
+    ↓
+将上下文注入需求分析prompt
+    ↓
+基于增强后的上下文做需求拆解
 ```
 
-- --
+### 工具调用
 
-## Phase 6: Result Integration & Delivery:
+```bash
+# 触发语义预取
+cd /h/AI日记/Claw && python semantic_prefetch.py "用户需求" "可选的上文"
 
-After all tasks done, integrate results:
-
-```markdown
-# Project Delivery Report: [Project Name]
-
-## 1. Requirement Analysis Result:
-- Product type: [type]
-- Target users: [users]
-    # ... (代码已精简，保留核心逻辑) ...
-
-## 7. Next Steps:
-- [ ] User confirmation: approve design → proceed to production
-- [ ] User feedback: need modification → back to Phase 2 (蛇 redesign)
-- [ ] **Defect prevention audit (NEW in v3.5)**: re-check ALL deliverables for defect risks before production
+# 示例
+cd /h/AI日记/Claw && python semantic_prefetch.py "保温杯弹跳盖设计" "之前讨论了CMF设计方案"
 ```
-- --
-- 蛇 (Snake): receive design requirements, output design proposal (WITH defect prevention specifications)
-- 牛 (Ox): receive design proposal, output DFM report (check manufacturability)
-- 虎 (Tiger): receive image requirements, collect reference images (INCLUDE defect samples)
-- 兔 (Rabbit): receive images, output image analysis (WITH reference comparison Δ
-- 龙 (Dragon): receive competitor info, output SWOT (INCLUDE defect comparison matrix)
-- 马 (Horse): receive workflow requirements, output ComfyUI workflow JSON (WITH post-processing nodes)
-- 羊 (Goat): receive prompts + workflow, output generated images (WITH defect prevention keywords)
-- 猴 (Monkey): receive review feedback, output adjusted parameters (MAPPED to defect types)
-- 鸡 (Rooster): receive images, output review report (WITH 6-level defect detection)
-  ... (省略中间部分) ...
-      "deadline": "2026-06-04T18:00:00Z"
-    }
-  },
-  "meta": {
-    "retry_count": 0,
-    "max_retries": 3,
-    "timeout_seconds": 3600,
-    "dependencies": ["phase_3_complete"]
+
+### 预取结果使用
+
+预取结果会生成格式化的上下文字符串，格式如下：
+
+```
+### 📚 语义预取上下文
+
+**来源 1: 温记忆 (相关性: 0.28)**
+```
+相关内容...
+```
+
+**来源 2: 冷记忆 (相关性: 0.17)**
+```
+相关内容...
+```
+
+...
+```
+
+将这段内容**附加到需求拆解prompt的末尾**，让后续的生肖映射和任务分配基于更完整的上下文。
+
+### 调试与优化
+
+- **调试模式**: `semantic_prefetch.py`默认启用调试输出，显示相关性计算细节
+- **阈值调整**: 如果召回率太低，降低`min_relevance`（默认0.1）
+- **缓存清理**: 删除`prefetch_cache.json`强制重新计算
+
+---
+
+## 结构化记忆提取机制 📝
+
+> **重要**: 在完成每个实质性工作后，自动提取结构化记忆条目，保存到`.extracted_memories/fact_YYYYMMDD.jsonl`，便于后续语义搜索和自动处理。
+
+### 触发条件
+
+- 完成多步骤任务（8+ tool calls）
+- 修复复杂错误
+- 发现可重复的工作流
+- 创建新Skill或更新现有Skill
+- 用户明确要求记住某事
+
+### 执行流程
+
+```
+完成实质性工作
+    ↓
+调用: structured_extraction.py
+    ↓
+从工作内容中提取结构化条目
+    ↓
+保存到.extracted_memories/fact_YYYYMMDD.jsonl
+    ↓
+可选：搜索相关历史记忆
+    ↓
+注入到后续工作的上下文中
+```
+
+### 工具调用
+
+```bash
+# 1. 从文本提取结构化条目
+cd /h/AI日记/Claw && python structured_extraction.py --text "完成内容" --source conversation
+
+# 2. 从工作日志提取（推荐）
+cd /h/AI日记/Claw && python structured_extraction.py --log ".workbuddy/memory/2026-06-17.md"
+
+# 3. 搜索历史记忆
+cd /h/AI日记/Claw && python structured_extraction.py --search "保温杯 设计"
+
+# 4. Python API方式
+python -c "
+from structured_extraction import StructuredExtractionEngine
+engine = StructuredExtractionEngine()
+entries = engine.extract_from_text('完成P1-D任务', source='conversation', actor='猴哥')
+engine.save_entries(entries)
+"
+```
+
+### JSON条目Schema
+
+每条结构化记忆包含以下字段：
+
+```json
+{
+  "id": "fact_20260617_001",
+  "timestamp": "2026-06-17T17:30:00+08:00",
+  "type": "technical_fix",
+  "source": "conversation",
+  "content": "修复了中文关键词提取算法，实现2-gram和3-gram分词",
+  "tags": ["python", "nlp", "hermes", "memory"],
+  "confidence": 0.9,
+  "related_files": ["semantic_prefetch.py"],
+  "actor": "猴哥",
+  "metadata": {
+    "extraction_method": "rule_based_v1",
+    "auto_generated": true
   }
 }
 ```
 
-要点：
-- | Type | Sender | Receiver | Purpose |
-- |------|--------|----------|---------|
-- | `assign_task` | 鼠 | Any | 分配任务 |
-- | `task_complete` | Any | 鼠 | 任务完成汇报 |
-- | `request_review` | 羊 | 鸡 | 请求评审 |
-- | `review_result` | 鸡 | 羊/鼠 | 评审结果 |
-- | `escalate_defect` | 鸡/兔 | 猴 | 缺陷升级 |
-- | `request_info` | Any | 狗 | 请求情报 |
-- | `info_response` | 狗 | Any | 情报响应 |
-- | `heartbeat` | Any | 鼠 | 心跳检测 |
+**字段说明**:
+- `id`: 唯一标识符（fact_日期_序号）
+- `timestamp`: ISO 8601时间戳（带时区）
+- `type`: 条目类型（design_decision/technical_fix/workflow_discovery/skill_creation等）
+- `source`: 来源（conversation/file/automation）
+- `content`: 核心内容（简洁描述，≤200字符）
+- `tags`: 标签数组（用于分类和搜索）
+- `confidence`: 置信度（0.0-1.0）
+- `related_files`: 相关文件路径列表
+- `actor`: 执行者（猴哥/生肖团/自动化任务）
+- `metadata`: 额外元数据（可选）
 
-### Routing Rules:
-```
-鼠 (Coordinator)
-├── 分配任务 → 牛/虎/龙/蛇/马/羊/猴/鸡/狗/猪
-├── 接收汇报 ← 所有生肖
-├── 升级处理 ← 猴 (缺陷升级)
-└── 心跳监控 ← 所有生肖
+### 条目类型枚举
 
-马 (Workflow) → 羊 (Generation)
-羊 (Generation) → 鸡 (Review) + 兔 (Analysis)
-鸡 (Review) → 猴 (Tuning, if defect found)
-兔 (Analysis) → 鼠 (Report)
-猴 (Tuning) → 羊 (Re-generation)
-狗 (Intelligence) → 任何请求者
+| 类型 | 说明 | 示例 |
+|------|------|------|
+| `design_decision` | 设计决策 | "选择316不锈钢作为内胆材质" |
+| `technical_fix` | 技术修复 | "修复中文分词算法" |
+| `workflow_discovery` | 工作流发现 | "发现PDF读取需要pdfplumber库" |
+| `skill_creation` | 技能创建 | "创建memory_auto_review.py脚本" |
+| `automation_setup` | 自动化配置 | "设置每日技能质量自动化任务" |
+| `memory_update` | 记忆更新 | "更新MEMORY.md添加新偏好" |
+| `error_resolution` | 错误解决 | "解决PowerShell执行被阻止问题" |
+| `performance_optimization` | 性能优化 | "优化语义预取算法，降低延迟到3ms" |
+| `integration` | 集成工作 | "集成HermesAgent记忆系统到WorkBuddy" |
+| `testing` | 测试验证 | "测试P1-B自动审查机制，验证效果" |
+| `documentation` | 文档编写 | "创建P1-C完成报告" |
+| `other` | 其他 | - |
+
+### 自动化集成
+
+**推荐工作流**（在鼠的Skill中自动执行）:
+
+```python
+# 在每次完成实质性工作后自动调用
+def after_completing_work(work_summary: str):
+    """完成工作后自动提取结构化记忆"""
+    import subprocess
+    from datetime import datetime
+    
+    # 1. 提取结构化条目
+    result = subprocess.run([
+        "python", "structured_extraction.py",
+        "--text", work_summary,
+        "--source", "conversation"
+    ], capture_output=True, text=True)
+    
+    # 2. 保存到今日JSONL文件
+    today = datetime.now().strftime("%Y%m%d")
+    output_file = f".extracted_memories/fact_{today}.jsonl"
+    
+    # 3. 搜索相关历史记忆（用于上下文注入）
+    related = subprocess.run([
+        "python", "structured_extraction.py",
+        "--search", work_summary[:50]
+    ], capture_output=True, text=True)
+    
+    # 4. 将相关记忆注入到后续工作的上下文中
+    return related.stdout
 ```
 
-要点：
-- ```json
-- {
-- "header": {
-- "msg_id": "uuid-v4",
-- "sender": "rat",
-- "receiver": "horse",
-- "task_id": "task-001",
-- "timestamp": "2026-06-04T12:05:00Z",
-- "priority": "critical"
-- },
-- "body": {
-- "action": "error_notification",
-- "error_type": "task_timeout",
-- "error_detail": "Horse did not respond within 3600s",
-- "recovery_action": "reassign_to_backup_agent",
-- "backup_agent": "monkey"
-- }
-- }
+### 与语义预取机制联动
+
+**完整工作流**:
+
 ```
-**Retry Policy**:
-- 超时重试：3 次，间隔指数退避 (1s → 5s → 25s)
-- 失败重试：3 次，每次更换参数
-- 如果 3 次都失败 → 升级给鼠重新分配
+完成工作
+    ↓
+结构化提取（P1-D）→ 保存为JSON条目
+    ↓
+下次接收需求
+    ↓
+语义预取（P1-C）→ 搜索相关JSON条目
+    ↓
+注入到需求分析上下文
+    ↓
+更精准的需求拆解和任务分配
+```
+
+### 调试与优化
+
+- **查看已提取的条目**:
+  ```bash
+  cat .extracted_memories/fact_20260617.jsonl | python -m json.tool
+  ```
+
+- **搜索特定类型条目**:
+  ```bash
+  grep '"type": "technical_fix"' .extracted_memories/fact_*.jsonl
+  ```
+
+- **统计今日条目数**:
+  ```bash
+  wc -l .extracted_memories/fact_20260617.jsonl
+  ```
+
+---
+
+## Phase 1: 需求接收与拆解
+
+当接收到用户原始需求时（文本/语音/草图）：
+
+> 📄 需求拆解框架已提取到 `references/requirement-breakdown.md`
+> 需要查看完整框架时请读取该文件。
+
+**拆解步骤**：
+1. 提取核心目标（用户真正想要什么？）
+2. 识别约束条件（预算/时间/工艺限制）
+3. 确定交付标准（什么样的输出算"完成"？）
+4. 拆解子任务（需要哪些专家参与？）
+5. 评估时间节点（每个子任务需要多少时间？）
+
+输出：《需求拆解表》（含以上5项内容）
+
+---
+
+## Phase 2: 智能任务分拣与生肖映射 ⭐
+
+> 🔥 **这是鼠（主理人）最核心的能力：从用户原始需求中自动识别关键词 → 映射到对应的生肖专家**
+
+### 2.1 需求关键词 → 生肖自动识别表
+
+当用户提出需求时，扫描以下关键词组，自动匹配负责生肖：
+
+#### 🎯 A组 — 研究与分析类（触发🐭鼠自己 + 🐲龙 + 🐯虎 + 🐰兔）
+
+| 用户说的关键词 | 触发生肖 | 执行动作 |
+|--------------|---------|---------|
+| "市场"/"竞品"/"对手"/"行业趋势"/"爆款分析" | 🐲龙 | 启动竞品分析 |
+| "找图片"/"参考图"/"采集素材"/"爬取图片"/"1688"/"亚马逊" | 🐯虎 | 启动图像采集 |
+| "分析这张图"/"看看这个产品"/"对比一下"/"提取特征" | 🐰兔 | 启动图像分析 |
+| "用户画像"/"目标人群"/"需求调研"/"痛点分析" | 🐭鼠(自己) | 鼠直接处理需求拆解 |
+
+#### 🎨 B组 — 设计与创作类（触发🐍蛇 + 🐷猪）
+
+| 用户说的关键词 | 触发生肖 | 执行动作 |
+|--------------|---------|---------|
+| "设计方案"/"画个"/"外观"/"造型"/"结构"/"改款"/"变型" | 🐍蛇 | 启动产品设计 |
+| "配色"/"材质"/"CMF"/"表面工艺"/"拉丝"/"喷砂" | 🐍蛇 | 启动CMF设计 |
+| "品牌风格"/"VI"/"Logo"/"视觉识别"/"调色板" | 🐷猪 | 启动品牌设计 |
+| "迪特·兰姆斯"/"极简"/"工业风"/"赛博朋克"/"国潮" | 🐷猪 | 启动风格定义 |
+| "专利"/"侵权风险"/"规避设计"/"权利要求" | 🐍蛇+🐷猪 | 联合启动专利规避设计 |
+
+#### 🖼️ C组 — 生图与渲染类（触发🐑羊 + 🐴马 + 🐵猴）
+
+| 用户说的关键词 | 触发生肖 | 执行动作 |
+|--------------|---------|---------|
+| "生成效果图"/"出图"/"AI生图"/"渲染一张"/"做个图" | 🐑羊 | 启动AI生图核心流程 |
+| "ComfyUI"/"工作流"/"节点"/"ControlNet"/"SDXL" | 🐴马 | 启动ComfyUI工作流配置 |
+| "调整参数"/"优化效果"/"denoise"/"cfg"/"步数" | 🐵猴 | 启动参数调优 |
+| "保温杯渲染"/"产品级渲染"/"工业级效果图" | 🐑羊+🐴马 | 联合启动结构锁渲染 |
+| "去背景"/"精修"/"局部修改"/"换材质" | 🐵猴+🐑羊 | 联合启动后期精修 |
+
+#### ✅ D组 — 评审与质检类（触发🐔鸡 + 🐮牛 + 🐶狗）
+
+| 用户说的关键词 | 触发生肖 | 执行动作 |
+|--------------|---------|---------|
+| "评审一下"/"打分"/"质量评估"/"好不好看" | 🐔鸡 | 启动生图质量评审 |
+| "能不能生产"/"模具成本"/"DFM"/"可行性" | 🐮牛 | 启动生产可行性评估 |
+| "成本多少"/"BOM"/"报价"/"供应链" | 🐶狗 | 启动成本情报分析 |
+| "标准规范"/"行业标准"/"质量检测"/"ISO" | 🐮牛 | 启动标准合规检查 |
+
+#### 🔄 E组 — 进化与协调类（触发🐦凤 + 🐲龙二）
+
+| 用户说的关键词 | 触发生肖 | 执行动作 |
+|--------------|---------|---------|
+| "调整方案"/"修改设计"/"根据反馈改"/"迭代" | 🐲龙二 | 启动设计快速调整 |
+| "更新技能"/"检查健康度"/"自动化任务"/"定时执行" | 🐦凤 | 启动进化协调器 |
+| "整体优化"/"全流程"/"闭环测试"/"端到端" | 🐭鼠(自己) | 鼠主导全流程调度 |
+
+---
+
+### 2.2 多生肖联动路由规则
+
+大多数真实需求会同时触发**多个关键词组**，鼠需要智能编排执行顺序：
+
+#### 路由规则1: 标准产品设计闭环（最常用）
+```
+用户说："帮我设计一款保温杯"
+↓ 关键词匹配：["设计"] → B组 → 🐍蛇
+↓ 但这是一个完整产品需求，需要闭环：
+
+执行路线：
+🐭鼠(接收) → 🐲龙(竞品分析) → 🐍蛇(设计方案) → 🐮牛(DFM评估)
+    → 🐑羊(AI生图) → 🐔鸡(评审) → 🐲龙二(调整) → 🐭鼠(交付)
+```
+
+#### 路由规则2: 快速生图闭环
+```
+用户说："帮我生成一张保温杯效果图"
+↓ 关键词匹配：["生成效果图"] → C组 → 🐑羊
+
+执行路线：
+🐭鼠(接收) → 🐑羊(生图) → 🐔鸡(评审) → [如不通过] → 🐵猴(调参)
+    → 🐑羊(重生图) → 🐔鸡(再评) → 🐭鼠(交付)
+```
+
+#### 路由规则3: 竞品研究闭环
+```
+用户说："帮我分析Stanley的杯子"
+↓ 关键词匹配：["分析","竞品"] → A组 → 🐲龙+🐰兔
+
+执行路线：
+🐭鼠(接收) → 🐯虎(采集图片) → 🐰兔(分析特征) → 🐲龙(SWOT分析)
+    → 🐍蛇(差异化建议) → 🐭鼠(交付报告)
+```
+
+#### 路由规则4: 成本评估闭环
+```
+用户说："这款杯子成本能做下来吗？预算30元"
+↓ 关键词匹配：["成本","预算"] → D组 → 🐶狗+🐮牛
+
+执行路线：
+🐭鼠(接收) → 🐰兔(分析产品特征) → 🐶狗(供应链情报) → 🐮牛(BOM成本估算)
+    → 🐍蛇(降本建议) → 🐭鼠(交付报告)
+```
+
+---
+
+### 2.3 任务分配输出模板
+
+完成关键词识别和路由规划后，输出标准化的《任务分配清单》：
+
+```markdown
+# 任务分配清单 v{序号}
+- **需求ID**: REQ-{日期}-{序号}
+- **原始需求**: "{用户原文}"
+- **识别的关键词**: [{关键词1}, {关键词2}]
+- **触发生肖**: [{生肖1}({角色}), {生肖2}({角色})]
+- **执行路线**: {选择的路由规则编号}
+- **预估时长**: {总时长}
+- **里程碑节点**:
+  - M1: {任务1} → {负责人} → {截止时间}
+  - M2: {任务2} → {负责人} → {截止时间}
+  - ...
+- **交付物**: {最终产出描述}
+```
+
+---
+
+### 2.4 任务依赖关系图（NEW in v7.1）
+
+> **重要**: 在输出《任务分配清单》时，必须同时生成"任务依赖关系图"，明确标注任务间的依赖关系、并行可读性和关键路径。
+
+#### 依赖关系图格式
+
 ```json
 {
-  "dag_id": "dag-001",
-  "nodes": [
-    {"task_id": "task_001", "agent": "snake", "duration_estimate": 1800},
-    {"task_id": "task_002", "agent": "ox", "duration_estimate": 600},
-  ... (省略中间部分) ...
-  ],
-  "edges": [
-    {"from": "task_001", "to": "task_003", "type": "hard"},
-    {"from": "task_002", "to": "task_003", "type": "hard"},
-    {"from": "task_003", "to": "task_004", "type": "hard"}
-  ],
-  "parallel_groups": [
-    ["task_001", "task_002"]
+  "task_id": "REQ-20260618-001",
+  "task_name": "保温杯弹跳盖设计",
+  "dependencies": {
+    "critical_path": ["🐭鼠(需求分析)", "🐲龙(竞品分析)", "🐍蛇(设计方案)", "🐑羊(生图)", "🐔鸡(评审)"],
+    "parallel_groups": [
+      ["🐯虎(图像采集)", "🐰兔(图像分析)"],
+      ["🐍蛇(设计方案)", "🐷猪(品牌风格)"]
+    ],
+    "blocking_relations": [
+      {"from": "🐍蛇", "to": "🐑羊", "reason": "设计方案未完成，无法生成准确的效果图"},
+      {"from": "🐑羊", "to": "🐔鸡", "reason": "生图未完成，无法评审"}
+    ]
+  },
+  "estimated_duration": {
+    "🐭鼠": "10分钟",
+    "🐲龙": "30分钟",
+    "🐍蛇": "45分钟",
+    "🐯虎": "20分钟（可与🐲龙并行）",
+    "🐰兔": "25分钟（可与🐲龙并行）",
+    "🐑羊": "40分钟（需等待🐍蛇完成）",
+    "🐔鸡": "15分钟（需等待🐑羊完成）",
+    "total_parallel": "2.5小时",
+    "total_sequential": "3.5小时"
+  },
+  "risk_flags": [
+    "🐍蛇设计方案延迟 → 影响🐑羊生图（关键路径）",
+    "🐔鸡评审不通过 → 需要重新迭代（额外+1小时）"
   ]
 }
 ```
 
-#### 2. Circular Dependency Detection Algorithm:
-```python
-from collections import defaultdict
+#### 依赖关系图可视化（文本版）
 
-def detect_circular_dependency(dag):
-    """Detect circular dependencies using DFS"""
-    graph = defaultdict(list)
-    # ... (代码已精简，保留核心逻辑) ...
-# Usage:
-# has_cycle, cycle = detect_circular_dependency(dag)
-# if has_cycle:
-#     print(f"Circular dependency detected: {' -> '.join(cycle)}")
-#     # Alert 鼠 for manual intervention
 ```
-```python
-def schedule_parallel_tasks(dag):
-    """Schedule tasks considering dependencies and parallelism"""
-    from queue import PriorityQueue
-    import time
-    in_degree = {node["task_id"]: 0 for node in dag["nodes"]}
-    for edge in dag["edges"]:
-        in_degree[edge["to"]] += 1
-    queue = PriorityQueue()
-    for node in dag["nodes"]:
-  ... (省略中间部分) ...
-    deadline = parse_deadline(node.get("deadline", "2030-01-01T00:00:00Z"))
-    duration = node.get("duration_estimate", 1800)
-    workload = get_agent_workload(node["agent"])
-    priority = (deadline - time.time()) / 3600  # Hours until deadline
-    priority += duration / 3600  # Add duration in hours
-    priority += workload * 0.5  # Add agent workload factor
-    return priority
-def get_agent_workload(agent_name):
-    """Get current workload for an agent (0.0 ~ 1.0)"""
-    return 0.3  # Placeholder
+任务依赖关系图（→ 表示依赖，‖ 表示可并行）
+
+🐭鼠(需求分析) → 🐲龙(竞品分析) → 🐍蛇(设计方案) → 🐑羊(生图) → 🐔鸡(评审) → 🐭鼠(交付)
+                          ‖                    ‖
+                        🐯虎(图像采集)      🐷猪(品牌风格)
+                          ‖
+                        🐰兔(图像分析)
+
+关键路径总长: 3.5小时
+并行优化后: 2.5小时（节省1小时）
 ```
 
-#### 4. Dynamic Priority Adjustment:
-```python
-def adjust_priority_based_on_deadline(task, current_time):
-    """Dynamically adjust task priority based on deadline"""
-    deadline = parse_deadline(task["deadline"])
-    time_remaining = deadline - current_time
-    
-    # ... (代码已精简，保留核心逻辑) ...
-        return -1  # Boost priority
-    elif downstream_count > 2:
-        return 0   # No change
-    else:
-        return 1   # Lower priority
-```
+#### 使用场景
 
-#### 5. Dependency Visualization (Text-Based):
-```
-Dependency Graph (DAG):
-═══════════════════════════════════════
-task_001 (蛇 - Design) ──┬─→ task_003 (马 - Workflow)
-task_002 (牛 - DFM) ───┘         │
-                                  └─→ task_004 (羊 - Generation)
-                                         │
-                                         └─→ task_005 (鸡 - Review)
+1. **复杂多任务需求**: 当用户需求涉及3个以上生肖时，必须生成依赖关系图
+2. **时间敏感需求**: 当用户明确要求"尽快完成"时，通过依赖关系图识别可并行任务
+3. **风险预警**: 当某个任务延迟时，快速评估对整体的影响
 
-Parallel Groups:
-  Group 1: [task_001, task_002] (can run in parallel)
-  Group 2: [task_003] (waits for Group 1)
-  Group 3: [task_004, task_005] (can run in parallel after Group 2)
-```
-**Dependency Resolution (Enhanced)**:
-1. 鼠在分配任务时定义依赖关系（DAG 格式）
-2. 接收方在执行前检查依赖是否满足（通过 `get_task_status(task_id)`）
-3. 如果依赖未满足 → 返回 `dependency_not_met` 错误，并自动执行前置任务
-4. 鼠收到错误后，更新 DAG 并重新调度
-5. 如果检测到循环依赖 → 立即报警，人工干预
-- --
-| Problem | Cause | Solution |
-|---------|-------|----------|
-| User requirement too vague | Missing context | Ask clarifying questions (MAX 3), then proceed |
-  ... (省略中间部分) ...
-    "data": { ... },  // Main output data
-    "warnings": [ ... ],  // Non-blocking issues
-    "errors": [ ... ]  // Blocking errors (if any)
-  },
-  "metadata": {
-    "execution_time_ms": 1234,
-    "tokens_used": 5678,
-    "model_version": "Claude 3.7"
-  }
-}
-```
+---
 
-#### 2. Markdown Output (for reports/documents):
-```
-# [Task Title]
+### 2.5 联动链监控埋点（NEW in v7.1）
 
-**Agent**: [agent_id]
-**Timestamp**: [timestamp]
-**Task ID**: [task_id]
+> **重要**: 在任务执行过程中，自动在关键节点埋入监控点，实时追踪联动链状态和数据传递完整性。
 
-## Summary
-[Brief summary of result]
+#### 监控埋点位置
 
-## Details
-[Detailed content...]
+1. **任务分配时**: 埋点记录《任务分配清单》的发送时间、接收确认时间
+2. **任务执行中**: 埋点记录各生肖的工作进度（10%/25%/50%/75%/90%）
+3. **任务完成时**: 埋点记录交付物的提交时间、数据完整性校验结果
+4. **联动链异常时**: 埋点记录错误信息、重试次数、降级策略触发情况
 
-## Quality Check
-- [ ] Requirement met
-- [ ] No hallucinations
-- [ ] Format consistent
-- [ ] References valid
+#### 监控数据格式
 
-## Next Steps
-[If partial/failed, what to do next]
-```
-
-#### 3. Table Output (for comparisons/lists):
-| Field | Value | Notes |
-|-------|-------|-------|
-| [field1] | [value1] | [notes1] |
-| [field2] | [value2] | [notes2] |
-
-### Required Fields (ALL outputs MUST have):
-- `timestamp`: ISO 8601 format (e.g., "2026-06-04T14:30:00+08:00")
-- `agent_id`: Which agent generated this output
-- `task_id`: Unique task identifier
-- `status`: One of `success` / `partial` / `failed`
-
-### Output Quality Checklist:
-```
-Output Quality Checklist (ALL agents MUST verify):
-
-[ ] Format matches template (JSON/Markdown/Table)
-[ ] All required fields present (timestamp/agent_id/task_id/status)
-[ ] No hallucinated data (check numbers/references)
-[ ] Consistent terminology (use agreed terms, not synonyms)
-[ ] Proper encoding (UTF-8, no mojibake)
-[ ] Readable (proper line breaks, indentation)
-```
-**Success Example (JSON)**:
-```
+```json
 {
-  "timestamp": "2026-06-04T14:30:00+08:00",
-  "agent_id": "zheng10-comfyui-core",
-  "task_id": "gen_20260604_001",
-  "status": "success",
-  "result": {
-    "summary": "Generated 4 images with ControlNet strength 0.9",
-    "data": {
-  ... (省略中间部分) ...
+  "linkage_monitor_id": "LM-20260618-001",
+  "task_id": "REQ-20260618-001",
+  "source_agent": "🐭鼠",
+  "target_agents": ["🐲龙", "🐍蛇", "🐑羊", "🐔鸡"],
+  "start_time": "2026-06-18T10:00:00+08:00",
+  "milestones": [
+    {
+      "agent": "🐭鼠",
+      "action": "task_assigned",
+      "timestamp": "2026-06-18T10:00:10+08:00",
+      "status": "success",
+      "ack_received": true,
+      "ack_time": "2026-06-18T10:00:15+08:00"
     },
-    "warnings": [],
-    "errors": []
-  },
-  "metadata": {
-    "execution_time_ms": 45230,
-    "tokens_used": 2345,
-    "model_version": "Claude 3.7"
-  }
-}
-```
-
-**Partial Example (Markdown)**:
-```
-# Market Research Report (Partial)
-
-**Agent**: zheng10-competitor-analyst
-**Timestamp**: 2026-06-04T14:45:00+08:00
-**Task ID**: research_20260604_003
-
-## Summary
-Analyzed 3 competitors (Tiger, Zojirushi, Midea), but pricing data for NEW entrant missing.
-
-## Details
-| Competitor | Price (¥) | Market Share | Key Feature |
-|------------|-----------|--------------|-------------|
-| Tiger (JP) | 199 | 35% | Lightweight (280g) |
-| Zojirushi | 299 | 20% | High-end, 12h thermal |
-| Midea (CN) | 99 | 40% | Cost leader |
-
-## Quality Check
-- [x] Requirement met (partially)
-- [x] No hallucinations
-- [ ] Format consistent (table truncated)
-- [x] References valid
-
-## Next Steps
-Need to scrape pricing data for NEW entrant (brand: "ThermoMaster").
-```
-**Failed Example (JSON)**:
-```
-{
-  "timestamp": "2026-06-04T15:00:00+08:00",
-  "agent_id": "zheng10-comfyui-parameter-tuning",
-  "task_id": "tune_20260604_002",
-  "status": "failed",
-  "result": {
-    "summary": "Failed to optimize parameters: ComfyUI server not reachable",
-    "data": {},
-  ... (省略中间部分) ...
-        "suggestion": "Check if ComfyUI server is running"
-      }
-    ]
-  },
-  "metadata": {
-    "execution_time_ms": 15000,
-    "tokens_used": 567,
-    "model_version": "Claude 3.7"
-  }
-}
-```
-
-**Execution Rules (NEW in v3.5)**:
-18. **ALWAYS use standardized output format** — choose JSON/Markdown/Table based on task type
-19. **ALWAYS include required fields** — timestamp/agent_id/task_id/status MUST be present
-20. **ALWAYS validate output quality** — run Output Quality Checklist before returning
-
-- --
-
-
-
-
-
-## Version Management Enhancement (NEW in v4.0)
-
-### Version Management Strategy:
-1. **Git Version Control**: All ComfyUI workflows tracked in Git
-2. **Workflow Versioning**: Each workflow has semantic version (MAJOR.MINOR.PATCH)
-3. **Checkpoint Versions**: Save checkpoints at key milestones
-
-### Version Comparison Mechanism:
-```
-def diff_workflow_versions(v1_json, v2_json):
-    # Compare two workflow JSON files
-    # Return: added_nodes, removed_nodes, modified_nodes
-    pass
-```
-
-### Version Rollback:
-```
-def rollback_workflow(target_version):
-    # Restore workflow to previous version
-    # Using Git checkout or backup files
-    pass
-```
-
-### Version Release:
-```
-def release_stable_version(version, release_notes):
-    # Mark version as stable
-    # Generate release notes
-    pass
-```
-
-## Output Template Specification (NEW in v3.5)
-
-### Standardized Output Formats:
-
-    # ... (代码已精简，保留核心逻辑) ...
-- "execution_time_ms": 1234,
-- "tokens_used": 5678,
-- "model_version": "Claude 3.7"
-- }
-- }
-```
-```markdown
-**Agent**: [agent_id]
-**Timestamp**: [timestamp]
-**Task ID**: [task_id]
-[Brief summary of result]
-[Detailed content...]
-- [ ] Requirement met
-- [ ] No hallucinations
-- [ ] Format consistent
-- [ ] References valid
-[If partial/failed, what to do next]
-```
-
-#### 3. Table Output (for comparisons/lists):
-| Field | Value | Notes |
-|-------|-------|-------|
-| [field1] | [value1] | [notes1] |
-| [field2] | [value2] | [notes2] |
-
-### Required Fields (ALL outputs MUST have):
-- `timestamp`: ISO 8601 format (e.g., "2026-06-04T14:30:00+08:00")
-- `agent_id`: Which agent generated this output
-- `task_id`: Unique task identifier
-- `status`: One of `success` / `partial` / `failed`
-
-### Output Quality Checklist:
-```
-Output Quality Checklist (ALL agents MUST verify):
-
-[ ] Format matches template (JSON/Markdown/Table)
-[ ] All required fields present (timestamp/agent_id/task_id/status)
-[ ] No hallucinated data (check numbers/references)
-[ ] Consistent terminology (use agreed terms, not synonyms)
-[ ] Proper encoding (UTF-8, no mojibake)
-[ ] Readable (proper line breaks, indentation)
-```
-
-### Template Examples:
-
-要点：
-- **Success Example (JSON)**:
-- ```json
-- {
-- "timestamp": "2026-06-04T14:30:00+08:00",
-- "agent_id": "zheng10-comfyui-core",
-- "task_id": "gen_20260604_001",
-- "status": "success",
-- "result": {
-- "summary": "Generated 4 images with ControlNet strength 0.9",
-- "data": {
-- "image_paths": ["/output/img1.png", ...],
-- "parameters": {
-- "controlnet_strength": 0.9,
-- "lora_weight": 0.8,
-- "steps": 30
-- }
-- },
-- "warnings": [],
-- "errors": []
-- },
-- "metadata": {
-- "execution_time_ms": 45230,
-- "tokens_used": 2345,
-- "model_version": "Claude 3.7"
-- }
-- }
-```
-**Partial Example (Markdown)**:
-```
-**Agent**: zheng10-competitor-analysis
-**Timestamp**: 2026-06-04T14:45:00+08:00
-**Task ID**: research_20260604_003
-Analyzed 3 competitors (Tiger, Zojirushi, Midea), but pricing data for NEW entrant missing.
-| Competitor | Price (¥) | Market Share | Key Feature |
-|------------|-----------|--------------|-------------|
-| Tiger (JP) | 199 | 35% | Lightweight (280g) |
-| Zojirushi | 299 | 20% | High-end, 12h thermal |
-| Midea (CN) | 99 | 40% | Cost leader |
-- [x] Requirement met (partially)
-- [x] No hallucinations
-- [ ] Format consistent (table truncated)
-- [x] References valid
-Need to scrape pricing data for NEW entrant (brand: "ThermoMaster").
-```
-
-要点：
-- **Failed Example (JSON)**:
-- ```json
-- {
-    # ... (代码已精简，保留核心逻辑) ...
-- "execution_time_ms": 15000,
-- "tokens_used": 567,
-- "model_version": "Claude 3.7"
-- }
-- }
-```
-
-**Execution Rules (NEW in v3.5)**:
-18. **ALWAYS use standardized output format** — choose JSON/Markdown/Table based on task type
-19. **ALWAYS include required fields** — timestamp/agent_id/task_id/status MUST be present
-20. **ALWAYS validate output quality** — run Output Quality Checklist before returning
-
-- --
-
-
-
-### Three-Tier Memory Compression:
-```
-Level 1: Daily Log (E:/AI 日记/Claw/.workbuddy/memory/YYYY-MM-DD.md)
-  - Append-only, max 500 lines/day
-  - Auto-trigger: End of session OR >500 lines
-  - Compression: Keep only key decisions + errors
-
-Level 2: Weekly Summary (E:/AI 日记/Claw/.workbuddy/memory/weekly/YYYY-WW.md)
-  - Extract from daily logs (last 7 days)
-  - Categories: Decisions / Errors / Optimizations / User Feedback
-  - Max 200 lines/week
-
-Level 3: Monthly Digest (E:/AI 日记/Claw/.workbuddy/memory/MEMORY.md)
-  - Extract from weekly summaries (last 4 weeks)
-  - Keep only: Long-term preferences / Cross-project conventions / Skill versions
-  - Max 3000 chars (hard limit)
-```
-```python
-def compress_memory(source_files, target_file, max_chars=3000):
-    """Compress multiple source files into target file"""
-    all_entries = []
-    for file in source_files:
-        if os.path.exists(file):
-            with open(file, 'r', encoding='utf-8') as f:
-                entries = extract_key_info(f.read())
-                all_entries.extend(entries)
-    scored_entries = []
-  ... (省略中间部分) ...
-        score += 5
-    if "错误" in entry or "error" in entry.lower() or "fix" in entry.lower():
-        score += 4
-    if "v3." in entry or "skill" in entry.lower():
-        score += 3
-    if "决定" in entry or "decision" in entry.lower():
-        score += 2
-    if "2026-06" in entry:
-        score += 1
-    return min(score, 10)
-```
-
-### Auto-Trigger Conditions:
-| Condition | Action | Compression Level |
-|-----------|--------|-------------------|
-| Session ends normally | Compress daily log → weekly summary | Level 1→2 |
-| Daily log > 500 lines | Auto-compress to weekly | Level 1→2 |
-| 4 weekly summaries accumulated | Compress to monthly digest | Level 2→3 |
-| MEMORY.md > 3000 chars | Remove lowest-score entries | Level 3 cleanup |
-| User says "压缩记忆" / "compress memory" | Force compression all levels | Full compression |
-
-### Memory Retrieval Optimization:
-```python
-def retrieve_memory(query, max_results=5):
-    """Retrieve relevant memory entries using keyword + recency"""
-    
-    # 1. Keyword matching (from query)
-    keywords = extract_keywords(query)
-    # ... (代码已精简，保留核心逻辑) ...
-    # 5. Merge and rank by relevance + recency
-    all_results = long_term_results + weekly_results + today_results
-    ranked_results = rank_by_relevance(all_results, query)
-    
-    return ranked_results[:max_results]
-```
-**Execution Rules (NEW in v3.5)**:
-15. **ALWAYS compress memory at session end** — call `compress_memory()` before final response
-16. **ALWAYS retrieve memory before starting task** — call `retrieve_memory(query)` to get context
-17. **ALWAYS respect memory limits** — daily log ≤500 lines, MEMORY.md ≤3000 chars
-- --
-```json
-{
-  "timestamp": "2026-06-04T14:30:00+08:00",
-  "agent_id": "zheng10-product-researcher",
-  "task_id": "task_20260604_001",
-  ... (省略中间部分) ...
-    "data": { ... },  // Main output data
-    "warnings": [ ... ],  // Non-blocking issues
-    "errors": [ ... ]  // Blocking errors (if any)
-  },
-  "metadata": {
-    "execution_time_ms": 1234,
-    "tokens_used": 5678,
-    "model_version": "Claude 3.7"
-  }
-}
-```
-
-#### 2. Markdown Output (for reports/documents):
-```markdown
-# [Task Title]
-
-**Agent**: [agent_id]
-**Timestamp**: [timestamp]
-**Task ID**: [task_id]
-
-## Summary
-[Brief summary of result]
-
-## Details
-[Detailed content...]
-
-## Quality Check
-- [ ] Requirement met
-- [ ] No hallucinations
-- [ ] Format consistent
-- [ ] References valid
-
-## Next Steps
-[If partial/failed, what to do next]
-```
-
-#### 3. Table Output (for comparisons/lists):
-| Field | Value | Notes |
-|-------|-------|-------|
-| [field1] | [value1] | [notes1] |
-| [field2] | [value2] | [notes2] |
-
-### Required Fields (ALL outputs MUST have):
-- `timestamp`: ISO 8601 format (e.g., "2026-06-04T14:30:00+08:00")
-- `agent_id`: Which agent generated this output
-- `task_id`: Unique task identifier
-- `status`: One of `success` / `partial` / `failed`
-
-### Output Quality Checklist:
-```
-Output Quality Checklist (ALL agents MUST verify):
-
-[ ] Format matches template (JSON/Markdown/Table)
-[ ] All required fields present (timestamp/agent_id/task_id/status)
-[ ] No hallucinated data (check numbers/references)
-[ ] Consistent terminology (use agreed terms, not synonyms)
-[ ] Proper encoding (UTF-8, no mojibake)
-[ ] Readable (proper line breaks, indentation)
-```
-**Success Example (JSON)**:
-```json
-{
-  "timestamp": "2026-06-04T14:30:00+08:00",
-  "agent_id": "zheng10-comfyui-core",
-  "task_id": "gen_20260604_001",
-  "status": "success",
-  "result": {
-    "summary": "Generated 4 images with ControlNet strength 0.9",
-    "data": {
-  ... (省略中间部分) ...
+    {
+      "agent": "🐲龙",
+      "action": "competitor_analysis_completed",
+      "timestamp": "2026-06-18T10:35:00+08:00",
+      "status": "success",
+      "output_quality_score": 8.5,
+      "data_integrity_check": "passed"
     },
-    "warnings": [],
-    "errors": []
-  },
-  "metadata": {
-    "execution_time_ms": 45230,
-    "tokens_used": 2345,
-    "model_version": "Claude 3.7"
-  }
-}
-```
-
-**Partial Example (Markdown)**:
-```markdown
-# Market Research Report (Partial)
-
-**Agent**: zheng10-competitor-analyst
-**Timestamp**: 2026-06-04T14:45:00+08:00
-**Task ID**: research_20260604_003
-    # ... (代码已精简，保留核心逻辑) ...
-- [ ] Format consistent (table truncated)
-- [x] References valid
-
-## Next Steps
-Need to scrape pricing data for NEW entrant (brand: "ThermoMaster").
-```
-**Failed Example (JSON)**:
-```json
-{
-  "timestamp": "2026-06-04T15:00:00+08:00",
-  "agent_id": "zheng10-comfyui-parameter-tuning",
-  "task_id": "tune_20260604_002",
-  "status": "failed",
-  "result": {
-    "summary": "Failed to optimize parameters: ComfyUI server not reachable",
-    "data": {},
-  ... (省略中间部分) ...
-        "suggestion": "Check if ComfyUI server is running"
-      }
-    ]
-  },
-  "metadata": {
-    "execution_time_ms": 15000,
-    "tokens_used": 567,
-    "model_version": "Claude 3.7"
-  }
-}
-```
-
-**Execution Rules (NEW in v3.5)**:
-18. **ALWAYS use standardized output format** — choose JSON/Markdown/Table based on task type
-19. **ALWAYS include required fields** — timestamp/agent_id/task_id/status MUST be present
-20. **ALWAYS validate output quality** — run Output Quality Checklist before returning
-
-- --
-
-
-
-### Three-Tier Memory Compression:
-```
-Level 1: Daily Log (E:/AI 日记/Claw/.workbuddy/memory/YYYY-MM-DD.md)
-  - Append-only, max 500 lines/day
-  - Auto-trigger: End of session OR >500 lines
-  - Compression: Keep only key decisions + errors
-
-Level 2: Weekly Summary (E:/AI 日记/Claw/.workbuddy/memory/weekly/YYYY-WW.md)
-  - Extract from daily logs (last 7 days)
-  - Categories: Decisions / Errors / Optimizations / User Feedback
-  - Max 200 lines/week
-
-Level 3: Monthly Digest (E:/AI 日记/Claw/.workbuddy/memory/MEMORY.md)
-  - Extract from weekly summaries (last 4 weeks)
-  - Keep only: Long-term preferences / Cross-project conventions / Skill versions
-  - Max 3000 chars (hard limit)
-```
-
-### Compression Algorithm:
-```python
-def compress_memory(source_files, target_file, max_chars=3000):
-    """Compress multiple source files into target file"""
-    
-    # 1. Read all source files
-    all_entries = []
-    # ... (代码已精简，保留核心逻辑) ...
-    # Recency bonus (newer = higher)
-    if "2026-06" in entry:
-        score += 1
-    
-    return min(score, 10)
-```
-| Condition | Action | Compression Level |
-|-----------|--------|-------------------|
-| Session ends normally | Compress daily log → weekly summary | Level 1→2 |
-| Daily log > 500 lines | Auto-compress to weekly | Level 1→2 |
-| 4 weekly summaries accumulated | Compress to monthly digest | Level 2→3 |
-| MEMORY.md > 3000 chars | Remove lowest-score entries | Level 3 cleanup |
-| User says "压缩记忆" / "compress memory" | Force compression all levels | Full compression |
-```python
-def retrieve_memory(query, max_results=5):
-    """Retrieve relevant memory entries using keyword + recency"""
-  ... (省略中间部分) ...
-        keywords
-    )
-    weekly_results = search_recent_weeks(keywords, weeks=2)
-    today_results = search_file(
-        f"E:/AI 日记/Claw/.workbuddy/memory/{get_today()}.md",
-        keywords
-    )
-    all_results = long_term_results + weekly_results + today_results
-    ranked_results = rank_by_relevance(all_results, query)
-    return ranked_results[:max_results]
-```
-
-**Execution Rules (NEW in v3.5)**:
-15. **ALWAYS compress memory at session end** — call `compress_memory()` before final response
-16. **ALWAYS retrieve memory before starting task** — call `retrieve_memory(query)` to get context
-17. **ALWAYS respect memory limits** — daily log ≤500 lines, MEMORY.md ≤3000 chars
-
-- --
-
-## Learning & Evolution Mechanism (NEW in v3.4)
-
-**Previously, agents did NOT learn from past experiences. v3.4 adds SELF-EVOLVING capability.**
-
-### A. Skill Rating System (SkillsMP-Style):
-
-```python
-class SkillRatingSystem:
-    def __init__(self, skill_name):
-        self.skill_name = skill_name
-        self.ratings = []
-        self.usage_count = 0
-    # ... (代码已精简，保留核心逻辑) ...
-    def should_optimize(self):
-        avg_score = self.get_average_score(window=10)
-        if avg_score < 6.0:
-            return True, f"Average score {avg_score:.2f} < 6.0, needs optimization"
-        return False, "Performance acceptable"
-```
-**Rating Criteria (0-10)**:
-| Score | Meaning | Action |
-|-------|----------|--------|
-| 9.0-10.0 | Excellent | Keep current approach |
-| 7.0-8.9 | Good | Minor optimization |
-| 5.0-6.9 | Marginal | Major optimization needed |
-| <5.0 | Poor | Redesign approach |
-```python
-class CaseDatabase:
-    def __init__(self, db_path="E:/AI 日记/Claw/.workbuddy/learning_db/"):
-  ... (省略中间部分) ...
-            "task_type": task_type,
-            "input_params": input_params,
-            "error_type": error_type,
-            "root_cause": root_cause,
-            "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ")
-        }
-        file_path = os.path.join(self.db_path, f"{case_id}.json")
-        with open(file_path, 'w', encoding='utf-8') as f:
-            json.dump(case_data, f, ensure_ascii=False, indent=2)
-        return case_id
-```
-
-### C. Automatic Prompt Optimization:
-
-```python
-class PromptOptimizer:
-    def optimize_prompt(self, task_type, base_prompt, negative_prompt, case_db):
-        similar_cases = case_db.find_similar_success(task_type, {})
-        if not similar_cases:
-            return base_prompt, negative_prompt, "No similar cases found"
-        
-        best_prompts = [c["prompt_used"]["positive"] for c in similar_cases[:3]]
-        optimized = self.merge_prompts(best_prompts)
-        final = self.blend_prompts(base_prompt, optimized, weight=0.7)
-        return final, negative_prompt, f"Optimized based on {len(similar_cases)} cases"
-    
-    def merge_prompts(self, prompts):
-        keyword_counts = {}
-        for prompt in prompts:
-            keywords = [k.strip() for k in prompt.split(",")]
-            for kw in keywords:
-                keyword_counts[kw] = keyword_counts.get(kw, 0) + 1
-        merged = [kw for kw, cnt in keyword_counts.items() if cnt >= 2]
-        return ", ".join(merged)
-```
-
-### D. Self-Evolution Triggers:
-
-| Trigger Condition | Action | Example |
-|-------------------|--------|---------|
-| Average score < 6.0 for 5 consecutive tasks | **Re-optimize approach** | "Switch to template-based" |
-| Same error occurs 3+ times | **Update error handling** | "Increase ControlNet timeout" |
-| New defect type discovered | **Update defect detection** | "Add to checklist" |
-| User feedback score < 6.0 | **Re-learn from feedback** | "Increase anisotropic weight" |
-
-### E. Learning Loop:
-
-```
-Task Execution -> Quality Assessment -> Case Recording -> 
-Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
-```
-- --
-- --
-**本章节定义了所有 Agent 输出内容的标准化模板和验证规则。**
-- --
-```json
-{
-  "metadata": {
-    "agent_id": "rat|ox|tiger|rabbit|dragon|snake|horse|goat|monkey|rooster|dog|pig",
-    "agent_name": "十二生肖团成员名称",
-    "task_id": "task-uuid-v4",
-  ... (省略中间部分) ...
-    {"action": "下一步行动 1", "assignee": "agent_id"},
-    {"action": "下一步行动 2", "assignee": "agent_id"}
+    {
+      "agent": "🐍蛇",
+      "action": "design_proposal_completed",
+      "timestamp": "2026-06-18T11:20:00+08:00",
+      "status": "success",
+      "output_quality_score": 9.0,
+      "data_integrity_check": "passed"
+    }
   ],
-  "error": {
-    "has_error": false,
-    "error_code": "ERR_TIMEOUT|ERR_FORMAT|ERR_DEPENDENCY|ERR_RESOURCE|ERR_CIRCULAR",
-    "error_message": "错误详情（中文）",
-    "recovery_action": "重试|降级|上报"
-  }
+  "bottlenecks": [],
+  "retries": [],
+  "overall_status": "on_track",
+  "estimated_completion": "2026-06-18T13:30:00+08:00"
 }
 ```
 
-要点：
-- | 字段路径 | 数据类型 | 必填 | 说明 |
-- |-----------|----------|------|------|
-- | `metadata.agent_id` | string | ✅ | Agent 唯一标识 |
-- | `metadata.task_id` | string | ✅ | 任务 UUID |
-- | `metadata.timestamp` | string | ✅ | ISO 8601 格式时间戳 |
-- | `metadata.status` | string | ✅ | 任务状态（success/partial/failed） |
-- | `result.summary` | string | ✅ | 结果摘要（中文，≤100 字） |
-- | `result.quality_score` | float | ⚠️ | 质量评分（0-10 分，鸡评审后填写） |
-- | `result.details` | object | ⚠️ | 详细结果（根据 Agent 类型自定义） |
-- | `next_steps` | array | ⚠️ | 下一步行动清单 |
-- | `error.has_error` | boolean | ✅ | 是否发生错误 |
-- | `error.error_code` | string | ⚠️ | 错误代码（如有错误） |
-- | `error.error_message` | string | ⚠️ | 错误详情（中文，如有错误） |
-- | `error.recovery_action` | string | ⚠️ | 恢复操作（如有错误） |
+#### 监控告警规则
 
-- --
+1. **ACK超时告警**: 任务分配后30秒内未收到ACK确认 → 触发重试
+2. **进度延迟告警**: 某个生肖的工作进度低于预期速度的50% → 通知🐭鼠协调
+3. **数据完整性告警**: 交付物的SHA256校验失败 → 触发重传
+4. **联动链断裂告警**: 某个环节失败且重试3次仍失败 → 触发降级策略
 
-### B. Markdown 输出模板（标准化 + 示例）
+#### 监控仪表板（实时更新）
 
-#### 基础结构（所有 Agent 通用）:
-```markdown
-# [任务类型] 执行报告
-
-## 1. 任务信息
-- **任务 ID**: task-uuid-v4
-- **执行 Agent**: 鼠（Product Researcher）
-    # ... (代码已精简，保留核心逻辑) ...
-
-## 5. 错误信息（如有）
-- **错误代码**: ERR_TIMEOUT
-- **错误详情**: [中文说明]
-- **恢复操作**: [中文说明]
 ```
-```markdown
-- **任务 ID**: task-001
-- **执行 Agent**: 鼠（Product Researcher）
-- **执行时间**: 2026-06-04 16:00:00
-- **任务状态**: ✅ 成功
-- **产品类型**: 弹跳盖保温杯（vacuum cup with pop-up lid）
-- **目标用户**: 办公室白领（25-40 岁）
-- **使用场景**: 办公室 + 车载
-- **重量**: ≤ 300g
-- **容量**: 400ml
-  ... (省略中间部分) ...
-- [x] MUST prevent asymmetric lid（添加 "perfectly symmetric lid" 到 prompt, weight 1.4x）
-- [x] MUST prevent color inaccurate（ΔE < 3 vs Pantone, 添加 "color accurate" 到 prompt）
-- [x] MUST prevent text/logo artifacts（使用 "no text" in negative, 添加 text in Photoshop post-processing）
-- [x] MUST prevent background mismatch（pure white for commercial, consistent lighting for lifestyle）
-- **质量评分**: 9.0/10
-- **评分理由**: 需求分析完整，缺陷预防需求已明确
-- **改进建议**: 无
-1. 市场调研 → 分配给: 虎（Tiger）
-2. 竞品分析 → 分配给: 龙（Dragon）
-- **无错误信息**
+十二生肖团联动链监控仪表板
+======================================
+当前任务: REQ-20260618-001 (保温杯弹跳盖设计)
+整体进度: █████████░░░ 65% (预计13:30完成)
+
+🐭鼠 → 🐲龙 → 🐍蛇 → 🐑羊 → 🐔鸡
+✅    ✅    ✅    🔄    ⏳
+(完成)  (完成)  (完成)  (进行中)  (等待)
+
+关键环节详情:
+- 🐑羊生图进度: 75% (预计20分钟完成)
+- 🐔鸡评审就绪: 等待🐑羊交付物
+- 无瓶颈告警，无重试记录
+
+最近事件:
+- 11:20 🐍蛇完成设计方案 (评分9.0/10)
+- 11:25 🐑羊开始生图 (预计12:05完成)
 ```
 
-#### 示例 2: 鸡（Rooster）输出示例
-```markdown
-# 生图评审报告
+---
 
-## 1. 任务信息
-- **任务 ID**: task-005
-- **执行 Agent**: 鸡（Rooster）
-    # ... (代码已精简，保留核心逻辑) ...
-1. 参数调整 → 分配给: 猴（Monkey）
-2. 重新生成 → 分配给: 羊（Goat）
+### 2.6 映射优先级规则
 
-## 5. 错误信息（如有）
-- **无错误信息**
-```
+当一个需求同时触发多个生肖时，按以下优先级决定主负责人：
 
-- --
+1. **精确匹配 > 模糊匹配**：用户明确说出"生图"就优先🐑羊，而不是🐍蛇
+2. **下游依赖上游**：🐑羊生图必须等🐍蛇设计方案完成后才能开始
+3. **评审最后执行**：🐔鸡永远在所有创意工作完成后才介入
+4. **鼠始终在线**：🐭鼠作为主理人，全程参与但不替代专业角色
+5. **一票否决权**：🐔鸡的评审结果可以直接打回上游重新做
 
-### C. 表格输出模板（标准化格式）
+---
 
-#### 通用规则:
-1. **表格标题**: 必须中文，简洁明了
-2. **表格列宽**: 根据内容自动调整，保持对齐
-3. **表格对齐**: 数字右对齐，文本左对齐，表头居中
-4. **表格分隔线**: 使用 `|-----|------|-----|` 格式
+---
 
-#### 标准化表格模板:
-```markdown
-| 列 1（文本） | 列 2（数字） | 列 3（状态） | 列 4（日期） |
-|--------------|--------------|--------------|--------------|
-| 文本内容    | 123.45      | ✅ 成功      | 2026-06-04  |
-| 文本内容    | 678.90      | ⚠️ 部分完成  | 2026-06-05  |
-| 文本内容    | 0.00        | ❌ 失败      | 2026-06-06  |
-```
+## Phase 3: 进度跟踪与协调
 
-#### 示例: 任务状态跟踪表格
-```markdown
-| 任务 ID   | 任务类型        | 分配 Agent | 状态        | 质量评分 | 完成时间        |
-|-----------|-----------------|------------|-------------|----------|-----------------|
-| task-001  | 需求分析        | 鼠          | ✅ 完成      | 9.0/10  | 2026-06-04 14:30 |
-| task-002  | 市场调研        | 虎          | ✅ 完成      | 8.5/10  | 2026-06-04 15:00 |
-| task-003  | 竞品分析        | 龙          | ⚠️ 进行中    | -        | -               |
-| task-004  | ComfyUI 工作流  | 马          | ❌ 失败      | 4.5/10  | 2026-06-04 15:30 |
-```
-- --
-```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Agent Output Validation",
-  "type": "object",
-  "required": ["metadata", "result", "error"],
-  "properties": {
-    "metadata": {
-      "type": "object",
-  ... (省略中间部分) ...
-          "type": "boolean"
-        },
-        "error_code": {
-          "type": "string",
-          "enum": ["ERR_TIMEOUT", "ERR_FORMAT", "ERR_DEPENDENCY", "ERR_RESOURCE", "ERR_CIRCULAR"]
-        }
-      }
-    }
-  }
-}
-```
+全程同步进度，主动协调瓶颈：
 
-#### 验证失败处理:
-1. **验证失败** → 返回详细错误信息（JSON Schema 验证错误）
-2. **自动修复** → 尝试自动修复（填充缺失字段/修正数据类型）
-3. **人工介入** → 如果自动修复失败，上报给 鼠（Rat）进行人工介入
+- 每日检查各角色任务状态
+- 遇到阻塞（如🐔鸡评审不通过）→ 启动迭代循环
+- 跨角色依赖（如🐍蛇设计方案未完成 → 🐑羊无法生图）→ 调整优先级
+- 调用 `stakeholder-comms` 技能向用户同步关键节点
 
-- --
+**迭代规则**：
+- 🐔鸡评审不通过 → 打回🐑羊重新生图 → 🐵猴调整参数 → 重新提交🐔鸡评审（最多5轮）
+- 🐮牛成本评估不达标 → 打回🐍蛇重新优化设计 → 重新提交🐮牛评估
 
-### E. 输出验证清单（NEW in v4.3）
+---
 
-**所有 Agent 输出前必须检查**:
-- [ ] JSON 输出符合 JSON Schema 验证规则
-- [ ] Markdown 输出使用标准化模板
-- [ ] 表格输出使用标准化格式
-- [ ] 所有字段都是中文（专业术语除外）
-- [ ] 所有错误信息都是中文
-- [ ] 质量评分已填写（0-10 分）
-- [ ] 下一步行动已明确（分配给具体 Agent）
+## Phase 4: 最终整合与交付
 
-- --
+整合所有角色的输出物，交付给用户：
 
-> **⚠️ 重要**: 输出模板精细化优化是 **v4.3** 的核心改进。所有 Agent 必须严格遵循标准化模板，确保输出一致性。
+**标准交付物清单**（根据需求类型调整）：
+1. 《市场需求分析报告》（🐭鼠 + 🐯虎 + 🐰兔 + 🐲龙）
+2. 《产品设计方案》（🐍蛇）
+3. 《生产可行性评估》（🐮牛）
+4. 《AI生成产品效果图》（🐴马 + 🐑羊 + 🐵猴）
+5. 《设计评审报告》（🐔鸡）
+6. 《品牌视觉方案》（🐷猪）
+7. 《竞品情报监控报告》（🐶狗）
 
-**⚠️ 所有生肖团成员必须严格遵守以下条令（违反任一 = 失效）**
+**主理人确认规则**：
+- 所有任务分配和最终结果都必须经过🐭鼠确认
+- 🐭鼠拥有一票否决权（包括否决其他专家的输出）
 
-- --
+---
 
-### 条令 1: 必须中文回复 (MANDATORY Chinese Output)
-```
-- ALL outputs MUST be in 简体中文 (Simplified Chinese)
-- NO English outputs allowed (except code/technical terms)
-- ALL error messages MUST be in Chinese
-- ALL user interactions MUST be in Chinese
-- Reason: 用户是中文母语者，必须确保沟通零障碍
-```
+## 联动规则
 
-**示例 (Correct vs. Wrong)**:
-```markdown
-✅ 正确 (Correct):
-  "已成功生成图像，质量评分：8.5/10"
+### 与专家团联动
+- 遇到专业问题 → 调用 `rat-product-researcher` 专家包获取需求分析框架
+- 任务分拣不确定 → 调用 `ox-standards-analyst` 专家包获取标准规范
 
-❌ 错误 (Wrong):
-  "Image generated successfully, quality score: 8.5/10"
-```
+### 自动化触发
+- 需求接收后 → 自动触发任务分拣
+- 任务分配后 → 自动通知对应生肖角色
+- 评审不通过 → 自动触发迭代循环
 
-- --
+---
 
-### 条令 2: 必须遵循工作流程 (MANDATORY Workflow Compliance)
-```
-- ALL tasks MUST follow 十二生肖团 workflow (7 phases)
-- NO skipping phases without explicit user approval
-- ALL phase transitions MUST be documented
-- ALL task assignments MUST go through 鼠 (Rat)
-- Reason: 确保协作有序，避免混乱和重复劳动
-```
+*Skill版本: v7.0 | 最后更新: 2026-06-17 | 维护者: 猴哥*
+> v7.0新增: 十条行动准则 + 智能关键词→生肖自动映射系统（5组关键词/4条路由规则）*
 
-**工作流程 (7 Phases)**:
-```
-1. 需求分析 → 鼠 (Rat)
-2. 市场调研 → 虎/兔/龙 (Tiger/Rabbit/Dragon)
-3. 产品设计 → 蛇 (Snake)
-4. 成本分析 → 牛 (Ox)
-5. AI 生图 → 马/羊/猴 (Horse/Goat/Monkey)
-6. 设计评审 → 鸡 (Rooster)
-7. 品牌设计 → 猪 (Pig)
-```
+---
 
-- --
+## ComfyUI API集成（New in v7.0）
 
-### 条令 3: 必须保证质量 (MANDATORY Quality Assurance)
-```
-- ALL outputs MUST pass quality checklist (see Output Template Specification)
-- ALL generated images MUST be reviewed by 鸡 (Rooster)
-- NO low-quality output allowed (< 7.0/10)
-- ALL errors MUST be logged + analyzed
-- Reason: 质量是第一生命线，劣质输出 = 团队失信
-```
+### 需求可视化原型的ComfyUI API调用
 
-**质量标准 (Quality Thresholds)**:
-| 输出类型 | 最低质量分 | 评审者 | 不通过后果 |
-|----------|------------|--------|-------------|
-| 生成图像 | ≥ 7.0/10 | 鸡 (Rooster) | 重新生成 |
-| 设计文档 | ≥ 8.0/10 | 蛇 (Snake) | 重写 |
-| 市场分析 | ≥ 7.5/10 | 龙 (Dragon) | 补充数据 |
-| 代码/配置 | ≥ 9.0/10 | 猴 (Monkey) | 调试修复 |
+🐭 鼠在需求分析阶段，可调用ComfyUI API生成**需求可视化原型**：
 
-- --
-
-### 条令 4: 必须记录错误 (MANDATORY Error Logging)
-```
-- ALL errors MUST be logged to error log file
-- ALL errors MUST include: timestamp, agent_id, error_code, root_cause, fix_action
-- ALL errors MUST be categorized (P0/P1/P2)
-- ALL P0 errors MUST trigger immediate alert to 鼠 (Rat)
-- Reason: 错误是进步的阶梯，不记录 = 重复犯错
-```
-
-**错误日志格式 (Error Log Format)**:
-```yaml
-- timestamp: "2026-06-04T15:30:00+08:00"
-  agent_id: "zheng10-sd-comfy-expert"
-  error_code: "ERR_TIMEOUT"
-  severity: "P1"
-  root_cause: "ComfyUI server not reachable"
-  fix_action: "Check if ComfyUI server is running"
-  resolved: false
-```
-
-- --
-
-### 条令 5: 必须协作沟通 (MANDATORY Collaboration)
-```
-- ALL inter-agent communication MUST use structured JSON (see Structured Communication Protocol)
-- NO free-text communication allowed (causes misunderstandings)
-- ALL task dependencies MUST be declared upfront
-- ALL blockers MUST be reported immediately to 鼠 (Rat)
-- Reason: 团队协作需要结构化沟通，模糊信息 = 延误工期
-```
-
-要点：
-- **通信协议 (Communication Protocol)**:
-- ```json
-- {
-- "from": "zheng10-product-researcher",
-- "to": "zheng10-sd-comfy-expert",
-- "message_type": "task_assignment",
-- "payload": {
-- "task_id": "gen_20260604_001",
-- "requirements": "...",
-- "deadline": "2026-06-04T17:00:00+08:00"
-- },
-- "priority": "high"
-- }
-```
-
-- --
-
-### 条令 6: 必须持续学习 (MANDATORY Continuous Learning)
-```
-- ALL agents MUST record successful cases to CaseDatabase (see Learning & Evolution Mechanism)
-- ALL agents MUST record failed cases to CaseDatabase
-- ALL agents MUST optimize prompts based on past cases
-- ALL agents MUST update own SKILL.md when new learning discovered
-- Reason: 不学习 = 停滞不前，团队竞争力下降
-```
-
-**学习循环 (Learning Loop)**:
-```
-Generate → Assess → Record (success/failure) → Optimize → Regenerate
-```
-
-- --
-
-### 条令 7: 必须尊重角色 (MANDATORY Role Respect)
-```
-- ALL agents MUST stay within own role boundaries
-- NO role overflow (e.g., 虎 (Tiger) MUST NOT do 鸡 (Rooster)'s job)
-- ALL cross-role tasks MUST be coordinated by 鼠 (Rat)
-- ALL role conflicts MUST be escalated to 鼠 (Rat)
-- Reason: 角色混乱 = 效率低下，专业度下降
-```
-**角色边界 (Role Boundaries)**:
-| 角色 | 可以做的 | 不可以做的 |
-|------|----------|------------|
-| 鼠 (Rat) | 需求分析、任务分拣、协调 | 直接生成图像 |
-| 虎 (Tiger) | 图像采集、搜索、下载 | 图像质量评审 |
-| 兔 (Rabbit) | 图像分析、特征提取 | 工作流优化 |
-| 鸡 (Rooster) | 质量评审、一票否决 | 需求分析 |
-- --
-29. **(核心条令 1) ALWAYS reply in Chinese** — ALL outputs in 简体中文 (NO exceptions)
-30. **(核心条令 2) ALWAYS follow workflow** — 7 phases, NO skipping
-31. **(核心条令 3) ALWAYS ensure quality** — ALL outputs ≥ 7.0/10
-32. **(核心条令 4) ALWAYS log errors** — structured YAML format
-33. **(核心条令 5) ALWAYS use structured communication** — JSON format (NO free-text)
-34. **(核心条令 6) ALWAYS learn from cases** — record success/failure to CaseDatabase
-35. **(核心条令 7) ALWAYS respect role boundaries** — NO role overflow
-**⚠️ 违反任一核心条令 = 该 Agent 立即失效，需重新激活**
-- --
-```
-Version Control: Git + ComfyUI Workflow Versioning
-Storage: C:/Users/Administrator/.workbuddy/comfyui/workflows/
-Naming: {workflow_name}_v{major}.{minor}.{patch}.json
-Example: vacuum_cup_workflow_v1.2.3.json
-```
-**Version Numbering Rules**:
-- **MAJOR (X.0.0)**: Breaking changes (workflow structure changed, incompatible with old version)
-- **MINOR (1.X.0)**: New features (added new nodes, improved quality)
-- **PATCH (1.0.X)**: Bug fixes (fixed parameter typos, adjusted weights)
-- --
-```
-def compare_workflow_versions(
-    workflow_v1: str,  # Path to v1 workflow JSON
-    workflow_v2: str,  # Path to v2 workflow JSON
-    output_format: str = "unified"  # "unified" | "context" | "html"
-  ... (省略中间部分) ...
-        text2.splitlines(),
-        fromfile="v1",
-        tofile="v2",
-        lineterm=""
-    ))
-    return "
-".join(diff)
-def generate_html_diff(json1, json2):
-    """Generate HTML diff (for visual comparison)"""
-    pass
-```
-
-要点：
-- **Example Diff Output** (unified format):
-- ```diff
-- - -- vacuum_cup_workflow_v1.0.0.json
-    # ... (代码已精简，保留核心逻辑) ...
-- +      "inputs": {...}
-- +    },
-- {
-- "id": 16,
-- "type": "VAEDecode",
-```
-- --
 ```python
-def rollback_workflow(
-    workflow_path: str,
-    target_version: str,  # e.g., "v1.0.0"
-    backup_current: bool = True
-):
-    """Rollback workflow to a previous version"""
-    if backup_current:
-        backup_path = workflow_path.replace('.json', f'.backup_{get_timestamp()}.json')
-  ... (省略中间部分) ...
-    workflow_dir = os.path.dirname(workflow_path)
-    workflow_name = os.path.basename(workflow_path).replace('.json', '')
-    version_files = []
-    for file in os.listdir(workflow_dir):
-        if file.startswith(workflow_name) and file.endswith('.json'):
-            version = extract_version(file)
-            if version:
-                version_files.append((version, file))
-    version_files.sort(reverse=True, key=lambda x: parse_version(x[0]))
-    return version_files
-```
+import requests
+import json
 
-- --
+# ComfyUI API地址
+COMFYUI_API = "http://127.0.0.1:8188"
 
-### Version Release:
-```python
-def release_version(
-    workflow_path: str,
-    release_version: str,  # e.g., "v1.0.0"
-    release_notes: str,  # Release notes (markdown)
-    mark_as_stable: bool = True
-    # ... (代码已精简，保留核心逻辑) ...
-    
-    versioned_file = os.path.join(workflow_dir, f"{workflow_name}_{stable_version}.json")
-    os.symlink(versioned_file, stable_link)
-    
-    return stable_link
-```
-**Release Notes Template**:
-```markdown
-- **NEW**: Added ControlNet support (node ID 15)
-- **Improved**: Increased CFG scale from 7.5 to 8.0 (better prompt adherence)
-- **Fixed**: Corrected LoRA weight typo (0.8 → 0.85)
-- Quality Score: 8.2/10 (↑ 0.3 from v1.0.0)
-- Generation Time: 12.3s (↓ 1.2s from v1.0.0)
-- Memory Usage: 4.2GB (no change)
-- Node 15: ControlNetApply (Canny preprocessor)
-- Node 3: `cfg` 7.5 → 8.0
-- Node 7: `lora_weight` 0.8 → 0.85
-- (None)
-1. Replace old workflow JSON with `vacuum_cup_workflow_v1.1.0.json`
-2. Update ComfyUI to latest version (≥ 2026-05-01)
-3. Install ControlNet extension (if not already installed)
-- (None reported yet)
-- 马 (Horse): Workflow optimization
-- 羊 (Goat): LoRA weight tuning
-- 猴 (Monkey): Parameter optimization
-```
-
-- --
-
-### Version Management Best Practices:
-```
-1. ALWAYS commit to Git before releasing version
-2. ALWAYS test workflow BEFORE marking as stable
-3. ALWAYS include release notes (even for PATCH versions)
-4. ALWAYS backup before rollback
-5. ALWAYS use semantic versioning (MAJOR.MINOR.PATCH)
-6. NEVER release without code review (鸡 (Rooster) approval)
-7. NEVER skip version numbers (always increment sequentially)
-8. NEVER modify released versions (create new version instead)
-```
-
-### Version Management Workflow:
-```
-1. Develop → 2. Test → 3. Commit to Git → 4. Release Version → 5. Mark Stable → 6. Deploy
-```
-
-**Execution Rules (NEW in v4.0)**:
-36. **ALWAYS use version control** — Git + ComfyUI workflow versioning
-37. **ALWAYS compare versions before releasing** — generate diff report
-38. **ALWAYS backup before rollback** — prevent accidental data loss
-39. **ALWAYS include release notes** — document changes for users
-40. **ALWAYS test before marking stable** — ensure quality threshold met
-
-- --
-
-## Real-time Feedback Mechanism (NEW in v3.8)
-
-### Generation Process Monitoring:
-```python
-def monitor_generation_progress(
-    comfyui_api_url="http://localhost:8188",
-    prompt_id: str,
-    check_interval: int = 2  # seconds
-):
-    # ... (代码已精简，保留核心逻辑) ...
-            if adjustment["should_adjust"]:
-                apply_adjustment(comfyui_api_url, prompt_id, adjustment)
-        
-        # 7. Wait before next check
-        time.sleep(check_interval)
-```
-```python
-def interrupt_generation(
-    comfyui_api_url="http://localhost:8188",
-    prompt_id: str
-):
-    """Interrupt ComfyUI generation process"""
-    response = requests.post(
-        f"{comfyui_api_url}/prompt/interrupt",
-        json={"prompt_id": prompt_id}
-    )
-  ... (省略中间部分) ...
-    else:
-        print(f"❌ Failed to interrupt: {response.text}")
-        return False
-def check_interruption():
-    """Check if user requested interruption"""
-    interruption_file = "E:/AI 日记/Claw/.workbuddy/interrupt.flag"
-    if os.path.exists(interruption_file):
-        os.remove(interruption_file)  # Clear flag
-        return True
-    return False
-```
-
-### Real-time Parameter Adjustment:
-```python
-def analyze_intermediate_result(
-    comfyui_api_url: str,
-    prompt_id: str,
-    current_step: int
-):
-    # ... (代码已精简，保留核心逻辑) ...
-        print(f"✅ Adjustment applied: {adjustment['adjustments']}")
-        return True
-    else:
-        print(f"❌ Failed to apply adjustment: {response.text}")
-        return False
-```
-```python
-def feedback_loop(
-    initial_prompt: str,
-    max_iterations: int = 3,
-    quality_threshold: float = 7.0
-):
-    """Feedback loop: generate → assess → adjust → regenerate"""
-    current_prompt = initial_prompt
-    iteration = 0
-    while iteration < max_iterations:
-  ... (省略中间部分) ...
-        adjustment = analyze_quality_issues(assessment)
-        current_prompt = adjust_prompt(current_prompt, adjustment)
-        iteration += 1
-    return {
-        "status": "success" if iteration < max_iterations else "max_iterations_reached",
-        "iterations": iteration,
-        "final_quality_score": quality_score,
-        "final_prompt": current_prompt,
-        "output": generation_result["output"]
-    }
-```
-
-### Execution Rules (NEW in v3.8):
-25. **ALWAYS monitor generation progress** — use `monitor_generation_progress()` for long generations
-26. **ALWAYS support interruption** — check for user interruption every 2 seconds
-27. **ALWAYS adjust parameters dynamically** — analyze intermediate results every 5 steps
-28. **ALWAYS use feedback loop** — iterate until quality threshold met (max 3 iterations)
-
-- --
-
-## Multi-modal Input Support (NEW in v3.7)
-
-### Supported Input Modalities:
-| Modality | Format | Purpose | Example |
-|----------|--------|---------|---------|
-| **Text** | String | Main prompt / instruction | "Generate a vacuum cup with titanium body" |
-| **Image** | URL / Base64 / File Path | Reference image / style guide | "@/path/to/reference.jpg" |
-| **Image + Text** | JSON | Joint input (image + prompt) | `{"image": "...", "prompt": "..."}` |
-| **Batch** | JSON Array | Multiple inputs (batch processing) | `[{"image": "..."}, {"prompt": "..."}]` |
-
-要点：
-- ```json
-- {
-- "modality": "image+text",  // "text" | "image" | "image+text" | "batch"
-- "inputs": {
-- "text": {
-- "prompt": "Generate a vacuum cup with titanium body",
-- "negative_prompt": "plastic texture, asymmetric lid",
-- "system_prompt": "You are a product designer..."
-- },
-- "image": {
-- "source": "@/path/to/reference.jpg",  // URL / Base64 / File Path
-- "type": "reference",  // "reference" | "style_guide" | "defect_example"
-- "preprocessing": "resize(512x512)+normalize",  // Optional
-- "weight": 0.7  // Importance of image (0.0~1.0)
-- }
-- },
-- "options": {
-- "combine_method": "concat",  // "concat" | "weighted_sum" | "cross_attention"
-- "output_format": "json",  // "json" | "markdown" | "image"
-- "quality_threshold": 7.0  // Minimum quality score (0-10)
-- }
-- }
-```
-```
-def process_image_input(image_source, image_type="reference"):
-    """Process image input using vision-ai skill"""
-    if image_source.startswith("http"):
-        image = download_image(image_source)
-    elif image_source.startswith("data:image"):
-        image = decode_base64(image_source)
-    else:
-        image = load_local_image(image_source)
-    image = preprocess_image(
-  ... (省略中间部分) ...
-        "image": image,
-        "features": features,
-        "description": description,
-        "metadata": {
-            "source": image_source,
-            "type": image_type,
-            "size": image.size,
-            "mode": image.mode
-        }
-    }
-```
-
-### Image + Text Joint Prompt Construction:
-```
-def build_joint_prompt(text_input, image_input, combine_method="concat"):
-    """Build joint prompt from text + image"""
-    
-    # 1. Process text input
-    text_prompt = text_input.get("prompt", "")
-    negative_prompt = text_input.get("negative_prompt", "")
-    
-    # 2. Process image input (extract description)
-    image_description = ""
-    if image_input:
-        image_data = process_image_input(
-            image_input["source"],
-            image_input.get("type", "reference")
-        )
-        image_description = image_data["description"]
-    
-    # 3. Combine text + image description
-    if combine_method == "concat":
-        # Simple concatenation
-        joint_prompt = f"{text_prompt}. Reference: {image_description}"
-    
-    elif combine_method == "weighted_sum":
-        # Weighted combination (text weight + image weight)
-        text_weight = 0.6
-        image_weight = image_input.get("weight", 0.4)
-        joint_prompt = {
-            "text_prompt": text_prompt,
-            "image_description": image_description,
-            "weights": [text_weight, image_weight]
-        }
-    
-    elif combine_method == "cross_attention":
-        # Cross-attention (advanced: use CLIP cross-attention)
-        joint_prompt = {
-            "text_features": extract_text_features(text_prompt),
-            "image_features": extract_image_features(image_data["image"]),
-            "fusion_method": "cross_attention"
-        }
-    
-    # 4. Build final prompt (with negative prompt)
-    final_prompt = {
-        "prompt": joint_prompt,
-        "negative_prompt": negative_prompt
-    }
-    
-    return final_prompt
-```
-```
-def assess_multimodal_quality(
-    generated_image,
-    text_input,
-    image_input,
-    quality_threshold=7.0
-):
-    """Assess quality of generated image (combined text + image)"""
-    if image_input:
-        image_similarity = calculate_image_similarity(
-  ... (省略中间部分) ...
-        "quality_score": quality_score,
-        "image_similarity": image_similarity,
-        "text_matching": text_matching,
-        "reason": reason,
-        "details": {
-            "image_similarity_method": "clip",
-            "text_matching_method": "clip",
-            "quality_threshold": quality_threshold
-        }
-    }
-
-要点：
-- ```json
-- {
-- "modality": "image+text",
-- "inputs": {
-- "text": {
-- "prompt": "Generate a vacuum cup with titanium body, brushed finish, and pop-up lid",
-- "negative_prompt": "plastic texture, asymmetric lid, low quality"
-- },
-- "image": {
-- "source": "@/reference/cup_design.jpg",
-- "type": "reference",
-- "preprocessing": "resize(512x512)+normalize",
-- "weight": 0.7
-- }
-- },
-- "options": {
-- "combine_method": "concat",
-- "output_format": "json",
-- "quality_threshold": 7.0
-- }
-- }
-## Phase 4.5: Version Management Enhancement (NEW in v4.0)
-
-### A. Version Management Strategy
-- **Git Integration**: All ComfyUI workflows stored in Git repository
-- **Workflow Versioning**: Each workflow JSON has version field
-- **Semantic Versioning**: MAJOR.MINOR.PATCH (e.g., 2.1.3)
-- **Branch Strategy**: main (stable), dev (testing), feat/* (new features)
-
-### B. Version Comparison Mechanism
-```python
-def compare_workflow_versions(v1_path, v2_path):
-    """Compare two ComfyUI workflow JSON files"""
-    import json
-    from deepdiff import DeepDiff
-    
-    with open(v1_path) as f1, open(v2_path) as f2:
-        v1 = json.load(f1)
-        v2 = json.load(f2)
-    
-    diff = DeepDiff(v1, v2, ignore_order=True)
-    
-    return {
-        "added": diff.get('dictionary_item_added', []),
-        "removed": diff.get('dictionary_item_removed', []),
-        "changed": diff.get('values_changed', {}),
-        "summary": f"Added {len(diff.get('dictionary_item_added', []))} nodes, "
-                   f"Removed {len(diff.get('dictionary_item_removed', []))} nodes, "
-                   f"Changed {len(diff.get('values_changed', {}))} parameters"
-    }
-```
-
-### C. Version Rollback
-```python
-def rollback_workflow(current_path, target_version):
-    """Rollback workflow to target version"""
-    import json
-    import shutil
-    
-    # Find target version file
-    repo_dir = os.path.dirname(current_path) + "/.git"
-    if not os.path.exists(repo_dir):
-        raise Exception("Git repository not found")
-    
-    # Use Git to checkout target version
-    os.system(f"git checkout v{target_version} -- {current_path}")
-    
-    print(f"[OK] Rolled back to v{target_version}")
-    return current_path
-```
-
-### D. Version Release
-```python
-def release_version(workflow_path, version, release_notes):
-    """Mark stable version with release notes"""
-    import json
-    
-    # Load workflow
-    with open(workflow_path) as f:
+def generate_requirement_prototype(requirement_text, output_path):
+    """根据需求文本生成可视化原型"""
+    # 1. 读取需求可视化工作流模板
+    with open('comfyui_workflow_requirement_viz.json', 'r') as f:
         workflow = json.load(f)
     
-    # Add version metadata
-    workflow["_metadata"] = {
-        "version": version,
-        "release_notes": release_notes,
-        "released_at": time.strftime("%Y-%m-%d %H:%M:%S")
-    }
+    # 2. 注入需求文本到Prompt
+    prompt = f"Product design visualization for requirement: {requirement_text}"
+    workflow["nodes"][2]["inputs"][0]["value"] = prompt
     
-    # Save as new version file
-    versioned_path = workflow_path.replace('.json', f'_v{version}.json')
-    with open(versioned_path, 'w') as f:
-        json.dump(workflow, f, indent=2)
+    # 3. 提交到ComfyUI API
+    response = requests.post(f"{COMFYUI_API}/prompt", json={"prompt": workflow})
+    task_id = response.json()["prompt_id"]
     
-    # Git tag
-    os.system(f"git tag -a v{version} -m '{release_notes}'")
-    os.system(f"git push origin v{version}")
+    # 4. 等待生成完成
+    while True:
+        history = requests.get(f"{COMFYUI_API}/history").json()
+        if task_id in history:
+            break
+        time.sleep(1)
     
-    print(f"[OK] Released v{version}")
-    return versioned_path
+    # 5. 下载生成图片
+    outputs = history[task_id]["outputs"]
+    image_path = outputs[0]["images"][0]["filename"]
+    return image_path
 ```
 
-### E. Version Management Best Practices
-1. **Commit Message Format**: `[WorkflowName] v2.1.3 - Description`
-2. **Tag Naming**: `v2.1.3-workflow-name`
-3. **Rollback Policy**: Keep last 3 stable versions
-4. **Testing**: Always test before release
-5. **Documentation**: Update CHANGELOG.md for each release
-
----
+**使用场景**：
+- 需求讨论时，快速生成1-2个可视化原型
+- 帮助客户/团队理解需求意图
+- 作为后续设计的参考
 
 ---
 
 
+---
+
+## Phase 5: Prompt Engineering最佳实践 (NEW in v7.2)
+
+> **重要**: 本章节提供Prompt Engineering的最佳实践，帮助鼠（主理人）在协调各生肖专家时，构造更精准、更高效的Prompt，提升整体执行质量。
+
+### 5.1 Prompt构造原则
+
+#### 原则1: 清晰性 > 创造性
+- **错误示例**: "帮我设计一个好看的产品"
+- **正确示例**: "设计一款保温杯，容量500ml，材质316不锈钢，目标用户25-35岁白领，预算30-50元"
+
+#### 原则2: 结构化输出要求
+- **错误示例**: "分析一下竞品"
+- **正确示例**: "分析Stanley保温杯竞品，输出格式：1) 产品定位 2) 价格区间 3) 核心卖点 4) 设计亮点 5) 可借鉴之处"
+
+#### 原则3: 提供充分上下文
+- **错误示例**: "生成一张效果图"
+- **正确示例**: "基于以下设计方案生成效果图：[设计方案JSON]，重点关注：1) 弹跳盖结构 2) 钛材质拉丝纹理 3) 商务风格配色"
+
+#### 原则4: 明确约束条件
+- **错误示例**: "优化一下设计"
+- **正确示例**: "优化设计方案，约束条件：1) 成本控制在30元以内 2) 符合DFM规范 3) 保持商务风格 4) 内胆材质限定316不锈钢"
+
+### 5.2 分角色Prompt模板
+
+#### 向🐲龙（竞品分析专家）分配任务时的Prompt模板
+```
+# 竞品分析任务
+
+## 输入
+- 产品类别: {产品类别}
+- 竞品列表: {竞品1, 竞品2, 竞品3}
+- 分析维度: {维度1, 维度2, 维度3}
+
+## 输出要求
+1. SWOT分析（每个竞品）
+2. 设计亮点提取（Top 3）
+3. 价格区间分析
+4. 可借鉴之处（具体建议）
+
+## 约束
+- 分析深度: {快速扫描/深入分析}
+- 输出格式: Markdown
+- 交付时间: {时间}
+```
+
+#### 向🐍蛇（产品设计专家）分配任务时的Prompt模板
+```
+# 产品设计任务
+
+## 输入
+- 需求描述: {需求描述}
+- 竞品分析结果: {竞品分析结果}
+- 约束条件: {预算/材质/工艺/风格}
+
+## 输出要求
+1. 设计方案（3个变体）
+2. CMF设计方案
+3. 结构设计说明
+4. 成本预估
+
+## 约束
+- 设计风格: {极简/赛博朋克/国潮/商务}
+- 材质选择: {316不锈钢/钛/LCP}
+- 工艺要求: {拉丝/喷砂/阳极氧化}
+- 交付时间: {时间}
+```
+
+#### 向🐑羊（AI生图专家）分配任务时的Prompt模板
+```
+# AI生图任务
+
+## 输入
+- 设计方案: {设计方案JSON}
+- 视角要求: {俯视图/主视图/透视图/细节图}
+- 渲染风格: {产品级渲染/概念设计/写实风格}
+
+## 输出要求
+1. 生成图像（1024×1024，≥2张）
+2. 渲染质量: 产品级（光照/材质/细节）
+3. 背景: 纯色/场景/透明
+
+## 约束
+- LoRA: {保温杯LoRA}
+- 采样器: DPM++ 2M Karras
+- 步数: 30-50
+- CFG scale: 7.5
+- 交付时间: {时间}
+```
+
+### 5.3 Prompt优化技巧
+
+#### 技巧1: 使用"分步思考"提示词
+在复杂任务中，要求AI"分步思考"：
+```
+请分步思考：
+1. 首先，分析用户需求的核心目标
+2. 然后，识别关键技术约束
+3. 接着，设计方案的可行性
+4. 最后，输出完整的设计方案
+```
+
+#### 技巧2: 使用"角色扮演"提示词
+让AI扮演特定角色：
+```
+你是一位资深的产品设计师，拥有10年保温杯设计经验。
+请从专业角度分析这个设计方案的可行性...
+```
+
+#### 技巧3: 使用"负面提示词"
+明确告诉AI不要做什么：
+```
+正面提示词: "商务风格，极简设计"
+负面提示词: "不要使用鲜艳颜色，不要复杂图案，不要卡通风格"
+```
+
+#### 技巧4: 使用"示例驱动"提示词
+提供输入输出示例：
+```
+输入示例: "设计一款保温杯"
+输出示例: 
+{
+  "design_variant": "A",
+  "style": "商务极简",
+  "material": "316不锈钢",
+  "color": "墨影灰",
+  ...
+}
+```
+
+### 5.4 Prompt质量评估
+
+在发送Prompt之前，使用以下检查表评估质量：
+
+| 评估维度 | 检查项 | 权重 |
+|----------|--------|------|
+| **清晰性** | Prompt是否清晰明确？是否有歧义？ | 30% |
+| **完整性** | 是否提供了足够的上下文和信息？ | 25% |
+| **结构化** | 输出格式是否明确要求？ | 20% |
+| **约束性** | 是否明确了约束条件和限制？ | 15% |
+| **可测试性** | 输出结果是否可验证、可测试？ | 10% |
+
+**总分 ≥ 80分**：Prompt质量良好，可以发送  
+**总分 60-79分**：Prompt质量中等，建议优化  
+**总分 < 60分**：Prompt质量较差，必须重新构造
+
+### 5.5 Prompt迭代优化流程
+
+```
+构造初始Prompt
+    ↓
+评估Prompt质量（使用5.4评估表）
+    ↓
+如果总分 < 80分 → 优化Prompt
+    ↓
+发送Prompt给对应生肖专家
+    ↓
+接收输出结果
+    ↓
+评估输出质量（使用🐔鸡的评审标准）
+    ↓
+如果输出质量不达标 → 优化Prompt → 重新发送
+    ↓
+输出质量达标 → 完成任务
+```
 
 ---
 
-## Prompt Library: by_material
-
-| 材质 | 正面提示词 | 负面提示词 |
-|------|--------------|--------------|
-| 不锈钢 | stainless steel brushed texture, directional brushed grain, metallic reflection anisotropic... | plastic texture, rough surface... |
-| 钛金属 | titanium raw finish, anisotropic reflection, physical based rendering... | plastic texture, aluminum look... |
-| 镁合金 | magnesium alloy AE44, powder-coated finish, lightweight metal (35% lighter than aluminum)... | plastic texture, raw metal exposed... |
-| 塑料 | BPA-free plastic, matte plastic texture, smooth plastic surface... | cheap plastic look, glossy plastic (fingerprint magnet)... |
-| 玻璃 | borosilicate glass, heat-resistant glass, transparent glass... | plastic imitation glass, bubbles in glass... |
-| 陶瓷 | ceramic glaze, smooth ceramic surface, even ceramic coating... | chipped ceramic, uneven glaze... |
-
-**完整提示词见** `prompt_library.json`
-
+*Phase 5新增于v7.2 | 最后更新: 2026-06-19 | 维护者: 猴哥*
+*> v7.2新增: Prompt Engineering最佳实践（构造原则、分角色模板、优化技巧、质量评估、迭代流程）*
 
 ---
 
-## Prompt Library: by_product_type
+## 参考资料
 
-| 产品类型 | 子类型 | 正面提示词 |
-|----------|--------|--------------|
-| 保温杯 | 圆柱形 | perfectly cylindrical cup body, constant diameter, symmetrical left-right... |
-| 保温杯 | 锥形 | tapered cup body (wider top, narrower bottom), elegant taper angle, smooth transition... |
-| 饭盒 | 宽口 | wide mouth food jar (easy access), large opening diameter, stackable design... |
-| 水壶 | 带手柄 | ergonomic handle, comfortable grip, sturdy handle attachment... |
-| 配件 | 杯盖 | pop-up lid mechanism, smooth opening/closing, airtight seal when closed... |
-| 配件 | 密封圈 | silicone seal ring, food-grade silicone, perfectly round cross-section... |
+### ComfyUI API集成
 
-**完整提示词见** `prompt_library.json`
+- **统一指南**: `H:/AI日记/Claw/十二生肖团_ComfyUI_API集成统一指南_V1.0_2026-06-18.md`
+  - 所有API接口调用示例
+  - 工作流JSON模板说明
+  - 错误处理与性能优化
 
+### 相关文档
 
----
-
-## Prompt Library: by_function
-
-| 功能 | 正面提示词 | 测试标准 |
-|------|--------------|----------|
-| 防漏 | watertight seal, silicone gasket, no leakage when inverted... | 倒置24小时不漏水 |
-| 防烫 | double-wall vacuum insulation, no external heat transfer, cool-touch exterior... | 外部温度 < 40°C (装沸水6小时后) |
-| 轻量化 | lightweight design, magnesium alloy body (35% lighter), titanium body (45% lighter)... | {'350ml': '< 180g', '500ml': '< 250g', '750ml': '< 350g'} |
-| 车载 | car cup holder compatible (≤70mm diameter), non-slip base, one-handed operation... | N/A |
-
-**完整提示词见** `prompt_library.json`
-
+| 文档 | 路径 | 说明 |
+|------|------|------|
+| ComfyUI安装指南 | `H:/AI日记/Claw/ComfyUI_安装与API化指南_V1.0.md` | 安装与配置 |
+| ComfyUI API调用指南 | `H:/AI日记/Claw/ComfyUI_工作流API调用指南_V1.0.md` | 详细API文档 |
+| ComfyUI工作流模板库 | `H:/AI日记/Claw/ComfyUI_工作流模板库_V1.0.md` | 工作流模板 |
+| 框架报告V8.0 | `H:/AI日记/Claw/十二生肖团_完整详细框架报告_V8.0_2026-06-18.md` | 最新框架 |
 
 ---
-
-## Prompt Library: defect_prevention
-
-| 缺陷类型 | 严重程度 | 正面提示词 | 权重 |
-|----------|----------|--------------|------|
-| 防塑料感 | HIGH | anisotropic reflection, physical based rendering, metallic workflow, subsurface scattering (if applicable) | 1.5 |
-| 防不对称杯盖 | HIGH | perfectly symmetric lid, matches cup body diameter, continuous seam | 1.5 |
-| 防颜色偏差 | MEDIUM | color accurate, Delta E < 3 vs Pantone, consistent coloring | 1.4 |
-| 防文本/Logo伪影 | MEDIUM | no text, no logo, clean surface | 1.3 |
-| 防背景不匹配 | LOW | pure white background (for e-commerce), consistent lighting (for lifestyle) | 1.2 |
-| 防变形手柄 | HIGH | perfectly symmetric handle, ergonomic shape, sturdy attachment | 1.4 |
-
-**完整提示词见** `prompt_library.json`
-
-
----
-
-## Phase 5.0: Memory Compression & Performance Optimization (OPTIMIZED in v5.0)
-
-### A. 显存管理策略（优化版 - v5.0）
-
-```python
-def adaptive_vram_allocation(task_type, available_vram_gb):
-    """
-    根据任务类型动态分配显存（优化版 - v5.0）
-    
-    任务类型与显存需求：
-    - text2img: 需要 4-6GB（SD1.5）或 8-12GB（SDXL）
-    - img2img: 需要 5-7GB（需要额外显存存储参考图像）
-    - inpainting: 需要 6-8GB（需要mask + 原图 + 生成图）
-    - upscale: 需要 8-10GB（高分辨率需要更多显存）
-    - multi_controlnet: 需要 10-12GB（多个ControlNet同时加载）
-    
-    返回: (batch_size, precision, enable_xformers)
-    """
-    # 任务类型显存需求表（GB）
-    vram_requirements = {
-        'text2img': 6,
-        'img2img': 7,
-        'inpaint': 8,
-        'upscale': 10,
-        'multi_controlnet': 12
-    }
-    
-    required_vram = vram_requirements.get(task_type, 6)
-    
-    # 动态分配策略（优化版 - v5.0）
-    if available_vram_gb >= required_vram * 1.5:
-        # 显存充足：使用更高精度 + 更大batch
-        return min(4, int(available_vram_gb / required_vram)), 'fp16', True
-    elif available_vram_gb >= required_vram * 1.2:
-        # 显存适中：使用fp16 + 中等batch
-        return min(2, int(available_vram_gb / required_vram)), 'fp16', True
-    elif available_vram_gb >= required_vram:
-        # 显存紧张：使用fp16 + batch=1
-        return 1, 'fp16', True
-    else:
-        # 显存不足：使用fp8 + 启用所有优化
-        return 1, 'fp8', True
-```
-
-### B. 奖励机制（NEW in v5.0）
-
-**核心思想**：当生成质量优秀时，奖励更多显存/更大batch size，加快后续生成速度。
-
-```python
-class VRAMRewardSystem:
-    """
-    显存管理奖励系统（NEW in v5.0）
-    
-    奖励规则：
-    - 生成质量评分 ≥ 9.0：奖励 +1 batch size（上限4）
-    - 生成质量评分 ≥ 8.5：奖励 +0.5 batch size（向上取整）
-    - 生成质量评分 ≥ 8.0：保持当前batch size
-    - 生成质量评分 < 8.0：减少 -1 batch size（下限1）
-    - 连续3次质量 ≥ 9.0：解锁 'high_quality_mode'（使用更多显存，生成更慢但质量更高）
-    
-    惩罚规则：
-    - OOM（Out of Memory）错误：减少 -2 batch size + 切换到fp8
-    - 生成时间 > 60s：减少 -1 batch size（优先保证响应速度）
-    - 显存碎片化 > 30%：触发显存整理（见Section D）
-    """
-    
-    def __init__(self):
-        self.current_batch_size = 1
-        self.quality_history = []  # 最近10次质量评分
-        self.high_quality_mode = False
-        self.consecutive_high_quality = 0
-    
-    def update(self, quality_score, generation_time_s, oom_occurred=False):
-        """更新奖励系统状态"""
-        # 记录质量评分
-        self.quality_history.append(quality_score)
-        if len(self.quality_history) > 10:
-            self.quality_history.pop(0)
-        
-        # 奖励/惩罚逻辑
-        if oom_occurred:
-            self.current_batch_size = max(1, self.current_batch_size - 2)
-            print(f"[VRAM Reward] OOM detected! Reducing batch size to {self.current_batch_size}")
-            return 'punish_oom'
-        
-        if quality_score >= 9.0:
-            self.current_batch_size = min(4, self.current_batch_size + 1)
-            self.consecutive_high_quality += 1
-            print(f"[VRAM Reward] High quality! Increasing batch size to {self.current_batch_size}")
-            return 'reward_high_quality'
-        elif quality_score >= 8.5:
-            self.current_batch_size = min(4, self.current_batch_size + 1)
-            print(f"[VRAM Reward] Good quality! Slightly increasing batch size to {self.current_batch_size}")
-            return 'reward_good_quality'
-        elif quality_score >= 8.0:
-            print(f"[VRAM Reward] Acceptable quality. Keeping batch size at {self.current_batch_size}")
-            return 'keep'
-        else:
-            self.current_batch_size = max(1, self.current_batch_size - 1)
-            print(f"[VRAM Reward] Low quality! Reducing batch size to {self.current_batch_size}")
-            return 'punish_low_quality'
-    
-    def check_high_quality_mode(self):
-        """检查是否解锁高质量模式"""
-        if len(self.quality_history) >= 3:
-            if all(score >= 9.0 for score in self.quality_history[-3:]):
-                self.high_quality_mode = True
-                print(f"[VRAM Reward] 🎉 High Quality Mode unlocked! Using more VRAM for better quality.")
-                return True
-        return False
-```
-
-### C. 显存碎片化整理机制（NEW in v5.0）
-
-**问题**：长时间运行后，显存会出现碎片化（小块空闲显存无法被大tensor使用）。
-
-**解决方案**：定期整理显存碎片。
-
-```python
-def defragment_vram():
-    """整理显存碎片（NEW in v5.0）"""
-    import torch
-    
-    if torch.cuda.is_available():
-        # 方法1：清空CUDA缓存
-        torch.cuda.empty_cache()
-        
-        # 方法2：强制同步（确保所有可能的显存都被释放）
-        torch.cuda.synchronize()
-        
-        # 方法3：记录整理后的显存状态
-        allocated = torch.cuda.memory_allocated() / 1024**3  # GB
-        reserved = torch.cuda.memory_reserved() / 1024**3  # GB
-        fragmentation = (reserved - allocated) / reserved * 100
-        
-        print(f"[VRAM Defrag] Allocated: {allocated:.2f} GB, Reserved: {reserved:.2f} GB")
-        print(f"[VRAM Defrag] Fragmentation: {fragmentation:.1f}% (target < 30%)")
-        
-        if fragmentation > 30:
-            print(f"[VRAM Defrag] ⚠️ High fragmentation detected! Consider restarting ComfyUI.")
-        
-        return fragmentation
-    else:
-        print("[VRAM Defrag] CUDA not available. Skipping.")
-        return 0
-```
-
-**触发条件**（满足任一即触发）：
-- 显存碎片化 > 30%
-- 连续生成 > 20 张图像后
-- 检测到 OOM 错误后
-- 用户手动调用 `/vram_defrag` 命令
-
-### D. 多模型并行加载的显存调度策略（NEW in v5.0）
-
-**场景**：需要同时加载 Checkpoint + 多个 LoRA + 多个 ControlNet。
-
-**策略**：按需加载 + 优先级调度。
-
-```python
-class MultiModelVRAMScheduler:
-    """
-    多模型并行加载的显存调度器（NEW in v5.0）
-    
-    模型优先级（高 → 低）：
-    1. Checkpoint（必须加载，否则无法生成）
-    2. ControlNet（影响生成质量，优先级高）
-    3. LoRA（影响风格，优先级中）
-    4. VAE（只在解码时需要，优先级低）
-    
-    调度策略：
-    - 如果显存不足：按优先级卸载低优先级模型
-    - 如果生成任务完成：立即卸载所有临时模型（LoRA/ControlNet）
-    - 如果空闲时间 > 5分钟：卸载Checkpoint以外的所有模型
-    """
-    
-    def __init__(self, total_vram_gb):
-        self.total_vram = total_vram_gb
-        self.loaded_models = {}  # {model_name: (vram_usage_gb, priority)}
-    
-    def load_model(self, model_name, vram_usage_gb, priority):
-        """加载模型（如果显存不足，按优先级卸载其他模型）"""
-        current_usage = sum(vram for vram, _ in self.loaded_models.values())
-        
-        # 如果显存充足：直接加载
-        if current_usage + vram_usage_gb <= self.total_vram * 0.9:  # 保留10%余量
-            self.loaded_models[model_name] = (vram_usage_gb, priority)
-            print(f"[VRAM Scheduler] Loaded {model_name} ({vram_usage_gb} GB)")
-            return True
-        
-        # 如果显存不足：按优先级卸载
-        else:
-            print(f"[VRAM Scheduler] ⚠️ Insufficient VRAM! Unloading low-priority models...")
-            
-            # 按优先级排序（低优先级先卸载）
-            sorted_models = sorted(self.loaded_models.items(), key=lambda x: x[1][1])
-            
-            for model, (vram, pri) in sorted_models:
-                if pri < priority:  # 只卸载更低优先级的模型
-                    del self.loaded_models[model]
-                    print(f"[VRAM Scheduler] Unloaded {model} ({vram} GB)")
-                    
-                    # 检查是否现在有足够显存
-                    if current_usage + vram_usage_gb <= self.total_vram * 0.9:
-                        self.loaded_models[model_name] = (vram_usage_gb, priority)
-                        return True
-            
-            # 如果仍然显存不足：返回False（加载失败）
-            print(f"[VRAM Scheduler] ❌ Failed to load {model_name}: insufficient VRAM even after unloading.")
-            return False
-    
-    def unload_all_temp_models(self):
-        """卸载所有临时模型（LoRA/ControlNet），保留Checkpoint"""
-        models_to_remove = [name for name, (_, priority) in self.loaded_models.items() if priority < 10]
-        for model in models_to_remove:
-            del self.loaded_models[model]
-            print(f"[VRAM Scheduler] Unloaded temp model: {model}")
-```
-
-### E. 性能监控（优化版 - v5.0）
-
-```python
-def log_performance_metrics(task_id, metrics, reward_system=None):
-    """
-    记录性能指标（优化版 - v5.0）
-    
-    新增功能：
-    - 记录奖励系统状态（batch size变化）
-    - 记录显存碎片化率
-    - 自动触发显存整理（如果碎片化 > 30%）
-    """
-    log_file = "performance_log.jsonl"
-    
-    # 检查显存碎片化
-    fragmentation = defragment_vram()
-    
-    log_entry = {
-        "task_id": task_id,
-        "timestamp": time.time(),
-        "metrics": metrics,
-        "vram_fragmentation": fragmentation,
-        "batch_size": reward_system.current_batch_size if reward_system else 1,
-        "high_quality_mode": reward_system.high_quality_mode if reward_system else False
-    }
-    
-    with open(log_file, "a", encoding="utf-8") as f:
-        f.write(json.dumps(log_entry, ensure_ascii=False) + "\n")
-    
-    # 异常检测（优化版 - v5.0）
-    if metrics.get("vram_usage_mb", 0) > 7000:
-        print(f"[WARNING] High VRAM usage: {metrics['vram_usage_mb']} MB")
-    if metrics.get("generation_time_s", 0) > 60:
-        print(f"[WARNING] Slow generation: {metrics['generation_time_s']} s")
-    if fragmentation > 30:
-        print(f"[WARNING] High VRAM fragmentation: {fragmentation:.1f}%. Triggering defrag...")
-        defragment_vram()
-```
-
-### F. 最佳实践（优化版 - v5.0）
-
-1. **优先使用 FP16**（半精度）- 节省50%显存
-2. **及时卸载模型** - 生成任务完成后立即调用 `unload_all_temp_models()`
-3. **使用 xFormers** - 进一步优化显存使用（需要安装 `xformers`）
-4. **避免同时加载多个大模型** - 使用 `MultiModelVRAMScheduler` 进行调度
-5. **定期整理显存碎片** - 每生成20张图像或碎片化 > 30% 时触发
-6. **监控奖励系统状态** - 如果 `high_quality_mode` 解锁，可以享受更高质量的生成
-7. **OOM 后自动降级** - 如果检测到 OOM，自动切换到 fp8 + batch_size=1
-
-**版本** : v5.0 (2026-06-05)
-**优化内容**: 添加奖励机制、显存碎片化整理、多模型调度策略
-
-
-## Usage Examples
-
-### Example 1: Basic Usage
-
-```bash
-python scripts/example.py
-```
-
-### Example 2: Advanced Usage
-
-```python
-from src.main import MainClass
-
-obj = MainClass()
-result = obj.run()
-```

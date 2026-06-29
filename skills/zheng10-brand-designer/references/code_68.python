@@ -1,0 +1,16 @@
+def calculate_brand_compliance(design, brand_guidelines):
+    """Calculate brand compliance score (0-10)"""
+    # Visual Consistency (0-10)
+    visual_consistency = check_visual_consistency(design, brand_guidelines)
+    
+    # Style Adherence (0-10)
+    style_adherence = check_style_adherence(design, brand_guidelines)
+    
+    # Color Accuracy (0-10)
+    color_accuracy = check_color_accuracy(design, brand_guidelines)
+    
+    # Typography Consistency (0-10)
+    typography = check_typography(design, brand_guidelines)
+    
+    compliance_score = (visual_consistency + style_adherence + color_accuracy + typography) / 4
+    return round(compliance_score, 1)

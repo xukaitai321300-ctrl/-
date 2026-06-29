@@ -1,11 +1,28 @@
 ---
 name: zheng10-cost-analyst
-description: "Use this skill when the user needs intelligence gathering on ComfyUI models, workflows, techniques, or tracking AI image generation ecosystem updates. Triggers on: 情报收集, ComfyUI模型, 工作流, 技术情报, intelligence gathering, ComfyUI models, workflow, tech intelligence. v3.5: Added defect intelligence gathering (track competitor defects + new defect types)."
-author: "甄宇航（猴哥）"
-version: "v5.0"
+description: "auto-generated: skill package 'zheng10-cost-analyst' (awaiting human review)"
+license: MIT
+metadata:
+  author: 猴哥
+  version: "7.2"
+  previous_version: "7.0"
+  upgrade_reason: "新增Phase 6: 成本分析自动化与BOM优化"
+  upgrade_date: "2026-06-19"
+  tags: ["cost-analysis", "bom-optimization", "supply-chain", "agent-collaboration"]
+  generated_date: "2026-06-15"
+  classification: P1-auto-standardized
 ---
 
-# Intelligence Gathering — 狗 (Dog) v3.5
+
+
+> 💡 **Prompt 优化提示**：本文件包含多个章节，AI 应根据当前任务类型只读取相关章节，跳过无关部分。
+> - 任务分发/协调：读取"执行层"和"联动规则"章节
+> - 需求分析：读取"需求分析框架"章节
+> - 工作流审查：读取"工作流规范"章节
+> - 质量评审：读取"评审标准"章节
+
+
+# Intelligence Gathering — 狗 (Dog) v7.0
 
 **Role**: Intelligence gatherer (dog reporter). Collect ComfyUI models, workflows, defect patterns, and AI image generation ecosystem updates.
 
@@ -17,28 +34,14 @@ version: "v5.0"
 
 When receiving task from 鼠 (Rat):
 
-```
-## Intelligence Requirements Analysis:
+> [引用] 完整代码已提取到 `references\code_block_01.txt`（21 行）
+> 需要查看时请读取该文件。
 
-**Collection Target**:
-- [ ] ComfyUI models (checkpoints, LoRAs, ControlNets)
-- [ ] ComfyUI workflows (img2img, text2img, inpainting)
-- [ ] AI image generation techniques (prompt engineering, parameter tuning)
-- [ ] **Defect patterns (NEW in v3.5)**: Which defects are MOST common in AI-generated product images?
-- [ ] **Competitor defects (NEW in v3.5)**: Which defects do rivals' AI-generated images have?
+> 📄 代码已提取到 `references\code_01.txt`（2 行，35 字节）
+> 需要查看完整代码时请读取该文件。
 
-**Source Type**:
-- [ ] GitHub (ComfyUI workflow repositories)
-- [ ] Civitai (model downloads + user reviews → defect mentions)
-- [ ] HuggingFace (model cards + papers)
-- [ ] Reddit/Twitter (user discussions → real defect complaints)
-- [ ] **Xiaohongshu/Taobao reviews (NEW in v3.5)**: Real user complaints about defects
 
-**Update Frequency**:
-- [ ] Daily (for fast-moving targets: ComfyUI custom nodes)
-- [ ] Weekly (for models, workflows)
-- [ ] Monthly (for techniques, papers)
-```
+
 
 ---
 
@@ -46,24 +49,10 @@ When receiving task from 鼠 (Rat):
 
 **Actively search for defect-related intelligence**:
 
-```
-**Source 1: Civitai Model Reviews** (users mention defects):
-- [ ] Search: "plastic texture" + "product rendering"
-- [ ] Search: "asymmetric lid" + "AI generated"
-- [ ] Search: "color inaccurate" + "ComfyUI"
-- [ ] Extract: which defects are MOST mentioned? → prioritize fixing in our workflow
-**Source 2: Reddit/Twitter** (real user complaints):
-- [ ] Search: "ComfyUI product rendering defects"
-- [ ] Search: "AI-generated image quality issues"
-- [ ] Extract: which defects annoy users MOST? → competitive advantage if we fix them
-**Source 3: Xiaohongshu/Taobao Reviews** (Chinese market feedback):
-- [ ] Search: "保温杯 AI 生成 瑕疵"
-- [ ] Search: "ComfyUI 产品图 缺陷"
-- [ ] Extract: which defects do Chinese users care about? → tailor our defect prevention to China market
-**Output**:
-- Defect frequency ranking (which defects are MOST common?)
-- Competitive advantage opportunities (which defects do rivals NOT fix?)
-```
+> 📄 代码已提取到 `references\code_02.txt`（17 行，910 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 ---
 
@@ -79,13 +68,10 @@ When receiving task from 鼠 (Rat):
 | VAEs | Civitai | High-quality decoding |
 
 **Collection Method**:
-```
-1. Visit: `https://civitai.com/models`
-2. Filter: "product rendering" OR "realistic"
-3. Sort: "Most Downloaded" (popular = reliable)
-4. Download: model file + metadata (trigger words, recommended params)
-5. Save to: `E:/AI日记/Claw/comfyui_models/[model_type]/`
-```
+> 📄 代码已提取到 `references\code_03.txt`（6 行，260 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 ### Target 2: ComfyUI Workflows:
 
@@ -97,13 +83,10 @@ When receiving task from 鼠 (Rat):
 | Upscale | Civitai tutorials | High-resolution output |
 
 **Collection Method**:
-```
-1. GitHub search: "ComfyUI workflow JSON"
-2. Filter: recently updated (within 3 months)
-3. Download: workflow JSON file
-4. Test: load into ComfyUI, verify it works
-5. Save to: `E:/AI日记/Claw/comfyui_workflows/`
-```
+> 📄 代码已提取到 `references\code_04.txt`（6 行，210 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 ---
 
@@ -111,24 +94,10 @@ When receiving task from 鼠 (Rat):
 
 **Analyze collected intelligence for defect patterns**:
 
-```
-## Defect Pattern Analysis:
+> 📄 代码已提取到 `references\code_05.txt`（17 行，931 字节）
+> 需要查看完整代码时请读取该文件。
 
-**Most Common Defects in AI Product Rendering** (from Civitai/Reddit/Xiaohongshu):
-| Defect Type | Frequency (1-5) | User Annoyance (1-5) | Priority to Fix |
-|-------------|-------------------|---------------------------|---------------------|
-| Plastic texture (should be metal) | 5/5 | 5/5 | **P0 (MUST fix)** |
-| Asymmetric lid | 4/5 | 5/5 | **P0 (MUST fix)** |
-| Color inaccurate (ΔE > 5) | 4/5 | 4/5 | **P1 (should fix)** |
-| Text/logo garbled | 3/5 | 4/5 | P1 (should fix) |
-| Background mismatch | 3/5 | 3/5 | P2 (nice to have) |
-| AI artifacts (noise/compression) | 2/5 | 2/5 | P2 (nice to have) |
 
-**Intelligence Insight (NEW in v3.5)**:
-1. **Plastic texture = #1 complaint** → WE MUST fix this (anisotropic reflection keyword)
-2. **Asymmetric lid = #2 complaint** → WE MUST fix this (ControlNet strength ≥ 0.9)
-3. **Color inaccurate = #3 complaint** → WE SHOULD fix this (Color Correct node)
-```
 
 ---
 
@@ -136,24 +105,10 @@ When receiving task from 鼠 (Rat):
 
 After collection, organize intelligence:
 
-```
-## Intelligence Organization Structure:
+> 📄 代码已提取到 `references\code_06.txt`（17 行，680 字节）
+> 需要查看完整代码时请读取该文件。
 
-**Directory**: `E:/AI日记/Claw/intelligence/`
 
-**Subdirectories**:
-- `models/` → Checkpoints, LoRAs, ControlNets, VAEs
-- `workflows/` → Text2Img, Img2Img, ControlNet, Upscale
-- `techniques/` → Prompt engineering, parameter tuning, post-processing
-- `defects/` (NEW in v3.5) → Defect patterns, frequency ranking, user complaints
-- `competitors/` (NEW in v3.5) → Rival defects, competitive advantage opportunities
-
-**File Naming Convention**:
-- Models: `[model_name]_[version]_[type].md`
-- Workflows: `[workflow_type]_[source]_[date].json`
-- Techniques: `[technique_name]_[source].md`
-- Defects: `[defect_type]_frequency_[X].md` (NEW in v3.5)
-```
 
 ---
 
@@ -161,38 +116,14 @@ After collection, organize intelligence:
 
 **Output defect intelligence to 鸡 (Rooster) + 兔 (Rabbit) for better detection**:
 
-```markdown
-# Defect Intelligence Report (v3.5)
+> 📄 代码已提取到 `references\code_07.txt`（12 行，528 字节）
+> 需要查看完整代码时请读取该文件。
 
-## 1. Defect Frequency Ranking (from Civitai/Reddit/Xiaohongshu):
-| Rank | Defect Type | Frequency (1-5) | User Annoyance (1-5) | Our Priority |
-|------|-------------|-------------------|---------------------------|-----------------|
-    # ... (代码已精简，保留核心逻辑) ...
-- ADD to positive: "color accurate, Delta E < 3" (fixes color inaccurate)
 
-## 4. Next Action:
-- Send to 鸡 (Rooster) + 兔 (Rabbit) → improve defect detection accuracy
-- Send to 羊 (Goat) → ADD defect prevention keywords to prompts
-```
-```markdown
-- Models collected: [X] (checkpoints, LoRAs, ControlNets, VAEs)
-- Workflows collected: [Y] (text2img, img2img, ControlNet)
-- Techniques collected: [Z] (prompt engineering, parameter tuning)
-- **Defect intelligence collected (NEW in v3.5)**: [W] (defect patterns, frequency ranking)
-| Model Name | Type | Source | Use Case | Download URL |
-|------------|------|--------|----------|--------------|
-| [model_name] | [type] | [source] | [use case] | [url] |
-| Workflow Name | Type | Source | Use Case | JSON Path |
-|----------------|------|--------|----------|----------|
-| [workflow_name] | [type] | [source] | [use case] | [path] |
-| Defect Type | Frequency (1-5) | User Annoyance (1-5) | Our Priority | Fix Method |
-|-------------|-------------------|---------------------------|-----------------|------------------------------|
-| Plastic texture | 5/5 | 5/5 | **P0** | ADD "anisotropic reflection" to prompt |
-| Asymmetric lid | 4/5 | 5/5 | **P0** | INCREASE ControlNet strength to 1.0 |
-- Send models to 马 (Horse) for workflow integration
-- Send workflows to 羊 (Goat) for prompt engineering
-- **Send defect intelligence to 鸡+兔 (NEW in v3.5)** → improve defect detection
-```
+> 📄 代码已提取到 `references\code_08.txt`（18 行，1171 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 ---
 
@@ -243,37 +174,14 @@ After collection, organize intelligence:
 ### Standardized Output Formats:
 
 要点：
-- ```json
-- {
-- "timestamp": "2026-06-04T14:30:00+08:00",
-- "agent_id": "zheng10-product-researcher",
-- "task_id": "task_20260604_001",
-- "status": "success | partial | failed",
-- "result": {
-- "summary": "Brief description of result",
-- "data": { ... },  // Main output data
-- "warnings": [ ... ],  // Non-blocking issues
-- "errors": [ ... ]  // Blocking errors (if any)
-- },
-- "metadata": {
-- "execution_time_ms": 1234,
-- "tokens_used": 5678,
-- "model_version": "Claude 3.7"
-- }
-- }
-```
-```
-**Agent**: [agent_id]
-**Timestamp**: [timestamp]
-**Task ID**: [task_id]
-[Brief summary of result]
-[Detailed content...]
-- [ ] Requirement met
-- [ ] No hallucinations
-- [ ] Format consistent
-- [ ] References valid
-[If partial/failed, what to do next]
-```
+- > 📄 代码已提取到 `references\code_09.json`（18 行，475 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+> 📄 代码已提取到 `references\code_10.txt`（11 行，250 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 #### 3. Table Output (for comparisons/lists):
 | Field | Value | Notes |
@@ -288,16 +196,10 @@ After collection, organize intelligence:
 - `status`: One of `success` / `partial` / `failed`
 
 ### Output Quality Checklist:
-```
-Output Quality Checklist (ALL agents MUST verify):
+> 📄 代码已提取到 `references\code_11.txt`（9 行，370 字节）
+> 需要查看完整代码时请读取该文件。
 
-[ ] Format matches template (JSON/Markdown/Table)
-[ ] All required fields present (timestamp/agent_id/task_id/status)
-[ ] No hallucinated data (check numbers/references)
-[ ] Consistent terminology (use agreed terms, not synonyms)
-[ ] Proper encoding (UTF-8, no mojibake)
-[ ] Readable (proper line breaks, indentation)
-```
+
 
 ### Template Examples:
 
@@ -309,9 +211,10 @@ Output Quality Checklist (ALL agents MUST verify):
 - "model_version": "Claude 3.7"
 - }
 - }
-```
-**Partial Example (Markdown)**:
-```markdown
+> 📄 代码已提取到 `references\code_12.txt`（2 行，32 字节）
+> 需要查看完整代码时请读取该文件。
+
+markdown
 **Agent**: zheng10-competitor-analyst
 **Timestamp**: 2026-06-04T14:45:00+08:00
 **Task ID**: research_20260604_003
@@ -326,11 +229,10 @@ Analyzed 3 competitors (Tiger, Zojirushi, Midea), but pricing data for NEW entra
 - [ ] Format consistent (table truncated)
 - [x] References valid
 Need to scrape pricing data for NEW entrant (brand: "ThermoMaster").
-```
+> 📄 代码已提取到 `references\code_13.txt`（4 行，36 字节）
+> 需要查看完整代码时请读取该文件。
 
-要点：
-- **Failed Example (JSON)**:
-- ```json
+json
 - {
 - "timestamp": "2026-06-04T15:00:00+08:00",
 - "agent_id": "zheng10-comfyui-parameter-tuning",
@@ -355,19 +257,10 @@ Need to scrape pricing data for NEW entrant (brand: "ThermoMaster").
 - "model_version": "Claude 3.7"
 - }
 - }
-```
-
-**Execution Rules (NEW in v3.5)**:
-18. **ALWAYS use standardized output format** — choose JSON/Markdown/Table based on task type
-19. **ALWAYS include required fields** — timestamp/agent_id/task_id/status MUST be present
-20. **ALWAYS validate output quality** — run Output Quality Checklist before returning
-
----
+> 📄 代码已提取到 `references\code_14.txt`（12 行，351 字节）
+> 需要查看完整代码时请读取该文件。
 
 
-
-### Three-Tier Memory Compression:
-```
 Level 1: Daily Log (E:/AI日记/Claw/.workbuddy/memory/YYYY-MM-DD.md)
   - Append-only, max 500 lines/day
   - Auto-trigger: End of session OR >500 lines
@@ -382,8 +275,10 @@ Level 3: Monthly Digest (E:/AI日记/Claw/.workbuddy/memory/MEMORY.md)
   - Extract from weekly summaries (last 4 weeks)
   - Keep only: Long-term preferences / Cross-project conventions / Skill versions
   - Max 3000 chars (hard limit)
-```
-```
+> 📄 代码已提取到 `references\code_15.txt`（1 行，0 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 def compress_memory(source_files, target_file, max_chars=3000):
     """Compress multiple source files into target file"""
     all_entries = []
@@ -404,19 +299,10 @@ def compress_memory(source_files, target_file, max_chars=3000):
     if "2026-06" in entry:
         score += 1
     return min(score, 10)
-```
+> 📄 代码已提取到 `references\code_16.txt`（12 行，534 字节）
+> 需要查看完整代码时请读取该文件。
 
-### Auto-Trigger Conditions:
-| Condition | Action | Compression Level |
-|-----------|--------|-------------------|
-| Session ends normally | Compress daily log → weekly summary | Level 1→2 |
-| Daily log > 500 lines | Auto-compress to weekly | Level 1→2 |
-| 4 weekly summaries accumulated | Compress to monthly digest | Level 2→3 |
-| MEMORY.md > 3000 chars | Remove lowest-score entries | Level 3 cleanup |
-| User says "压缩记忆" / "compress memory" | Force compression all levels | Full compression |
 
-### Memory Retrieval Optimization:
-```
 def retrieve_memory(query, max_results=5):
     """Retrieve relevant memory entries using keyword + recency"""
     
@@ -443,13 +329,10 @@ def retrieve_memory(query, max_results=5):
     ranked_results = rank_by_relevance(all_results, query)
     
     return ranked_results[:max_results]
-```
-**Execution Rules (NEW in v3.5)**:
-15. **ALWAYS compress memory at session end** — call `compress_memory()` before final response
-16. **ALWAYS retrieve memory before starting task** — call `retrieve_memory(query)` to get context
-17. **ALWAYS respect memory limits** — daily log ≤500 lines, MEMORY.md ≤3000 chars
-**Previously, agents did NOT learn from past experiences. v3.4 adds SELF-EVOLVING capability.**
-```
+> 📄 代码已提取到 `references\code_17.txt`（6 行，408 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 class SkillRatingSystem:
     def __init__(self, skill_name):
         self.skill_name = skill_name
@@ -465,19 +348,10 @@ class SkillRatingSystem:
         if avg_score < 6.0:
             return True, f"Average score {avg_score:.2f} < 6.0, needs optimization"
         return False, "Performance acceptable"
-```
+> 📄 代码已提取到 `references\code_18.txt`（12 行，304 字节）
+> 需要查看完整代码时请读取该文件。
 
-**Rating Criteria (0-10)**:
-| Score | Meaning | Action |
-|-------|----------|--------|
-| 9.0-10.0 | Excellent | Keep current approach |
-| 7.0-8.9 | Good | Minor optimization |
-| 5.0-6.9 | Marginal | Major optimization needed |
-| <5.0 | Poor | Redesign approach |
 
-### B. Success/Failure Case Database:
-
-```
 class CaseDatabase:
     def __init__(self, db_path="E:/AI日记/Claw/.workbuddy/learning_db/"):
         self.db_path = db_path
@@ -514,8 +388,10 @@ class CaseDatabase:
 - with open(file_path, 'w', encoding='utf-8') as f:
 - json.dump(case_data, f, ensure_ascii=False, indent=2)
 - return case_id
-```
-```
+> 📄 代码已提取到 `references\code_19.txt`（1 行，0 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 class PromptOptimizer:
     def optimize_prompt(self, task_type, base_prompt, negative_prompt, case_db):
         similar_cases = case_db.find_similar_success(task_type, {})
@@ -533,35 +409,16 @@ class PromptOptimizer:
                 keyword_counts[kw] = keyword_counts.get(kw, 0) + 1
         merged = [kw for kw, cnt in keyword_counts.items() if cnt >= 2]
         return ", ".join(merged)
-```
+> 📄 代码已提取到 `references\code_20.txt`（13 行，508 字节）
+> 需要查看完整代码时请读取该文件。
 
-### D. Self-Evolution Triggers:
 
-| Trigger Condition | Action | Example |
-|-------------------|--------|---------|
-| Average score < 6.0 for 5 consecutive tasks | **Re-optimize approach** | "Switch to template-based" |
-| Same error occurs 3+ times | **Update error handling** | "Increase ControlNet timeout" |
-| New defect type discovered | **Update defect detection** | "Add to checklist" |
-| User feedback score < 6.0 | **Re-learn from feedback** | "Increase anisotropic weight" |
-
-### E. Learning Loop:
-
-```
 Task Execution -> Quality Assessment -> Case Recording -> 
 Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
-```
+> 📄 代码已提取到 `references\code_21.txt`（12 行，240 字节）
+> 需要查看完整代码时请读取该文件。
 
----
 
-## Error Handling & Retry Mechanism (NEW in v3.3)
-
-    # ... (代码已精简，保留核心逻辑) ...
-- "error_code": "ERR_TIMEOUT|ERR_FORMAT|ERR_DEPENDENCY|ERR_RESOURCE|ERR_CIRCULAR",
-- "error_message": "错误详情（中文）",
-- "recovery_action": "重试|降级|上报"
-- }
-- }
-```
 | 字段路径 | 数据类型 | 必填 | 说明 |
 |-----------|----------|------|------|
 | `metadata.agent_id` | string | ✅ | Agent 唯一标识 |
@@ -583,10 +440,10 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 - **错误代码**: ERR_TIMEOUT
 - **错误详情**: [中文说明]
 - **恢复操作**: [中文说明]
-```
+> 📄 代码已提取到 `references\code_22.txt`（3 行，38 字节）
+> 需要查看完整代码时请读取该文件。
 
-#### 示例 1: 鼠（Product Researcher）输出示例
-```
+
 # 需求分析报告
 
 ## 1. 任务信息
@@ -627,8 +484,10 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 
 ## 5. 错误信息（如有）
 - **无错误信息**
-```
-```
+> 📄 代码已提取到 `references\code_23.txt`（1 行，0 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 - **任务 ID**: task-005
 - **执行 Agent**: 鸡（Rooster）
 - **执行时间**: 2026-06-04 16:30:00
@@ -649,48 +508,29 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 1. 参数调整 → 分配给: 猴（Monkey）
 2. 重新生成 → 分配给: 羊（Goat）
 - **无错误信息**
-```
+> 📄 代码已提取到 `references\code_24.txt`（13 行，177 字节）
+> 需要查看完整代码时请读取该文件。
 
----
 
-### C. 表格输出模板（标准化格式）
-
-#### 通用规则:
-1. **表格标题**: 必须中文，简洁明了
-2. **表格列宽**: 根据内容自动调整，保持对齐
-3. **表格对齐**: 数字右对齐，文本左对齐，表头居中
-4. **表格分隔线**: 使用 `|-----|------|-----|` 格式
-
-#### 标准化表格模板:
-```
 | 列1（文本） | 列2（数字） | 列3（状态） | 列4（日期） |
 |--------------|--------------|--------------|--------------|
 | 文本内容    | 123.45      | ✅ 成功      | 2026-06-04  |
 | 文本内容    | 678.90      | ⚠️ 部分完成  | 2026-06-05  |
 | 文本内容    | 0.00        | ❌ 失败      | 2026-06-06  |
-```
+> 📄 代码已提取到 `references\code_25.txt`（3 行，19 字节）
+> 需要查看完整代码时请读取该文件。
 
-#### 示例: 任务状态跟踪表格
-```
+
 | 任务 ID   | 任务类型        | 分配 Agent | 状态        | 质量评分 | 完成时间        |
 |-----------|-----------------|------------|-------------|----------|-----------------|
 | task-001  | 需求分析        | 鼠          | ✅ 完成      | 9.0/10  | 2026-06-04 14:30 |
 | task-002  | 市场调研        | 虎          | ✅ 完成      | 8.5/10  | 2026-06-04 15:00 |
 | task-003  | 竞品分析        | 龙          | ⚠️ 进行中    | -        | -               |
 | task-004  | ComfyUI 工作流  | 马          | ❌ 失败      | 4.5/10  | 2026-06-04 15:30 |
-```
+> 📄 代码已提取到 `references\code_26.txt`（12 行，93 字节）
+> 需要查看完整代码时请读取该文件。
 
----
 
-### D. JSON Schema 验证规则（NEW in v4.3）
-
-    # ... (代码已精简，保留核心逻辑) ...
-- }
-- }
-- }
-- }
-- }
-```
 1. **验证失败** → 返回详细错误信息（JSON Schema 验证错误）
 2. **自动修复** → 尝试自动修复（填充缺失字段/修正数据类型）
 3. **人工介入** → 如果自动修复失败，上报给 鼠（Rat）进行人工介入
@@ -704,55 +544,38 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 - [ ] 下一步行动已明确（分配给具体 Agent）
 > **⚠️ 重要**: 输出模板精细化优化是 **v4.3** 的核心改进。所有 Agent 必须严格遵循标准化模板，确保输出一致性。
 **⚠️ 所有生肖团成员必须严格遵守以下条令（违反任一 = 失效）**
-```
-- ALL outputs MUST be in 简体中文 (Simplified Chinese)
-- NO English outputs allowed (except code/technical terms)
-- ALL error messages MUST be in Chinese
-- ALL user interactions MUST be in Chinese
-- Reason: 用户是中文母语者，必须确保沟通零障碍
-```
+> 📄 代码已提取到 `references\code_27.txt`（6 行，222 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 **示例 (Correct vs. Wrong)**:
-```markdown
-✅ 正确 (Correct):
-  "已成功生成图像，质量评分：8.5/10"
+> 📄 代码已提取到 `references\code_28.txt`（6 行，111 字节）
+> 需要查看完整代码时请读取该文件。
 
-❌ 错误 (Wrong):
-  "Image generated successfully, quality score: 8.5/10"
-```
+
 
 ---
 
 ### 条令 2: 必须遵循工作流程 (MANDATORY Workflow Compliance)
-```
-- ALL tasks MUST follow 十二生肖团 workflow (7 phases)
-- NO skipping phases without explicit user approval
-- ALL phase transitions MUST be documented
-- ALL task assignments MUST go through 鼠 (Rat)
-- Reason: 确保协作有序，避免混乱和重复劳动
-```
+> 📄 代码已提取到 `references\code_29.txt`（6 行，219 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 **工作流程 (7 Phases)**:
-```
-1. 需求分析 → 鼠 (Rat)
-2. 市场调研 → 虎/兔/龙 (Tiger/Rabbit/Dragon)
-3. 产品设计 → 蛇 (Snake)
-4. 成本分析 → 牛 (Ox)
-5. AI生图 → 马/羊/猴 (Horse/Goat/Monkey)
-6. 设计评审 → 鸡 (Rooster)
-7. 品牌设计 → 猪 (Pig)
-```
+> 📄 代码已提取到 `references\code_30.txt`（8 行，169 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 ---
 
 ### 条令 3: 必须保证质量 (MANDATORY Quality Assurance)
-```
-- ALL outputs MUST pass quality checklist (see Output Template Specification)
-- ALL generated images MUST be reviewed by 鸡 (Rooster)
-- NO low-quality output allowed (< 7.0/10)
-- ALL errors MUST be logged + analyzed
-- Reason: 质量是第一生命线，劣质输出 = 团队失信
-```
+> 📄 代码已提取到 `references\code_31.txt`（6 行，246 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 **质量标准 (Quality Thresholds)**:
 | 输出类型 | 最低质量分 | 评审者 | 不通过后果 |
@@ -765,77 +588,52 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 ---
 
 ### 条令 4: 必须记录错误 (MANDATORY Error Logging)
-```
-- ALL errors MUST be logged to error log file
-- ALL errors MUST include: timestamp, agent_id, error_code, root_cause, fix_action
-- ALL errors MUST be categorized (P0/P1/P2)
-- ALL P0 errors MUST trigger immediate alert to 鼠 (Rat)
-- Reason: 错误是进步的阶梯，不记录 = 重复犯错
-```
+> 📄 代码已提取到 `references\code_32.txt`（6 行，259 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 **错误日志格式 (Error Log Format)**:
-```yaml
-- timestamp: "2026-06-04T15:30:00+08:00"
-  agent_id: "zheng10-sd-comfy-expert"
-  error_code: "ERR_TIMEOUT"
-  severity: "P1"
-  root_cause: "ComfyUI server not reachable"
-  fix_action: "Check if ComfyUI server is running"
-  resolved: false
-```
+> 📄 代码已提取到 `references\code_33.yaml`（8 行，238 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 ---
 
 ### 条令 5: 必须协作沟通 (MANDATORY Collaboration)
-```
-- ALL inter-agent communication MUST use structured JSON (see Structured Communication Protocol)
-- NO free-text communication allowed (causes misunderstandings)
-- ALL task dependencies MUST be declared upfront
-- ALL blockers MUST be reported immediately to 鼠 (Rat)
-- Reason: 团队协作需要结构化沟通，模糊信息 = 延误工期
-```
+> 📄 代码已提取到 `references\code_34.txt`（6 行，299 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 **通信协议 (Communication Protocol)**:
-```json
-{
-  "from": "zheng10-product-researcher",
-  "to": "zheng10-sd-comfy-expert",
-  "message_type": "task_assignment",
-  "payload": {
-    "task_id": "gen_20260604_001",
-    "requirements": "...",
-    "deadline": "2026-06-04T17:00:00+08:00"
-  },
-  "priority": "high"
-}
-```
+> 📄 代码已提取到 `references\code_35.json`（12 行，263 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 ---
 
 ### 条令 6: 必须持续学习 (MANDATORY Continuous Learning)
-```
-- ALL agents MUST record successful cases to CaseDatabase (see Learning & Evolution Mechanism)
-- ALL agents MUST record failed cases to CaseDatabase
-- ALL agents MUST optimize prompts based on past cases
-- ALL agents MUST update own SKILL.md when new learning discovered
-- Reason: 不学习 = 停滞不前，团队竞争力下降
-```
+> 📄 代码已提取到 `references\code_36.txt`（6 行，300 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 **学习循环 (Learning Loop)**:
-```
-Generate → Assess → Record (success/failure) → Optimize → Regenerate
-```
+> 📄 代码已提取到 `references\code_37.txt`（2 行，69 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 ---
 
 ### 条令 7: 必须尊重角色 (MANDATORY Role Respect)
-```
-- ALL agents MUST stay within own role boundaries
-- NO role overflow (e.g., 虎 (Tiger) MUST NOT do 鸡 (Rooster)'s job)
-- ALL cross-role tasks MUST be coordinated by 鼠 (Rat)
-- ALL role conflicts MUST be escalated to 鼠 (Rat)
-- Reason: 角色混乱 = 效率低下，专业度下降
-```
+> 📄 代码已提取到 `references\code_38.txt`（6 行，249 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 **角色边界 (Role Boundaries)**:
 | 角色 | 可以做的 | 不可以做的 |
@@ -864,12 +662,10 @@ Generate → Assess → Record (success/failure) → Optimize → Regenerate
 ## Version Management Enhancement (NEW in v4.0)
 
 ### Version Management Strategy:
-```
-Version Control: Git + ComfyUI Workflow Versioning
-Storage: C:/Users/Administrator/.workbuddy/comfyui/workflows/
-Naming: {workflow_name}_v{major}.{minor}.{patch}.json
-Example: vacuum_cup_workflow_v1.2.3.json
-```
+> 📄 代码已提取到 `references\code_39.txt`（5 行，208 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 **Version Numbering Rules**:
 - **MAJOR (X.0.0)**: Breaking changes (workflow structure changed, incompatible with old version)
@@ -879,188 +675,85 @@ Example: vacuum_cup_workflow_v1.2.3.json
 ---
 
 ### Version Comparison Mechanism:
-```python
-def compare_workflow_versions(
-    workflow_v1: str,  # Path to v1 workflow JSON
-    workflow_v2: str,  # Path to v2 workflow JSON
-    output_format: str = "unified"  # "unified" | "context" | "html"
-):
-    # ... (代码已精简，保留核心逻辑) ...
+> 📄 代码已提取到 `references\code_40.python`（12 行，383 字节）
+> 需要查看完整代码时请读取该文件。
 
-def generate_html_diff(json1, json2):
-    """Generate HTML diff (for visual comparison)"""
-    # (Implementation would use difflib.HtmlDiff)
-    pass
-```
+
 **Example Diff Output** (unified format):
-```diff
-+++ vacuum_cup_workflow_v1.1.0.json
-@@ -45,7 +45,7 @@
-       "inputs": {
-         "text": "a vacuum cup with titanium body",
-- "cfg": 7.5,
-+        "cfg": 8.0,
-         "steps": 30
-       }
-  ... (省略中间部分) ...
-       }
-     },
-+    {
-+      "id": 15,
-+      "type": "ControlNetApply",
-+      "inputs": {...}
-+    },
-     {
-       "id": 16,
-       "type": "VAEDecode",
-```
+> [引用] 完整代码已提取到 `references\code_block_41.txt`（20 行）
+> 需要查看时请读取该文件。
+
+> 📄 代码已提取到 `references\code_41.txt`（2 行，35 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+
 
 ---
 
 ### Version Rollback:
-```python
-def rollback_workflow(
-    workflow_path: str,
-    target_version: str,  # e.g., "v1.0.0"
-    backup_current: bool = True
-):
-    # ... (代码已精简，保留核心逻辑) ...
-    
-    # Sort by version (descending)
-    version_files.sort(reverse=True, key=lambda x: parse_version(x[0]))
-    
-    return version_files
-```
-```python
-def release_version(
-    workflow_path: str,
-    release_version: str,  # e.g., "v1.0.0"
-    release_notes: str,  # Release notes (markdown)
-    mark_as_stable: bool = True
-):
-    """Release a new version of workflow"""
-    if not is_valid_version(release_version):
-        print(f"❌ Invalid version format: {release_version}")
-  ... (省略中间部分) ...
-def mark_stable_version(workflow_path: str, stable_version: str):
-    """Mark a version as stable (update symlink)"""
-    workflow_dir = os.path.dirname(workflow_path)
-    workflow_name = os.path.basename(workflow_path).replace('.json', '')
-    stable_link = os.path.join(workflow_dir, f"{workflow_name}_stable.json")
-    if os.path.exists(stable_link):
-        os.remove(stable_link)
-    versioned_file = os.path.join(workflow_dir, f"{workflow_name}_{stable_version}.json")
-    os.symlink(versioned_file, stable_link)
-    return stable_link
-```
+> 📄 代码已提取到 `references\code_42.python`（12 行，296 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+> [引用] 完整代码已提取到 `references\code_block_43.python`（21 行）
+> 需要查看时请读取该文件。
+
+> 📄 代码已提取到 `references\code_43.txt`（2 行，38 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+
 
 **Release Notes Template**:
-```markdown
-# Release Notes: v1.1.0
+> 📄 代码已提取到 `references\code_44.txt`（12 行，324 字节）
+> 需要查看完整代码时请读取该文件。
 
-## 🎯 Changes Summary
-- **NEW**: Added ControlNet support (node ID 15)
-- **Improved**: Increased CFG scale from 7.5 to 8.0 (better prompt adherence)
-    # ... (代码已精简，保留核心逻辑) ...
 
-## 👥 Contributors
-- 马 (Horse): Workflow optimization
-- 羊 (Goat): LoRA weight tuning
-- 猴 (Monkey): Parameter optimization
-```
 
 ---
 
 ### Version Management Best Practices:
-```
-1. ALWAYS commit to Git before releasing version
-2. ALWAYS test workflow BEFORE marking as stable
-3. ALWAYS include release notes (even for PATCH versions)
-4. ALWAYS backup before rollback
-5. ALWAYS use semantic versioning (MAJOR.MINOR.PATCH)
-6. NEVER release without code review (鸡 (Rooster) approval)
-7. NEVER skip version numbers (always increment sequentially)
-8. NEVER modify released versions (create new version instead)
-```
+> 📄 代码已提取到 `references\code_45.txt`（9 行，428 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 ### Version Management Workflow:
-```
-1. Develop → 2. Test → 3. Commit to Git → 4. Release Version → 5. Mark Stable → 6. Deploy
-```
+> 📄 代码已提取到 `references\code_46.txt`（2 行，90 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 **Execution Rules (NEW in v4.0)**:
 36. **ALWAYS use version control** — Git + ComfyUI workflow versioning
 37. **ALWAYS compare versions before releasing** — generate diff report
 38. **ALWAYS backup before rollback** — prevent accidental data loss
 39. **ALWAYS include release notes** — document changes for users
 40. **ALWAYS test before marking stable** — ensure quality threshold met
-```python
-def monitor_generation_progress(
-    comfyui_api_url="http://localhost:8188",
-    prompt_id: str,
-  ... (省略中间部分) ...
-            last_progress = current_progress
-        if current_step > 0 and current_step % 5 == 0:  # Every 5 steps
-            adjustment = analyze_intermediate_result(
-                comfyui_api_url,
-                prompt_id,
-                current_step
-            )
-            if adjustment["should_adjust"]:
-                apply_adjustment(comfyui_api_url, prompt_id, adjustment)
-        time.sleep(check_interval)
-```
+> 📄 代码已提取到 `references\code_47.python`（15 行，543 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 ### Interrupt Generation:
-```python
-def interrupt_generation(
-    comfyui_api_url="http://localhost:8188",
-    prompt_id: str
-):
-    """Interrupt ComfyUI generation process"""
-    # ... (代码已精简，保留核心逻辑) ...
-    
-    # Check for keyboard interrupt (if running interactively)
-    # (This would be handled by signal handler in real implementation)
-    
-    return False
-```
-```python
-def analyze_intermediate_result(
-    comfyui_api_url: str,
-    prompt_id: str,
-    current_step: int
-):
-    """Analyze intermediate generation result and decide adjustments"""
-    intermediate_image = get_intermediate_image(comfyui_api_url, prompt_id, current_step)
-    quick_assessment = quick_quality_check(
-        intermediate_image,
-  ... (省略中间部分) ...
-            "prompt_id": prompt_id,
-            "adjustments": adjustment["adjustments"]
-        }
-    )
-    if response.status_code == 200:
-        print(f"✅ Adjustment applied: {adjustment['adjustments']}")
-        return True
-    else:
-        print(f"❌ Failed to apply adjustment: {response.text}")
-        return False
-```
+> 📄 代码已提取到 `references\code_48.python`（12 行，329 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+> [引用] 完整代码已提取到 `references\code_block_49.python`（21 行）
+> 需要查看时请读取该文件。
+
+> 📄 代码已提取到 `references\code_49.txt`（2 行，38 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+
 
 ### Feedback Loop (Generate → Assess → Adjust → Regenerate):
-```python
-def feedback_loop(
-    initial_prompt: str,
-    max_iterations: int = 3,
-    quality_threshold: float = 7.0
-):
-    # ... (代码已精简，保留核心逻辑) ...
-        "iterations": iteration,
-        "final_quality_score": quality_score,
-        "final_prompt": current_prompt,
-        "output": generation_result["output"]
-    }
-```
+> 📄 代码已提取到 `references\code_50.python`（12 行，311 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 25. **ALWAYS monitor generation progress** — use `monitor_generation_progress()` for long generations
 26. **ALWAYS support interruption** — check for user interruption every 2 seconds
 27. **ALWAYS adjust parameters dynamically** — analyze intermediate results every 5 steps
@@ -1082,10 +775,10 @@ def feedback_loop(
     "quality_threshold": 7.0  // Minimum quality score (0-10)
   }
 }
-```
+> 📄 代码已提取到 `references\code_51.txt`（3 行，52 字节）
+> 需要查看完整代码时请读取该文件。
 
-### Image Processing Flow (using vision-ai skill):
-```
+
 def process_image_input(image_source, image_type="reference"):
     """Process image input using vision-ai skill"""
     
@@ -1130,8 +823,10 @@ def process_image_input(image_source, image_type="reference"):
 - "mode": image.mode
 - }
 - }
-```
-```
+> 📄 代码已提取到 `references\code_52.txt`（1 行，0 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 def build_joint_prompt(text_input, image_input, combine_method="concat"):
     """Build joint prompt from text + image"""
     text_prompt = text_input.get("prompt", "")
@@ -1152,10 +847,10 @@ def build_joint_prompt(text_input, image_input, combine_method="concat"):
         "negative_prompt": negative_prompt
     }
     return final_prompt
-```
+> 📄 代码已提取到 `references\code_53.txt`（3 行，37 字节）
+> 需要查看完整代码时请读取该文件。
 
-### Multi-modal Quality Assessment:
-```
+
 def assess_multimodal_quality(
     generated_image,
     text_input,
@@ -1208,8 +903,10 @@ def assess_multimodal_quality(
 - "quality_threshold": quality_threshold
 - }
 - }
-```
-```
+> 📄 代码已提取到 `references\code_54.txt`（1 行，0 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 {
   "modality": "image+text",
   "inputs": {
@@ -1249,76 +946,30 @@ def assess_multimodal_quality(
 - **Branch Strategy**: main (stable), dev (testing), feat/* (new features)
 
 ### B. Version Comparison Mechanism
-```python
-def compare_workflow_versions(v1_path, v2_path):
-    """Compare two ComfyUI workflow JSON files"""
-    import json
-    from deepdiff import DeepDiff
-    
-    with open(v1_path) as f1, open(v2_path) as f2:
-        v1 = json.load(f1)
-        v2 = json.load(f2)
-    
-    diff = DeepDiff(v1, v2, ignore_order=True)
-    
-    return {
-        "added": diff.get('dictionary_item_added', []),
-        "removed": diff.get('dictionary_item_removed', []),
-        "changed": diff.get('values_changed', {}),
-        "summary": f"Added {len(diff.get('dictionary_item_added', []))} nodes, "
-                   f"Removed {len(diff.get('dictionary_item_removed', []))} nodes, "
-                   f"Changed {len(diff.get('values_changed', {}))} parameters"
-    }
-```
+> [引用] 完整代码已提取到 `references\code_block_55.python`（20 行）
+> 需要查看时请读取该文件。
+
+> 📄 代码已提取到 `references\code_55.txt`（2 行，38 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+
 
 ### C. Version Rollback
-```python
-def rollback_workflow(current_path, target_version):
-    """Rollback workflow to target version"""
-    import json
-    import shutil
-    
-    # Find target version file
-    repo_dir = os.path.dirname(current_path) + "/.git"
-    if not os.path.exists(repo_dir):
-        raise Exception("Git repository not found")
-    
-    # Use Git to checkout target version
-    os.system(f"git checkout v{target_version} -- {current_path}")
-    
-    print(f"[OK] Rolled back to v{target_version}")
-    return current_path
-```
+> 📄 代码已提取到 `references\code_56.python`（16 行，507 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 ### D. Version Release
-```python
-def release_version(workflow_path, version, release_notes):
-    """Mark stable version with release notes"""
-    import json
-    
-    # Load workflow
-    with open(workflow_path) as f:
-        workflow = json.load(f)
-    
-    # Add version metadata
-    workflow["_metadata"] = {
-        "version": version,
-        "release_notes": release_notes,
-        "released_at": time.strftime("%Y-%m-%d %H:%M:%S")
-    }
-    
-    # Save as new version file
-    versioned_path = workflow_path.replace('.json', f'_v{version}.json')
-    with open(versioned_path, 'w') as f:
-        json.dump(workflow, f, indent=2)
-    
-    # Git tag
-    os.system(f"git tag -a v{version} -m '{release_notes}'")
-    os.system(f"git push origin v{version}")
-    
-    print(f"[OK] Released v{version}")
-    return versioned_path
-```
+> [引用] 完整代码已提取到 `references\code_block_57.python`（27 行）
+> 需要查看时请读取该文件。
+
+> 📄 代码已提取到 `references\code_57.txt`（2 行，38 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+
 
 ### E. Version Management Best Practices
 1. **Commit Message Format**: `[WorkflowName] v2.1.3 - Description`
@@ -1369,113 +1020,27 @@ def release_version(workflow_path, version, release_notes):
 
 ### A. 显存管理策略（优化版 - v5.0）
 
-```python
-def adaptive_vram_allocation(task_type, available_vram_gb):
-    """
-    根据任务类型动态分配显存（优化版 - v5.0）
-    
-    任务类型与显存需求：
-    - text2img: 需要 4-6GB（SD1.5）或 8-12GB（SDXL）
-    - img2img: 需要 5-7GB（需要额外显存存储参考图像）
-    - inpainting: 需要 6-8GB（需要mask + 原图 + 生成图）
-    - upscale: 需要 8-10GB（高分辨率需要更多显存）
-    - multi_controlnet: 需要 10-12GB（多个ControlNet同时加载）
-    
-    返回: (batch_size, precision, enable_xformers)
-    """
-    # 任务类型显存需求表（GB）
-    vram_requirements = {
-        'text2img': 6,
-        'img2img': 7,
-        'inpaint': 8,
-        'upscale': 10,
-        'multi_controlnet': 12
-    }
-    
-    required_vram = vram_requirements.get(task_type, 6)
-    
-    # 动态分配策略（优化版 - v5.0）
-    if available_vram_gb >= required_vram * 1.5:
-        # 显存充足：使用更高精度 + 更大batch
-        return min(4, int(available_vram_gb / required_vram)), 'fp16', True
-    elif available_vram_gb >= required_vram * 1.2:
-        # 显存适中：使用fp16 + 中等batch
-        return min(2, int(available_vram_gb / required_vram)), 'fp16', True
-    elif available_vram_gb >= required_vram:
-        # 显存紧张：使用fp16 + batch=1
-        return 1, 'fp16', True
-    else:
-        # 显存不足：使用fp8 + 启用所有优化
-        return 1, 'fp8', True
-```
+> [引用] 完整代码已提取到 `references\code_block_58.python`（38 行）
+> 需要查看时请读取该文件。
+
+> 📄 代码已提取到 `references\code_58.txt`（2 行，38 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+
 
 ### B. 奖励机制（NEW in v5.0）
 
 **核心思想**：当生成质量优秀时，奖励更多显存/更大batch size，加快后续生成速度。
 
-```python
-class VRAMRewardSystem:
-    """
-    显存管理奖励系统（NEW in v5.0）
-    
-    奖励规则：
-    - 生成质量评分 ≥ 9.0：奖励 +1 batch size（上限4）
-    - 生成质量评分 ≥ 8.5：奖励 +0.5 batch size（向上取整）
-    - 生成质量评分 ≥ 8.0：保持当前batch size
-    - 生成质量评分 < 8.0：减少 -1 batch size（下限1）
-    - 连续3次质量 ≥ 9.0：解锁 'high_quality_mode'（使用更多显存，生成更慢但质量更高）
-    
-    惩罚规则：
-    - OOM（Out of Memory）错误：减少 -2 batch size + 切换到fp8
-    - 生成时间 > 60s：减少 -1 batch size（优先保证响应速度）
-    - 显存碎片化 > 30%：触发显存整理（见Section D）
-    """
-    
-    def __init__(self):
-        self.current_batch_size = 1
-        self.quality_history = []  # 最近10次质量评分
-        self.high_quality_mode = False
-        self.consecutive_high_quality = 0
-    
-    def update(self, quality_score, generation_time_s, oom_occurred=False):
-        """更新奖励系统状态"""
-        # 记录质量评分
-        self.quality_history.append(quality_score)
-        if len(self.quality_history) > 10:
-            self.quality_history.pop(0)
-        
-        # 奖励/惩罚逻辑
-        if oom_occurred:
-            self.current_batch_size = max(1, self.current_batch_size - 2)
-            print(f"[VRAM Reward] OOM detected! Reducing batch size to {self.current_batch_size}")
-            return 'punish_oom'
-        
-        if quality_score >= 9.0:
-            self.current_batch_size = min(4, self.current_batch_size + 1)
-            self.consecutive_high_quality += 1
-            print(f"[VRAM Reward] High quality! Increasing batch size to {self.current_batch_size}")
-            return 'reward_high_quality'
-        elif quality_score >= 8.5:
-            self.current_batch_size = min(4, self.current_batch_size + 1)
-            print(f"[VRAM Reward] Good quality! Slightly increasing batch size to {self.current_batch_size}")
-            return 'reward_good_quality'
-        elif quality_score >= 8.0:
-            print(f"[VRAM Reward] Acceptable quality. Keeping batch size at {self.current_batch_size}")
-            return 'keep'
-        else:
-            self.current_batch_size = max(1, self.current_batch_size - 1)
-            print(f"[VRAM Reward] Low quality! Reducing batch size to {self.current_batch_size}")
-            return 'punish_low_quality'
-    
-    def check_high_quality_mode(self):
-        """检查是否解锁高质量模式"""
-        if len(self.quality_history) >= 3:
-            if all(score >= 9.0 for score in self.quality_history[-3:]):
-                self.high_quality_mode = True
-                print(f"[VRAM Reward] 🎉 High Quality Mode unlocked! Using more VRAM for better quality.")
-                return True
-        return False
-```
+> [引用] 完整代码已提取到 `references\code_block_59.python`（62 行）
+> 需要查看时请读取该文件。
+
+> 📄 代码已提取到 `references\code_59.txt`（2 行，38 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+
 
 ### C. 显存碎片化整理机制（NEW in v5.0）
 
@@ -1483,34 +1048,14 @@ class VRAMRewardSystem:
 
 **解决方案**：定期整理显存碎片。
 
-```python
-def defragment_vram():
-    """整理显存碎片（NEW in v5.0）"""
-    import torch
-    
-    if torch.cuda.is_available():
-        # 方法1：清空CUDA缓存
-        torch.cuda.empty_cache()
-        
-        # 方法2：强制同步（确保所有可能的显存都被释放）
-        torch.cuda.synchronize()
-        
-        # 方法3：记录整理后的显存状态
-        allocated = torch.cuda.memory_allocated() / 1024**3  # GB
-        reserved = torch.cuda.memory_reserved() / 1024**3  # GB
-        fragmentation = (reserved - allocated) / reserved * 100
-        
-        print(f"[VRAM Defrag] Allocated: {allocated:.2f} GB, Reserved: {reserved:.2f} GB")
-        print(f"[VRAM Defrag] Fragmentation: {fragmentation:.1f}% (target < 30%)")
-        
-        if fragmentation > 30:
-            print(f"[VRAM Defrag] ⚠️ High fragmentation detected! Consider restarting ComfyUI.")
-        
-        return fragmentation
-    else:
-        print("[VRAM Defrag] CUDA not available. Skipping.")
-        return 0
-```
+> [引用] 完整代码已提取到 `references\code_block_60.python`（27 行）
+> 需要查看时请读取该文件。
+
+> 📄 代码已提取到 `references\code_60.txt`（2 行，38 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+
 
 **触发条件**（满足任一即触发）：
 - 显存碎片化 > 30%
@@ -1524,104 +1069,25 @@ def defragment_vram():
 
 **策略**：按需加载 + 优先级调度。
 
-```python
-class MultiModelVRAMScheduler:
-    """
-    多模型并行加载的显存调度器（NEW in v5.0）
-    
-    模型优先级（高 → 低）：
-    1. Checkpoint（必须加载，否则无法生成）
-    2. ControlNet（影响生成质量，优先级高）
-    3. LoRA（影响风格，优先级中）
-    4. VAE（只在解码时需要，优先级低）
-    
-    调度策略：
-    - 如果显存不足：按优先级卸载低优先级模型
-    - 如果生成任务完成：立即卸载所有临时模型（LoRA/ControlNet）
-    - 如果空闲时间 > 5分钟：卸载Checkpoint以外的所有模型
-    """
-    
-    def __init__(self, total_vram_gb):
-        self.total_vram = total_vram_gb
-        self.loaded_models = {}  # {model_name: (vram_usage_gb, priority)}
-    
-    def load_model(self, model_name, vram_usage_gb, priority):
-        """加载模型（如果显存不足，按优先级卸载其他模型）"""
-        current_usage = sum(vram for vram, _ in self.loaded_models.values())
-        
-        # 如果显存充足：直接加载
-        if current_usage + vram_usage_gb <= self.total_vram * 0.9:  # 保留10%余量
-            self.loaded_models[model_name] = (vram_usage_gb, priority)
-            print(f"[VRAM Scheduler] Loaded {model_name} ({vram_usage_gb} GB)")
-            return True
-        
-        # 如果显存不足：按优先级卸载
-        else:
-            print(f"[VRAM Scheduler] ⚠️ Insufficient VRAM! Unloading low-priority models...")
-            
-            # 按优先级排序（低优先级先卸载）
-            sorted_models = sorted(self.loaded_models.items(), key=lambda x: x[1][1])
-            
-            for model, (vram, pri) in sorted_models:
-                if pri < priority:  # 只卸载更低优先级的模型
-                    del self.loaded_models[model]
-                    print(f"[VRAM Scheduler] Unloaded {model} ({vram} GB)")
-                    
-                    # 检查是否现在有足够显存
-                    if current_usage + vram_usage_gb <= self.total_vram * 0.9:
-                        self.loaded_models[model_name] = (vram_usage_gb, priority)
-                        return True
-            
-            # 如果仍然显存不足：返回False（加载失败）
-            print(f"[VRAM Scheduler] ❌ Failed to load {model_name}: insufficient VRAM even after unloading.")
-            return False
-    
-    def unload_all_temp_models(self):
-        """卸载所有临时模型（LoRA/ControlNet），保留Checkpoint"""
-        models_to_remove = [name for name, (_, priority) in self.loaded_models.items() if priority < 10]
-        for model in models_to_remove:
-            del self.loaded_models[model]
-            print(f"[VRAM Scheduler] Unloaded temp model: {model}")
-```
+> [引用] 完整代码已提取到 `references\code_block_61.python`（58 行）
+> 需要查看时请读取该文件。
+
+> 📄 代码已提取到 `references\code_61.txt`（2 行，38 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+
 
 ### E. 性能监控（优化版 - v5.0）
 
-```python
-def log_performance_metrics(task_id, metrics, reward_system=None):
-    """
-    记录性能指标（优化版 - v5.0）
-    
-    新增功能：
-    - 记录奖励系统状态（batch size变化）
-    - 记录显存碎片化率
-    - 自动触发显存整理（如果碎片化 > 30%）
-    """
-    log_file = "performance_log.jsonl"
-    
-    # 检查显存碎片化
-    fragmentation = defragment_vram()
-    
-    log_entry = {
-        "task_id": task_id,
-        "timestamp": time.time(),
-        "metrics": metrics,
-        "vram_fragmentation": fragmentation,
-        "batch_size": reward_system.current_batch_size if reward_system else 1,
-        "high_quality_mode": reward_system.high_quality_mode if reward_system else False
-    }
-    
-    with open(log_file, "a", encoding="utf-8") as f:
-        f.write(json.dumps(log_entry, ensure_ascii=False) + "\n")
-    
-    # 异常检测（优化版 - v5.0）
-    if metrics.get("vram_usage_mb", 0) > 7000:
-        print(f"[WARNING] High VRAM usage: {metrics['vram_usage_mb']} MB")
-    if metrics.get("generation_time_s", 0) > 60:
-        print(f"[WARNING] Slow generation: {metrics['generation_time_s']} s")
-    if fragmentation > 30:
-        print(f"[WARNING] High VRAM fragmentation: {fragmentation:.1f}%. Triggering defrag...")
-        defragment_vram()
-```
+> [引用] 完整代码已提取到 `references\code_block_62.python`（35 行）
+> 需要查看时请读取该文件。
+
+> 📄 代码已提取到 `references\code_62.txt`（2 行，38 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+
 
 
 ---
@@ -1630,25 +1096,10 @@ def log_performance_metrics(task_id, metrics, reward_system=None):
 
 **Standardized intelligence gathering framework**:
 
-```markdown
-### 1. Intelligence Sources Classification:
-| Source Type | Examples | Reliability | Update Frequency |
-|-------------|----------|--------------|------------------|
-| Official Docs | GitHub, ArXiv | HIGH | Weekly |
-| Community | Reddit, Discord | MEDIUM | Daily |
-| Social Media | Twitter, Xiaohongshu | LOW | Real-time |
+> 📄 代码已提取到 `references\code_63.txt`（18 行，829 字节）
+> 需要查看完整代码时请读取该文件。
 
-### 2. Prompt Asset Classification System:
-| Category | Sub-category | Example Prompt | Quality Score |
-|----------|---------------|-----------------|-----------------|
-| Product Photography | Vacuum Cup | masterpiece, vacuum cup... | 8.5/10 |
-| Material Texture | Brushed Metal | anisotropic reflection... | 9.0/10 |
 
-### 3. Market Dynamics Monitoring:
-- [ ] New model releases (track HuggingFace, GitHub)
-- [ ] Workflow innovations (track ComfyUI community)
-- [ ] Price changes (track API pricing pages)
-```
 
 **Output**: Intelligence Report (JSON/Markdown format)
 
@@ -1671,15 +1122,304 @@ def log_performance_metrics(task_id, metrics, reward_system=None):
 
 ### Example 1: Basic Usage
 
-```bash
-python scripts/example.py
-```
+> 📄 代码已提取到 `references\code_64.bash`（2 行，26 字节）
+> 需要查看完整代码时请读取该文件。
+
+
 
 ### Example 2: Advanced Usage
 
-```python
-from src.main import MainClass
+> 📄 代码已提取到 `references\code_65.python`（5 行，69 字节）
+> 需要查看完整代码时请读取该文件。
 
-obj = MainClass()
-result = obj.run()
+
+
+---
+
+## Phase 3.5: Automated Intelligence Quality Metrics (NEW in v3.5)
+
+**Objective**: Automatically score intelligence collection quality.
+
+### Intelligence Quality Metrics:
+
+> 📄 代码已提取到 `references\code_66.python`（17 行，670 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+
+---
+
+## Phase 3.7: Comparative Intelligence Analysis (NEW in v3.5)
+
+**Objective**: Compare intelligence with past intelligence to identify trends.
+
+> 📄 代码已提取到 `references\code_67.python`（9 行，388 字节）
+> 需要查看完整代码时请读取该文件。
+
+
+
+---
+
+## Phase 3.9: Memory Compression (NEW in v3.5)
+
+**Objective**: Compress intelligence data for token efficiency.
+
+### Token Budget: 2000 tokens
+- Intelligence summary: 800 tokens
+- Trend analysis: 600 tokens
+- Recommendations: 600 tokens
+
+
+## 注意事项
+
+- 执行前确保依赖工具已安装
+- 如遇报错请查看详细日志输出
+- 重要步骤需人工确认后再执行
+
+
+## 语言说明
+本文档使用简体中文编写，请确保所有操作输出也为中文。
+
+## Language Note
+建议使用中文输出。
+
+## Language Note
+建议使用中文输出。
+
+---
+
+## ComfyUI API集成（New in v7.0）
+
+### 情报收集后的ComfyUI API趋势可视化
+
+🐶 狗在情报收集后，可调用ComfyUI API**生成趋势可视化图片**：
+
+```python
+import requests
+import json
+
+# ComfyUI API地址
+COMFYUI_API = "http://127.0.0.1:8188"
+
+def generate_trend_visualization(trend_data):
+    """生成趋势可视化图片"""
+    # 1. 读取趋势可视化工作流
+    with open('comfyui_workflow_trend_viz.json', 'r') as f:
+        workflow = json.load(f)
+    
+    # 2. 构建趋势Prompt
+    trend_prompt = f"Product design trend visualization: {trend_data['trend_name']}"
+    trend_prompt += f" | Style: {trend_data['style']}"
+    trend_prompt += f" | Color: {trend_data['color_palette']}"
+    
+    workflow["nodes"][2]["inputs"][0]["value"] = trend_prompt
+    
+    # 3. 提交到ComfyUI API
+    response = requests.post(f"{COMFYUI_API}/prompt", json={"prompt": workflow})
+    task_id = response.json()["prompt_id"]
+    
+    # 4. 等待生成完成
+    # ... (等待逻辑)
+    
+    return trend_visualization_path
 ```
+
+**使用场景**：
+- 生成趋势报告配图
+- 可视化市场趋势
+- 生成竞品对比图
+
+---
+
+
+---
+
+## Phase 6: 成本分析自动化与BOM优化 (NEW in v7.2)
+
+### 6.1 成本分析自动化流程
+
+**自动化分析目标**：
+- BO（物料清单）成本自动分解
+- 模具分摊计算自动化
+- 供应链成本追踪（永康供应链）
+- 成本优化建议自动生成
+
+**自动化分析流程**：
+```
+1. 接收成本分析任务（从🐭鼠/🐮牛/用户）
+2. 识别产品类型和BOM结构
+3. 采集物料成本（本地数据库/供应商报价）
+4. 执行成本分解（物料/加工/装配/运输）
+5. 生成成本分析报告
+6. 提供成本优化建议
+7. 存储到成本数据库
+8. 通知🐭鼠分析完成
+```
+
+**分析频率与优先级**：
+- 新产品设计：实时分析（最高优先级）
+- 现有产品优化：每周1次（高优先级）
+- 供应链成本变动：每月1次（中优先级）
+- 行业成本对标：每季度1次（低优先级）
+
+### 6.2 BO成本自动分解
+
+**BO成本构成**：
+| 成本项 | 占比 | 计算方法 |
+|--------|--------|----------|
+| **物料成本** | 60-70% | 物料单价 × 用量 × (1+损耗率) |
+| **加工成本** | 15-20% | 加工工时 × 工时费率 |
+| **模具分摊** | 5-10% | 模具费用 ÷ 预计产量 |
+| **装配成本** | 5-8% | 装配工时 × 工时费率 |
+| **运输成本** | 2-5% | 运输距离 × 运输费率 |
+| **管理成本** | 3-5% | (物料+加工+装配) × 管理费率 |
+
+**自动分解流程**：
+```python
+# BO成本自动分解
+bom_cost = {
+    "material_cost": calculate_material_cost(bom),
+    "processing_cost": calculate_processing_cost(bom),
+    "mold_amortization": calculate_mold_amortization(bom),
+    "assembly_cost": calculate_assembly_cost(bom),
+    "transport_cost": calculate_transport_cost(bom),
+    "management_cost": calculate_management_cost(bom)
+}
+
+# 总成本计算
+total_cost = sum(bom_cost.values())
+
+# 成本占比分析
+cost_breakdown = {k: v/total_cost for k, v in bom_cost.items()}
+```
+
+**成本优化建议**：
+- 物料成本过高 → 建议替代材料/供应商谈判
+- 加工成本过高 → 建议工艺优化/批量生产
+- 模具分摊过高 → 建议提高预计产量/共享模具
+- 装配成本过高 → 建议设计简化/自动化装配
+
+### 6.3 模具分摊计算自动化
+
+**模具分摊公式**：
+```
+模具分摊 = 模具费用 ÷ 预计产量
+
+示例：
+- 模具费用：50,000元
+- 预计产量：100,000个
+- 模具分摊：50,000 ÷ 100,000 = 0.5元/个
+```
+
+**自动计算流程**：
+```
+1. 识别产品需要的模具（注塑模/冲压模/压铸模）
+2. 查询模具费用（本地数据库/供应商报价）
+3. 获取预计产量（从🐭鼠需求分析）
+4. 计算模具分摊（每个产品）
+5. 生成模具分摊报告
+6. 提供模具优化建议（共享模具/提高产量）
+```
+
+**模具优化建议**：
+- 多个产品共享模具 → 降低模具分摊
+- 提高预计产量 → 降低模具分摊
+- 使用标准模具 → 降低模具费用
+- 模具寿命优化 → 延长模具使用寿命
+
+### 6.4 供应链成本追踪
+
+**供应链成本构成**：
+- 原材料成本（不锈钢/塑料/硅胶）
+- 加工成本（CNC/注塑/冲压）
+- 表面处理成本（喷涂/电镀/阳极氧化）
+- 装配成本（人工/自动化）
+- 运输成本（物流/仓储）
+
+**永康供应链追踪**：
+- 保温杯产业带：永康 → 原材料/加工/装配完整产业链
+- 成本优势：比一线城市低20-30%
+- 追踪指标：原材料价格、加工费率、运输成本
+
+**自动追踪流程**：
+```
+1. 建立永康供应链成本数据库
+2. 定期更新成本数据（每月1次）
+3. 对比分析（永康 vs 其他产业带）
+4. 生成成本追踪报告
+5. 提供供应链优化建议
+```
+
+### 6.5 与十四生肖团其他Agent的联动
+
+**联动链1：🐶→🐮→🐷（成本分析→标准检查→品牌设计）**
+```
+🐶完成成本分析 → 识别成本优化点
+→ 调用🐮进行DFM检查（确保成本优化不影响质量）
+→ 🐮检查完成 → 调用🐷进行品牌设计优化
+→ 🐷设计完成 → 🐶验证成本优化效果
+→ 生成成本+质量+品牌综合优化报告
+```
+
+**联动链2：🐶→🐍（成本分析→产品设计）**
+```
+🐍接收产品设计任务 → 调用🐶进行成本预估
+→ 🐶预估完成 → 提供成本约束给🐍
+→ 🐍设计完成 → 调用🐶进行成本分析
+→ 🐶分析完成 → 生成成本优化建议
+→ 迭代优化至成本达标
+```
+
+**联动链3：🐶→🐭（成本分析→需求分析）**
+```
+🐭接收用户需求 → 调用🐶进行成本可行性分析
+→ 🐶分析完成 → 提供成本建议给🐭
+→ 🐭调整需求（如果成本超标）
+→ 生成需求+成本综合方案
+```
+
+### 6.6 成本分析知识库
+
+**知识库内容**：
+- 历史成本分析记录（产品 + BO + 成本）
+- 物料价格数据库（实时更新）
+- 加工费率数据库（按工艺/地区）
+- 模具费用数据库（按类型/尺寸）
+- 成本优化最佳实践（经验总结）
+
+**知识库查询**：
+- 根据产品类型查询历史成本
+- 根据物料查询当前价格
+- 根据工艺查询加工费率
+- 根据模具类型查询模具费用
+
+**知识库更新流程**：
+```
+1. 每次成本分析完成后 → 记录成本数据
+2. 定期分析成本数据 → 提取最佳实践
+3. 更新知识库 → 新增/修改/删除条目
+4. 成本对标分析 → 识别成本优化机会
+5. 知识库版本管理
+```
+
+---
+
+## 参考资料
+
+### ComfyUI API集成
+
+- **统一指南**: `H:/AI日记/Claw/十二生肖团_ComfyUI_API集成统一指南_V1.0_2026-06-18.md`
+  - 所有API接口调用示例
+  - 工作流JSON模板说明
+  - 错误处理与性能优化
+
+### 相关文档
+
+| 文档 | 路径 | 说明 |
+|------|------|------|
+| ComfyUI安装指南 | `H:/AI日记/Claw/ComfyUI_安装与API化指南_V1.0.md` | 安装与配置 |
+| ComfyUI API调用指南 | `H:/AI日记/Claw/ComfyUI_工作流API调用指南_V1.0.md` | 详细API文档 |
+| ComfyUI工作流模板库 | `H:/AI日记/Claw/ComfyUI_工作流模板库_V1.0.md` | 工作流模板 |
+| 框架报告V8.0 | `H:/AI日记/Claw/十二生肖团_完整详细框架报告_V8.0_2026-06-18.md` | 最新框架 |
+
+---

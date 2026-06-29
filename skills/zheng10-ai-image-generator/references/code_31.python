@@ -1,0 +1,11 @@
+def assemble_prompt(material, function, style, color="silver"):
+    """Assemble complete prompt from templates"""
+    
+要点：
+- templates = {
+    # ... (代码已精简，保留核心逻辑) ...
+    
+    return prompt
+
+# Example usage:
+# assemble_prompt("titanium", "car_holder", "lifestyle", "gunmetal")

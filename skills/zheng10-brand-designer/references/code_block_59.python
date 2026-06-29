@@ -1,0 +1,26 @@
+def release_version(workflow_path, version, release_notes):
+    """Mark stable version with release notes"""
+    import json
+    
+    # Load workflow
+    with open(workflow_path) as f:
+        workflow = json.load(f)
+    
+    # Add version metadata
+    workflow["_metadata"] = {
+        "version": version,
+        "release_notes": release_notes,
+        "released_at": time.strftime("%Y-%m-%d %H:%M:%S")
+    }
+    
+    # Save as new version file
+    versioned_path = workflow_path.replace('.json', f'_v{version}.json')
+    with open(versioned_path, 'w') as f:
+        json.dump(workflow, f, indent=2)
+    
+    # Git tag
+    os.system(f"git tag -a v{version} -m '{release_notes}'")
+    os.system(f"git push origin v{version}")
+    
+    print(f"[OK] Released v{version}")
+    return versioned_path

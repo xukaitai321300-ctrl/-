@@ -1,0 +1,15 @@
+def rollback_workflow(current_path, target_version):
+    """Rollback workflow to target version"""
+    import json
+    import shutil
+    
+    # Find target version file
+    repo_dir = os.path.dirname(current_path) + "/.git"
+    if not os.path.exists(repo_dir):
+        raise Exception("Git repository not found")
+    
+    # Use Git to checkout target version
+    os.system(f"git checkout v{target_version} -- {current_path}")
+    
+    print(f"[OK] Rolled back to v{target_version}")
+    return current_path

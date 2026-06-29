@@ -1,0 +1,32 @@
+import cv2
+import numpy as np
+
+def calculate_image_quality(image_path):
+    """Calculate image quality score (0-10)"""
+    img = cv2.imread(image_path)
+    
+    # Clarity (Laplacian variance)
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    clarity = cv2.Laplacian(gray, cv2.CV_64F).var()
+    clarity_score = min(clarity / 1000, 10)  # Normalize
+    
+    # Resolution
+    height, width = img.shape[:2]
+    resolution_score = 10 if height >= 1024 and width >= 1024 else 5
+    
+    # Relevance (use pre-trained model)
+    relevance_score = calculate_relevance(img, target_product="vacuum_cup")
+    
+    # Diversity (compare with existing images)
+    diversity_score = calculate_diversity(img, existing_images)
+    
+    quality_score = (clarity_score + resolution_score + relevance_score + diversity_score) / 4
+    return round(quality_score, 1)
+
+# Usage
+quality = calculate_image_quality("collected_image_001.jpg")
+print(f"Quality Score: {quality}/10")
+if quality >= 7:
+    print("✅ Accept image")
+else:
+    print("❌ Reject image")

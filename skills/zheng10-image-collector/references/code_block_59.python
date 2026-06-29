@@ -1,0 +1,61 @@
+class VRAMRewardSystem:
+    """
+    显存管理奖励系统（NEW in v5.0）
+    
+    奖励规则：
+    - 生成质量评分 ≥ 9.0：奖励 +1 batch size（上限4）
+    - 生成质量评分 ≥ 8.5：奖励 +0.5 batch size（向上取整）
+    - 生成质量评分 ≥ 8.0：保持当前batch size
+    - 生成质量评分 < 8.0：减少 -1 batch size（下限1）
+    - 连续3次质量 ≥ 9.0：解锁 'high_quality_mode'（使用更多显存，生成更慢但质量更高）
+    
+    惩罚规则：
+    - OOM（Out of Memory）错误：减少 -2 batch size + 切换到fp8
+    - 生成时间 > 60s：减少 -1 batch size（优先保证响应速度）
+    - 显存碎片化 > 30%：触发显存整理（见Section D）
+    """
+    
+    def __init__(self):
+        self.current_batch_size = 1
+        self.quality_history = []  # 最近10次质量评分
+        self.high_quality_mode = False
+        self.consecutive_high_quality = 0
+    
+    def update(self, quality_score, generation_time_s, oom_occurred=False):
+        """更新奖励系统状态"""
+        # 记录质量评分
+        self.quality_history.append(quality_score)
+        if len(self.quality_history) > 10:
+            self.quality_history.pop(0)
+        
+        # 奖励/惩罚逻辑
+        if oom_occurred:
+            self.current_batch_size = max(1, self.current_batch_size - 2)
+            print(f"[VRAM Reward] OOM detected! Reducing batch size to {self.current_batch_size}")
+            return 'punish_oom'
+        
+        if quality_score >= 9.0:
+            self.current_batch_size = min(4, self.current_batch_size + 1)
+            self.consecutive_high_quality += 1
+            print(f"[VRAM Reward] High quality! Increasing batch size to {self.current_batch_size}")
+            return 'reward_high_quality'
+        elif quality_score >= 8.5:
+            self.current_batch_size = min(4, self.current_batch_size + 1)
+            print(f"[VRAM Reward] Good quality! Slightly increasing batch size to {self.current_batch_size}")
+            return 'reward_good_quality'
+        elif quality_score >= 8.0:
+            print(f"[VRAM Reward] Acceptable quality. Keeping batch size at {self.current_batch_size}")
+            return 'keep'
+        else:
+            self.current_batch_size = max(1, self.current_batch_size - 1)
+            print(f"[VRAM Reward] Low quality! Reducing batch size to {self.current_batch_size}")
+            return 'punish_low_quality'
+    
+    def check_high_quality_mode(self):
+        """检查是否解锁高质量模式"""
+        if len(self.quality_history) >= 3:
+            if all(score >= 9.0 for score in self.quality_history[-3:]):
+                self.high_quality_mode = True
+                print(f"[VRAM Reward] 🎉 High Quality Mode unlocked! Using more VRAM for better quality.")
+                return True
+        return False

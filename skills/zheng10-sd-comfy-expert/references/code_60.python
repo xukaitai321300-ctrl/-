@@ -1,0 +1,11 @@
+def analyze_intermediate_result(
+    comfyui_api_url: str,
+    prompt_id: str,
+    current_step: int
+):
+    # ... (代码已精简，保留核心逻辑) ...
+        print(f"✅ Adjustment applied: {adjustment['adjustments']}")
+        return True
+    else:
+        print(f"❌ Failed to apply adjustment: {response.text}")
+        return False

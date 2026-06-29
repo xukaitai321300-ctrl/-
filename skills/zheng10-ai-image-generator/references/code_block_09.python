@@ -1,0 +1,20 @@
+import requests
+import json
+import time
+import os
+def call_comfyui_api(workflow_path, comfyui_url="http://localhost:8188"):
+    """
+    Execute ComfyUI workflow via API.
+    Args:
+        workflow_path: Path to workflow JSON file
+  ... (省略中间部分) ...
+            for node_id, node_output in outputs.items():
+                if 'images' in node_output:
+                    for img in node_output['images']:
+                        output_paths.append(img['filename'])
+            return prompt_id, output_paths
+        time.sleep(2)
+prompt_id, output_paths = call_comfyui_api(
+    "E:/AI日记/Claw/comfyui_workflows/Img2Img.json"
+)
+print(f"Generated images: {output_paths}")

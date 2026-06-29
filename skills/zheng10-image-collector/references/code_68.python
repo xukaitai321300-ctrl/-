@@ -1,0 +1,15 @@
+def check_diversity(new_image, existing_images):
+    """Check if new image adds diversity to dataset"""
+    # Check angle diversity
+    angle_new = detect_angle(new_image)
+    angles_existing = [detect_angle(img) for img in existing_images]
+    if angle_new in angles_existing:
+        return False  # Similar angle already exists
+    
+    # Check lighting diversity
+    lighting_new = detect_lighting(new_image)
+    lighting_existing = [detect_lighting(img) for img in existing_images]
+    if lighting_new in lighting_existing:
+        return False  # Similar lighting already exists
+    
+    return True  # Adds diversity

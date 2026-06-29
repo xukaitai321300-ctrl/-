@@ -1,0 +1,8 @@
+def compare_workflows(current_workflow, benchmark_workflows):
+    """Compare workflow with benchmarks"""
+    comparison = {
+        'speed_diff': compare_speed(current_workflow, benchmark_workflows),
+        'quality_diff': compare_quality(current_workflow, benchmark_workflows),
+        'resource_diff': compare_resource_usage(current_workflow, benchmark_workflows)
+    }
+    return comparison

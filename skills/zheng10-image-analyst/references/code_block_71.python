@@ -1,0 +1,74 @@
+import cv2
+import numpy as np
+from skimage.metrics import structural_similarity as ssim
+from skimage.color import rgb2gray
+
+class ImageQualityAnalyzer:
+    def __init__(self):
+        self.metrics = {}
+    
+    def analyze_single_image(self, generated_path, reference_path=None):
+        """Complete IQA analysis"""
+        gen_img = cv2.imread(generated_path)
+        
+        # 1. Clarity Metrics
+        self.metrics['clarity'] = self.calculate_clarity(gen_img)
+        
+        # 2. Realism Metrics (if reference provided)
+        if reference_path:
+            ref_img = cv2.imread(reference_path)
+            self.metrics['psnr'] = self.calculate_psnr(gen_img, ref_img)
+            self.metrics['ssim'] = self.calculate_ssim(gen_img, ref_img)
+            self.metrics['lpips'] = self.calculate_lpips(gen_img, ref_img)
+        
+        # 3. Artifact Detection
+        self.metrics['artifacts'] = self.detect_artifacts(gen_img)
+        
+        # 4. Prompt Matching
+        self.metrics['prompt_match'] = self.calculate_prompt_match(gen_img, prompt)
+        
+        return self.metrics
+    
+    def calculate_clarity(self, img):
+        """Calculate image clarity (Laplacian variance)"""
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        clarity = cv2.Laplacian(gray, cv2.CV_64F).var()
+        return {'value': clarity, 'score': min(clarity / 1000, 10)}
+    
+    def calculate_psnr(self, img_a, img_b):
+        """Calculate PSNR (Peak Signal-to-Noise Ratio)"""
+        mse = np.mean((img_a - img_b) ** 2)
+        if mse == 0:
+            return {'value': float('inf'), 'score': 10}
+        psnr = 20 * np.log10(255.0 / np.sqrt(mse))
+        return {'value': psnr, 'score': min(psnr / 10, 10)}  # Normalize
+    
+    def calculate_ssim(self, img_a, img_b):
+        """Calculate SSIM (Structural Similarity Index)"""
+        gray_a = cv2.cvtColor(img_a, cv2.COLOR_BGR2GRAY)
+        gray_b = cv2.cvtColor(img_b, cv2.COLOR_BGR2GRAY)
+        ssim_score = ssim(gray_a, gray_b, data_range=255)
+        return {'value': ssim_score, 'score': ssim_score * 10}
+    
+    def detect_artifacts(self, img):
+        """Detect common AI generation artifacts"""
+        artifacts = {
+            'plastic_texture': self.detect_plastic_texture(img),
+            'asymmetric_lid': self.detect_asymmetric_lid(img),
+            'color_inaccurate': self.detect_color_inaccuracy(img),
+            'text_artifacts': self.detect_text_artifacts(img)
+        }
+        return artifacts
+    
+    def calculate_prompt_match(self, img, prompt):
+        """Calculate how well image matches prompt"""
+        # Use CLIP to calculate image-text similarity
+        similarity = calculate_clip_similarity(img, prompt)
+        return {'value': similarity, 'score': similarity * 10}
+
+# Usage
+analyzer = ImageQualityAnalyzer()
+results = analyzer.analyze_single_image("generated.png", "reference.png")
+print(f"PSNR: {results['psnr']['value']:.2f} dB (Score: {results['psnr']['score']:.1f}/10)")
+print(f"SSIM: {results['ssim']['value']:.4f} (Score: {results['ssim']['score']:.1f}/10)")
+print(f"Clarity: {results['clarity']['value']:.2f} (Score: {results['clarity']['score']:.1f}/10)")

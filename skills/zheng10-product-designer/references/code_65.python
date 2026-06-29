@@ -1,0 +1,16 @@
+def calculate_design_quality(design):
+    """Calculate design quality score (0-10)"""
+    # Aesthetics (0-10)
+    aesthetics = score_aesthetics(design)
+    
+    # Functionality (0-10)
+    functionality = score_functionality(design)
+    
+    # Manufacturability (0-10)
+    manufacturability = score_manufacturability(design)
+    
+    # Innovation (0-10)
+    innovation = score_innovation(design)
+    
+    quality_score = (aesthetics + functionality + manufacturability + innovation) / 4
+    return round(quality_score, 1)

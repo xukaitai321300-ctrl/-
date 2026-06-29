@@ -1,0 +1,20 @@
+def process_image_input(image_source, image_type="reference"):
+    """Process image input using vision-ai skill"""
+    if image_source.startswith("http"):
+        image = download_image(image_source)
+    elif image_source.startswith("data:image"):
+        image = decode_base64(image_source)
+    else:
+        image = load_local_image(image_source)
+    image = preprocess_image(
+  ... (省略中间部分) ...
+        "image": image,
+        "features": features,
+        "description": description,
+        "metadata": {
+            "source": image_source,
+            "type": image_type,
+            "size": image.size,
+            "mode": image.mode
+        }
+    }

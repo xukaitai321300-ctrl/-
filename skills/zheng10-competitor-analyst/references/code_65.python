@@ -1,0 +1,16 @@
+def calculate_analysis_quality(competitor_data):
+    """Calculate competitive analysis quality score"""
+    # Data Completeness
+    required_fields = ['product_name', 'price', 'material', 'features', 'reviews']
+    completeness = sum(1 for f in required_fields if f in competitor_data) / len(required_fields) * 10
+    
+    # Insight Depth
+    insights = extract_insights(competitor_data)
+    depth = len(insights) / 10 * 10  # Normalize to 10
+    
+    # Actionability
+    recommendations = generate_recommendations(insights)
+    actionability = len([r for r in recommendations if r.is_actionable]) / len(recommendations) * 10
+    
+    quality_score = (completeness + depth + actionability) / 3
+    return round(quality_score, 1)

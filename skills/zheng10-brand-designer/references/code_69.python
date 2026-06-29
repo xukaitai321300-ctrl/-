@@ -1,0 +1,8 @@
+def compare_brand_design(design, competitors, brand_guidelines):
+    """Compare brand design with competitors and guidelines"""
+    comparison = {
+        'guideline_compliance': compare_with_guidelines(design, brand_guidelines),
+        'competitor_differentiation': compare_with_competitors(design, competitors),
+        'brand_consistency': check_brand_consistency(design, past_designs)
+    }
+    return comparison
