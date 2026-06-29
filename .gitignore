@@ -79,6 +79,7 @@ __pycache__/
 !.gitignore
 !LICENSE
 !/docs/**/*.md
+!skills/**/*.md
 
 # === 临时目录 ===
 /CI_CD流水线/
@@ -126,6 +127,10 @@ __pycache__/
 # === 所有文本日志（不提交）===
 *.txt
 *.log
+
+# === 例外：技能包references目录的.txt文件允许提交 ===
+!skills/*/references/*.txt
+!skills/*/references/*.md
 
 # === 所有图片（不提交）===
 *.jpg
