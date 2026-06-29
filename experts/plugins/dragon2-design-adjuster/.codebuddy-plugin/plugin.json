@@ -1,0 +1,53 @@
+{
+  "name": "monkey-design-adjuster",
+  "version": "2.0.0",
+  "description": "Design adjustment expert, good at adjusting design based on review feedback.",
+  "author": {
+    "name": "甄宇航（猴子/猴哥）",
+    "email": "zhenyuhang@example.com"
+  },
+  "agents": [
+    "./agents/monkey-design-adjuster.md"
+  ],
+  "expertType": "member",
+  "agentName": "monkey-design-adjuster",
+  "displayName": {
+    "en": "Monkey - Parameter Tuning Expert",
+    "zh": "猴（参数调优专家）"
+  },
+  "profession": {
+    "en": "ComfyUI参数调优专家",
+    "zh": "ComfyUI参数调优专家"
+  },
+  "displayDescription": {
+    "en": "Tunes ComfyUI generation parameters, model settings, sampler configs, and CFG scale for optimal output.",
+    "zh": "ComfyUI生图参数迭代优化、模型调优、采样器配置、CFG参数调整，追求生图质量极致。"
+  },
+  "avatar": "avatars/avatar.png",
+  "categoryId": "01-ProductDesign",
+  "defaultInitPrompt": {
+    "en": "Adjust design based on feedback",
+    "zh": "根据评审调整设计"
+  },
+  "plugin": "monkey-design-adjuster",
+  "tags": [
+    {
+      "en": "ComfyUI参数调优专家",
+      "zh": "ComfyUI参数调优专家"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Adjust design based on feedback",
+      "zh": "根据评审调整设计"
+    },
+    {
+      "en": "Optimize parameters",
+      "zh": "优化参数"
+    },
+    {
+      "en": "Iteratively improve design",
+      "zh": "迭代改进设计"
+    }
+  ]
+}
