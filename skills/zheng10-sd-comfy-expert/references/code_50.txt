@@ -1,0 +1,4 @@
+Version Control: Git + ComfyUI Workflow Versioning
+Storage: C:/Users/Administrator/.workbuddy/comfyui/workflows/
+Naming: {workflow_name}_v{major}.{minor}.{patch}.json
+Example: vacuum_cup_workflow_v1.2.3.json

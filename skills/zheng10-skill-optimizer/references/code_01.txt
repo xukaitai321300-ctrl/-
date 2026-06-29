@@ -1,0 +1,11 @@
+Input: Generated image + quality issue description
+  ↓
+1. Diagnose quality bottleneck:
+   - Blur → increase Steps / change Sampler
+   - Oversaturation → lower CFG / change Sampler  
+    # ... (代码已精简，保留核心逻辑) ...
+4. Evaluate results (use 鸡's scoring standard)
+  ↓
+5. Select best parameters → update workflow JSON
+  ↓
+Output: Optimized workflow JSON + parameter difference table

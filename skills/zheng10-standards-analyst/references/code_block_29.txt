@@ -1,0 +1,26 @@
+def retrieve_memory(query, max_results=5):
+    """Retrieve relevant memory entries using keyword + recency"""
+    
+    # 1. Keyword matching (from query)
+    keywords = extract_keywords(query)
+    
+    # 2. Search in MEMORY.md (long-term)
+    long_term_results = search_file(
+        "E:/AI日记/Claw/.workbuddy/memory/MEMORY.md",
+        keywords
+    )
+    
+    # 3. Search in recent weekly summaries (medium-term)
+    weekly_results = search_recent_weeks(keywords, weeks=2)
+    
+    # 4. Search in today's log (short-term)
+    today_results = search_file(
+        f"E:/AI日记/Claw/.workbuddy/memory/{get_today()}.md",
+        keywords
+    )
+    
+    # 5. Merge and rank by relevance + recency
+    all_results = long_term_results + weekly_results + today_results
+    ranked_results = rank_by_relevance(all_results, query)
+    
+    return ranked_results[:max_results]

@@ -1,0 +1,5 @@
+1. Scrape negative reviews (1-2 star on Amazon, 差评 on Taobao)
+2. Extract keywords: plastic texture, asymmetric lid, color inaccurate, etc.
+3. Categorize by defect type (structural/material/lighting/text/background/AI)
+4. Count frequency: which defect is MOST common in rivals?
+5. OPPORTUNITY: avoid this defect in OUR design!

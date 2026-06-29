@@ -1,0 +1,20 @@
+- Brand name: [brand name]
+- Positioning: [price range, target market]
+- Personality: [minimalist / industrial / cute / luxury]
+| Color Name | Pantone | Hex | Usage |
+|-------------|----------|------|-------|
+| [Color] | [Pantone] | [Hex] | [Usage] |
+**Material & Finish**:
+| Part | Material | Finish | Anisotropic? |
+|------|----------|--------|-------------------|
+  ... (省略中间部分) ...
+| Check Item | Pass? | Details |
+|-------------|-------|---------|
+| Material texture (anisotropic) | ✅ Pass | Anisotropic reflection present |
+| Symmetry (lid/handle) | ✅ Pass | Δ < 0.02 |
+| Color accuracy (ΔE < 3) | ✅ Pass | ΔE = 1.8 |
+| Text/logo (no garbled) | ✅ Pass | No text in AI generation |
+| Background (pure white) | ✅ Pass | Pure white, contact shadow |
+- Send style guide to 羊 (Goat) for prompt engineering
+- Send defect prevention standards to 鸡 (Rooster) + 兔 (Rabbit) for review
+- After generation: CHECK brand compliance (Phase 3.5)

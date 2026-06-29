@@ -1,0 +1,21 @@
+| 字段路径 | 数据类型 | 必填 | 说明 |
+|-----------|----------|------|------|
+| `metadata.agent_id` | string | ✅ | Agent 唯一标识 |
+| `metadata.task_id` | string | ✅ | 任务 UUID |
+| `metadata.timestamp` | string | ✅ | ISO 8601 格式时间戳 |
+| `metadata.status` | string | ✅ | 任务状态（success/partial/failed） |
+| `result.summary` | string | ✅ | 结果摘要（中文，≤100字） |
+| `result.quality_score` | float | ⚠️ | 质量评分（0-10分，鸡评审后填写） |
+| `result.details` | object | ⚠️ | 详细结果（根据 Agent 类型自定义） |
+| `next_steps` | array | ⚠️ | 下一步行动清单 |
+  ... (省略中间部分) ...
+[具体内容]
+[具体内容]
+- **质量评分**: 8.5/10
+- **评分理由**: [中文说明]
+- **改进建议**: [中文说明]
+1. [行动 1] → 分配给: 牛（Ox）
+2. [行动 2] → 分配给: 虎（Tiger）
+- **错误代码**: ERR_TIMEOUT
+- **错误详情**: [中文说明]
+- **恢复操作**: [中文说明]

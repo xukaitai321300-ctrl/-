@@ -1,0 +1,11 @@
+# Market Research Report (Partial)
+
+**Agent**: zheng10-competitor-analyst
+**Timestamp**: 2026-06-04T14:45:00+08:00
+**Task ID**: research_20260604_003
+    # ... (代码已精简，保留核心逻辑) ...
+- [ ] Format consistent (table truncated)
+- [x] References valid
+
+## Next Steps
+Need to scrape pricing data for NEW entrant (brand: "ThermoMaster").

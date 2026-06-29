@@ -1,0 +1,4 @@
+1. Search keyword: "vacuum cup pop-up lid competitor"
+2. Filter: TOP 10 bestsellers (by sales volume)
+3. Download: main image + detail images (at least 10 per competitor)
+4. **NEW in v3.5**: Also download 差评 images (negative review images with defects)

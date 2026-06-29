@@ -1,0 +1,20 @@
+def compress_memory(source_files, target_file, max_chars=3000):
+    """Compress multiple source files into target file"""
+    all_entries = []
+    for file in source_files:
+        if os.path.exists(file):
+            with open(file, 'r', encoding='utf-8') as f:
+                entries = extract_key_info(f.read())
+                all_entries.extend(entries)
+    scored_entries = []
+  ... (省略中间部分) ...
+        score += 5
+    if "错误" in entry or "error" in entry.lower() or "fix" in entry.lower():
+        score += 4
+    if "v3." in entry or "skill" in entry.lower():
+        score += 3
+    if "决定" in entry or "decision" in entry.lower():
+        score += 2
+    if "2026-06" in entry:
+        score += 1
+    return min(score, 10)

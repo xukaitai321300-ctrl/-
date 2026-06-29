@@ -1,0 +1,20 @@
+def build_joint_prompt(text_input, image_input, combine_method="concat"):
+    """Build joint prompt from text + image"""
+    text_prompt = text_input.get("prompt", "")
+    negative_prompt = text_input.get("negative_prompt", "")
+    image_description = ""
+    if image_input:
+        image_data = process_image_input(
+            image_input["source"],
+            image_input.get("type", "reference")
+  ... (省略中间部分) ...
+        joint_prompt = {
+            "text_features": extract_text_features(text_prompt),
+            "image_features": extract_image_features(image_data["image"]),
+            "fusion_method": "cross_attention"
+        }
+    final_prompt = {
+        "prompt": joint_prompt,
+        "negative_prompt": negative_prompt
+    }
+    return final_prompt

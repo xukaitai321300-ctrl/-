@@ -1,0 +1,11 @@
+## ComfyUI Workflow Standards Checklist (v3.5 Enhanced):
+
+**Node Naming**:
+- [ ] All nodes have descriptive names (not "KSampler_01")
+- [ ] Input/output clearly labeled
+    # ... (代码已精简，保留核心逻辑) ...
+
+**Output Standards**:
+- [ ] Save format: PNG (lossless)
+- [ ] Metadata: Prompt embedded
+- [ ] Naming: [product]_[color]_[scene]_[seed].png

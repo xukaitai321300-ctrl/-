@@ -1,0 +1,7 @@
+Quality Score = (Clarity Score + Resolution Score + Relevance Score + Diversity Score) / 4
+
+Where:
+- Clarity Score (0-10): Image sharpness (Laplacian variance)
+- Resolution Score (0-10): Meets minimum resolution (>= 1024x1024)
+- Relevance Score (0-10): Matches collection target (product type + angle)
+- Diversity Score (0-10): Diverse angles, lighting, backgrounds

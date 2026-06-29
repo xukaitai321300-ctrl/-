@@ -1,0 +1,28 @@
+### 1. Competitive Landscape Analysis Template:
+
+**Direct Competitors**:
+- Competitor 1: [Name, Price, Key Features]
+- Competitor 2: [Name, Price, Key Features]
+- Competitor 3: [Name, Price, Key Features]
+
+**Indirect Competitors**:
+- Competitor A: [Name, Different Form, Same Function]
+- Competitor B: [Name, Different Form, Same Function]
+
+**Emerging Competitors**:
+- Startup X: [Name, Innovation Point]
+- Startup Y: [Name, Innovation Point]
+
+### 2. SWOT Analysis Template (10 Industries):
+
+| Industry | Strengths | Weaknesses | Opportunities | Threats |
+|----------|-------------|---------------|----------------|----------|
+| Vacuum Cup | | | | |
+| Smart Home | | | | |
+| Wearable | | | | |
+
+### 3. Defect Comparison Focus (NEW in v5.0):
+- [ ] Collect competitor product images (HIGH-quality)
+- [ ] Run 兔's defect detection on EACH competitor's images
+- [ ] Compare: which defects are MOST common in rivals?
+- [ ] Opportunity: design OUR product to AVOID these defects

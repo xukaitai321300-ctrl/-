@@ -1,0 +1,15 @@
+## Style Consistency Analysis
+
+**Reference Style** (if provided):
+- Extract CLIP embedding of reference image
+- Extract CLIP embedding of generated image
+- Compute cosine similarity
+
+**Style Score**:
+- ≥0.8: ✅ Excellent style match
+- 0.6~0.79: ⚠️ Good, minor style drift
+- <0.6: ❌ Poor style match, need re-generation
+
+**Style Drift Detection**:
+- Compare with previous generation batch
+- If style score drops >0.2 → trigger alert

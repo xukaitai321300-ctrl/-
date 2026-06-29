@@ -1,0 +1,7 @@
+Use Case: Cylindrical product with handle (need both edge + depth)
+Node Connection:
+  [Load Image] → [Canny Preprocessor] → [ControlNet Apply (strength=0.9)]
+                                                    ↓
+  [Load Image] → [Depth Preprocessor] → [ControlNet Apply (strength=0.7)]
+                                                    ↓
+                                              [KSampler] → ...

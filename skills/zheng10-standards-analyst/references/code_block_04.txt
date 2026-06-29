@@ -1,0 +1,20 @@
+**Structural Defect Prevention**:
+- [ ] ControlNet Canny strength ≥ 0.8 (prevents deformation)
+- [ ] Denoise ≤ 0.6 (Img2Img — preserves reference structure)
+- [ ] Symmetry Checker node added (detects asymmetric lid/handle):
+**Material Texture Defect Prevention**:
+- [ ] Prompt includes "anisotropic reflection, brushed metal texture"
+- [ ] Texture Enhancer node added (strength: 0.7~0.9)
+- [ ] Negative prompt includes "plastic texture, fake metal":
+**Lighting Reflection Defect Prevention**:
+- [ ] Prompt includes "physical based rendering, ray tracing"
+- [ ] HDR lighting (if studio setup)
+- [ ] Shadow direction consistent with light source:
+**Text/Logo Defect Prevention**:
+- [ ] Negative prompt includes "watermark, text, signature, garbled text"
+- [ ] If text needed: use "clear text, correct spelling" in positive prompt
+- [ ] Consider using "no text" in negative (unless text is required)):
+**Background Scene Defect Prevention**:
+- [ ] Background matches product style (pure white for commercial, contextual for lifestyle)
+- [ ] No floating product (must have contact shadow)
+- [ ] Perspective consistent between product and background:

@@ -1,0 +1,11 @@
+## Strategy Adaptation Checklist
+
+**Current Score**: [X.X]/10.0
+**Plateau Duration**: [X] iterations
+**Adaptation Needed**: ✅ Yes
+    # ... (代码已精简，保留核心逻辑) ...
+- Current: [width]×[height]
+- Try: [higher resolution] (e.g., 1024×1024 → 1536×1536)
+- Expected improvement: +0.1~0.4
+
+**Action**: Apply Strategy [1/2/3/4/5] and continue evolution.

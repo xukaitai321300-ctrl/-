@@ -1,0 +1,17 @@
+
+---
+
+## Phase 8: Termination & Delivery
+
+### Stop Commands
+
+| User Command | Action |
+|---------------|--------|
+| `停止进化` | Stop loop, save best result, output final report |
+| `暂停进化` | Pause loop, save current state, wait for resume command |
+| `继续进化` | Resume paused evolution |
+| `保存最佳工作流` | Save current best workflow to `evolution_best_workflow_API.json` |
+| `输出最终报告` | Output final evolution report (all iterations) |
+
+### Final Delivery (After Stop)
+

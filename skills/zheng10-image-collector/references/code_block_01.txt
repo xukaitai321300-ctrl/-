@@ -1,0 +1,20 @@
+**Collection Purpose**:
+- [ ] Reference for img2img (HIGH-QUALITY, no defects)
+- [ ] Reference for ControlNet (edge/depth/pose)
+- [ ] Style reference (color palette, lighting, composition)
+- [ ] Material texture (for LoRA training)
+- [ ] **Defect samples (for training data) (NEW in v3.5)**
+**Product Type**:
+- [ ] Vacuum cup / thermos
+- [ ] Food jar / lunch box
+- [ ] Tumbler / water bottle
+- [ ] Accessories (lid, handle, seal ring)
+**Image Type Needed**:
+- [ ] Product only (pure background)
+- [ ] Lifestyle (human using product)
+- [ ] Detail close-up (lid mechanism, hinge, seam)
+- [ ] **Defect close-up (plastic texture, asymmetric lid, color inaccurate) (NEW in v3.5)**
+**Defect Sampling Requirements (NEW in v3.5)**:
+- [ ] Collect AI-generated images WITH defects (for training 鸡/兔 to detect)
+- [ ] Collect real product images WITH defects (for ComfyUI inpainting fix)
+- [ ] Categorize by defect type (structural/material/lighting/text/background/AI)

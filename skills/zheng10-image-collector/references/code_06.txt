@@ -1,0 +1,15 @@
+## Defect Pre-Filter Checklist (using 兔's defect detection)
+
+**For HIGH-QUALITY references** (should have NO defects):
+- [ ] Run 兔's defect detection on collected images
+- [ ] If defect detected → DISCARD (or move to defect samples)
+- [ ] Only keep images with NO defects (score ≥ 9.0/10)
+
+**For DEFECT samples** (should have visible defects):
+- [ ] Run 兔's defect detection on collected images
+- [ ] If NO defect detected → DISCARD (not useful for training)
+- [ ] Only keep images WITH defects (score ≤ 6.0/10)
+
+**Categorization**:
+- [ ] Sort defect samples by defect type (structural/material/lighting/text/background/AI)
+- [ ] Save to: `E:/AI日记/Claw/defect_samples/[defect_type]/`

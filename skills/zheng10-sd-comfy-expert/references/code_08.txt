@@ -1,0 +1,9 @@
+Problem: Lid asymmetry, hinge deformation
+Solution:
+  - ControlNet Type: Canny (edge) ONLY
+  - Canny strength: 1.0 (maximum strictness)
+  - Preprocessor: CannyEdgePreprocessor (accurate edge)
+  - ROI (Region of Interest): Focus on lid area (crop before Canny)
+  - Start %: 0.0
+  - End %: 1.0 (full process control)
+  - ADD Symmetry Checker node (post-processing)

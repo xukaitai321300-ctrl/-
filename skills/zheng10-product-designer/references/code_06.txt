@@ -1,0 +1,13 @@
+## CMF Design:
+
+| Part | Material | Finish | Color (Pantone) | Texture | Anisotropic Reflection |
+|------|----------|--------|-------------------|---------|--------------------------|
+| Outer shell | 304 SS | Matte powder-coat | Cool Gray 1C | Fine brushed | ✅ YES |
+| Lid | 304 SS | Glossy | Pantone 1234 C | Smooth | ✅ YES |
+| Handle | 201 SS | Matte | Pantone Cool Gray 1C | Brushed | ✅ YES |
+| Seal ring | Silicone | Matte | Pantone 19-4055 TCX | Soft-touch | N/A |
+
+**Material Selection Rationale**:
+- 304 SS: food-grade, corrosion-resistant, cost-effective
+- Magnesium alloy (optional): lighter (-35%), more expensive (+¥5/unit)
+- Titanium (premium): lightest (-45%), most expensive (+¥20/unit)

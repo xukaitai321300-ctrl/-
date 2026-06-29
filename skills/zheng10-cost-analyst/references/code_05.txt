@@ -1,0 +1,16 @@
+## Defect Pattern Analysis:
+
+**Most Common Defects in AI Product Rendering** (from Civitai/Reddit/Xiaohongshu):
+| Defect Type | Frequency (1-5) | User Annoyance (1-5) | Priority to Fix |
+|-------------|-------------------|---------------------------|---------------------|
+| Plastic texture (should be metal) | 5/5 | 5/5 | **P0 (MUST fix)** |
+| Asymmetric lid | 4/5 | 5/5 | **P0 (MUST fix)** |
+| Color inaccurate (ΔE > 5) | 4/5 | 4/5 | **P1 (should fix)** |
+| Text/logo garbled | 3/5 | 4/5 | P1 (should fix) |
+| Background mismatch | 3/5 | 3/5 | P2 (nice to have) |
+| AI artifacts (noise/compression) | 2/5 | 2/5 | P2 (nice to have) |
+
+**Intelligence Insight (NEW in v3.5)**:
+1. **Plastic texture = #1 complaint** → WE MUST fix this (anisotropic reflection keyword)
+2. **Asymmetric lid = #2 complaint** → WE MUST fix this (ControlNet strength ≥ 0.9)
+3. **Color inaccurate = #3 complaint** → WE SHOULD fix this (Color Correct node)

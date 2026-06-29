@@ -1,0 +1,59 @@
+### 1. Core Nodes (10 nodes):
+
+| Node Type | Node Name | Key Parameters | Usage |
+|-----------|-----------|----------------|-------|
+| CheckpointLoader | Load Checkpoint | config_name, half_precision | Load SD/SDXL model |
+| CLIPTextEncode | CLIP Text Encode | text (prompt) | Encode text prompt |
+| VAEDecode | VAE Decode | samples | Decode latent to image |
+| VAEEncode | VAE Encode | pixels | Encode image to latent |
+| KSampler | K-Sampler | model, positive, negative, seed | Core sampler |
+| EmptyLatentImage | Empty Latent Image | batch_size, height, width | Create empty latent |
+| SaveImage | Save Image | filename_prefix, images | Save generated image |
+| PreviewImage | Preview Image | images | Preview image |
+| ControlNetApply | Apply ControlNet | conditioning, control_net | Apply ControlNet |
+| LoraLoader | Load LoRA | lora_name, strength_model | Load LoRA weights |
+
+### 2. Preprocessing Nodes (10 nodes):
+
+| Node Type | Node Name | Key Parameters | Usage |
+|-----------|-----------|----------------|-------|
+| CannyEdgeDetector | Canny Edge Detector | image, low_threshold, high_threshold | Detect edges |
+| DWPreprocessor | DW Preprocessor | image, seed | DW preprocessing |
+| HedPreprocessor | Hed Preprocessor | image | Hed edge detection |
+| MlsdPreprocessor | M-LSD Preprocessor | image | Line segment detection |
+| OpenposePreprocessor | OpenPose Preprocessor | image | Pose estimation |
+| DepthPreprocessor | Depth Preprocessor | image | Depth estimation |
+| NormalPreprocessor | Normal Preprocessor | image | Normal map |
+| LineartPreprocessor | Lineart Preprocessor | image | Line art |
+| AnimeLineartPreprocessor | Anime Lineart | image | Anime line art |
+| ContentShuffulePreprocessor | Content Shuffule | image, seed | Content shuffle |
+
+### 3. Post-processing Nodes (10 nodes):
+
+| Node Type | Node Name | Key Parameters | Usage |
+|-----------|-----------|----------------|-------|
+| FaceDetailer | Face Detailer | image, method | Enhance face details |
+| CodeFormer | CodeFormer | image, fidelity | Restore face |
+| Sharpener | Image Sharpener | image, sharpen_radius | Sharpen image |
+| ColorCorrect | Color Correct | image, saturation, contrast | Adjust color |
+| ImageScale | Image Scale | image, width, height, method | Resize image |
+| ImageCrop | Image Crop | image, x, y, width, height | Crop image |
+| ImagePad | Image Pad | image, left, right, top, bottom | Add padding |
+| MaskBlend | Mask Blend | image, mask, method | Blend with mask |
+| Inpaint | Inpaint | image, mask, noise_mask | Inpaint missing regions |
+| Upscale | Upscale Image | image, scale_by | Upscale image |
+
+### 4. Utility Nodes (10 nodes):
+
+| Node Type | Node Name | Key Parameters | Usage |
+|-----------|-----------|----------------|-------|
+| Switch | Switch | input_a, input_b, switch | Switch between inputs |
+| Concat | Concat | input_a, input_b | Concatenate inputs |
+| Split | Split | input, split_mode | Split input |
+| Merge | Merge | input_a, input_b, method | Merge inputs |
+| Math | Math | input_a, input_b, operation | Math operations |
+| Compare | Compare | input_a, input_b, operation | Compare inputs |
+| ConditioningCombine | Conditioning Combine | conditioning_1, conditioning_2 | Combine conditioning |
+| ConditioningSetArea | Conditioning Set Area | conditioning, width, height, x, y | Set area for conditioning |
+| ControlNetLoader | Load ControlNet | control_net_name | Load ControlNet model |
+| IPAdapterLoader | Load IPAdapter | ipadapter_name | Load IPAdapter |

@@ -1,0 +1,19 @@
++++ vacuum_cup_workflow_v1.1.0.json
+@@ -45,7 +45,7 @@
+       "inputs": {
+         "text": "a vacuum cup with titanium body",
+- "cfg": 7.5,
++        "cfg": 8.0,
+         "steps": 30
+       }
+  ... (省略中间部分) ...
+       }
+     },
++    {
++      "id": 15,
++      "type": "ControlNetApply",
++      "inputs": {...}
++    },
+     {
+       "id": 16,
+       "type": "VAEDecode",

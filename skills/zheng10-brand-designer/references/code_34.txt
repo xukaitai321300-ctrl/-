@@ -1,0 +1,5 @@
+- ALL errors MUST be logged to error log file
+- ALL errors MUST include: timestamp, agent_id, error_code, root_cause, fix_action
+- ALL errors MUST be categorized (P0/P1/P2)
+- ALL P0 errors MUST trigger immediate alert to 鼠 (Rat)
+- Reason: 错误是进步的阶梯，不记录 = 重复犯错

@@ -1,0 +1,14 @@
+## Product Type Identification
+
+**Detect product type from image**:
+- [ ] Vacuum cup / Tumbler (保温杯)
+- [ ] Food jar / Lunch box (焖烧罐/饭盒)
+- [ ] Water bottle (水壶)
+- [ ] Flask (酒壶)
+- [ ] Other (specify)
+
+**Adjust analysis focus based on product type**:
+- Vacuum cup: focus on lid symmetry, handle deformation, sealing ring
+- Food jar: focus on inner cup, partition plate, lid seal
+- Water bottle: focus on straw mechanism, cap threading
+- Flask: focus on pouring spout, cap seal

@@ -1,0 +1,20 @@
+## Intelligence Requirements Analysis:
+
+**Collection Target**:
+- [ ] ComfyUI models (checkpoints, LoRAs, ControlNets)
+- [ ] ComfyUI workflows (img2img, text2img, inpainting)
+- [ ] AI image generation techniques (prompt engineering, parameter tuning)
+- [ ] **Defect patterns (NEW in v3.5)**: Which defects are MOST common in AI-generated product images?
+- [ ] **Competitor defects (NEW in v3.5)**: Which defects do rivals' AI-generated images have?
+
+**Source Type**:
+- [ ] GitHub (ComfyUI workflow repositories)
+- [ ] Civitai (model downloads + user reviews → defect mentions)
+- [ ] HuggingFace (model cards + papers)
+- [ ] Reddit/Twitter (user discussions → real defect complaints)
+- [ ] **Xiaohongshu/Taobao reviews (NEW in v3.5)**: Real user complaints about defects
+
+**Update Frequency**:
+- [ ] Daily (for fast-moving targets: ComfyUI custom nodes)
+- [ ] Weekly (for models, workflows)
+- [ ] Monthly (for techniques, papers)

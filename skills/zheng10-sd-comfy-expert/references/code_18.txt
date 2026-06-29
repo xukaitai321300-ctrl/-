@@ -1,0 +1,11 @@
+## Defect Prevention Verification
+
+**Structural Defects**:
+- [ ] ControlNet Canny strength ≥ 0.8 (prevents deformation)
+- [ ] Denoise ≤ 0.6 (Img2Img — preserves reference structure)
+    # ... (代码已精简，保留核心逻辑) ...
+
+**Background Scene Defects**:
+- [ ] Background matches product style (pure white for commercial, contextual for lifestyle)
+- [ ] No floating product (must have contact shadow)
+- [ ] Perspective consistent between product and background

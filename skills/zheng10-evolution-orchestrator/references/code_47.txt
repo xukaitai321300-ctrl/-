@@ -1,0 +1,13 @@
+
+**Execution Rules (NEW in v4.0)**:
+36. **ALWAYS use version control** — Git + ComfyUI workflow versioning
+37. **ALWAYS compare versions before releasing** — generate diff report
+38. **ALWAYS backup before rollback** — prevent accidental data loss
+39. **ALWAYS include release notes** — document changes for users
+40. **ALWAYS test before marking stable** — ensure quality threshold met
+
+---
+
+## Real-time Feedback Mechanism (NEW in v3.8)
+
+### Generation Process Monitoring:

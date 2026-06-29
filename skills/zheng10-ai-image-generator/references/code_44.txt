@@ -1,0 +1,2 @@
+Task Execution -> Quality Assessment -> Case Recording -> 
+Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)

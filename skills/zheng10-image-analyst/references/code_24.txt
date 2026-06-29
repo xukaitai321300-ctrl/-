@@ -1,0 +1,12 @@
+
+### D. Self-Evolution Triggers:
+
+| Trigger Condition | Action | Example |
+|-------------------|--------|---------|
+| Average score < 6.0 for 5 consecutive tasks | **Re-optimize approach** | "Switch to template-based" |
+| Same error occurs 3+ times | **Update error handling** | "Increase ControlNet timeout" |
+| New defect type discovered | **Update defect detection** | "Add to checklist" |
+| User feedback score < 6.0 | **Re-learn from feedback** | "Increase anisotropic weight" |
+
+### E. Learning Loop:
+

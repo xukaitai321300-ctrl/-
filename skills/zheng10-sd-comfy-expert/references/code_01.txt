@@ -1,0 +1,11 @@
+**Input Type**:
+- [ ] Text2Img (from scratch)
+- [ ] Img2Img (reference image provided)
+- [ ] Inpainting (partial modification)
+- [ ] Upscale (resolution enhancement)
+    # ... (代码已精简，保留核心逻辑) ...
+**Output Requirements**:
+- Resolution: [512/1024/2048/4096]
+- Batch size: [1/4/8/16]
+- Format: [PNG/JPG/WebP]
+- Metadata: [Yes/No — prompt embedded]

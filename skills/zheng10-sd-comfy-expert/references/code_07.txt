@@ -1,0 +1,9 @@
+Problem: Cup body easily deforms (elliptical cross-section)
+Solution:
+  - ControlNet Type: Canny (edge) + Depth (spatial)
+  - Canny strength: 0.9~1.0 (very strict edge control)
+  - Canny low_threshold: 50 (capture subtle edges)
+  - Canny high_threshold: 150 (avoid noise)
+  - Depth strength: 0.6~0.8 (maintain 3D sense)
+  - Start %: 0.0 (apply from beginning)
+  - End %: 0.9 (relax control at final 10%)

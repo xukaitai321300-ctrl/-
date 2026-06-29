@@ -1,0 +1,1 @@
+Generate → Assess → Record (success/failure) → Optimize → Regenerate

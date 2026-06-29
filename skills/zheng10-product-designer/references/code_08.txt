@@ -1,0 +1,11 @@
+## Design Handoff to ComfyUI Team:
+
+**Reference Images** (MUST provide):
+- [ ] Front view: [path/to/image.png]
+- [ ] 45° view: [path/to/image.png]
+    # ... (代码已精简，保留核心逻辑) ...
+
+**Expectation Management**:
+- First generation: expect score 6.0~7.0/10 (needs iteration)
+- After 猴's adjustment: expect score ≥ 8.0/10
+- Final delivery: score ≥ 8.5/10 (commercial quality)

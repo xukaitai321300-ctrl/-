@@ -1,0 +1,6 @@
+Analysis Quality Score = (Data Completeness + Insight Depth + Actionability) / 3
+
+Where:
+- Data Completeness (0-10): Percentage of required data collected
+- Insight Depth (0-10): Depth of analysis (surface vs deep)
+- Actionability (0-10): How actionable are the recommendations

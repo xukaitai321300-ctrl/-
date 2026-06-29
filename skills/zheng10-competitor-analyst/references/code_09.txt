@@ -1,0 +1,14 @@
+
+#### 3. Table Output (for comparisons/lists):
+| Field | Value | Notes |
+|-------|-------|-------|
+| [field1] | [value1] | [notes1] |
+| [field2] | [value2] | [notes2] |
+
+### Required Fields (ALL outputs MUST have):
+- `timestamp`: ISO 8601 format (e.g., "2026-06-04T14:30:00+08:00")
+- `agent_id`: Which agent generated this output
+- `task_id`: Unique task identifier
+- `status`: One of `success` / `partial` / `failed`
+
+### Output Quality Checklist:

@@ -1,0 +1,5 @@
+1. GitHub search: "ComfyUI workflow JSON"
+2. Filter: recently updated (within 3 months)
+3. Download: workflow JSON file
+4. Test: load into ComfyUI, verify it works
+5. Save to: `E:/AI日记/Claw/comfyui_workflows/`

@@ -1,0 +1,5 @@
+- ALL agents MUST record successful cases to CaseDatabase (see Learning & Evolution Mechanism)
+- ALL agents MUST record failed cases to CaseDatabase
+- ALL agents MUST optimize prompts based on past cases
+- ALL agents MUST update own SKILL.md when new learning discovered
+- Reason: 不学习 = 停滞不前，团队竞争力下降

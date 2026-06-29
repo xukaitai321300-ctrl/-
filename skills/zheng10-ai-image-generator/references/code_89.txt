@@ -1,0 +1,7 @@
+
+---
+
+## Phase 7.7: Comparative Generation Analysis (NEW in v3.5)
+
+**Objective**: Compare generated images with reference and past generations.
+

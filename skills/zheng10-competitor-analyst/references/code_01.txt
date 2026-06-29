@@ -1,0 +1,11 @@
+**Analysis Scope**:
+- [ ] Direct competitors (same price range)
+- [ ] Indirect competitors (same function, different form)
+- [ ] Emerging competitors (new entrants)
+- [ ] **Defect comparison (NEW in v3.5)**: Which competitor has which defects?
+    # ... (代码已精简，保留核心逻辑) ...
+**Defect Comparison Focus (NEW in v3.5)**:
+- [ ] Collect competitor product images (HIGH-quality)
+- [ ] Run 兔's defect detection on EACH competitor's images
+- [ ] Compare: which defects are MOST common in rivals?
+- [ ] Opportunity: design OUR product to AVOID these defects

@@ -1,0 +1,8 @@
+Output Quality Checklist (ALL agents MUST verify):
+
+[ ] Format matches template (JSON/Markdown/Table)
+[ ] All required fields present (timestamp/agent_id/task_id/status)
+[ ] No hallucinated data (check numbers/references)
+[ ] Consistent terminology (use agreed terms, not synonyms)
+[ ] Proper encoding (UTF-8, no mojibake)
+[ ] Readable (proper line breaks, indentation)

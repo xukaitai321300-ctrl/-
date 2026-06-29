@@ -1,0 +1,20 @@
+- Comprehensive: [0-10]
+- Clarity: [0-10]
+- Realism: [0-10]
+- Prompt matching: [0-10]
+- Artifacts: [None / Mild / Severe]
+- Style consistency: [0-10]
+- **Defect penalty: -[X.X]** (NEW in v3.5)
+| Metric | Value | Notes |
+|--------|-------|-------|
+  ... (省略中间部分) ...
+- Problem 1: [description] → [specific fix suggestion]
+- Problem 2: [description] → [specific fix suggestion]
+- Suggestion 1: Adjust [parameter] to [recommended value]
+- Suggestion 2: Add [LoRA / ControlNet] to improve [aspect]
+- Suggestion 3: Use [different sampler / steps] for [reason]
+- [ ] Clarity comparison chart (PSNR/SSIM bar chart)
+- [ ] Artifact heatmap (CNN activation map)
+- [ ] Style embedding scatter plot (t-SNE)
+- [ ] **Defect map (NEW in v3.5) — highlight defect locations**
+- [ ] **Difference map (NEW in v3.5) — pixel-level comparison with reference**

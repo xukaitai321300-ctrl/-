@@ -1,0 +1,39 @@
+{
+  "modality": "image+text",
+  "inputs": {
+    "text": {
+      "prompt": "Generate a vacuum cup with titanium body, brushed finish, and pop-up lid",
+      "negative_prompt": "plastic texture, asymmetric lid, low quality"
+    },
+    "image": {
+      "source": "@/reference/cup_design.jpg",
+  ... (省略中间部分) ...
+      "preprocessing": "resize(512x512)+normalize",
+      "weight": 0.7
+    }
+  },
+  "options": {
+    "combine_method": "concat",
+    "output_format": "json",
+    "quality_threshold": 7.0
+  }
+}
+
+### Execution Rules (NEW in v3.7):
+21. **ALWAYS support multi-modal input** — accept text/image/image+text/batch inputs
+22. **ALWAYS preprocess images** — resize to 512x512, normalize, enhance contrast
+23. **ALWAYS extract image features** — use vision-ai skill (CLIP/ResNet)
+24. **ALWAYS assess multi-modal quality** — combine image similarity + text matching
+
+---
+
+---
+## Phase 4.5: Version Management Enhancement (NEW in v4.0)
+
+### A. Version Management Strategy
+- **Git Integration**: All ComfyUI workflows stored in Git repository
+- **Workflow Versioning**: Each workflow JSON has version field
+- **Semantic Versioning**: MAJOR.MINOR.PATCH (e.g., 2.1.3)
+- **Branch Strategy**: main (stable), dev (testing), feat/* (new features)
+
+### B. Version Comparison Mechanism

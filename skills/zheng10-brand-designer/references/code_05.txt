@@ -1,0 +1,17 @@
+
+**Material Keywords** (by material type):
+| Material | Positive Keywords | Negative Keywords |
+|----------|-------------------|-------------------|
+| Stainless Steel | `stainless steel, brushed metal, anisotropic reflection` | `plastic texture, fake metal` |
+| Titanium | `titanium, raw titanium finish, brushed anisotropic` | `plastic, painted finish` |
+| Magnesium Alloy | `magnesium alloy, lightweight, brushed metal` | `heavy, plastic feel` |
+| Ceramic Coating | `ceramic coating, smooth matte finish` | `rough, uneven coating` |
+
+**Color Keywords** (with Pantone code):
+| Color Name | Pantone Code | Prompt Keyword | ΔE Target |
+|-------------|--------------|-------------------|--------------|
+| 航空灰 (Aviation Gray) | Cool Gray 1C | `aviation gray, Cool Gray 1C, color accurate` | < 2.0 |
+| 樱花粉 (Cherry Blossom Pink) | Pantone 190 C | `cherry blossom pink, Pantone 190 C, color accurate` | < 2.5 |
+| 星空蓝 (Starry Blue) | Pantone 286 C | `starry blue, Pantone 286 C, color accurate` | < 2.5 |
+
+**Defect-Specific Negative Keywords** (NEW in v3.5):

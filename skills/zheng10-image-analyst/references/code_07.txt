@@ -1,0 +1,18 @@
+## Comparative Defect Detection
+
+**Method**: Compare generated image with reference image (same product, different colorway/scene)
+
+要点：
+- **Steps**:
+- 1. Align images (same scale, same perspective)
+- 2. Compute difference map (generated - reference)
+- 3. Detect structural differences:
+- - Body shape difference (Δshape > 5% → flag as MAJOR defect)
+- - Lid shape difference (Δshape > 3% → flag as MAJOR defect)
+- - Handle position difference (Δpos > 2% → flag as MAJOR defect)
+- 4. Detect material differences:
+- - Color difference (ΔE > 5 → flag as MAJOR defect)
+- - Texture difference (PSNR < 30dB → flag as MINOR defect)
+- 5. Detect detail differences:
+- - Logo/text difference (OCR comparison → flag if mismatch)
+- - Seam detail difference (edge sharpness comparison → flag if blurrier)

@@ -1,0 +1,17 @@
+## Defect Prevention Structural Design:
+
+**SIMPLIFY for AI**:
+- [ ] Cup body: simple cylinder (NO complex curves → AI deforms)
+- [ ] Lid: symmetric design (left/right identical → AI struggles with asymmetry)
+- [ ] Handle: simple arc (NO complex cutouts → AI artifacts)
+- [ ] Seam: minimize visible seams (AI struggles with seams)
+
+**SPECIFY texture for AI**:
+- [ ] ADD "anisotropic reflection" to design spec (MUST for metal look)
+- [ ] SPECIFY brushed direction (AI needs guidance)
+- [ ] AVOID "glossy plastic" (AI default = bad)
+
+**PROVIDE reference for img2img**:
+- [ ] Design MUST have reference image (real product photo)
+- [ ] Reference image: clear lighting, pure white background (best for img2img)
+- [ ] MULTIPLE angles: front / 45° / top view (for AI to learn)

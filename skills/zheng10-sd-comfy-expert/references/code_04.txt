@@ -1,0 +1,9 @@
+Node Connection Map:
+
+[Load Image A] ─── [Canny] ───┐
+                               ├── [ControlNet Stack] ─── [ControlNet Apply] ─── [KSampler]
+[Load Image B] ─── [Depth] ───┘
+
+Use Case:
+- Canny (edge) + Depth (spatial) → precise product shape + 3D sense
+- Canny (edge) + Lineart (style) → precise shape + artistic style

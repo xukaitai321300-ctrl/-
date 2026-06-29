@@ -1,0 +1,17 @@
+### 1. Intelligence Sources Classification:
+| Source Type | Examples | Reliability | Update Frequency |
+|-------------|----------|--------------|------------------|
+| Official Docs | GitHub, ArXiv | HIGH | Weekly |
+| Community | Reddit, Discord | MEDIUM | Daily |
+| Social Media | Twitter, Xiaohongshu | LOW | Real-time |
+
+### 2. Prompt Asset Classification System:
+| Category | Sub-category | Example Prompt | Quality Score |
+|----------|---------------|-----------------|-----------------|
+| Product Photography | Vacuum Cup | masterpiece, vacuum cup... | 8.5/10 |
+| Material Texture | Brushed Metal | anisotropic reflection... | 9.0/10 |
+
+### 3. Market Dynamics Monitoring:
+- [ ] New model releases (track HuggingFace, GitHub)
+- [ ] Workflow innovations (track ComfyUI community)
+- [ ] Price changes (track API pricing pages)

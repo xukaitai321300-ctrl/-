@@ -1,0 +1,9 @@
+
+---
+
+## Phase 2.7: Comparative Standards Detection (NEW in v3.5)
+
+**Objective**: Compare current design with similar products and past designs to detect compliance gaps and reuse successful patterns.
+
+### Comparative Detection Workflow:
+

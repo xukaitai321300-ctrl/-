@@ -1,0 +1,11 @@
+# Release Notes: v1.1.0
+
+## 🎯 Changes Summary
+- **NEW**: Added ControlNet support (node ID 15)
+- **Improved**: Increased CFG scale from 7.5 to 8.0 (better prompt adherence)
+    # ... (代码已精简，保留核心逻辑) ...
+
+## 👥 Contributors
+- 马 (Horse): Workflow optimization
+- 羊 (Goat): LoRA weight tuning
+- 猴 (Monkey): Parameter optimization

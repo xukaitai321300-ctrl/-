@@ -1,0 +1,4 @@
+ControlNet Apply Node:
+- strength: 1.0 (full strength)
+- start_percent: 0.0 (apply from beginning)
+- end_percent: 0.8 (stop at 80% of sampling)

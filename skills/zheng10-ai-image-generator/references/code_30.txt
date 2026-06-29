@@ -1,0 +1,3 @@
+flat lighting, wrong shadows, inconsistent light source,
+overexposed, underexposed, clipping,
+unnatural reflection, missing highlights

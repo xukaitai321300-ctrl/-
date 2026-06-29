@@ -1,0 +1,14 @@
+**Agent**: zheng10-competitor-analyst
+**Timestamp**: 2026-06-04T14:45:00+08:00
+**Task ID**: research_20260604_003
+Analyzed 3 competitors (Tiger, Zojirushi, Midea), but pricing data for NEW entrant missing.
+| Competitor | Price (¥) | Market Share | Key Feature |
+|------------|-----------|--------------|-------------|
+| Tiger (JP) | 199 | 35% | Lightweight (280g) |
+| Zojirushi | 299 | 20% | High-end, 12h thermal |
+| Midea (CN) | 99 | 40% | Cost leader |
+- [x] Requirement met (partially)
+- [x] No hallucinations
+- [ ] Format consistent (table truncated)
+- [x] References valid
+Need to scrape pricing data for NEW entrant (brand: "ThermoMaster").

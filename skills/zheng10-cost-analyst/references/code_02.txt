@@ -1,0 +1,16 @@
+**Source 1: Civitai Model Reviews** (users mention defects):
+- [ ] Search: "plastic texture" + "product rendering"
+- [ ] Search: "asymmetric lid" + "AI generated"
+- [ ] Search: "color inaccurate" + "ComfyUI"
+- [ ] Extract: which defects are MOST mentioned? → prioritize fixing in our workflow
+**Source 2: Reddit/Twitter** (real user complaints):
+- [ ] Search: "ComfyUI product rendering defects"
+- [ ] Search: "AI-generated image quality issues"
+- [ ] Extract: which defects annoy users MOST? → competitive advantage if we fix them
+**Source 3: Xiaohongshu/Taobao Reviews** (Chinese market feedback):
+- [ ] Search: "保温杯 AI 生成 瑕疵"
+- [ ] Search: "ComfyUI 产品图 缺陷"
+- [ ] Extract: which defects do Chinese users care about? → tailor our defect prevention to China market
+**Output**:
+- Defect frequency ranking (which defects are MOST common?)
+- Competitive advantage opportunities (which defects do rivals NOT fix?)

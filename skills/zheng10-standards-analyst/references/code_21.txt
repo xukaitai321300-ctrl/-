@@ -1,0 +1,15 @@
+
+---
+
+
+---
+
+
+## Memory Compression Mechanism (NEW in v3.5)
+
+## Output Template Specification (NEW in v3.5)
+
+### Standardized Output Formats:
+
+要点：
+- 

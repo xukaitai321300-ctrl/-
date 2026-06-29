@@ -1,0 +1,11 @@
+| Problem | Cause | Solution |
+|---------|-------|----------|
+| Collected images too low quality | Wrong platform/source | Switch to Tmall/Amazon (HIGH-quality product images) |
+| Collected images have defects | Didn't pre-filter | Use 兔's defect detection to pre-filter (NEW in v3.5) |
+| Defect samples not detectable | Defects too subtle | Collect MORE obvious defect samples (increase severity) (NEW in v3.5) |
+    # ... (代码已精简，保留核心逻辑) ...
+    "error_code": "ERR_TIMEOUT|ERR_FORMAT|ERR_DEPENDENCY|ERR_RESOURCE|ERR_CIRCULAR",
+    "error_message": "错误详情（中文）",
+    "recovery_action": "重试|降级|上报"
+  }
+}

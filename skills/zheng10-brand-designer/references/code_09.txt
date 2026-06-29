@@ -1,0 +1,11 @@
+## Brand Compliance Check (Defect Prevention):
+
+**Material Texture Compliance**:
+- [ ] Anisotropic reflection present? (MUST = YES)
+- [ ] Brushed texture consistent? (MUST = YES)
+    # ... (代码已精简，保留核心逻辑) ...
+
+**Background Compliance**:
+- [ ] Pure white background? (for commercial)
+- [ ] No floating product? (contact shadow present)
+- Brand compliance: ✅ Pass / ❌ Fail

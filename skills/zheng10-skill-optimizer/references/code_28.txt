@@ -1,0 +1,7 @@
+1. 需求分析 → 鼠 (Rat)
+2. 市场调研 → 虎/兔/龙 (Tiger/Rabbit/Dragon)
+3. 产品设计 → 蛇 (Snake)
+4. 成本分析 → 牛 (Ox)
+5. AI生图 → 马/羊/猴 (Horse/Goat/Monkey)
+6. 设计评审 → 鸡 (Rooster)
+7. 品牌设计 → 猪 (Pig)

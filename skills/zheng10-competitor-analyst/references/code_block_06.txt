@@ -1,0 +1,19 @@
+**Priority P0 (MUST fix, or no competitive advantage)**:
+1. **Plastic texture** (most common in rivals, 80% have score <6.0/10)
+   → Design action: use "anisotropic reflection, brushed metal texture" in prompt
+   → ComfyUI action: ADD Texture Enhancer node (strength: 0.8)
+   → Review action: 鸡+兔 MUST score material texture ≥8.0/10
+2. **Asymmetric lid** (60% of rivals have Δ>0.03)
+   → Design action: add "perfectly symmetric lid" to prompt, weight 1.4x
+   → ComfyUI action: INCREASE ControlNet strength to 1.0
+   → Review action: 鸡+兔 MUST check symmetry (Δ<0.02)
+**Priority P1 (should fix, for competitive advantage)**:
+1. **Color inaccurate** (40% of rivals have ΔE > 5)
+   → Design action: add "color accurate, Delta E < 3" to prompt
+   → ComfyUI action: ADD Color Correct node (gamma: 1.0)
+   → Review action: 鸡+兔 MUST check color accuracy (ΔE < 3)
+**Priority P2 (nice to have)**:
+1. **Background mismatch** (20% of rivals)
+   → Design action: use pure white background (safe)
+   → ComfyUI action: prompt "pure white background, studio lighting"
+   → Review action: 鸡+兔 check background consistency

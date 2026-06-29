@@ -1,0 +1,17 @@
+class PromptOptimizer:
+    def optimize_prompt(self, task_type, base_prompt, negative_prompt, case_db):
+        similar_cases = case_db.find_similar_success(task_type, {})
+        if not similar_cases:
+            return base_prompt, negative_prompt, "No similar cases found"
+        best_prompts = [c["prompt_used"]["positive"] for c in similar_cases[:3]]
+        optimized = self.merge_prompts(best_prompts)
+        final = self.blend_prompts(base_prompt, optimized, weight=0.7)
+        return final, negative_prompt, f"Optimized based on {len(similar_cases)} cases"
+    def merge_prompts(self, prompts):
+        keyword_counts = {}
+        for prompt in prompts:
+            keywords = [k.strip() for k in prompt.split(",")]
+            for kw in keywords:
+                keyword_counts[kw] = keyword_counts.get(kw, 0) + 1
+        merged = [kw for kw, cnt in keyword_counts.items() if cnt >= 2]
+        return ", ".join(merged)

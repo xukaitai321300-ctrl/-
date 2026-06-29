@@ -1,0 +1,11 @@
+**Product Type**:
+- [ ] Vacuum cup / thermal flask
+- [ ] Food jar / lunch box
+- [ ] Tumbler / water bottle:
+**Target Users**:
+    # ... (代码已精简，保留核心逻辑) ...
+- [ ] Design SIMPLE shapes (easier for AI to generate correctly)
+- [ ] AVOID complex patterns (prone to AI artifacts)
+- [ ] USE symmetric designs (lid/handle MUST be symmetric)
+- [ ] SPECIFY material texture (anisotropic reflection = MUST)
+- [ ] PROVIDE reference images (img2img needs clear reference)

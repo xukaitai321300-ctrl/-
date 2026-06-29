@@ -1,0 +1,11 @@
+## Batch Comparison Table
+
+| Image ID | PSNR | SSIM | LPIPS | CLIPScore | Artifact Level | Comprehensive | **Defect Count** | **Worst Defect** |
+|----------|------|------|-------|------------|----------------|---------------|-------------------|-------------------|
+| 001 | 32.5 | 0.92 | 0.18 | 0.31 | None | 8.5/10 | 0 | None |
+| 002 | 28.3 | 0.87 | 0.25 | 0.28 | Mild | 7.8/10 | 2 (MINOR) | Texture not directional |
+| 003 | 25.1 | 0.81 | 0.31 | 0.22 | Severe | 6.2/10 | 5 (1 CRITICAL, 2 MAJOR, 2 MINOR) | Plastic look |
+
+**Best Image**: ID 001 (highest comprehensive score, 0 defects)
+**Worst Image**: ID 003 (severe artifacts, low clarity, CRITICAL defect: plastic look)
+**Recommendation**: Use ID 001 as final, re-generate ID 003 with adjusted parameters

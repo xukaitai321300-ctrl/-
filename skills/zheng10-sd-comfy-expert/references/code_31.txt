@@ -1,0 +1,11 @@
+| Error | Cause | Solution |
+|-------|-------|----------|
+| CUDA out of memory | Batch size too large | Reduce batch size or resolution |
+| Black/white output | VAE not loaded | Add VAE decode node after KSampler |
+| Distorted image | Denoise too high (Img2Img) | Lower denoise to 0.45~0.55 |
+    # ... (代码已精简，保留核心逻辑) ...
+    "error_code": "ERR_TIMEOUT|ERR_FORMAT|ERR_DEPENDENCY|ERR_RESOURCE|ERR_CIRCULAR",
+    "error_message": "错误详情（中文）",
+    "recovery_action": "重试|降级|上报"
+  }
+}

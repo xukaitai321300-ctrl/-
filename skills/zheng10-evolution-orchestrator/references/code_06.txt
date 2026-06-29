@@ -1,0 +1,15 @@
+
+---
+
+## Phase 7: Output Files (Each Iteration)
+
+| File | Description | Update Frequency |
+|------|-------------|-----------------|
+| `evolution_iteration_N.json` | Complete record of iteration N | Every iteration |
+| `evolution_best_workflow_API.json` | Current best workflow (API format) | When score improves |
+| `evolution_score_history.csv` | Score history (iteration, score, improvement) | Every iteration |
+| `evolution_report.md` | Evolution report (summary + analysis) | Daily |
+| `evolution_best_images/` | Best images (top 5 per iteration) | When score improves |
+
+### File Structure Example
+

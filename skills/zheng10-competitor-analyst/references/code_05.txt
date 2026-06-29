@@ -1,0 +1,16 @@
+**Strengths**:
+- [ ] Lightweight (magnesium alloy, <300g)
+- [ ] Pop-up lid (one-hand operation)
+- [ ] **Defect-free design (target)** — plastic texture <3.0/10, asymmetry <0.02
+**Weaknesses**:
+- [ ] Higher cost (magnesium alloy + titanium)
+- [ ] New brand (low awareness)
+- [ ] **Risk: might still have defects** — need 鸡+兔 review before launch
+**Opportunities (from Defect Comparison)**:
+- [ ] Rivals have plastic texture (score 4.5~5.0/10) → WE can differentiate with REAL metal texture (score ≥8.0/10)
+- [ ] Rivals have asymmetric lid (Δ=0.03~0.05) → WE can guarantee Δ<0.02 (Symmetry Checker node)
+- [ ] Rivals have color inaccurate (ΔE > 5) → WE can guarantee ΔE < 3 (Color Correct node)
+**Threats**:
+- [ ] Tiger/Zojirushi have strong brand loyalty
+- [ ] Price war (1688 factory products at ¥29)
+- [ ] **Risk: if WE also have defects**, no differentiation → MUST fix defects before launch

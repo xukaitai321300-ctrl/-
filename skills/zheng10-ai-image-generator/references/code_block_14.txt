@@ -1,0 +1,20 @@
+| Type | Preprocessor | Weight | Start % | End % |
+|------|---------------|--------|---------|--------|
+| [ControlNet Type] | [Preprocessor] | [weight] | [start] | [end] |
+| LoRA Name | Weight | Trigger Word |
+|-----------|--------|---------------|
+| [LoRA name] | [weight] | [trigger word] |
+- [ ] Plastic texture prevented (anisotropic reflection present)
+- [ ] Lid symmetry checked (left/right match)
+- [ ] Color accuracy verified (ΔE < 5 vs reference)
+- [ ] Text artifacts checked (no garbled text)
+- [ ] Background consistency verified (lighting matches)
+| ID | Preview | Score | Defect Check | Notes |
+|----|---------|-------|--------------|-------|
+| 001 | [img] | 8.5/10 | ✅ Pass | Best composition, sharp details |
+| 002 | [img] | 7.8/10 | ⚠️ Slightly poor texture on lid | May keep |
+| 003 | [img] | 6.5/10 | ❌ Plastic texture detected | Discard |
+| 004 | [img] | 8.2/10 | ✅ Pass | Good lighting, may adjust |
+- Best image: ID [X] — [reason]
+- Needs improvement: ID [Y] — [reason, e.g., "plastic texture on lid"]
+- Next step: Submit to 鸡 (Rooster) for review

@@ -1,0 +1,11 @@
+# Image Collection Result
+
+## 1. Collection Summary
+- Total collected: [X] images
+- HIGH-QUALITY references: [Y] images (no defects)
+    # ... (代码已精简，保留核心逻辑) ...
+| AI artifacts (noise) | 20 | 3~5 | `defect_samples/ai/` |
+
+## 4. Next Action
+- HIGH-quality references → Send to 马 (Horse) for workflow
+- Defect samples → Send to 鸡 (Rooster) + 兔 (Rabbit) for training

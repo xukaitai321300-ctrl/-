@@ -1,0 +1,12 @@
+- Skill: [skill name]
+  ... (省略中间部分) ...
+| V1 | Euler a | 20 | 5.0 | 0.8 | 6.8 |
+| V2 | DPM++ 2M | 50 | 7.5 | 0.8 | 8.1 |
+| V3 | DPM++ 2M | 30 | 7.0 | 0.9 | 7.5 |
+- Best variant: V2 (Sampler: DPM++ 2M, Steps: 50, CFG: 7.5)
+- Score improvement: 7.2 → 8.1 (+0.9)
+- Parameter changes: Steps 30→50, CFG 7.0→7.5
+[Attached: optimized_workflow.json]
+1. Monitor detail level in future generations
+2. Consider adding Detail Tweaker LoRA (weight: 0.6)
+3. Test with different CFG values (7.0-8.0 range)

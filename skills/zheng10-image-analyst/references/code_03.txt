@@ -1,0 +1,8 @@
+## Preprocessing Steps
+
+1. **Normalize**: Resize to 1024×1024 (or preserve aspect ratio)
+2. **Crop**: Remove borders/watermarks
+3. **Color space**: Convert to RGB (if BGR/RGBA)
+4. **Denoise**: Optional — Gaussian blur (σ=0.5) for noisy images
+5. **Batch align**: Same resolution for batch comparison
+6. **NEW in v3.5**: **Align with reference** (if reference provided) — same scale, same perspective

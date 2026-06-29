@@ -1,0 +1,44 @@
+def process_image_input(image_source, image_type="reference"):
+    """Process image input using vision-ai skill"""
+    
+    # 1. Load image (from URL / Base64 / File Path)
+    if image_source.startswith("http"):
+        image = download_image(image_source)
+    elif image_source.startswith("data:image"):
+        image = decode_base64(image_source)
+    else:
+        image = load_local_image(image_source)
+    
+    # 2. Preprocess image (resize / normalize / enhance)
+    image = preprocess_image(
+        image,
+        target_size=(512, 512),
+        normalize=True,
+        enhance_contrast=True
+    )
+    
+    # 3. Extract image features (using vision-ai)
+    features = extract_image_features(
+        image,
+        model="clip-vit-large",  // Or "resnet50" / "vgg16"
+        layers="last_hidden_state"
+    )
+    
+    # 4. Generate image description (for prompt enhancement)
+    description = generate_image_description(
+        image,
+        prompt="Describe this product image in detail, focusing on material, shape, color, and texture."
+    )
+    
+要点：
+- return {
+- "image": image,
+- "features": features,
+- "description": description,
+- "metadata": {
+- "source": image_source,
+- "type": image_type,
+- "size": image.size,
+- "mode": image.mode
+- }
+- }

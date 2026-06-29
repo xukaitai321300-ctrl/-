@@ -1,0 +1,19 @@
+### 1. ControlNet Types and Applications:
+| ControlNet Type | Best For | Preprocessor | Weight Range |
+|-----------------|----------|---------------|--------------|
+| Canny | Edge preservation | Canny edge detection | 0.8-1.0 |
+| Depth | Depth preservation | Depth estimation | 0.6-0.9 |
+| Normal | Surface normal | Normal map estimation | 0.5-0.8 |
+| OpenPose | Pose preservation | OpenPose detection | 0.9-1.0 |
+
+### 2. Node Configuration Best Practices (2026 version):
+- **Multi-ControlNet fusion**: Use 2-3 ControlNets simultaneously
+- **ControlNet strength**: Start with 0.8, adjust based on results
+- **Preprocessor resolution**: Use 512-768 for best balance
+
+### 3. Workflow Optimization Report Template:
+| Optimization Item | Original Config | New Config | Effect Improvement |
+|------------------|----------------|-------------|----------------------|
+| Generation Speed | 20 steps | 15 steps (DPM++ 2M Karras) | +25% |
+| VRAM Usage | 8GB | 6GB (fp16 + xformers) | -25% |
+| Output Quality | 7.5/10 | 8.2/10 (ControlNet + LoRA) | +0.7 |

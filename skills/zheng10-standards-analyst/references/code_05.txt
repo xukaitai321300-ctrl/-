@@ -1,0 +1,12 @@
+
+---
+
+## Phase 4: DFM Key Checks:
+
+| Check Item | Standard Value | Risk Level | Fix Scheme |
+|------------|----------------|------------|-----------|
+| Draft angle | ≥1.5° | High | Increase draft angle to 2.0° |
+| Wall thickness uniformity | ±0.3mm | High | Adjust die design |
+| Undercut count | 0 | High | Redesign to eliminate undercut |
+| Surface finish | Ra ≤ 0.8μm | Medium | Increase polishing passes |
+| Welding seam | Invisible | Medium | Laser welding + polishing |

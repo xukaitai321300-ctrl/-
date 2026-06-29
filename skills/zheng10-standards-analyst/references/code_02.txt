@@ -1,0 +1,11 @@
+**Input Type**:
+- [ ] 2D drawings (PDF/DWG)
+- [ ] 3D model (STP/IGES)
+- [ ] BOM (Bill of Materials)
+- [ ] Product specification document:
+    # ... (代码已精简，保留核心逻辑) ...
+- [ ] Workflow includes post-processing nodes (Sharpener, Color Correct, FaceDetailer, CodeFormer)
+- [ ] Prompt includes defect prevention keywords (anisotropic reflection, color accurate)
+- [ ] Negative prompt includes defect-specific keywords (plastic texture, garbled text)
+- [ ] ControlNet strength ≥ 0.8 (prevents structural deformation)
+- [ ] Denoise ≤ 0.6 (Img2Img — preserves reference structure)

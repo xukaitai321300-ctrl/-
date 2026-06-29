@@ -1,0 +1,11 @@
+
+### Execution Rules (NEW in v3.8):
+25. **ALWAYS monitor generation progress** — use `monitor_generation_progress()` for long generations
+26. **ALWAYS support interruption** — check for user interruption every 2 seconds
+27. **ALWAYS adjust parameters dynamically** — analyze intermediate results every 5 steps
+    # ... (代码已精简，保留核心逻辑) ...
+- "combine_method": "concat",  // "concat" | "weighted_sum" | "cross_attention"
+- "output_format": "json",  // "json" | "markdown" | "image"
+- "quality_threshold": 7.0  // Minimum quality score (0-10)
+- }
+- }

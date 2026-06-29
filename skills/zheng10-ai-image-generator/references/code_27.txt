@@ -1,0 +1,4 @@
+low quality, worst quality, blurry, noisy, jpeg artifacts,
+deformed, distorted, disfigured, bad anatomy,
+bad hands, missing fingers, extra digits, fewer digits,
+cropped, watermark, text, signature,

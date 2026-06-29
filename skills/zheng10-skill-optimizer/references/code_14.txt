@@ -1,0 +1,11 @@
+
+### Auto-Trigger Conditions:
+| Condition | Action | Compression Level |
+|-----------|--------|-------------------|
+| Session ends normally | Compress daily log → weekly summary | Level 1→2 |
+| Daily log > 500 lines | Auto-compress to weekly | Level 1→2 |
+| 4 weekly summaries accumulated | Compress to monthly digest | Level 2→3 |
+| MEMORY.md > 3000 chars | Remove lowest-score entries | Level 3 cleanup |
+| User says "压缩记忆" / "compress memory" | Force compression all levels | Full compression |
+
+### Memory Retrieval Optimization:

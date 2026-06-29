@@ -1,0 +1,13 @@
+Node Connection Map (with Post-Processing for Defect Fixing):
+
+[Load Checkpoint] ──┬── [CLIP Text Encode (Positive)] ───┐
+                       ├── [CLIP Text Encode (Negative)] ───┤
+                       └── [VAE] ─────────────────────────────┤
+                                                                    ├── [KSampler] ─── [VAE Decode] ─── [Save Image]
+[Empty Latent Image] ──────────────────────────────────────────────┘
+
+DEFECT PREVENTION NODES (add after Save Image):
+├── [FaceDetailer] (for human face refinement — if lifestyle scene)
+├── [CodeFormer] (for overall image restoration)
+├── [Sharpener] (for edge sharpness — product details)
+└── [Color Correct] (for color accuracy — ΔE < 3)

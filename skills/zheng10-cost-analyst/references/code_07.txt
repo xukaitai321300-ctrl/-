@@ -1,0 +1,11 @@
+# Defect Intelligence Report (v3.5)
+
+## 1. Defect Frequency Ranking (from Civitai/Reddit/Xiaohongshu):
+| Rank | Defect Type | Frequency (1-5) | User Annoyance (1-5) | Our Priority |
+|------|-------------|-------------------|---------------------------|-----------------|
+    # ... (代码已精简，保留核心逻辑) ...
+- ADD to positive: "color accurate, Delta E < 3" (fixes color inaccurate)
+
+## 4. Next Action:
+- Send to 鸡 (Rooster) + 兔 (Rabbit) → improve defect detection accuracy
+- Send to 羊 (Goat) → ADD defect prevention keywords to prompts

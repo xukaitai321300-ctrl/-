@@ -1,0 +1,15 @@
+Node Connection Map:
+
+[Load Image] ─── [Canny Edge Detector] ─── [ControlNet Apply] ───┐
+                                                                   │
+[Load Checkpoint] ─── [Model] ──────────────────────────────────────────┤
+                                                                   │
+[CLIP Text Encode (+)] ─────────────────────────────────────────────────────┤
+[CLIP Text Encode (-)] ─────────────────────────────────────────────────────┤
+                                                                   │
+[VAE Encode (Image)] ──────────────────────────────────────────────────────┤
+                                                                   │
+                                                                    ├── [KSampler] ─── [VAE Decode] ─── [Save Image]
+                                                                                  │
+                                                         [Post-Process] ─┘
+                                                      (FaceDetailer / CodeFormer)

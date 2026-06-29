@@ -1,0 +1,17 @@
+- **NEW**: Added ControlNet support (node ID 15)
+- **Improved**: Increased CFG scale from 7.5 to 8.0 (better prompt adherence)
+- **Fixed**: Corrected LoRA weight typo (0.8 → 0.85)
+- Quality Score: 8.2/10 (↑ 0.3 from v1.0.0)
+- Generation Time: 12.3s (↓ 1.2s from v1.0.0)
+- Memory Usage: 4.2GB (no change)
+- Node 15: ControlNetApply (Canny preprocessor)
+- Node 3: `cfg` 7.5 → 8.0
+- Node 7: `lora_weight` 0.8 → 0.85
+- (None)
+1. Replace old workflow JSON with `vacuum_cup_workflow_v1.1.0.json`
+2. Update ComfyUI to latest version (≥ 2026-05-01)
+3. Install ControlNet extension (if not already installed)
+- (None reported yet)
+- 马 (Horse): Workflow optimization
+- 羊 (Goat): LoRA weight tuning
+- 猴 (Monkey): Parameter optimization

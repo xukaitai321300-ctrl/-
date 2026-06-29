@@ -1,0 +1,11 @@
+
+**Execution Rules (NEW in v3.5)**:
+18. **ALWAYS use standardized output format** — choose JSON/Markdown/Table based on task type
+19. **ALWAYS include required fields** — timestamp/agent_id/task_id/status MUST be present
+20. **ALWAYS validate output quality** — run Output Quality Checklist before returning
+
+---
+
+
+
+### Three-Tier Memory Compression:

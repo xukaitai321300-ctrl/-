@@ -1,0 +1,6 @@
+
+### 3. Image Feature Extraction:
+- [ ] Color histogram analysis
+- [ ] Edge detection (Canny)
+- [ ] Texture analysis (GLCM)
+- [ ] AI model feature extraction (CLIP, ResNet)

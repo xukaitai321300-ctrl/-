@@ -1,0 +1,14 @@
+
+**Execution Rules (NEW in v3.5)**:
+15. **ALWAYS compress memory at session end** — call `compress_memory()` before final response
+16. **ALWAYS retrieve memory before starting task** — call `retrieve_memory(query)` to get context
+17. **ALWAYS respect memory limits** — daily log ≤500 lines, MEMORY.md ≤3000 chars
+
+---
+
+## Learning & Evolution Mechanism (NEW in v3.4)
+
+**Previously, agents did NOT learn from past experiences. v3.4 adds SELF-EVOLVING capability.**
+
+### A. Skill Rating System (SkillsMP-Style):
+

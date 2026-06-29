@@ -1,0 +1,12 @@
+## Brand Identity Analysis:
+
+**Brand Name**: [brand name, e.g., "速凡 SUFAN"]
+**Brand Positioning**: [price range, target market]
+**Brand Personality**: [minimalist / industrial / cute / luxury]
+
+**Defect Prevention Brand Standards (NEW in v3.5)**:
+- [ ] Brand MUST guarantee: NO plastic texture (anisotropic reflection = mandatory)
+- [ ] Brand MUST guarantee: NO asymmetric lid (symmetry tolerance < 0.02)
+- [ ] Brand MUST guarantee: Color accurate (ΔE < 3 vs Pantone)
+- [ ] Brand MUST guarantee: NO garbled text/logo (brand font = mandatory)
+- [ ] Brand MUST guarantee: Pure white background (for commercial product shots)

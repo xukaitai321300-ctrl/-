@@ -1,0 +1,15 @@
+class SkillRatingSystem:
+    def __init__(self, skill_name):
+        self.skill_name = skill_name
+        self.ratings = []
+  ... (省略中间部分) ...
+        return sum(r["score"] for r in recent) / len(recent)
+    def get_success_rate(self):
+        if self.usage_count == 0:
+            return 0.0
+        return self.success_count / self.usage_count
+    def should_optimize(self):
+        avg_score = self.get_average_score(window=10)
+        if avg_score < 6.0:
+            return True, f"Average score {avg_score:.2f} < 6.0, needs optimization"
+        return False, "Performance acceptable"

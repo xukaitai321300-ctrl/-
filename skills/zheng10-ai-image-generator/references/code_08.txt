@@ -1,0 +1,6 @@
+masterpiece, best quality, 
+(stainless steel vacuum cup:1.3), (matte black finish:1.2), 
+brushed metal texture:1.5, anisotropic reflection:1.3, 
+(perfectly symmetric lid:1.4), (precise hinge:1.3),
+[plastic texture:0.2], [deformed:0.1], [asymmetric:0.1],
+product photography, commercial rendering

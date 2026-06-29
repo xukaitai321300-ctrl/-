@@ -1,0 +1,11 @@
+
+### Template Examples:
+
+要点：
+- **Success Example (JSON)**:
+    # ... (代码已精简，保留核心逻辑) ...
+- "execution_time_ms": 45230,
+- "tokens_used": 2345,
+- "model_version": "Claude 3.7"
+- }
+- }

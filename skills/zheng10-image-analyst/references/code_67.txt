@@ -1,0 +1,8 @@
+### 1. Quantitative Metrics:
+| Metric | Formula | Reference Standard | Score Range |
+|--------|-----------|-------------------|-------------|
+| Clarity (IQA) | BRISQUE algorithm | < 30 (good) | 0-100 |
+| Color Richness | HSV color histogram | > 0.7 (rich) | 0-1 |
+| Composition | Rule of thirds | 0.8-1.0 (perfect) | 0-1 |
+
+### 2. Quantitative Analysis Method (Python Code):

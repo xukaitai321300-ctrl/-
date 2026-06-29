@@ -1,0 +1,8 @@
+Problem: Handle deformation, connection point unclear
+Solution:
+  - ControlNet Type: Canny (edge) + Lineart (style)
+  - Canny strength: 0.8~0.9
+  - Lineart strength: 0.6~0.8
+  - Lineart preprocessor: LineartPreprocessor (clean lines)
+  - Start %: 0.0
+  - End %: 0.85

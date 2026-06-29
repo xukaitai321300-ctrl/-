@@ -1,0 +1,11 @@
+**Artifact Detection**:
+- [ ] Hand/body artifacts (if human present)
+- [ ] Text artifacts (garbled text/watermarks)
+- [ ] Structural artifacts (warped geometry, asymmetric)
+- [ ] Color artifacts (oversaturated, unnatural colors)
+    # ... (代码已精简，保留核心逻辑) ...
+- Score < 5.0 → ❌ Discard
+**Action**:
+- Keep top 4~8 images from each batch
+- Discard low-quality images
+- If <4 keepers, regenerate with adjusted parameters

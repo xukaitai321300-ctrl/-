@@ -1,0 +1,23 @@
+
+### F. 最佳实践（优化版 - v5.0）
+
+1. **优先使用 FP16**（半精度）- 节省50%显存
+2. **及时卸载模型** - 生成任务完成后立即调用 `unload_all_temp_models()`
+3. **使用 xFormers** - 进一步优化显存使用（需要安装 `xformers`）
+4. **避免同时加载多个大模型** - 使用 `MultiModelVRAMScheduler` 进行调度
+5. **定期整理显存碎片** - 每生成20张图像或碎片化 > 30% 时触发
+6. **监控奖励系统状态** - 如果 `high_quality_mode` 解锁，可以享受更高质量的生成
+7. **OOM 后自动降级** - 如果检测到 OOM，自动切换到 fp8 + batch_size=1
+
+**版本** : v5.0 (2026-06-05)
+**优化内容**: 添加奖励机制、显存碎片化整理、多模型调度策略
+
+
+---
+
+## Phase 2.5: Automated Compliance Metrics (NEW in v3.5)
+
+**Objective**: Automatically score standards compliance to prevent non-compliant designs from entering production.
+
+### Compliance Metrics Calculation:
+

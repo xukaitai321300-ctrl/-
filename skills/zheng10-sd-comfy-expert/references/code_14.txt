@@ -1,0 +1,7 @@
+Use Case: Lifestyle scene (product in hand)
+Node Connection:
+  [Product Image] → [Canny Preprocessor] → [ControlNet Apply (strength=0.9)]
+                                                    ↓
+  [Human Pose Image] → [OpenPose Preprocessor] → [ControlNet Apply (strength=0.7)]
+                                                    ↓
+                                              [KSampler] → ...

@@ -1,0 +1,20 @@
+**Material Texture Standards** (brand promise):
+- MUST use: "anisotropic reflection, brushed metal texture" in ALL prompts
+- MUST avoid: "plastic texture, fake metal, cheap appearance"
+- Brand keyword: "航空级金属质感" (aviation-grade metal texture)
+**Symmetry Standards** (brand promise):
+- MUST use: "perfectly symmetric lid, centered pop-up button" in ALL prompts
+- Symmetry tolerance: < 0.02 (2% asymmetry = brand failure)
+- Brand keyword: "精密对称工艺" (precision symmetry craftsmanship)
+**Color Accuracy Standards** (brand promise):
+- MUST use: "color accurate, Delta E < 3" in ALL prompts
+- Color calibration: Pantone certified (each batch)
+- Brand keyword: "潘通认证色彩" (Pantone certified color)
+**Text/Logo Standards** (brand promise):
+- MUST use: "no text, clean surface" (AI generates garbage text)
+- Brand logo: added in post-processing (Photoshop), NOT in AI generation
+- Brand keyword: "极简无字设计" (minimalist no-text design)
+**Background Standards** (brand promise):
+- MUST use: "pure white background, studio lighting" (commercial)
+- Lifestyle shots: MUST match lighting (no floating product)
+- Brand keyword: "纯白底商业摄影" (pure white commercial photography)

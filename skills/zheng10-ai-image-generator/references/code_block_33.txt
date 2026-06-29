@@ -1,0 +1,20 @@
+# [Task Title]
+
+**Agent**: [agent_id]
+**Timestamp**: [timestamp]
+**Task ID**: [task_id]
+
+## Summary
+[Brief summary of result]
+
+## Details
+[Detailed content...]
+
+## Quality Check
+- [ ] Requirement met
+- [ ] No hallucinations
+- [ ] Format consistent
+- [ ] References valid
+
+## Next Steps
+[If partial/failed, what to do next]

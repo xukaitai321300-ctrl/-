@@ -1,0 +1,7 @@
+
+### 3. Defect Detection Checklist:
+- [ ] Structural defects (asymmetry, deformation)
+- [ ] Material defects (plastic texture, inconsistent brushed)
+- [ ] Lighting defects (wrong reflection, inconsistent shadow)
+- [ ] Text/logo defects (garbled, deformed)
+- [ ] Background defects (mismatch, clutter)

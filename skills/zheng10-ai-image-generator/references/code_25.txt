@@ -1,0 +1,8 @@
+masterpiece, best quality, ultra-detailed, 8K uhd,
+[product detail: lid mechanism/hinge/texture/seal],
+macro photography, extreme close-up,
+shallow depth of field, bokeh background,
+highlight material texture, show manufacturing precision,
+studio lighting, ring light, fill light,
+product detail photography, technical illustration,
+f/1.8, ISO 100, macro lens

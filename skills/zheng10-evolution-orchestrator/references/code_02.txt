@@ -1,0 +1,8 @@
+# Basic start
+请启动十二生肖团自主进化，产品类型=保温杯，目标评分=9.5，最大迭代=200
+
+# Focused start (prompt optimization only)
+请启动自主进化，产品类型=保温杯，目标评分=9.0，聚焦=提示词优化
+
+# Quick test (low target)
+请启动自主进化，产品类型=保温杯，目标评分=8.0，最大迭代=50

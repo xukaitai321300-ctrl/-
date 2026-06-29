@@ -1,0 +1,5 @@
+- ALL agents MUST stay within own role boundaries
+- NO role overflow (e.g., 虎 (Tiger) MUST NOT do 鸡 (Rooster)'s job)
+- ALL cross-role tasks MUST be coordinated by 鼠 (Rat)
+- ALL role conflicts MUST be escalated to 鼠 (Rat)
+- Reason: 角色混乱 = 效率低下，专业度下降

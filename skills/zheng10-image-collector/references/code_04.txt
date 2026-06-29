@@ -1,0 +1,11 @@
+**Structural Defects** (collect 10+ samples each):
+- [ ] Asymmetric lid (left/right don't match)
+- [ ] Deformed handle (bent, twisted)
+- [ ] Warped body (not cylindrical)
+- [ ] Missing details (hinge not visible, seam not visible)
+    # ... (代码已精简，保留核心逻辑) ...
+**AI Artifacts** (collect 10+ samples each):
+- [ ] High-frequency noise (grainy look)
+- [ ] Color noise (random color spots)
+- [ ] JPEG compression artifacts (blocky edges)
+- [ ] Halo artifacts (around product edges)

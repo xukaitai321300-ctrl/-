@@ -1,0 +1,5 @@
+✅ 正确 (Correct):
+  "已成功生成图像，质量评分：8.5/10"
+
+❌ 错误 (Wrong):
+  "Image generated successfully, quality score: 8.5/10"

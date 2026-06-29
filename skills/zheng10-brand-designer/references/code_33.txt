@@ -1,0 +1,5 @@
+- ALL outputs MUST pass quality checklist (see Output Template Specification)
+- ALL generated images MUST be reviewed by 鸡 (Rooster)
+- NO low-quality output allowed (< 7.0/10)
+- ALL errors MUST be logged + analyzed
+- Reason: 质量是第一生命线，劣质输出 = 团队失信

@@ -1,0 +1,11 @@
+**Structural Defects (AI struggles with)**:
+- [ ] Cup body: SIMPLE cylinder (NO complex curves)
+- [ ] Lid: MUST be symmetric (left/right identical)
+- [ ] Handle: SIMPLE ergonomic shape (NO complex cutouts)
+- [ ] Seam: MINIMIZE visible seams (AI struggles with seams):
+    # ... (代码已精简，保留核心逻辑) ...
+**Background Scene Defects**:
+- [ ] FOR commercial: use pure white background (safest)
+- [ ] FOR lifestyle: USE reference image (real photo background)
+- [ ] AVOID: AI-generated background (often inconsistent)
+- [ ] SPECIFY: "consistent perspective, matching lighting"

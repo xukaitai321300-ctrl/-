@@ -1,0 +1,8 @@
+**Directory**: `E:/AI日记/Claw/prompt_assets/`
+**Subdirectories**:
+- `quality_words/` → masterpiece, best quality, etc.
+- `material_keywords/` → stainless steel, titanium, magnesium, etc.
+- `color_keywords/` → Pantone codes + prompt keywords (NEW in v3.5: with ΔE target)
+- `style_templates/` → commercial, lifestyle, detail close-up
+- `defect_prevention/` (NEW in v3.5) → anisotropic reflection, symmetric lid, color accurate, etc.
+**File Format**:

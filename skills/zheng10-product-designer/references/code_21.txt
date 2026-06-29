@@ -1,0 +1,11 @@
+| Problem | Cause | Solution |
+|---------|-------|----------|
+| DFM score too low | Complex structure | Simplify: eliminate undercuts, increase draft angle |
+| Cost too high | Material too expensive | Switch to local alternative (304 → 201 SS) |
+| Aesthetics score low | Design too plain | Add color accents, improve CMF |
+    # ... (代码已精简，保留核心逻辑) ...
+    "error_code": "ERR_TIMEOUT|ERR_FORMAT|ERR_DEPENDENCY|ERR_RESOURCE|ERR_CIRCULAR",
+    "error_message": "错误详情（中文）",
+    "recovery_action": "重试|降级|上报"
+  }
+}

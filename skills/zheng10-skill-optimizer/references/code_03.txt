@@ -1,0 +1,11 @@
+Input: Skill audit report + original skill file
+  ↓
+1. Auto-fix missing sections (use standard templates):
+   - Add "Example Library" section (generate 3 example dialogues)
+   - Add "Parameter Tuning Guide" section (add performance params)
+    # ... (代码已精简，保留核心逻辑) ...
+   - Section completeness ≥ 10/12
+  ↓
+4. Backup original → write upgraded version
+  ↓
+Output: Upgraded skill file (v3.0) + upgrade report

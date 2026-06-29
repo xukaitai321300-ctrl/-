@@ -1,0 +1,7 @@
+**Rating Criteria (0-10)**:
+| Score | Meaning | Action |
+|-------|----------|--------|
+| 9.0-10.0 | Excellent | Keep current approach |
+| 7.0-8.9 | Good | Minor optimization |
+| 5.0-6.9 | Marginal | Major optimization needed |
+| <5.0 | Poor | Redesign approach |

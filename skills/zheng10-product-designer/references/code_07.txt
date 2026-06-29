@@ -1,0 +1,11 @@
+# Product Design Proposal: [Product Name]
+
+## 1. Appearance Design:
+- Form factor: [cylinder / cone / ergonomic]
+- Color scheme: [primary] + [secondary] + [accent]
+    # ... (代码已精简，保留核心逻辑) ...
+
+## 6. Next Action:
+- Send to 牛 (Ox) for DFM review
+- Send to 马 (Horse) for ComfyUI workflow design (img2img)
+- After workflow ready: send to 羊 (Goat) for AI generation

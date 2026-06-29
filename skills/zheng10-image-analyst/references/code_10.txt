@@ -1,0 +1,11 @@
+## Defect Severity Scoring
+
+**CRITICAL** (score -3.0 to -2.0):
+- Plastic look (metal product)
+- Garbled text / unreadable text
+    # ... (代码已精简，保留核心逻辑) ...
+- Background not pure white
+
+**Calculation**:
+defect_penalty = sum(critical_defects) * 3.0 + sum(major_defects) * 1.5 + sum(minor_defects) * 0.5
+final_score = max(0, 10 - defect_penalty)

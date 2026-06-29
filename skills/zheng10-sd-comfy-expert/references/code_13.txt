@@ -1,0 +1,7 @@
+Use Case: Product sketch-to-image (need edge + artistic style)
+Node Connection:
+  [Load Image] → [Canny Preprocessor] → [ControlNet Apply (strength=0.8)]
+                                                    ↓
+  [Load Image] → [Lineart Preprocessor] → [ControlNet Apply (strength=0.6)]
+                                                    ↓
+                                              [KSampler] → ...

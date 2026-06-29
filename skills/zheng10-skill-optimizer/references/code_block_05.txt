@@ -1,0 +1,19 @@
+要点：
+- Input: Skill directory path (e.g., C:/Users/Administrator/.workbuddy/skills/)
+- ↓
+- 1. Scan all zodiac skills (zheng10-*)
+- ↓
+- 2. Audit each skill (Phase 2 method)
+- ↓
+- 3. Generate batch audit report:
+- - Skill name
+- - Current version
+- - Missing sections count
+- - Low-quality sections count
+- - Overall score (0-100)
+- ↓
+- 4. Prioritize upgrade order (by overall score, low → high)
+- ↓
+- 5. Execute batch upgrade (Phase 3 method)
+- ↓
+- Output: Batch upgrade report + all upgraded skill files

@@ -1,0 +1,10 @@
+## Difference Map Analysis
+
+**Red areas**: Generated image has MORE detail than reference (possible artifact) — **flag as MINOR defect**
+**Blue areas**: Generated image has LESS detail than reference (possible blur/loss of detail) — **flag as MINOR defect**
+**Green areas**: Color difference (ΔE > 5) — **flag as MAJOR defect**
+
+**Scoring impact**:
+- Red area > 5% of image → Artifact score -1.0
+- Blue area > 10% of image → Detail score -1.5
+- Green area > 20% of image → Color accuracy -1.0

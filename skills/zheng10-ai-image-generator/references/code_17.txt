@@ -1,0 +1,10 @@
+masterpiece, best quality, ultra-detailed, 8K uhd,
+magnesium alloy vacuum cup, powder-coated finish,
+matte texture, slight orange-peel texture,
+NOT plastic, NOT glossy, NOT painted,
+soft diffuse reflection, premium powder-coat,
+perfectly symmetric lid, precise mechanical hinge,
+color accurate, Delta E < 3,
+studio lighting, softbox, rim light, pure white background,
+product photography, commercial rendering, f/2.8, ISO 100,
+<lora:matte-powder-coat:0.5>

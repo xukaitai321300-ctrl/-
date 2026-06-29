@@ -1,0 +1,7 @@
+
+**Style Templates** (by photography style):
+| Style | Prompt Template | Use Case |
+|-------|-------------------|----------|
+| Commercial (Pure White) | `pure white background, studio lighting, soft shadow, product photography, commercial rendering` | E-commerce main image |
+| Lifestyle (Outdoor) | `outdoor picnic scene, natural sunlight, dappled shade, realistic background` | Scene shot |
+| Lifestyle (Office) | `modern office desk, laptop background, soft indoor LED lighting` | Usage scenario |

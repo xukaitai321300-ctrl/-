@@ -1,0 +1,17 @@
+**Input**: 3D model (STP/IGES) + 2D drawings
+**Output**: DFM manufacturability report:
+- Wall thickness: [value] mm (standard: ≥0.6mm for stainless steel)
+- Draft angle: [value]° (standard: ≥1.5° for die-casting)
+- Undercut count: [number] (ideal: 0, max: 2)
+- Deep slot count: [number] (risk: difficult to machine):
+| Risk Level | Score | Action |
+|------------|-------|--------|
+| High risk | 0-3 | ❌ Redesign required |
+| Medium risk | 4-6 | ⚠️ Optimization needed |
+| Low risk | 7-10 | ✅ Can proceed |:
+| Issue | Risk Level | Fix Scheme | Cost Impact |
+|-------|------------|-----------|-------------|
+| Insufficient draft angle | High | Increase to 2.0° | +¥0.5/unit |
+| Thin wall (<0.5mm) | High | Increase to 0.8mm | +¥1.0/unit |
+| Undercut present | Medium | Redesign to eliminate | +¥2.0/unit |
+| Deep slot (>5:1 aspect ratio) | Medium | Add relief cut | +¥0.8/unit |

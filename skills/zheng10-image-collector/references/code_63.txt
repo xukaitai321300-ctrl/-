@@ -1,0 +1,10 @@
+### 1. Search Platforms and Techniques:
+| Platform | Best For | Search Tips |
+|----------|----------|--------------|
+| Taobao/Tmall | Chinese market products | Use Pinyin + English keywords |
+| Amazon | International products | Use specific model names |
+| 1688 | Factory-grade products | Search by material + process |
+| Pinterest | Style inspiration | Use English aesthetic keywords |
+| Xiaohongshu | Real user photos | Search by use case + scenario |
+
+### 2. Batch Download Script (Python):

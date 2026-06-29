@@ -1,0 +1,3 @@
+<lora:vacuum-cup-v2:0.8> → trigger: "vacuum cup, thermal flask, precise geometry"
+<lora:product-rendering-v3:0.5> → trigger: "product photography, commercial render, anisotropic reflection"
+<lora:metal-texture-v1:0.3> → trigger: "brushed metal, anisotropic reflection, physical based rendering"

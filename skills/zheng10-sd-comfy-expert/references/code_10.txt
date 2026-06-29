@@ -1,0 +1,9 @@
+Problem: Garbled text, incorrect spelling
+Solution:
+  - ControlNet Type: Scribble (sketch) + Canny (edge)
+  - Scribble strength: 0.7~0.9
+  - Canny strength: 0.5~0.7 (loose edge control)
+  - Preprocessor: ScribblePreprocessor (from text sketch)
+  - Start %: 0.2 (skip initial noise)
+  - End %: 0.7 (relax at final stage)
+  - WARNING: AI text generation still unreliable → use Photoshop post-processing

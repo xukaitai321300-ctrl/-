@@ -1,0 +1,10 @@
+masterpiece, best quality, ultra-detailed, 8K uhd,
+titanium vacuum cup, raw titanium finish, 
+dark gray metallic, subtle brushed texture,
+strong anisotropic reflection, physical based rendering,
+cool tone metal, premium feel,
+perfectly symmetric lid, precise mechanical hinge,
+color accurate, Delta E < 3,
+studio lighting, softbox, rim light, pure white background,
+product photography, commercial rendering, f/2.8, ISO 100,
+<lora:brushed-titanium:0.6>

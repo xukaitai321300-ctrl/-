@@ -1,0 +1,21 @@
+### 1. Style Categories and Definitions:
+| Style Name | Key Features | Applicable Scenarios | Reference Images |
+|------------|---------------|----------------------|-----------------|
+| Minimalist | Clean, simple, functional | Modern products | [Image set A] |
+| Industrial | Raw materials, rugged | Tools, outdoors | [Image set B] |
+| Luxury | Premium materials, fine finish | High-end products | [Image set C] |
+| Tech | Futuristic, sleek, LED | Electronics | [Image set D] |
+
+### 2. Prompt Asset Library Management:
+| Asset Type | Asset Content | Applicable Scenario | Effect Score |
+|------------|-----------------|----------------------|-------------|
+| Quality Words | masterpiece, best quality | All scenarios | +1.0 |
+| Style Words | minimalist, industrial | Specific scenarios | +0.5 |
+| Defect Prevention | anisotropic reflection | Metal products | +1.5 |
+
+### 3. Visual Style Guide Template:
+- **Style Name**: [Style name]
+- **Key Features**: [Feature 1, Feature 2, ...]
+- **Applicable Scenarios**: [Scenario 1, Scenario 2, ...]
+- **Reference Images**: [Image URLs or local paths]
+- **Prompt Template**: [Complete prompt with trigger words]

@@ -1,0 +1,11 @@
+- Receive: evolution start command
+- Extract: product type, target score, max iterations
+- Output: evolution initialization, start loop
+- 鼠 (Rat): requirement analysis (each iteration)
+- 牛 (Ox): standards compliance check (every 5 iterations)
+    # ... (代码已精简，保留核心逻辑) ...
+    "execution_time_ms": 1234,
+    "tokens_used": 5678,
+    "model_version": "Claude 3.7"
+  }
+}

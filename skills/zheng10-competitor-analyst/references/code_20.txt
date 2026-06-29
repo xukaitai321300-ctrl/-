@@ -1,0 +1,11 @@
+| Problem | Cause | Solution |
+|---------|-------|----------|
+| Competitors not found | Wrong keyword | Use broader keyword ("vacuum cup" instead of "pop-up lid vacuum cup") |
+| Defect detection not working | Images too low quality | Request HIGH-quality images from 虎 (Tiger) |
+| Our product scores LOWER than rivals | Design still has defects | Escalate to 鼠 (Rat), REDESIGN (back to 蛇) |
+    # ... (代码已精简，保留核心逻辑) ...
+    "error_code": "ERR_TIMEOUT|ERR_FORMAT|ERR_DEPENDENCY|ERR_RESOURCE|ERR_CIRCULAR",
+    "error_message": "错误详情（中文）",
+    "recovery_action": "重试|降级|上报"
+  }
+}

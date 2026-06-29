@@ -1,0 +1,16 @@
+## Defect Comparison Matrix:
+
+| Competitor | Product | Structural Defects | Material Defects | Lighting Defects | Text/Logo Defects | Background Defects | AI Artifacts | Comprehensive Score |
+|--------------|---------|---------------------|------------------|-------------------|---------------------|---------------------|-----------------|---------------------|
+| Tiger (_Tiger) | Vacuum cup A | Lid slightly asymmetric (Δ=0.03) | Plastic texture (score 5.0/10) | Reflection wrong (highlight too high) | Text garbled on logo | Background cluttered | Noise artifacts | 6.5/10 |
+| Zojirushi | Vacuum cup B | ✅ Perfect symmetry | Brushed metal (score 8.5/10) | ✅ Physically correct | ✅ Clear text | Pure white | ✅ No artifacts | 9.0/10 |
+| Midea | Vacuum cup C | Handle deformed (Δ=0.05) | Plastic texture (score 4.5/10) | Shadow direction wrong | Logo deformed | Background mismatch | JPEG compression | 5.5/10 |
+| **OUR PRODUCT (target)** | Vacuum cup D | ✅ Must be <0.02 asymmetry | ✅ Anisotropic reflection (score ≥8.0/10) | ✅ Physically correct | ✅ No garbled text | Pure white OR consistent | ✅ No artifacts | **Target: ≥8.5/10** |
+
+**Key Insights (NEW in v3.5)**:
+1. MOST common defect in rivals: **plastic texture** (Tiger: 5.0/10, Midea: 4.5/10)
+   → OPPORTUNITY: use "anisotropic reflection" keyword, metal-texture LoRA
+2. SECOND most common: **asymmetric lid** (Tiger: Δ=0.03, Midea: handle Δ=0.05)
+   → OPPORTUNITY: increase ControlNet strength to 1.0, add "perfectly symmetric lid" to prompt
+3. LEAST common: **background defects** (most rivals use pure white)
+   → KEEP pure white background (safe choice)

@@ -1,0 +1,12 @@
+# AI Generation Result
+
+## 1. Generation Parameters
+- Model: [checkpoint name]
+- Sampler: [sampler name]
+- Steps: [number]
+- CFG Scale: [value]
+- Resolution: [width × height]
+- Seed: [value]
+
+## 2. Prompts
+- Positive: 

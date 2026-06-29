@@ -1,0 +1,66 @@
+
+### E. Version Management Best Practices
+1. **Commit Message Format**: `[WorkflowName] v2.1.3 - Description`
+2. **Tag Naming**: `v2.1.3-workflow-name`
+3. **Rollback Policy**: Keep last 3 stable versions
+4. **Testing**: Always test before release
+5. **Documentation**: Update CHANGELOG.md for each release
+
+---
+
+---
+
+
+
+---
+
+## Prompt Library: by_material
+
+| 材质 | 正面提示词 | 负面提示词 |
+|------|--------------|--------------|
+| 不锈钢 | stainless steel brushed texture, directional brushed grain, metallic reflection anisotropic... | plastic texture, rough surface... |
+| 钛金属 | titanium raw finish, anisotropic reflection, physical based rendering... | plastic texture, aluminum look... |
+| 镁合金 | magnesium alloy AE44, powder-coated finish, lightweight metal (35% lighter than aluminum)... | plastic texture, raw metal exposed... |
+| 塑料 | BPA-free plastic, matte plastic texture, smooth plastic surface... | cheap plastic look, glossy plastic (fingerprint magnet)... |
+| 玻璃 | borosilicate glass, heat-resistant glass, transparent glass... | plastic imitation glass, bubbles in glass... |
+| 陶瓷 | ceramic glaze, smooth ceramic surface, even ceramic coating... | chipped ceramic, uneven glaze... |
+
+**完整提示词见** `prompt_library.json`
+
+
+---
+
+## Prompt Library: by_function
+
+| 功能 | 正面提示词 | 测试标准 |
+|------|--------------|----------|
+| 防漏 | watertight seal, silicone gasket, no leakage when inverted... | 倒置24小时不漏水 |
+| 防烫 | double-wall vacuum insulation, no external heat transfer, cool-touch exterior... | 外部温度 < 40°C (装沸水6小时后) |
+| 轻量化 | lightweight design, magnesium alloy body (35% lighter), titanium body (45% lighter)... | {'350ml': '< 180g', '500ml': '< 250g', '750ml': '< 350g'} |
+| 车载 | car cup holder compatible (≤70mm diameter), non-slip base, one-handed operation... | N/A |
+
+**完整提示词见** `prompt_library.json`
+
+
+---
+
+## Prompt Library: defect_prevention
+
+| 缺陷类型 | 严重程度 | 正面提示词 | 权重 |
+|----------|----------|--------------|------|
+| 防塑料感 | HIGH | anisotropic reflection, physical based rendering, metallic workflow, subsurface scattering (if applicable) | 1.5 |
+| 防不对称杯盖 | HIGH | perfectly symmetric lid, matches cup body diameter, continuous seam | 1.5 |
+| 防颜色偏差 | MEDIUM | color accurate, Delta E < 3 vs Pantone, consistent coloring | 1.4 |
+| 防文本/Logo伪影 | MEDIUM | no text, no logo, clean surface | 1.3 |
+| 防背景不匹配 | LOW | pure white background (for e-commerce), consistent lighting (for lifestyle) | 1.2 |
+| 防变形手柄 | HIGH | perfectly symmetric handle, ergonomic shape, sturdy attachment | 1.4 |
+
+**完整提示词见** `prompt_library.json`
+
+
+---
+
+## Phase 5.0: Memory Compression & Performance Optimization (OPTIMIZED in v5.0)
+
+### A. 显存管理策略（优化版 - v5.0）
+

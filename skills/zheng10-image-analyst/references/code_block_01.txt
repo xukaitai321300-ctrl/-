@@ -1,0 +1,19 @@
+**Input Type**:
+- [ ] Single image (quick analysis)
+- [ ] Batch images (comparative analysis)
+- [ ] Before/after pair (optimization verification)
+- [ ] Reference + Generated pair (comparative defect detection)
+**Analysis Dimensions** (select based on purpose):
+- [ ] Clarity (PSNR, SSIM — 图像清晰度)
+- [ ] Realism (LPIPS, FID — 真实感)
+- [ ] Prompt matching (CLIPScore — 提示词匹配度)
+- [ ] Artifact detection (CNN classifier — 伪影检测)
+- [ ] Style consistency (Style embedding — 风格一致性)
+- [ ] **Defect detection (NEW in v3.5) — 瑕疵检测**
+- [ ] **Structural analysis (NEW in v3.5) — 结构分析**
+- [ ] **Material analysis (NEW in v3.5) — 材质分析**
+**Output Requirements**:
+- Format: [markdown report / JSON / CSV]
+- Visualization: [Yes/No — charts, histograms, defect maps]
+- Comparison: [Yes/No — compare with reference]
+- **Defect map**: [Yes/No — highlight defect locations]

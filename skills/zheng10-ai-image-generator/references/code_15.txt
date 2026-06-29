@@ -1,0 +1,9 @@
+masterpiece, best quality, ultra-detailed, 8K uhd,
+316 stainless steel vacuum cup, brushed metal finish, 
+directional brushed grain, anisotropic reflection, 
+physical based rendering, metallic gradient,
+perfectly symmetric lid, precise mechanical hinge,
+color accurate, Delta E < 3,
+studio lighting, softbox, rim light, pure white background,
+product photography, commercial rendering, f/2.8, ISO 100,
+<lora:metal-texture-v1:0.4>

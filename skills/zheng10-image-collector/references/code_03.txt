@@ -1,0 +1,5 @@
+1. Generate images with INTENTIONAL defects (for training):
+   - Prompt: "plastic texture, deformed lid, color inaccurate"
+   - Collect: images with visible defects
+2. Use 兔's defect detection to verify defects are detectable
+3. Categorize: by defect type (structural/material/lighting/text/background/AI)

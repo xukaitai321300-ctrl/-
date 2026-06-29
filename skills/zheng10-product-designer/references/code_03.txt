@@ -1,0 +1,11 @@
+**Form Factor**:
+- Cup body: [cylinder / cone / ergonomic curve]
+- Lid type: [pop-up / screw-on / push-pull]
+- Handle: [none / side handle / flip handle]
+- Base: [flat / slightly tapered]
+    # ... (代码已精简，保留核心逻辑) ...
+| Accents | [Pantone XXX] | [glossy/chrome] | ✅ YES |
+**Design Language**:
+- Style: [minimalist / industrial / cute / luxury]
+- Inspiration: [nature / architecture / tech]
+- Unique selling point (USP): [one sentence]

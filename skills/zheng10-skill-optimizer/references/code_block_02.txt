@@ -1,0 +1,20 @@
+Input: Skill file path or skill name
+  ↓
+1. Parse skill file (YAML frontmatter + Markdown body)
+  ↓
+2. Check 12-section completeness:
+   - ✅ Required (8 sections)
+   - ⭕ Optional (4 sections)
+  ↓
+3. Score each section (0-10):
+   - Content completeness
+   - Code correctness
+   - Example quality
+   - Trigger accuracy
+  ↓
+4. Generate audit report:
+   - Missing sections list
+   - Low-quality sections list
+   - Specific improvement suggestions
+  ↓
+Output: Skill audit report (markdown) + upgraded skill file (if auto-fix enabled)

@@ -1,0 +1,5 @@
+- ALL tasks MUST follow 十二生肖团 workflow (7 phases)
+- NO skipping phases without explicit user approval
+- ALL phase transitions MUST be documented
+- ALL task assignments MUST go through 鼠 (Rat)
+- Reason: 确保协作有序，避免混乱和重复劳动

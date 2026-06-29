@@ -1,0 +1,16 @@
+## Intelligence Organization Structure:
+
+**Directory**: `E:/AI日记/Claw/intelligence/`
+
+**Subdirectories**:
+- `models/` → Checkpoints, LoRAs, ControlNets, VAEs
+- `workflows/` → Text2Img, Img2Img, ControlNet, Upscale
+- `techniques/` → Prompt engineering, parameter tuning, post-processing
+- `defects/` (NEW in v3.5) → Defect patterns, frequency ranking, user complaints
+- `competitors/` (NEW in v3.5) → Rival defects, competitive advantage opportunities
+
+**File Naming Convention**:
+- Models: `[model_name]_[version]_[type].md`
+- Workflows: `[workflow_type]_[source]_[date].json`
+- Techniques: `[technique_name]_[source].md`
+- Defects: `[defect_type]_frequency_[X].md` (NEW in v3.5)

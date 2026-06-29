@@ -1,0 +1,80 @@
+
+### E. Version Management Best Practices
+1. **Commit Message Format**: `[WorkflowName] v2.1.3 - Description`
+2. **Tag Naming**: `v2.1.3-workflow-name`
+3. **Rollback Policy**: Keep last 3 stable versions
+4. **Testing**: Always test before release
+5. **Documentation**: Update CHANGELOG.md for each release
+
+---
+
+---
+
+
+
+---
+
+## Prompt Library: by_material
+
+| 材质 | 正面提示词 | 负面提示词 |
+|------|--------------|--------------|
+| 不锈钢 | stainless steel brushed texture, directional brushed grain, metallic reflection anisotropic... | plastic texture, rough surface... |
+| 钛金属 | titanium raw finish, anisotropic reflection, physical based rendering... | plastic texture, aluminum look... |
+| 镁合金 | magnesium alloy AE44, powder-coated finish, lightweight metal (35% lighter than aluminum)... | plastic texture, raw metal exposed... |
+| 塑料 | BPA-free plastic, matte plastic texture, smooth plastic surface... | cheap plastic look, glossy plastic (fingerprint magnet)... |
+| 玻璃 | borosilicate glass, heat-resistant glass, transparent glass... | plastic imitation glass, bubbles in glass... |
+| 陶瓷 | ceramic glaze, smooth ceramic surface, even ceramic coating... | chipped ceramic, uneven glaze... |
+
+**完整提示词见** `prompt_library.json`
+
+
+---
+
+## Prompt Library: defect_prevention
+
+| 缺陷类型 | 严重程度 | 正面提示词 | 权重 |
+|----------|----------|--------------|------|
+| 防塑料感 | HIGH | anisotropic reflection, physical based rendering, metallic workflow, subsurface scattering (if applicable) | 1.5 |
+| 防不对称杯盖 | HIGH | perfectly symmetric lid, matches cup body diameter, continuous seam | 1.5 |
+| 防颜色偏差 | MEDIUM | color accurate, Delta E < 3 vs Pantone, consistent coloring | 1.4 |
+| 防文本/Logo伪影 | MEDIUM | no text, no logo, clean surface | 1.3 |
+| 防背景不匹配 | LOW | pure white background (for e-commerce), consistent lighting (for lifestyle) | 1.2 |
+| 防变形手柄 | HIGH | perfectly symmetric handle, ergonomic shape, sturdy attachment | 1.4 |
+
+**完整提示词见** `prompt_library.json`
+
+
+---
+
+## Prompt Library: usage_examples
+
+### 使用示例
+
+**示例 1**: 生成不锈钢保温杯（圆柱形）产品图
+
+- 1. 从 by_product_type.vacuum_cup.subtypes.cylinder 获取正面提示词
+- 2. 从 by_material.stainless_steel 获取材质提示词
+- 3. 从 defect_prevention 获取缺陷预防提示词
+- 4. 组合提示词：{product} + {material} + {defect_prevention}
+- 5. 使用 comfyui_presets.vacuum_cup_cylinder 的工作流配置
+
+**示例提示词**: `vacuum cup, perfectly cylindrical body, stainless steel brushed texture, anisotropic reflection, leak-proof lid, no plastic texture, perfectly symmetric lid, product photography, pure white background`
+
+**示例 2**: 生成钛金属饭盒（宽口）产品图
+
+- 1. 从 by_product_type.food_jar.subtypes.wide_mouth 获取正面提示词
+- 2. 从 by_material.titanium 获取材质提示词
+- 3. 从 defect_prevention 获取缺陷预防提示词
+- 4. 组合提示词：{product} + {material} + {defect_prevention}
+- 5. 使用 comfyui_presets.food_jar_wide_mouth 的工作流配置
+
+**示例提示词**: `food jar, wide mouth, titanium body, anisotropic reflection, airtight lid, stackable design, no plastic texture, color accurate, product photography, pure white background`
+
+
+
+---
+
+## Phase 5.0: Memory Compression & Performance Optimization (OPTIMIZED in v5.0)
+
+### A. 显存管理策略（优化版 - v5.0）
+

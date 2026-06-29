@@ -1,0 +1,3 @@
+## Prompt Asset Library (v3.5 Enhanced):
+
+**Quality Words** (ALWAYS at front of prompt):

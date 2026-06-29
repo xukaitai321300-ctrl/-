@@ -1,0 +1,46 @@
+def build_joint_prompt(text_input, image_input, combine_method="concat"):
+    """Build joint prompt from text + image"""
+    
+    # 1. Process text input
+    text_prompt = text_input.get("prompt", "")
+    negative_prompt = text_input.get("negative_prompt", "")
+    
+    # 2. Process image input (extract description)
+    image_description = ""
+    if image_input:
+        image_data = process_image_input(
+            image_input["source"],
+            image_input.get("type", "reference")
+        )
+        image_description = image_data["description"]
+    
+    # 3. Combine text + image description
+    if combine_method == "concat":
+        # Simple concatenation
+        joint_prompt = f"{text_prompt}. Reference: {image_description}"
+    
+    elif combine_method == "weighted_sum":
+        # Weighted combination (text weight + image weight)
+        text_weight = 0.6
+        image_weight = image_input.get("weight", 0.4)
+        joint_prompt = {
+            "text_prompt": text_prompt,
+            "image_description": image_description,
+            "weights": [text_weight, image_weight]
+        }
+    
+    elif combine_method == "cross_attention":
+        # Cross-attention (advanced: use CLIP cross-attention)
+        joint_prompt = {
+            "text_features": extract_text_features(text_prompt),
+            "image_features": extract_image_features(image_data["image"]),
+            "fusion_method": "cross_attention"
+        }
+    
+    # 4. Build final prompt (with negative prompt)
+    final_prompt = {
+        "prompt": joint_prompt,
+        "negative_prompt": negative_prompt
+    }
+    
+    return final_prompt

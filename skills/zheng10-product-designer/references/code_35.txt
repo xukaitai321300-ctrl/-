@@ -1,0 +1,5 @@
+- ALL inter-agent communication MUST use structured JSON (see Structured Communication Protocol)
+- NO free-text communication allowed (causes misunderstandings)
+- ALL task dependencies MUST be declared upfront
+- ALL blockers MUST be reported immediately to 鼠 (Rat)
+- Reason: 团队协作需要结构化沟通，模糊信息 = 延误工期

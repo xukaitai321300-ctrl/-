@@ -1,0 +1,7 @@
+- --- vacuum_cup_workflow_v1.0.0.json
+    # ... (代码已精简，保留核心逻辑) ...
+- +      "inputs": {...}
+- +    },
+- {
+- "id": 16,
+- "type": "VAEDecode",

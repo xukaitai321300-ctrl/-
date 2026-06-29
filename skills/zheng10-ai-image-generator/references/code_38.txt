@@ -1,0 +1,14 @@
+Level 1: Daily Log (E:/AI日记/Claw/.workbuddy/memory/YYYY-MM-DD.md)
+  - Append-only, max 500 lines/day
+  - Auto-trigger: End of session OR >500 lines
+  - Compression: Keep only key decisions + errors
+
+Level 2: Weekly Summary (E:/AI日记/Claw/.workbuddy/memory/weekly/YYYY-WW.md)
+  - Extract from daily logs (last 7 days)
+  - Categories: Decisions / Errors / Optimizations / User Feedback
+  - Max 200 lines/week
+
+Level 3: Monthly Digest (E:/AI日记/Claw/.workbuddy/memory/MEMORY.md)
+  - Extract from weekly summaries (last 4 weeks)
+  - Keep only: Long-term preferences / Cross-project conventions / Skill versions
+  - Max 3000 chars (hard limit)

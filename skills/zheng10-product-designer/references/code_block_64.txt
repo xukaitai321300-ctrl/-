@@ -1,0 +1,20 @@
+### 1. Design Thinking Process:
+1. **Empathize**: Understand user needs (use 鼠's requirement analysis)
+2. **Define**: Define design problems (use 5W2H framework)
+3. **Ideate**: Generate design solutions (brainstorming + AI assistance)
+4. **Prototype**: Create prototypes (ComfyUI renderings + 3D models)
+5. **Test**: Test with users (use 鸡's design review)
+
+### 2. CMF Design Case Library (50 cases):
+| Case ID | Product Type | Color | Material | Finish | Cost Impact |
+|---------|--------------|--------|----------|--------|-------------|
+| CMF-001 | Vacuum cup | Pantone 1234 C | 304 stainless | Brushed | +5% |
+| CMF-002 | Vacuum cup | Pantone 5678 C | Titanium | Mirror | +15% |
+
+### 3. Design Proposal Template:
+- **Product Name**: [Name]
+- **Core Function**: [Function]
+- **Target User**: [Persona]
+- **Design Style**: [Style keywords]
+- **CMF Specification**: [Color + Material + Finish]
+- **Prototype Image**: [ComfyUI rendering or 3D model]

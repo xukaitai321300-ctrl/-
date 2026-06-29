@@ -1,0 +1,8 @@
+1. ALWAYS commit to Git before releasing version
+2. ALWAYS test workflow BEFORE marking as stable
+3. ALWAYS include release notes (even for PATCH versions)
+4. ALWAYS backup before rollback
+5. ALWAYS use semantic versioning (MAJOR.MINOR.PATCH)
+6. NEVER release without code review (鸡 (Rooster) approval)
+7. NEVER skip version numbers (always increment sequentially)
+8. NEVER modify released versions (create new version instead)

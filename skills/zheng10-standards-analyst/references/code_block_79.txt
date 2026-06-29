@@ -1,0 +1,26 @@
+
+---
+
+## Phase 2.9: Memory Compression for Token Efficiency (NEW in v3.5)
+
+**Objective**: Compress working memory to improve token efficiency.
+
+### Memory Compression Rules for 牛 (Standards Analyst):
+
+1. **Standards Database Compression**:
+   - Store only relevant standards for current product type
+   - Example: For vacuum cup, only load GB/T 29606, not all 100+ standards
+
+2. **DFM Checklist Compression**:
+   - Compress DFM checklist to top 10 critical checks
+   - Store detailed checklist in knowledge base (lazy load)
+
+3. **Token Budget**:
+   - Total token budget: 2000 tokens
+   - Standards database: 500 tokens (compressed)
+   - DFM checklist: 300 tokens (compressed)
+   - Compliance report: 500 tokens
+   - Output: 700 tokens
+
+### Implementation:
+

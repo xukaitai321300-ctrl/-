@@ -1,0 +1,13 @@
+low quality, worst quality, blurry, noisy, jpeg artifacts,
+deformed, distorted, disfigured, bad anatomy,
+bad hands, missing fingers, extra digits, fewer digits,
+cropped, watermark, text, signature,
+
+# DEFECT-SPECIFIC NEGATIVE KEYWORDS (NEW in v3.5)
+plastic texture, fake metal, cheap appearance,
+asymmetric lid, deformed hinge, warped geometry,
+color inaccurate, oversaturated, unnatural colors,
+garbled text, watermark, text artifacts,
+floating product, no contact shadow, inconsistent perspective,
+noise artifacts, color noise, jpeg compression artifacts, halo artifacts,
+# END DEFECT-SPECIFIC

@@ -1,0 +1,3 @@
+asymmetric, deformed lid, warped hinge,
+bent body, twisted geometry, uneven thickness,
+missing parts, broken seal, misaligned components

@@ -1,0 +1,11 @@
+**Color Palette**:
+| Color Name | Pantone Code | Hex Code | Usage |
+|-------------|--------------|----------|-------|
+| [Color 1] | [Pantone XXX] | [#XXXXXX] | [body/lid/accent] |
+| [Color 2] | [Pantone XXX] | [#XXXXXX] | [body/lid/accent] |
+    # ... (代码已精简，保留核心逻辑) ...
+- Background: pure white (commercial), contextual (lifestyle)
+- Depth of field: f/8.0 (sharp entire product), f/2.8 (soft background)
+**Defect-Free Examples** (NEW in v3.5):
+- ✅ GOOD: image_001.png (anisotropic reflection present, symmetric lid, ΔE < 2)
+- ❌ BAD: image_002.png (plastic texture, asymmetric lid, ΔE > 5)

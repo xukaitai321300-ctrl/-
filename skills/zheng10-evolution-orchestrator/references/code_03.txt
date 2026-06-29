@@ -1,0 +1,11 @@
+[1. Requirement Analysis]
+  鼠 → analyze product type + extract requirement features
+  ↓
+[2. Product Design]
+  Snake → output design proposal + product detail definition
+    # ... (代码已精简，保留核心逻辑) ...
+  ↓
+[10. Skill Update]
+  All agents → write this iteration experience to SKILL.md
+  ↓
+[Loop back → Iteration N]

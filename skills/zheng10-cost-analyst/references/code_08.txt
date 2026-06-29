@@ -1,0 +1,17 @@
+- Models collected: [X] (checkpoints, LoRAs, ControlNets, VAEs)
+- Workflows collected: [Y] (text2img, img2img, ControlNet)
+- Techniques collected: [Z] (prompt engineering, parameter tuning)
+- **Defect intelligence collected (NEW in v3.5)**: [W] (defect patterns, frequency ranking)
+| Model Name | Type | Source | Use Case | Download URL |
+|------------|------|--------|----------|--------------|
+| [model_name] | [type] | [source] | [use case] | [url] |
+| Workflow Name | Type | Source | Use Case | JSON Path |
+|----------------|------|--------|----------|----------|
+| [workflow_name] | [type] | [source] | [use case] | [path] |
+| Defect Type | Frequency (1-5) | User Annoyance (1-5) | Our Priority | Fix Method |
+|-------------|-------------------|---------------------------|-----------------|------------------------------|
+| Plastic texture | 5/5 | 5/5 | **P0** | ADD "anisotropic reflection" to prompt |
+| Asymmetric lid | 4/5 | 5/5 | **P0** | INCREASE ControlNet strength to 1.0 |
+- Send models to 马 (Horse) for workflow integration
+- Send workflows to 羊 (Goat) for prompt engineering
+- **Send defect intelligence to 鸡+兔 (NEW in v3.5)** → improve defect detection

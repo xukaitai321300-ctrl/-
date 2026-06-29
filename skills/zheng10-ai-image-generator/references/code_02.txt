@@ -1,0 +1,1 @@
+[quality words] + [subject description] + [material/finish + DEFECT PREVENTION] + [environment/background] + [composition/angle] + [lighting + PHYSICAL CORRECTNESS] + [style words] + [LoRA trigger word]

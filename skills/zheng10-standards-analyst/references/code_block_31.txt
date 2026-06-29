@@ -1,0 +1,36 @@
+class CaseDatabase:
+    def __init__(self, db_path="E:/AI日记/Claw/.workbuddy/learning_db/"):
+        self.db_path = db_path
+        os.makedirs(db_path, exist_ok=True)
+    
+要点：
+- def record_success(self, task_type, input_params, output_quality, prompt_used):
+- case_id = f"success_{int(time.time())}"
+- case_data = {
+- "case_id": case_id,
+- "task_type": task_type,
+- "input_params": input_params,
+- "output_quality": output_quality,
+- "prompt_used": prompt_used,
+- "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ")
+- }
+- file_path = os.path.join(self.db_path, f"{case_id}.json")
+- with open(file_path, 'w', encoding='utf-8') as f:
+- json.dump(case_data, f, ensure_ascii=False, indent=2)
+- return case_id
+    
+要点：
+- def record_failure(self, task_type, input_params, error_type, root_cause):
+- case_id = f"failure_{int(time.time())}"
+- case_data = {
+- "case_id": case_id,
+- "task_type": task_type,
+- "input_params": input_params,
+- "error_type": error_type,
+- "root_cause": root_cause,
+- "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ")
+- }
+- file_path = os.path.join(self.db_path, f"{case_id}.json")
+- with open(file_path, 'w', encoding='utf-8') as f:
+- json.dump(case_data, f, ensure_ascii=False, indent=2)
+- return case_id

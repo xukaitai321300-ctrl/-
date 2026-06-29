@@ -1,0 +1,17 @@
+## Structural Design Proposal:
+
+**Cross-Section View** (describe layers):
+1. Outer shell: [material] [thickness] mm
+2. Vacuum layer: [width] mm (MUST be vacuum)
+3. Inner tank: [material] [thickness] mm
+4. Coating: [none / Teflon / ceramic]
+
+**Key Mechanisms**:
+- Lid opening: [pop-up button / screw thread]
+- Seal ring: [silicone / rubber] [color]
+- Handle folding: [fixed / folding / removable]
+
+**DFM Check** (for 牛's review):
+- Wall thickness: [X] mm (MUST be ≥ 0.6mm for stainless)
+- Draft angle: [X]° (MUST be ≥ 1.5° for die-casting)
+- Undercut count: [X] (0 = ideal, ≤ 2 = acceptable)

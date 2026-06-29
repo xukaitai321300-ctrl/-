@@ -1,0 +1,11 @@
+**Input Type**:
+- [ ] Text prompt only (text2img)
+- [ ] Reference image + prompt (img2img)
+- [ ] Sketch/line art (controlnet guided)
+- [ ] Existing image to modify (inpainting)
+    # ... (代码已精简，保留核心逻辑) ...
+- [ ] Prevent plastic texture (add "anisotropic reflection, brushed metal")
+- [ ] Prevent asymmetric lid (add "perfectly symmetric lid" to prompt)
+- [ ] Prevent color inaccuracy (add "color accurate, Delta E < 3")
+- [ ] Prevent text artifacts (add "no text, no watermark" to negative)
+- [ ] Prevent background mismatch (ensure background matches lighting)

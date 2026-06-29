@@ -1,0 +1,17 @@
+## Image Pre-Processing Checklist
+
+**Resize**:
+- [ ] Product images: 1024×1024 (square, for training)
+- [ ] Lifestyle images: maintain aspect ratio, max 1920px
+- [ ] Detail close-ups: 512×512 (focus on detail)
+
+**Rename**:
+- [ ] Format: `[product]_[color]_[angle]_[seed].png`
+- [ ] Example: `vacuum_cup_yellow_front_123456.png`
+- [ ] **Defect samples**: `[defect_type]_[severity]_[source].png` (NEW in v3.5)**
+
+**Metadata** (embed in PNG):
+- [ ] Prompt used (if AI-generated)
+- [ ] Seed (if AI-generated)
+- [ ] Collection source (Taobao/Amazon/ComfyUI)
+- [ ] **Defect type + severity (if defect sample) (NEW in v3.5)**

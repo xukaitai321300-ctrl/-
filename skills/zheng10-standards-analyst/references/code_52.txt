@@ -1,0 +1,9 @@
+
+**Version Numbering Rules**:
+- **MAJOR (X.0.0)**: Breaking changes (workflow structure changed, incompatible with old version)
+- **MINOR (1.X.0)**: New features (added new nodes, improved quality)
+- **PATCH (1.0.X)**: Bug fixes (fixed parameter typos, adjusted weights)
+
+---
+
+### Version Comparison Mechanism:
