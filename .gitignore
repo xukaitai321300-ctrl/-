@@ -80,6 +80,9 @@ __pycache__/
 !LICENSE
 !/docs/**/*.md
 !skills/**/*.md
+# 生肖创新团专家包本体必须入库（agents/assets/prompts 等非 README 文档）
+!experts/plugins/zodiac-team/**/*.md
+!experts/plugins/zodiac-team/**/*.txt
 
 # === 临时目录 ===
 /CI_CD流水线/
