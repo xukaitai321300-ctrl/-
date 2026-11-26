@@ -1,0 +1,26 @@
+def defragment_vram():
+    """整理显存碎片（NEW in v5.0）"""
+    import torch
+    
+    if torch.cuda.is_available():
+        # 方法1：清空CUDA缓存
+        torch.cuda.empty_cache()
+        
+        # 方法2：强制同步（确保所有可能的显存都被释放）
+        torch.cuda.synchronize()
+        
+        # 方法3：记录整理后的显存状态
+        allocated = torch.cuda.memory_allocated() / 1024**3  # GB
+        reserved = torch.cuda.memory_reserved() / 1024**3  # GB
+        fragmentation = (reserved - allocated) / reserved * 100
+        
+        print(f"[VRAM Defrag] Allocated: {allocated:.2f} GB, Reserved: {reserved:.2f} GB")
+        print(f"[VRAM Defrag] Fragmentation: {fragmentation:.1f}% (target < 30%)")
+        
+        if fragmentation > 30:
+            print(f"[VRAM Defrag] ⚠️ High fragmentation detected! Consider restarting ComfyUI.")
+        
+        return fragmentation
+    else:
+        print("[VRAM Defrag] CUDA not available. Skipping.")
+        return 0

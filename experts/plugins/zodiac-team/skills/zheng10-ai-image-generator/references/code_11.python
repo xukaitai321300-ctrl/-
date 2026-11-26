@@ -1,0 +1,11 @@
+import cv2
+import numpy as np
+
+def compare_with_reference(gen_img_path, ref_img_path):
+    """
+    # ... (代码已精简，保留核心逻辑) ...
+    }
+
+# Usage
+result = compare_with_reference("generated.png", "reference.png")
+print(f"ΔE = {result['delta_e']:.2f} ({'PASS' if result['pass'] else 'FAIL'})")

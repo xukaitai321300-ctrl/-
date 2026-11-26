@@ -1,0 +1,11 @@
+# After VAE Decode
+"8": {"class_type": "VAEDecode", "inputs": {"samples": ["5", 0], "vae": ["1", 2]}},
+
+# ADD Post-Processing Nodes
+"9": {"class_type": "Sharpener", "inputs": {"image": ["8", 0], "sharpness": 2.0}},
+"10": {"class_type": "ColorCorrect", "inputs": {"image": ["9", 0], "gamma": 1.0, "saturation": 1.1}},
+"11": {"class_type": "FaceDetailer", "inputs": {"image": ["10", 0], "denoise": 0.35, "prompt": "perfect face, ultra-detailed"}},
+"12": {"class_type": "CodeFormer", "inputs": {"image": ["11", 0], "strength": 0.6}},
+
+# Final Save
+"13": {"class_type": "SaveImage", "inputs": {"images": ["12", 0], "filename_prefix": "product_render_final"}}

@@ -1,0 +1,34 @@
+def log_performance_metrics(task_id, metrics, reward_system=None):
+    """
+    记录性能指标（优化版 - v5.0）
+    
+    新增功能：
+    - 记录奖励系统状态（batch size变化）
+    - 记录显存碎片化率
+    - 自动触发显存整理（如果碎片化 > 30%）
+    """
+    log_file = "performance_log.jsonl"
+    
+    # 检查显存碎片化
+    fragmentation = defragment_vram()
+    
+    log_entry = {
+        "task_id": task_id,
+        "timestamp": time.time(),
+        "metrics": metrics,
+        "vram_fragmentation": fragmentation,
+        "batch_size": reward_system.current_batch_size if reward_system else 1,
+        "high_quality_mode": reward_system.high_quality_mode if reward_system else False
+    }
+    
+    with open(log_file, "a", encoding="utf-8") as f:
+        f.write(json.dumps(log_entry, ensure_ascii=False) + "\n")
+    
+    # 异常检测（优化版 - v5.0）
+    if metrics.get("vram_usage_mb", 0) > 7000:
+        print(f"[WARNING] High VRAM usage: {metrics['vram_usage_mb']} MB")
+    if metrics.get("generation_time_s", 0) > 60:
+        print(f"[WARNING] Slow generation: {metrics['generation_time_s']} s")
+    if fragmentation > 30:
+        print(f"[WARNING] High VRAM fragmentation: {fragmentation:.1f}%. Triggering defrag...")
+        defragment_vram()

@@ -1,0 +1,7 @@
+- timestamp: "2026-06-04T15:30:00+08:00"
+  agent_id: "zheng10-sd-comfy-expert"
+  error_code: "ERR_TIMEOUT"
+  severity: "P1"
+  root_cause: "ComfyUI server not reachable"
+  fix_action: "Check if ComfyUI server is running"
+  resolved: false

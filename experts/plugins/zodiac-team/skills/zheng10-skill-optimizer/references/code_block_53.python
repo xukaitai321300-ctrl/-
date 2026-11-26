@@ -1,0 +1,19 @@
+def compare_workflow_versions(v1_path, v2_path):
+    """Compare two ComfyUI workflow JSON files"""
+    import json
+    from deepdiff import DeepDiff
+    
+    with open(v1_path) as f1, open(v2_path) as f2:
+        v1 = json.load(f1)
+        v2 = json.load(f2)
+    
+    diff = DeepDiff(v1, v2, ignore_order=True)
+    
+    return {
+        "added": diff.get('dictionary_item_added', []),
+        "removed": diff.get('dictionary_item_removed', []),
+        "changed": diff.get('values_changed', {}),
+        "summary": f"Added {len(diff.get('dictionary_item_added', []))} nodes, "
+                   f"Removed {len(diff.get('dictionary_item_removed', []))} nodes, "
+                   f"Changed {len(diff.get('values_changed', {}))} parameters"
+    }

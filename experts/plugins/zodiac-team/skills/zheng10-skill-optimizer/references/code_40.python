@@ -1,0 +1,11 @@
+def rollback_workflow(
+    workflow_path: str,
+    target_version: str,  # e.g., "v1.0.0"
+    backup_current: bool = True
+):
+    # ... (代码已精简，保留核心逻辑) ...
+    
+    # Sort by version (descending)
+    version_files.sort(reverse=True, key=lambda x: parse_version(x[0]))
+    
+    return version_files

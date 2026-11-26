@@ -1,0 +1,37 @@
+def adaptive_vram_allocation(task_type, available_vram_gb):
+    """
+    根据任务类型动态分配显存（优化版 - v5.0）
+    
+    任务类型与显存需求：
+    - text2img: 需要 4-6GB（SD1.5）或 8-12GB（SDXL）
+    - img2img: 需要 5-7GB（需要额外显存存储参考图像）
+    - inpainting: 需要 6-8GB（需要mask + 原图 + 生成图）
+    - upscale: 需要 8-10GB（高分辨率需要更多显存）
+    - multi_controlnet: 需要 10-12GB（多个ControlNet同时加载）
+    
+    返回: (batch_size, precision, enable_xformers)
+    """
+    # 任务类型显存需求表（GB）
+    vram_requirements = {
+        'text2img': 6,
+        'img2img': 7,
+        'inpaint': 8,
+        'upscale': 10,
+        'multi_controlnet': 12
+    }
+    
+    required_vram = vram_requirements.get(task_type, 6)
+    
+    # 动态分配策略（优化版 - v5.0）
+    if available_vram_gb >= required_vram * 1.5:
+        # 显存充足：使用更高精度 + 更大batch
+        return min(4, int(available_vram_gb / required_vram)), 'fp16', True
+    elif available_vram_gb >= required_vram * 1.2:
+        # 显存适中：使用fp16 + 中等batch
+        return min(2, int(available_vram_gb / required_vram)), 'fp16', True
+    elif available_vram_gb >= required_vram:
+        # 显存紧张：使用fp16 + batch=1
+        return 1, 'fp16', True
+    else:
+        # 显存不足：使用fp8 + 启用所有优化
+        return 1, 'fp8', True

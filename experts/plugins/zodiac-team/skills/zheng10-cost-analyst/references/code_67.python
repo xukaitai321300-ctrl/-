@@ -1,0 +1,8 @@
+def compare_intelligence(current_intel, past_intel):
+    """Compare current intelligence with past intelligence"""
+    comparison = {
+        'trend_analysis': analyze_trend(current_intel, past_intel),
+        'anomaly_detection': detect_anomaly(current_intel, past_intel),
+        'opportunity_identification': identify_opportunity(current_intel, past_intel)
+    }
+    return comparison

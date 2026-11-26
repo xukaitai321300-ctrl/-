@@ -1,0 +1,20 @@
+def analyze_intermediate_result(
+    comfyui_api_url: str,
+    prompt_id: str,
+    current_step: int
+):
+    """Analyze intermediate generation result and decide adjustments"""
+    intermediate_image = get_intermediate_image(comfyui_api_url, prompt_id, current_step)
+    quick_assessment = quick_quality_check(
+        intermediate_image,
+  ... (省略中间部分) ...
+            "prompt_id": prompt_id,
+            "adjustments": adjustment["adjustments"]
+        }
+    )
+    if response.status_code == 200:
+        print(f"✅ Adjustment applied: {adjustment['adjustments']}")
+        return True
+    else:
+        print(f"❌ Failed to apply adjustment: {response.text}")
+        return False

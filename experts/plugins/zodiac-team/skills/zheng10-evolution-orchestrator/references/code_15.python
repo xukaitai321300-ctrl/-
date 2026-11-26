@@ -1,0 +1,11 @@
+def compress_memory(source_files, target_file, max_chars=3000):
+    """Compress multiple source files into target file"""
+    
+    # 1. Read all source files
+    all_entries = []
+    # ... (代码已精简，保留核心逻辑) ...
+    # Recency bonus (newer = higher)
+    if "2026-06" in entry:
+        score += 1
+    
+    return min(score, 10)

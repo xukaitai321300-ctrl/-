@@ -1,0 +1,11 @@
+def detect_conflict(controlnet_strength, lora_weight, threshold=0.8):
+    """
+    Detect potential conflict between ControlNet and LoRA.
+    High ControlNet strength + High LoRA weight = conflict risk.
+    """
+    # ... (代码已精简，保留核心逻辑) ...
+#     threshold=0.8
+# )
+# if has_conflict:
+#     print(f"WARNING: {msg}")
+#     print("Suggestion: Reduce LoRA weight to 0.5 OR reduce ControlNet strength to 0.7")

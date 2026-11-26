@@ -1,0 +1,13 @@
+def detect_duplicate(new_image, existing_images, threshold=0.9):
+    """Detect if new image is duplicate of existing images"""
+    for existing_img in existing_images:
+        similarity = calculate_similarity(new_image, existing_img)
+        if similarity >= threshold:
+            return True, similarity
+    return False, 0
+
+def calculate_similarity(img_a, img_b):
+    """Calculate image similarity (0-1) using perceptual hash"""
+    hash_a = imagehash.phash(img_a)
+    hash_b = imagehash.phash(img_b)
+    return 1 - (hash_a - hash_b) / len(hash_a)

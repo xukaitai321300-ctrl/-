@@ -1,0 +1,20 @@
+def rollback_workflow(
+    workflow_path: str,
+    target_version: str,  # e.g., "v1.0.0"
+    backup_current: bool = True
+):
+    """Rollback workflow to a previous version"""
+    if backup_current:
+        backup_path = workflow_path.replace('.json', f'.backup_{get_timestamp()}.json')
+        shutil.copy2(workflow_path, backup_path)
+  ... (省略中间部分) ...
+    workflow_dir = os.path.dirname(workflow_path)
+    workflow_name = os.path.basename(workflow_path).replace('.json', '')
+    version_files = []
+    for file in os.listdir(workflow_dir):
+        if file.startswith(workflow_name) and file.endswith('.json'):
+            version = extract_version(file)
+            if version:
+                version_files.append((version, file))
+    version_files.sort(reverse=True, key=lambda x: parse_version(x[0]))
+    return version_files

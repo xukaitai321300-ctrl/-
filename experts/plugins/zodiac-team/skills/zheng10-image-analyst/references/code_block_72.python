@@ -1,0 +1,29 @@
+def generate_difference_map(gen_img, ref_img):
+    """Generate difference map between generated and reference images"""
+    # 1. Pixel-level difference
+    pixel_diff = cv2.absdiff(gen_img, ref_img)
+    
+    # 2. Feature-level difference
+    gen_features = extract_features(gen_img)
+    ref_features = extract_features(ref_img)
+    feature_diff = compare_features(gen_features, ref_features)
+    
+    # 3. Artifact-level difference
+    gen_artifacts = detect_artifacts(gen_img)
+    ref_artifacts = detect_artifacts(ref_img)
+    artifact_diff = compare_artifacts(gen_artifacts, ref_artifacts)
+    
+    # Visualize
+    diff_map = create_heatmap(pixel_diff, feature_diff, artifact_diff)
+    return diff_map
+
+def create_heatmap(pixel_diff, feature_diff, artifact_diff):
+    """Create heatmap visualization of differences"""
+    # Red: High difference (artifact detected)
+    # Yellow: Medium difference (warning)
+    # Green: Low difference (good match)
+    heatmap = np.zeros_like(pixel_diff)
+    heatmap[pixel_diff > 50] = [0, 0, 255]  # Red
+    heatmap[(pixel_diff > 20) & (pixel_diff <= 50)] = [0, 255, 255]  # Yellow
+    heatmap[pixel_diff <= 20] = [0, 255, 0]  # Green
+    return heatmap

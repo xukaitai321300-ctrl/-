@@ -1,0 +1,11 @@
+def feedback_loop(
+    initial_prompt: str,
+    max_iterations: int = 3,
+    quality_threshold: float = 7.0
+):
+    # ... (代码已精简，保留核心逻辑) ...
+        "iterations": iteration,
+        "final_quality_score": quality_score,
+        "final_prompt": current_prompt,
+        "output": generation_result["output"]
+    }

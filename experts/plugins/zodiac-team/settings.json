@@ -1,86 +1,860 @@
 {
-  "version": "2.0.0",
-  "mcpServers": {},
-  "env": {},
+  "version": "3.4.0",
+  "name": "生肖创新团_全专家连锁引擎",
+  "description": {
+    "en": "Full expert ecosystem linkage engine - all 30+ experts cross-linked to the Zodiac Team for unified collaboration and mutual referral.",
+    "zh": "全专家生态连锁引擎 — 所有30+位专家与生肖团实现双向连锁，构建统一协作网络"
+  },
+  "mcpServers": {
+    "_说明": "MCP 真实配置在 ~/.workbuddy/mcp.json（单一真源，勿在此重复维护）。",
+    "_已配置": [
+      "tavily（语义搜索）",
+      "agent-reach（联网眼 16 通道）"
+    ],
+    "_新增方式": "在 ~/.workbuddy/mcp.json 的 mcpServers 下追加，然后在 WorkBuddy 连接器页点「信任」"
+  },
+  "env": {
+    "_说明": "环境变量键位契约（值留空）。真实值放 .env 或系统环境变量，禁写此文件（会随框架分发）。",
+    "_样例": ".env.example（在本目录）",
+    "OPENAI_API_KEY": "",
+    "OPENAI_BASE_URL": "",
+    "DASHSCOPE_API_KEY": "",
+    "DASHSCOPE_BASE_URL": "",
+    "ANTHROPIC_API_KEY": "",
+    "OLLAMA_BASE_URL": "",
+    "VLM_MODEL": "",
+    "COMFYUI_ROOT": "",
+    "ZODIAC_BUS_LOG_DIR": "",
+    "OCTOP_HOST": "127.0.0.1",
+    "OCTOP_PORT": "8088"
+  },
   "rules": [
-    "十二生肖团联动规则：执行层（生肖技能）与顾问层（专家团）双向联动",
+    "生肖创新团为唯一核心代理人（唯一对外入口），总调度中心，所有跨界调度必经鼠（主理人）",
+    "执行层（生肖技能）与顾问层（外部专家）双向联动",
     "执行层遇到超出自身能力的问题时，调用对应的专家包作为顾问",
     "顾问层给出建议后，需要执行落地时，调用对应的生肖技能作为执行工具",
-    "鼠（主理人）负责整体协调，所有联动必经鼠"
+    "智数分析专家团(ai-data-copilot)和design-engine作为子团体与生肖团绑定联动",
+    "软件公司(software-company)、前端后端(frontend-backend)等技术团队可通过龙/猴/马转接",
+    "全专家网络通过linkageMap实现自动发现和互访",
+    "产品视觉生产链路（APVPS 溶解）：需求经羊(造底)→马(渲染)→猴(调参)→鸡(门禁)，质量门禁必经鸡(四维门禁)；商用权重禁 FLUX.1-dev(E006)"
   ],
-  "knowledgeBases": [],
+  "knowledgeBases": [
+    {
+      "id": "zodiac-team-kb",
+      "name_cn": "十二生肖团知识库",
+      "description": "产品设计与智能制造领域知识"
+    },
+    {
+      "id": "all-experts-linkage-matrix",
+      "name_cn": "全专家连锁矩阵",
+      "description": "所有专家间的专业映射与调用关系索引表"
+    },
+    {
+      "id": "material-engineering",
+      "name_cn": "保温杯材料工程库",
+      "description": "保温杯材料体系（不锈钢/铝合金外壳/硅胶密封圈/镀层反射等）单一事实源，含食品接触合规边界"
+    },
+    {
+      "id": "manufacturing-process",
+      "name_cn": "保温杯制造工艺库",
+      "description": "保温杯全段制造工艺（冲压/旋薄/真空钎焊/无尾真空/喷涂/丝印）单一事实源"
+    },
+    {
+      "id": "hardware-supply-chain",
+      "name_cn": "五金产业链研究库",
+      "description": "国内核心杯壶产业集群与五金产业链（企业数/产能/交期/成本结构）中性行业研究单一事实源"
+    },
+    {
+      "id": "smart-electronics",
+      "name_cn": "智能保温杯电子模块库",
+      "description": "智能杯电子模块（温控/无线充/传感/电池）选型与集成边界单一事实源"
+    },
+    {
+      "id": "cross-industry-migration",
+      "name_cn": "跨行业技术迁移库",
+      "description": "汽车/航天/医疗/消费电子等成熟技术迁移到保温杯/五金产品设计的路径与风险（含食品接触护栏）单一事实源"
+    }
+  ],
   "linkageMap": {
     "rat-product-researcher": {
       "skill": "zheng10-product-researcher",
       "expert": "rat-product-researcher",
       "direction": "bidirectional",
-      "description": "需求分析 ↔ 行业研究"
+      "description": "需求分析 ↔ 行业研究",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/zodiac-team"
     },
     "ox-standards-analyst": {
       "skill": "zheng10-standards-analyst",
       "expert": "ox-standards-analyst",
       "direction": "bidirectional",
-      "description": "工作流标准 ↔ 标准分析"
+      "description": "工作流标准 ↔ 标准分析",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/zodiac-team"
     },
     "tiger-image-collector": {
       "skill": "zheng10-image-collector",
       "expert": "tiger-image-collector",
       "direction": "bidirectional",
-      "description": "图像采集 ↔ 图像采集"
+      "description": "图像采集 ↔ 图像采集",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/zodiac-team"
     },
     "rabbit-image-analyst": {
       "skill": "zheng10-image-analyst",
       "expert": "rabbit-image-analyst",
       "direction": "bidirectional",
-      "description": "图像分析 ↔ 图像分析"
+      "description": "图像分析 ↔ 图像分析",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/zodiac-team"
     },
     "dragon-competitor-analyst": {
       "skill": "zheng10-competitor-analyst",
       "expert": "dragon-competitor-analyst",
       "direction": "bidirectional",
-      "description": "竞品分析 ↔ 竞品分析"
+      "description": "竞品分析 ↔ 竞品分析",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/zodiac-team"
     },
     "snake-product-designer": {
       "skill": "zheng10-product-designer",
       "expert": "snake-product-designer",
       "direction": "bidirectional",
-      "description": "产品设计 ↔ 产品设计"
+      "description": "产品设计 ↔ 产品设计",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/zodiac-team"
     },
     "horse-rendering-expert": {
       "skill": "zheng10-sd-comfy-expert",
       "expert": "horse-rendering-expert",
       "direction": "bidirectional",
-      "description": "ComfyUI工作流 ↔ 渲染专家"
+      "description": "ComfyUI工作流 ↔ 渲染专家",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/zodiac-team"
     },
     "goat-ai-image-generator": {
       "skill": "zheng10-ai-image-generator",
       "expert": "goat-ai-image-generator",
       "direction": "bidirectional",
-      "description": "AI生图 ↔ AI图像生成"
-    },
-    "monkey-design-adjuster": {
-      "skill": "zheng10-design-adjuster",
-      "expert": "monkey-design-adjuster",
-      "direction": "bidirectional",
-      "description": "参数调优 ↔ 设计调整"
+      "description": "AI生图 ↔ AI图像生成",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/zodiac-team"
     },
     "rooster-design-reviewer": {
       "skill": "zheng10-design-reviewer",
       "expert": "rooster-design-reviewer",
       "direction": "bidirectional",
-      "description": "设计评审 ↔ 设计评审"
+      "description": "设计评审 ↔ 设计评审",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/zodiac-team"
     },
     "dog-cost-analyst": {
       "skill": "zheng10-cost-analyst",
       "expert": "dog-cost-analyst",
       "direction": "bidirectional",
-      "description": "情报收集 ↔ 成本分析"
+      "description": "情报收集 ↔ 成本分析",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/zodiac-team"
     },
     "pig-brand-designer": {
       "skill": "zheng10-brand-designer",
       "expert": "pig-brand-designer",
       "direction": "bidirectional",
-      "description": "风格参考 ↔ 品牌设计"
+      "description": "风格参考 ↔ 品牌设计",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/zodiac-team"
+    },
+    "dragon2-design-adjuster": {
+      "skill": "zheng10-design-adjuster",
+      "expert": "dragon2-design-adjuster",
+      "direction": "bidirectional",
+      "description": "设计校正(龙二) ↔ 设计调整技能 [与猴共享执行技能]",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/zodiac-team"
+    },
+    "phoenix-evolution-orchestrator": {
+      "skill": "zheng10-evolution-orchestrator",
+      "expert": "phoenix-evolution-orchestrator",
+      "direction": "bidirectional",
+      "description": "进化编排(凤) ↔ 进化编排技能",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/zodiac-team"
+    },
+    "monkey-skill-optimizer": {
+      "skill": "zheng10-design-adjuster",
+      "expert": "monkey-skill-optimizer",
+      "direction": "bidirectional",
+      "description": "参数调优(猴·正式名) ↔ 设计调整技能",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/zodiac-team"
+    },
+    "ai-data-copilot": {
+      "type": "sub-team",
+      "parent_zodiac_member": "dragon-competitor-analyst",
+      "link_direction": "bidirectional",
+      "description": "智数分析专家团（6人）↔ 龙(竞品分析) ↔ 鼠(主理人)",
+      "capabilities": [
+        "Text2SQL",
+        "知识检索",
+        "洞察报告",
+        "仪表盘设计"
+      ],
+      "usage": "所有数据分析/BI/可视化需求→调度至今数团队",
+      "linked_experts": [
+        "sql-analyst (秦逸·SQL查询架构师 → 龙)",
+        "data-scientist (数据科学家 → 龙)",
+        "knowledge-researcher (瑞卡·知识检索 → 狗)",
+        "report-composer (若溪·报告撰写 → 鸡)",
+        "dashboard-designer (BI仪表盘设计师 → 马)"
+      ],
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/ai-data-copilot",
+      "market": "experts",
+      "installed_agents": 6
+    },
+    "design-engine": {
+      "type": "sub-team",
+      "parent_zodiac_member": "snake-product-designer",
+      "link_direction": "bidirectional",
+      "description": "设计原型专家团（6人）↔ 蛇(产品设计) ↔ 猪(品牌设计)",
+      "capabilities": [
+        "设计系统",
+        "原型构建",
+        "需求发现",
+        "质量审查"
+      ],
+      "usage": "产品设计/UX/UI需求→调度至今计引擎团队",
+      "linked_experts": [
+        "design-engine-team-lead (画统筹·主理人 → 蛇)",
+        "discovery-analyst (需求发现师 → 蛇)",
+        "design-system-expert (设计系统专家 → 猪)",
+        "prototype-builder (原型构建师 → 蛇)",
+        "critique-reviewer (质量审查员 → 鸡)",
+        "export-specialist (导出专员 → 鼠)"
+      ],
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/design-engine",
+      "market": "experts",
+      "installed_agents": 6
+    },
+    "software-company": {
+      "type": "sub-team",
+      "parent_zodiac_member": "monkey-skill-optimizer",
+      "link_direction": "bidirectional",
+      "description": "软件公司团队(全栈) ↔ 猴(设计调整/技术架构)",
+      "capabilities": [
+        "软件工程",
+        "系统设计"
+      ],
+      "usage": "软件开发/系统架构需求→调度至Software Company团队",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/software-company",
+      "market": "experts",
+      "installed_agents": 5
+    },
+    "frontend-backend-experts": {
+      "type": "sub-team",
+      "parent_zodiac_member": "horse-rendering-expert",
+      "link_direction": "bidirectional",
+      "description": "前端+后端专家团队 ↔ 马(渲染/技术),猴(调整)",
+      "capabilities": [
+        "前端工程",
+        "后端服务"
+      ],
+      "usage": "前后端开发需求→调度至对应端专家",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/frontend-backend-experts",
+      "market": "experts",
+      "installed_agents": 7
+    },
+    "ai-engineer": {
+      "expert_package": "ai-engineer",
+      "linked_zodiac_member": "dragon-competitor-analyst",
+      "link_direction": "bidirectional",
+      "description": "AI工程师 ↔ 龙(竞品分析/技术选型)",
+      "capabilities": [
+        "ML模型开发",
+        "生产部署",
+        "数据管道"
+      ],
+      "usage": "机器学习/深度学习需求→调度至AI Engineer",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/ai-engineer",
+      "market": "experts",
+      "installed_agents": 1
+    },
+    "autonomous-optimization-architect": {
+      "expert_package": "autonomous-optimization-architect",
+      "linked_zodiac_member": "dragon-competitor-analyst",
+      "link_direction": "bidirectional",
+      "description": "自主优化架构师 ↔ 龙(竞品分析)",
+      "capabilities": [
+        "系统自优化",
+        "性能调优"
+      ],
+      "usage": "系统优化/自动化调度需求→调度至优化架构师",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/autonomous-optimization-architect",
+      "market": "experts",
+      "installed_agents": 1
+    },
+    "devops-security-experts": {
+      "expert_package": "devops-security-experts",
+      "linked_zodiac_member": "dog-cost-analyst",
+      "link_direction": "bidirectional",
+      "description": "DevOps安全专家 ↔ 狗(成本/运维)",
+      "capabilities": [
+        "CI/CD",
+        "安全防护"
+      ],
+      "usage": "DevSecOps需求→调度至DevOps安全团队",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/devops-security-experts",
+      "market": "experts",
+      "installed_agents": 7
+    },
+    "database-optimization-expert": {
+      "expert_package": "database-optimization-expert",
+      "linked_zodiac_member": "dog-cost-analyst",
+      "link_direction": "bidirectional",
+      "description": "数据库优化专家 ↔ 狗(情报收集/运维)",
+      "capabilities": [
+        "DB性能调优",
+        "架构优化"
+      ],
+      "usage": "数据库性能相关需求→调度至DB优化专家",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/database-optimization-expert",
+      "market": "experts",
+      "installed_agents": 1
+    },
+    "ui-designer": {
+      "expert_package": "ui-designer",
+      "linked_zodiac_member": "pig-brand-designer",
+      "link_direction": "bidirectional",
+      "description": "UI设计专家 ↔ 猪(品牌设计)",
+      "capabilities": [
+        "视觉系统设计",
+        "组件库",
+        "像素级界面"
+      ],
+      "usage": "UI/UX设计需求→调度至UI设计师",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/ui-designer",
+      "market": "experts",
+      "installed_agents": 1
+    },
+    "cat-network-quality-analyst": {
+      "expert_package": "cat-network-quality-analyst",
+      "linked_zodiac_member": "rooster-design-reviewer",
+      "link_direction": "bidirectional",
+      "description": "网络质量分析专家 ↔ 鸡(设计评审)",
+      "capabilities": [
+        "服务质量监控",
+        "异常检测"
+      ],
+      "usage": "网络/系统质量评估需求→调度至猫系质量分析师",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/cat-network-quality-analyst",
+      "market": "experts",
+      "installed_agents": 1
+    },
+    "design-md-architect": {
+      "expert_package": "design-md-architect",
+      "linked_zodiac_member": "snake-product-designer",
+      "link_direction": "bidirectional",
+      "description": "Markdown设计架构师 ↔ 蛇(产品设计)",
+      "capabilities": [
+        "设计系统文档化",
+        "规格定义"
+      ],
+      "usage": "设计规范/PRD文档需求→调度至MD架构师",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/design-md-architect",
+      "market": "experts",
+      "installed_agents": 1
+    },
+    "rum-fullstack-team": {
+      "type": "sub-team",
+      "parent_zodiac_member": "monkey-skill-optimizer",
+      "description": "RUM全栈团队(监控) ↔ 猴(调参)",
+      "capabilities": [
+        "前端性能监控",
+        "用户行为追踪"
+      ],
+      "link_direction": "bidirectional",
+      "usage": "前端监控/性能分析需求→调度至RUM团队",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/rum-fullstack-team",
+      "market": "experts",
+      "installed_agents": 3
+    },
+    "tripstar-agent": {
+      "expert_package": "tripstar-agent",
+      "linked_zodiac_member": "tiger-image-collector",
+      "link_direction": "bidirectional",
+      "description": "旅行星导航专家 ↔ 虎(图像采集)",
+      "capabilities": [
+        "行程规划",
+        "POI推荐"
+      ],
+      "usage": "旅行/导航需求→调度至TripStar",
+      "availability": "active",
+      "install_path": "~/.workbuddy/agents/tripstar-agent",
+      "market": "experts",
+      "installed_agents": 1
     }
-  }
+  },
+  "workflowDeps": {
+    "_comment": "9阶段工作流DAG（对齐 LangGraph StateGraph / Agency Orchestrator depends_on）。humanInLoop=鸡(评审)一票否决。可由程序校验阶段依赖与并行关系。",
+    "phases": [
+      {
+        "id": "P1",
+        "name": "需求分析",
+        "owner": "rat-product-researcher",
+        "depends_on": []
+      },
+      {
+        "id": "P2",
+        "name": "市场调研",
+        "owner": [
+          "tiger-image-collector",
+          "rabbit-image-analyst",
+          "dragon-competitor-analyst"
+        ],
+        "depends_on": [
+          "P1"
+        ],
+        "parallel": true
+      },
+      {
+        "id": "P3",
+        "name": "产品设计",
+        "owner": "snake-product-designer",
+        "depends_on": [
+          "P2"
+        ]
+      },
+      {
+        "id": "P4",
+        "name": "成本/标准分析",
+        "owner": "ox-standards-analyst",
+        "depends_on": [
+          "P3"
+        ]
+      },
+      {
+        "id": "P5",
+        "name": "AI生图",
+        "owner": [
+          "horse-rendering-expert",
+          "goat-ai-image-generator",
+          "monkey-skill-optimizer"
+        ],
+        "depends_on": [
+          "P4"
+        ],
+        "parallel": true
+      },
+      {
+        "id": "P6",
+        "name": "设计评审(质量门禁)",
+        "owner": "rooster-design-reviewer",
+        "depends_on": [
+          "P5"
+        ],
+        "humanInLoop": true
+      },
+      {
+        "id": "P7",
+        "name": "品牌设计",
+        "owner": "pig-brand-designer",
+        "depends_on": [
+          "P6"
+        ]
+      },
+      {
+        "id": "P8",
+        "name": "情报收集(持续)",
+        "owner": "dog-cost-analyst",
+        "depends_on": [
+          "P1"
+        ],
+        "continuous": true
+      },
+      {
+        "id": "P9",
+        "name": "最终输出整合",
+        "owner": "rat-product-researcher",
+        "depends_on": [
+          "P7",
+          "P8"
+        ]
+      }
+    ]
+  },
+  "observability": {
+    "_comment": "运行态可观测性契约（对齐 OpenTelemetry GenAI Semantic Conventions + AgentOps span 模型）。主机运行时接入 tracing hook 前，先以结构化事件流(JSONL)落地最小可用可观测栈：trace_id+session_id 串联、按 agent/phase/event_type 聚合、脱敏后回放。引擎见 zodiac-team/scripts/trace.js，契约说明见 docs/OBSERVABILITY.md。",
+    "enabled": true,
+    "schemaVersion": "otel-genai-1.0",
+    "sink": "logs/zodiac_traces.jsonl",
+    "truncateChars": 500,
+    "spanKinds": [
+      "SESSION",
+      "AGENT",
+      "WORKFLOW",
+      "OPERATION",
+      "LLM",
+      "TOOL"
+    ],
+    "phasesRef": "workflowDeps.phases",
+    "eventTypes": {
+      "session_start": "一次完整任务会话开始（鼠接收需求）",
+      "phase_enter": "进入某 workflowDeps 阶段",
+      "agent_dispatch": "鼠路由分发至某生肖专家",
+      "routing_decision": "路由/调度决策（含依据）",
+      "tool_call": "专家调用工具/技能（参数摘要+结果状态+耗时）",
+      "review_gate": "鸡质量门禁评审（通过/否决+依据）",
+      "error": "执行异常（错误类型+恢复动作）",
+      "phase_complete": "阶段完成",
+      "session_end": "会话结束（总耗时/总步数/成功与否）"
+    },
+    "requiredFields": [
+      "trace_id",
+      "session_id",
+      "ts",
+      "agent",
+      "phase",
+      "span_kind",
+      "event_type",
+      "status"
+    ],
+    "optionalFields": [
+      "latency_ms",
+      "cost_usd",
+      "tokens_in",
+      "tokens_out",
+      "retry_count",
+      "decision",
+      "guardrail_hit",
+      "attributes"
+    ]
+  },
+  "learnings": {
+    "schemaVersion": "reflexion-1.0",
+    "enabled": true,
+    "sink": "logs/zodiac_learnings.jsonl",
+    "traceLink": "observability.run_id",
+    "categories": [
+      "prompt-injection",
+      "param-tuning",
+      "workflow",
+      "tooling",
+      "eval",
+      "design",
+      "coordination"
+    ],
+    "requiredFields": [
+      "trace_id",
+      "category",
+      "symptom",
+      "root_cause",
+      "prevention",
+      "reusable",
+      "author",
+      "ts"
+    ],
+    "optionalFields": [
+      "confidence",
+      "reusable_count",
+      "linked_fix"
+    ],
+    "evolution": {
+      "mergeDuplicates": true,
+      "decayDays": 180,
+      "minConfidenceToPromote": 0.8
+    },
+    "evalBridge": "future: host eval hook scores traces -> high-score & reused patterns auto-promote to reusable learnings"
+  },
+  "evolution": {
+    "_comment": "安全自进化契约（对齐 Sentinel 自进化闭环 + SEVerA 形式化守卫 FGGM + NosisTech 审批闸门 + Eigent 可编辑对象范式）。把 R18 learnings 经验→提议→确定性护栏校验→鸡审批→recovery 快照兜底→应用，operationalize 用户铁律「越做越聪明」到系统级。进化仅限包内 prompt/policy/route/param 可编辑对象，严禁模型权重/跨项目改动。",
+    "enabled": true,
+    "schemaVersion": "guarded-evolution-1.0",
+    "whatCanEvolve": [
+      "prompt",
+      "policy",
+      "route",
+      "param"
+    ],
+    "whatCannotEvolve": [
+      "model_weights",
+      "cross_project",
+      "skill_source",
+      "memory_user_files",
+      "external_tools"
+    ],
+    "whenToEvolve": "inter-episode only (gated, never intra-task auto-apply)",
+    "evidenceLink": "learnings.sink (learning_ids 为「证据追溯键」: 可填经验 id 'lrn_*', 亦可填产生该经验的 run_id/trace_id 'run_*'; D-53 已为 learnings 补 id 字段, 历史记录多为 run_* 形式)",
+    "traceLink": "observability.run_id",
+    "safety": {
+      "requireRollbackSafe": true,
+      "blockedScopes": [
+        "model_weights",
+        "cross_project",
+        "memory_user_files"
+      ],
+      "minConfidence": 0.7,
+      "minEvidenceCount": 2,
+      "deterministicGuardrail": "local code decides, model only proposes",
+      "conservativeFallback": "prompt-only repair on validation failure"
+    },
+    "editableObjects": {
+      "_comment": "R26/D-50: 声明「可进化对象究竟落在哪个文件」——补齐 whatCanEvolve 只声明类型(prompt/policy/route/param)、却未声明载体的缺口。evolve.apply 仅可写此白名单内文件; scripts/(引擎源码) agents/(角色定义) skills/(skill_source) docs/ logs/ 等一律阻断。",
+      "allowFiles": [
+        "settings.json"
+      ],
+      "allowDirs": [
+        "prompts/",
+        "policies/",
+        "routes/"
+      ],
+      "allowExt": [
+        ".json",
+        ".md",
+        ".txt"
+      ],
+      "denyDirs": [
+        "scripts/",
+        "agents/",
+        "skills/",
+        "docs/",
+        "logs/",
+        "avatars/",
+        "benchmarks/",
+        ".codebuddy-plugin/"
+      ],
+      "jsonSetAllowPaths": [
+        "routingTable",
+        "linkageMap",
+        "rules",
+        "policies",
+        "prompts",
+        "params"
+      ],
+      "requireCas": true,
+      "maxBytes": 262144,
+      "note": "settings.json 仅允许 json-set 到策略子树标量(带 CAS 旧值保护, 不重排文件格式); prompts//policies//routes/ 下 .json/.md/.txt 可 json-set 或 text-replace。"
+    },
+    "approvalGate": {
+      "reviewer": "rooster-design-reviewer",
+      "veto": "one-vote",
+      "requireSnapshotBeforeApply": true,
+      "snapshotTool": "zodiac-team/scripts/recovery.js"
+    },
+    "versionRecord": "logs/zodiac_evolution_log.jsonl",
+    "evalBridge": "future: host eval hook validates applied change against held-out tasks before promotion"
+  },
+  "verification": {
+    "_comment": "横向验证层契约（对齐 MAVEN arXiv:2605.07646 Skeptic-Researcher-Judge + In-Step Epistemic Auditing + segmentfault 四验证模式 + Atla/Cohere/DeepMind 元评估 arXiv:2606.21627）。补齐原单一鸡门禁(LLM-as-Judge 单视角)的失败模式：自我同意偏差/末端盲区/缺多样性。在鸡终审前插入过程级对抗审计，challenger 必须角色解耦+带证据(本地代码裁决)，防错误级联。鸡 critique 落 observability 供元评估。",
+    "enabled": true,
+    "schemaVersion": "adversarial-verify-1.0",
+    "principle": "role decoupling + in-step epistemic auditing (MAVEN)",
+    "phases": [
+      {
+        "phase": "P3",
+        "producer": "snake-product-designer",
+        "challenger": "dragon-competitor-analyst",
+        "mode": "adversarial",
+        "mandatory": true
+      },
+      {
+        "phase": "P5",
+        "producer": "goat-ai-image-generator",
+        "challenger": "rabbit-image-analyst",
+        "mode": "process",
+        "mandatory": true
+      },
+      {
+        "phase": "P6",
+        "producer": "rooster-design-reviewer",
+        "challenger": "monkey-skill-optimizer",
+        "mode": "adversarial",
+        "mandatory": false
+      }
+    ],
+    "loop": {
+      "model": "Skeptic-Researcher-Judge",
+      "maxRounds": 2,
+      "challengerMustDifferFromProducer": true,
+      "requireEvidence": true
+    },
+    "judge": {
+      "role": "rooster-design-reviewer",
+      "veto": "one-vote",
+      "metaEval": "rooster critiques logged to observability.run_id for downstream eval (who-watches-the-watcher)"
+    },
+    "consensus": {
+      "rule": "challenge stands if producer cannot rebut with evidence within maxRounds → escalate to 鼠+鸡",
+      "escalation": "rat-product-researcher"
+    },
+    "costStrategy": "verifier uses lighter persona/rubric, not heavier model (verification easier than generation)",
+    "traceLink": "observability.run_id",
+    "sink": "logs/zodiac_verifications.jsonl"
+  },
+  "runtime": {
+    "_comment": "运行时集成闭环(R22)。把 R17观测/R18学习/R19进化/R21验证 四层契约串成单一可运行闭环，并对齐 2026 工业界「编排-执行-状态-观测」四面解耦 + 「为失败设计」治理护栏。单一 run_id(=observability.trace_id)贯穿四流；深度上限防无限循环(12-agents);token预算+熔断(治理>监控,Swarm Tax/Waxell);human-in-the-loop 升级闸(仅高风/低置信,data-gate 战略人审)。引擎见 zodiac-team/scripts/runtime.js。",
+    "enabled": true,
+    "schemaVersion": "runtime-integration-1.0",
+    "maxDepth": 5,
+    "defaultBudget": 200000,
+    "circuit": {
+      "trigger": "tokensUsed > budget",
+      "action": "halt+escalate",
+      "warnAt": 0.8
+    },
+    "humanInLoop": {
+      "trigger": "high-risk OR low-confidence",
+      "escalateTo": [
+        "rat-product-researcher",
+        "rooster-design-reviewer"
+      ],
+      "mode": "strategic-not-total"
+    },
+    "fourStreamLink": {
+      "_comment": "四流串联键映射：每个流用哪个 settings 字段作为 run_id 关联键。evolution 用 evolution.traceLink(=observability.run_id)，非 evalBridge 占位描述字符串(那是进化契约内的说明字段，非字段路径)。",
+      "trace": "observability.run_id",
+      "learnings": "learnings.trace_id",
+      "verification": "verification.traceLink",
+      "evolution": "evolution.traceLink"
+    },
+    "sink": "logs/zodiac_runtime.jsonl"
+  },
+  "eval": {
+    "_comment": "质量验证纪律层(R23)。关闭「有11维能力但无法证明质量提升」的元层缺口，对齐 wenable 三阶eval(黄金集回归/对抗/shadow)+zylos「失败转回归用例」+maviklabs rubric+人工校准+cynked「40%部署失败因跳过eval纪律」。eval 非第12能力维度，而是让前11维可被量化问责的纪律层：per-rubric通过率(不看总分)+release-blocker门禁(鸡rubric即阻断项)+串联R17 trace_id/R18 learn/R21 verify/R22 runtime。引擎见 zodiac-team/scripts/eval.js。",
+    "enabled": true,
+    "schemaVersion": "eval-harness-1.0",
+    "tiers": {
+      "golden_regression": {
+        "minCases": 50,
+        "runOn": "every-change"
+      },
+      "adversarial": {
+        "nightly": true
+      },
+      "shadow": {
+        "first90days": true
+      }
+    },
+    "scoring": {
+      "principle": "per-rubric pass-rate, never aggregate-only",
+      "judgeCalibration": "human-labeled subsample every quarter",
+      "consistencyRuns": 3
+    },
+    "releaseGate": {
+      "blockOnBlockerFail": true,
+      "blockOnRegression": true,
+      "blockerRubrics": [
+        "鸡评审>=8.0",
+        "no_bad_json"
+      ]
+    },
+    "traceLink": "observability.run_id",
+    "sink": "logs/zodiac_eval_runs.jsonl",
+    "externalBenchmark": {
+      "_comment": "R24: 把用户「网络对比参照」固化为 eval 一层能力，对齐 agents-hive「外部Benchmark接入(adapter+CLI)」+Ryan Setter 厂商中立 JSON schema。bench 命令摄取外部 benchmark JSON({name,source,cases:[{id,rubrics}]})→仅对内外同名 rubric 用同规则交叉打分→横向对比报告。属外部验证的「外部」部分，非第13能力维度。",
+      "enabled": true,
+      "schemaVersion": "vendor-neutral-bench-1.0",
+      "sourceRegistry": [
+        "agents-hive",
+        "wenable",
+        "callsphere",
+        "ryan-setter-golden-sets"
+      ],
+      "crossScore": "shared-rubric-name match, same pass rule (bool=equality, score>=threshold)",
+      "adapterCli": "eval.js bench <外部benchmark.json>"
+    }
+  },
+  "routingTable": {
+    "产品评审": [
+      "rooster-design-reviewer",
+      "snake-product-designer",
+      "dog-cost-analyst"
+    ],
+    "竞品分析": [
+      "dragon-competitor-analyst",
+      "ai-data-copilot(sql-analyst)"
+    ],
+    "设计迭代": [
+      "monkey-skill-optimizer",
+      "dragon2-design-adjuster",
+      "design-engine(team)",
+      "horse-rendering-expert"
+    ],
+    "AI生图": [
+      "goat-ai-image-generator",
+      "horse-rendering-expert"
+    ],
+    "成本控制": [
+      "dog-cost-analyst",
+      "ox-standards-analyst"
+    ],
+    "品牌设计": [
+      "pig-brand-designer",
+      "ui-designer",
+      "design-engine(team)"
+    ],
+    "数据分析": [
+      "ai-data-copilot(team)",
+      "dragon-competitor-analyst"
+    ],
+    "软件工程": [
+      "software-company(team)",
+      "frontend-backend-experts(team)"
+    ],
+    "ML/AI模型": [
+      "ai-engineer",
+      "data-scientist(ai-data-copilot)"
+    ],
+    "UI/UX设计": [
+      "ui-designer",
+      "design-engine(team)"
+    ],
+    "质量评审": [
+      "rooster-design-reviewer",
+      "cat-network-quality-analyst"
+    ],
+    "知识库构建": [
+      "knowledge-researcher(ai-data-copilot)",
+      "report-composer(ai-data-copilot)"
+    ],
+    "DevSecOps": [
+      "devops-security-experts"
+    ],
+    "数据库优化": [
+      "database-optimization-expert",
+      "sql-analyst(ai-data-copilot)"
+    ],
+    "产品视觉生产": [
+      "goat-ai-image-generator",
+      "horse-rendering-expert",
+      "monkey-skill-optimizer",
+      "rooster-design-reviewer",
+      "snake-product-designer",
+      "pig-brand-designer"
+    ],
+    "图像采集": [
+      "tiger-image-collector",
+      "tripstar-agent"
+    ],
+    "图像分析": [
+      "rabbit-image-analyst"
+    ],
+    "需求分析": [
+      "rat-product-researcher"
+    ],
+    "自主进化": [
+      "phoenix-evolution-orchestrator"
+    ]
+  },
+  "agent": "zodiac-team-lead"
 }

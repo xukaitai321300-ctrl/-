@@ -1,0 +1,16 @@
+def calculate_intelligence_quality(intel_data):
+    """Calculate intelligence quality score (0-10)"""
+    # Data Freshness (0-10): How recent is the data?
+    freshness = score_freshness(intel_data.timestamp)
+    
+    # Data Completeness (0-10): How complete is the data?
+    completeness = score_completeness(intel_data)
+    
+    # Data Relevance (0-10): How relevant is the data to the task?
+    relevance = score_relevance(intel_data, task_context)
+    
+    # Data Accuracy (0-10): How accurate is the data?
+    accuracy = validate_accuracy(intel_data)
+    
+    quality_score = (freshness + completeness + relevance + accuracy) / 4
+    return round(quality_score, 1)

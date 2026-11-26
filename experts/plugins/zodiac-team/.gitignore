@@ -1,0 +1,29 @@
+# ── 运行时产物（不入库）────────────────────────────
+logs/
+*.log
+*.db
+*.sqlite
+*.sqlite3
+*.jsonl
+benchmarks/results/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+node_modules/
+dist/
+build/
+
+# ── 密钥（绝不入库）────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets/
+
+# ── 本机产物（各人不同）──────────────────────────
+*.local.json
+.DS_Store
+Thumbs.db

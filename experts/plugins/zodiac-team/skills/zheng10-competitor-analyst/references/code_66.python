@@ -1,0 +1,15 @@
+def generate_defect_comparison(competitors):
+    """Generate defect comparison matrix"""
+    matrix = {}
+    for competitor in competitors:
+        defects = extract_defects(competitor.reviews)
+        matrix[competitor.name] = defects
+    
+    # Find common defects (industry pain points)
+    common_defects = find_common_defects(matrix)
+    
+    return {
+        'defect_matrix': matrix,
+        'common_defects': common_defects,
+        'opportunity_areas': [d for d in common_defects if d.severity >= 7]
+    }

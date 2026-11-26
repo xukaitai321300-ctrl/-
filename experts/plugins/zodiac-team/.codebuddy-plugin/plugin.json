@@ -1,48 +1,64 @@
 {
   "name": "zodiac-team",
-  "version": "1.0.0",
+  "version": "3.4.0",
   "description": "Twelve Zodiac intelligent agent team for product design.",
   "author": {
-    "name": "甄宇航（猴子/猴哥）",
-    "email": "zhenyuhang@example.com"
+    "name": "猴哥（十二生肖团）"
   },
   "agents": [
-    "./agents/team.md"
+    "./agents/zodiac-team-lead.md",
+    "./agents/rat-product-researcher.md",
+    "./agents/ox-standards-analyst.md",
+    "./agents/tiger-image-collector.md",
+    "./agents/rabbit-image-analyst.md",
+    "./agents/dragon-competitor-analyst.md",
+    "./agents/dragon2-design-adjuster.md",
+    "./agents/snake-product-designer.md",
+    "./agents/horse-rendering-expert.md",
+    "./agents/goat-ai-image-generator.md",
+    "./agents/monkey-skill-optimizer.md",
+    "./agents/rooster-design-reviewer.md",
+    "./agents/dog-cost-analyst.md",
+    "./agents/pig-brand-designer.md",
+    "./agents/phoenix-evolution-orchestrator.md"
   ],
   "expertType": "team",
-  "agentName": "team",
+  "agentName": "zodiac-team-lead",
   "teamInfo": {
-    "leadAgent": "rat-product-researcher",
+    "leadAgent": "zodiac-team-lead",
     "memberAgents": [
       "ox-standards-analyst",
       "tiger-image-collector",
       "rabbit-image-analyst",
       "dragon-competitor-analyst",
+      "dragon2-design-adjuster",
       "snake-product-designer",
       "horse-rendering-expert",
       "goat-ai-image-generator",
-      "monkey-design-adjuster",
+      "monkey-skill-optimizer",
       "rooster-design-reviewer",
       "dog-cost-analyst",
-      "pig-brand-designer"
+      "pig-brand-designer",
+      "phoenix-evolution-orchestrator",
+      "rat-product-researcher"
     ]
   },
   "displayName": {
-    "en": "Zodiac Team",
-    "zh": "十二生肖团"
+    "en": "Zodiac Innovation Team",
+    "zh": "生肖创新团"
   },
   "profession": {
-    "en": "Zodiac Team",
-    "zh": "十二生肖团"
+    "en": "Zodiac Innovation Team",
+    "zh": "生肖创新团"
   },
   "displayDescription": {
-    "en": "ComfyUI-centric AI product design team covering requirement analysis, prompt engineering, workflow optimization, and design review. Coordinated by Rat (team lead).",
-    "zh": "以ComfyUI生图为核心的AI产品设计团队，涵盖需求分析、提示词工程、工作流优化、生图评审等全流程，由鼠（主理人）协调各成员协作完成复杂设计任务。"
+    "en": "Zodiac x TRIZ innovation expert team: 14 zodiac experts covering market research, materials, manufacturing, AI image generation and design review — ComfyUI-centric.",
+    "zh": "生肖团×TRIZ创新融合专家团，主理人调度十四位生肖专家，覆盖调研、材料工艺、智能生图与评审全流程。"
   },
   "avatar": "avatars/avatar.png",
   "categoryId": "01-ProductDesign",
   "defaultInitPrompt": {
-    "en": "Launch Zodiac Team for product design.",
+    "en": "Launch Zodiac Team",
     "zh": "启动十二生肖团，完成保温杯产品设计"
   },
   "plugin": "zodiac-team",
@@ -77,19 +93,27 @@
   "members": [
     {
       "id": "rat-product-researcher",
+      "name": {
+        "en": "Product Research Expert",
+        "zh": "需求分析专家"
+      },
       "displayName": {
-        "en": "需求分析专家（主理人）",
-        "zh": "鼠（需求分析专家（主理人））"
+        "en": "Product Research Expert",
+        "zh": "鼠（需求分析专家）"
       },
       "profession": {
-        "en": "需求分析专家（主理人）",
-        "zh": "需求分析专家（主理人）"
+        "en": "Product Research Expert",
+        "zh": "需求分析专家"
       },
       "avatar": "avatars/rat-product-researcher.png",
-      "role": "lead"
+      "role": "member"
     },
     {
       "id": "ox-standards-analyst",
+      "name": {
+        "en": "Workflow Standards Analyst",
+        "zh": "ComfyUI工作流标准专家"
+      },
       "displayName": {
         "en": "ComfyUI工作流标准专家",
         "zh": "牛（ComfyUI工作流标准专家）"
@@ -103,6 +127,10 @@
     },
     {
       "id": "tiger-image-collector",
+      "name": {
+        "en": "Image Collector",
+        "zh": "图像采集专家"
+      },
       "displayName": {
         "en": "图像采集专家",
         "zh": "虎（图像采集专家）"
@@ -116,6 +144,10 @@
     },
     {
       "id": "rabbit-image-analyst",
+      "name": {
+        "en": "Image Analyst",
+        "zh": "图像分析专家"
+      },
       "displayName": {
         "en": "图像分析专家",
         "zh": "兔（图像分析专家）"
@@ -129,6 +161,10 @@
     },
     {
       "id": "dragon-competitor-analyst",
+      "name": {
+        "en": "Competitor Analyst",
+        "zh": "竞品分析专家"
+      },
       "displayName": {
         "en": "竞品分析专家",
         "zh": "龙（竞品分析专家）"
@@ -141,7 +177,28 @@
       "role": "member"
     },
     {
+      "id": "dragon2-design-adjuster",
+      "name": {
+        "en": "Design Adjuster",
+        "zh": "产品设计调整专家"
+      },
+      "displayName": {
+        "en": "Design Adjustment Expert",
+        "zh": "龙二（产品设计调整专家）"
+      },
+      "profession": {
+        "en": "产品设计调整专家",
+        "zh": "产品设计调整专家"
+      },
+      "avatar": "avatars/dragon2-design-adjuster.png",
+      "role": "member"
+    },
+    {
       "id": "snake-product-designer",
+      "name": {
+        "en": "Product Designer",
+        "zh": "产品设计专家"
+      },
       "displayName": {
         "en": "产品设计专家",
         "zh": "蛇（产品设计专家）"
@@ -155,6 +212,10 @@
     },
     {
       "id": "horse-rendering-expert",
+      "name": {
+        "en": "Rendering Expert",
+        "zh": "ComfyUI工作流优化专家"
+      },
       "displayName": {
         "en": "ComfyUI工作流优化专家",
         "zh": "马（ComfyUI工作流优化专家）"
@@ -168,6 +229,10 @@
     },
     {
       "id": "goat-ai-image-generator",
+      "name": {
+        "en": "AI Image Generator",
+        "zh": "ComfyUI生图核心专家"
+      },
       "displayName": {
         "en": "ComfyUI生图核心专家",
         "zh": "羊（ComfyUI生图核心专家）"
@@ -180,7 +245,11 @@
       "role": "member"
     },
     {
-      "id": "monkey-design-adjuster",
+      "id": "monkey-skill-optimizer",
+      "name": {
+        "en": "Skill Optimizer",
+        "zh": "ComfyUI参数调优专家"
+      },
       "displayName": {
         "en": "ComfyUI参数调优专家",
         "zh": "猴（ComfyUI参数调优专家）"
@@ -189,11 +258,15 @@
         "en": "ComfyUI参数调优专家",
         "zh": "ComfyUI参数调优专家"
       },
-      "avatar": "avatars/monkey-design-adjuster.png",
+      "avatar": "avatars/monkey-skill-optimizer.png",
       "role": "member"
     },
     {
       "id": "rooster-design-reviewer",
+      "name": {
+        "en": "Design Reviewer",
+        "zh": "AI生图评审专家"
+      },
       "displayName": {
         "en": "AI生图评审专家",
         "zh": "鸡（AI生图评审专家）"
@@ -207,6 +280,10 @@
     },
     {
       "id": "dog-cost-analyst",
+      "name": {
+        "en": "Cost Analyst",
+        "zh": "情报收集专家（狗仔）"
+      },
       "displayName": {
         "en": "情报收集专家（狗仔）",
         "zh": "狗（情报收集专家（狗仔））"
@@ -220,6 +297,10 @@
     },
     {
       "id": "pig-brand-designer",
+      "name": {
+        "en": "Brand Designer",
+        "zh": "风格参考与Prompt素材专家"
+      },
       "displayName": {
         "en": "风格参考与Prompt素材专家",
         "zh": "猪（风格参考与Prompt素材专家）"
@@ -230,6 +311,79 @@
       },
       "avatar": "avatars/pig-brand-designer.png",
       "role": "member"
+    },
+    {
+      "id": "phoenix-evolution-orchestrator",
+      "name": {
+        "en": "Evolution Orchestrator",
+        "zh": "自主进化协调器"
+      },
+      "displayName": {
+        "en": "Autonomous Evolution Orchestrator",
+        "zh": "凤（自主进化协调器）"
+      },
+      "profession": {
+        "en": "自主进化协调器",
+        "zh": "自主进化协调器"
+      },
+      "avatar": "avatars/phoenix-evolution-orchestrator.png",
+      "role": "member"
+    },
+    {
+      "id": "zodiac-team-lead",
+      "name": {
+        "en": "Zodiac Team Lead",
+        "zh": "十二生肖团主理人"
+      },
+      "displayName": {
+        "en": "Zodiac Team Lead",
+        "zh": "十二生肖团主理人"
+      },
+      "profession": {
+        "en": "Zodiac Team Lead",
+        "zh": "十二生肖团主理人"
+      },
+      "avatar": "avatars/avatar.png",
+      "role": "lead"
     }
+  ],
+  "skills": [
+    "./skills/zheng10-ai-image-generator",
+    "./skills/zheng10-appearance-fusion",
+    "./skills/zheng10-appearance-variant",
+    "./skills/zheng10-background-removal",
+    "./skills/zheng10-batch-appearance",
+    "./skills/zheng10-brand-designer",
+    "./skills/zheng10-bus",
+    "./skills/zheng10-cmf-design",
+    "./skills/zheng10-comfyui-thermos",
+    "./skills/zheng10-competitor-analyst",
+    "./skills/zheng10-cost-analyst",
+    "./skills/zheng10-design-adjuster",
+    "./skills/zheng10-design-company-director",
+    "./skills/zheng10-design-fullstack",
+    "./skills/zheng10-design-reviewer",
+    "./skills/zheng10-evolution-orchestrator",
+    "./skills/zheng10-image-analyst",
+    "./skills/zheng10-image-collector",
+    "./skills/zheng10-image-restoration",
+    "./skills/zheng10-industrial-appearance",
+    "./skills/zheng10-industrial-design",
+    "./skills/zheng10-industrial-rd-director",
+    "./skills/zheng10-local-retouching",
+    "./skills/zheng10-patent-assistant",
+    "./skills/zheng10-product-designer",
+    "./skills/zheng10-product-rendering",
+    "./skills/zheng10-product-researcher",
+    "./skills/zheng10-sd-comfy-expert",
+    "./skills/zheng10-skill-optimizer",
+    "./skills/zheng10-standards-analyst",
+    "./skills/zheng10-style-migration",
+    "./skills/zheng10-viral-design",
+    "./skills/zheng10-material-engineering",
+    "./skills/zheng10-manufacturing-process",
+    "./skills/zheng10-hardware-supply-chain",
+    "./skills/zheng10-smart-electronics",
+    "./skills/zheng10-vision-core"
   ]
 }

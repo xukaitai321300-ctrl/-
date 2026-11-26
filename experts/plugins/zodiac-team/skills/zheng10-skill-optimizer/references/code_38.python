@@ -1,0 +1,11 @@
+def compare_workflow_versions(
+    workflow_v1: str,  # Path to v1 workflow JSON
+    workflow_v2: str,  # Path to v2 workflow JSON
+    output_format: str = "unified"  # "unified" | "context" | "html"
+):
+    # ... (代码已精简，保留核心逻辑) ...
+
+def generate_html_diff(json1, json2):
+    """Generate HTML diff (for visual comparison)"""
+    # (Implementation would use difflib.HtmlDiff)
+    pass
