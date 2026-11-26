@@ -5,7 +5,7 @@ def retrieve_memory(query, max_results=5):
     )
     weekly_results = search_recent_weeks(keywords, weeks=2)
     today_results = search_file(
-        f"E:/AI日记/Claw/.workbuddy/memory/{get_today()}.md",
+        f"<WORKSPACE>/.workbuddy/memory/{get_today()}.md",
         keywords
     )
     all_results = long_term_results + weekly_results + today_results

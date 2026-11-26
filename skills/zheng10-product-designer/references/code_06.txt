@@ -9,5 +9,5 @@
 
 **Material Selection Rationale**:
 - 304 SS: food-grade, corrosion-resistant, cost-effective
-- Magnesium alloy (optional): lighter (-35%), more expensive (+¥5/unit)
+- Aluminum alloy shell (outer, optional): lighter (-30%), more expensive (+¥3/unit)
 - Titanium (premium): lightest (-45%), most expensive (+¥20/unit)

@@ -8,4 +8,4 @@ def call_comfyui_api(workflow_path, comfyui_url="http://localhost:8188"):
     return prompt_id
 
 # Usage
-call_comfyui_api("E:/AI日记/Claw/comfyui_workflows/Img2Img.json")
+call_comfyui_api("<WORKSPACE>/comfyui_workflows/Img2Img.json")

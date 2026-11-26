@@ -1,20 +1,29 @@
 ---
+version: "7.2.4"
+author: "猴哥（十二生肖团）"
 name: zheng10-competitor-analyst
-description: "auto-generated: skill package 'zheng10-competitor-analyst' (awaiting human review)"
+display_name: "竞品情报分析师（龙）"
+display_name_en: "Competitor Analyst"
+name_en: "zheng10-competitor-analyst"
+description_zh: "竞品情报分析师（龙）。分析竞品产品与市场缺口，从电商平台（淘宝/天猫/Amazon/1688）采集竞品数据；强调「缺陷对比 = 竞争优势」，同时掌握竞品优点与缺陷。适用于竞品拆解、市场机会判断与定价参考。"
+description_en: "Zodiac team execution-layer skill: Competitor Analyst. (See description_zh for full details.)"
+description: "竞品情报分析师（龙）。分析竞品产品与市场缺口，从电商平台（淘宝/天猫/Amazon/1688）采集竞品数据；强调「缺陷对比 = 竞争优势」，同时掌握竞品优点与缺陷。适用于竞品拆解、市场机会判断与定价参考。"
 license: MIT
 metadata:
   author: 猴哥
-  version: "7.2"
+  version: "7.2.4"
   previous_version: "7.0"
   upgrade_reason: "新增Phase 6: 竞品数据自动采集与联动优化"
-  upgrade_date: "2026-06-19"
-  tags: ["competitor-analysis", "data-collection", "market-research", "agent-collaboration"]
-  generated_date: "2026-06-15"
+  upgrade_date: 2026-06-19
+  tags:
+    - competitor-analysis
+    - data-collection
+    - market-research
+    - agent-collaboration
+  generated_date: 2026-06-15
   classification: P1-auto-standardized
+when_to_use: "在涉及「competitor-analyst」职责的任务中调用本技能；竞品情报分析师（龙）。"
 ---
-
-
-
 > 💡 **Prompt 优化提示**：本文件包含多个章节，AI 应根据当前任务类型只读取相关章节，跳过无关部分。
 > - 任务分发/协调：读取"执行层"和"联动规则"章节
 > - 需求分析：读取"需求分析框架"章节
@@ -22,7 +31,7 @@ metadata:
 > - 质量评审：读取"评审标准"章节
 
 
-# Competitive Analysis — 龙 (Dragon) v7.0
+# Competitive Analysis — 龙 (Dragon) v7.2
 
 **Role**: Competitive intelligence analyst. Analyze rival products, identify market gaps, and provide actionable insights.
 
@@ -111,7 +120,7 @@ When receiving task from 鼠 (Rat):
 > [引用] 完整代码已提取到 `references\code_block_06.txt`（20 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_06.txt`（2 行，35 字节）
+> 📄 完整代码见 `references/code_block_06.txt`（1170 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -188,7 +197,7 @@ Output Quality Checklist (ALL agents MUST verify):
 
 {
   "timestamp": "2026-06-04T14:30:00+08:00",
-  "agent_id": "zheng10-comfyui-core",
+  "agent_id": "ComfyUI 核心",
   "task_id": "gen_20260604_001",
   "status": "success",
   "result": {
@@ -239,7 +248,7 @@ Need to scrape pricing data for NEW entrant (brand: "ThermoMaster").
 
 {
   "timestamp": "2026-06-04T15:00:00+08:00",
-  "agent_id": "zheng10-comfyui-parameter-tuning",
+  "agent_id": "ComfyUI 参数调优",
   "task_id": "tune_20260604_002",
   "status": "failed",
   "result": {
@@ -260,17 +269,17 @@ Need to scrape pricing data for NEW entrant (brand: "ThermoMaster").
 > 需要查看完整代码时请读取该文件。
 
 
-Level 1: Daily Log (E:/AI日记/Claw/.workbuddy/memory/YYYY-MM-DD.md)
+Level 1: Daily Log (<架构根目录>/.workbuddy/memory/YYYY-MM-DD.md)
   - Append-only, max 500 lines/day
   - Auto-trigger: End of session OR >500 lines
   - Compression: Keep only key decisions + errors
 
-Level 2: Weekly Summary (E:/AI日记/Claw/.workbuddy/memory/weekly/YYYY-WW.md)
+Level 2: Weekly Summary (<架构根目录>/.workbuddy/memory/weekly/YYYY-WW.md)
   - Extract from daily logs (last 7 days)
   - Categories: Decisions / Errors / Optimizations / User Feedback
   - Max 200 lines/week
 
-Level 3: Monthly Digest (E:/AI日记/Claw/.workbuddy/memory/MEMORY.md)
+Level 3: Monthly Digest (<架构根目录>/.workbuddy/memory/MEMORY.md)
   - Extract from weekly summaries (last 4 weeks)
   - Keep only: Long-term preferences / Cross-project conventions / Skill versions
   - Max 3000 chars (hard limit)
@@ -347,7 +356,7 @@ def retrieve_memory(query, max_results=5):
     )
     weekly_results = search_recent_weeks(keywords, weeks=2)
     today_results = search_file(
-        f"E:/AI日记/Claw/.workbuddy/memory/{get_today()}.md",
+        f"<架构根目录>/.workbuddy/memory/{get_today()}.md",
         keywords
     )
     all_results = long_term_results + weekly_results + today_results
@@ -399,7 +408,7 @@ class SkillRatingSystem:
 
 
 class CaseDatabase:
-    def __init__(self, db_path="E:/AI日记/Claw/.workbuddy/learning_db/"):
+    def __init__(self, db_path="<架构根目录>/.workbuddy/learning_db/"):
   ... (省略中间部分) ...
             "task_type": task_type,
             "input_params": input_params,
@@ -473,13 +482,13 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_22.txt`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_22.txt`（2 行，35 字节）
+> 📄 完整代码见 `references/code_block_22.txt`（1046 字节）
 > 需要查看完整代码时请读取该文件。
 
 
 
 
-#### 示例 2: 鸡（Rooster）输出示例
+#### 示例 2: Rooster输出示例
 > 📄 代码已提取到 `references\code_23.txt`（12 行，175 字节）
 > 需要查看完整代码时请读取该文件。
 
@@ -509,7 +518,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_26.json`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_26.txt`（2 行，36 字节）
+> 📄 完整代码见 `references/code_block_26.json`（559 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -518,7 +527,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 #### 验证失败处理:
 1. **验证失败** → 返回详细错误信息（JSON Schema 验证错误）
 2. **自动修复** → 尝试自动修复（填充缺失字段/修正数据类型）
-3. **人工介入** → 如果自动修复失败，上报给 鼠（Rat）进行人工介入
+3. **人工介入** → 如果自动修复失败，上报给 Rat进行人工介入
 
 ---
 
@@ -537,7 +546,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 
 > **⚠️ 重要**: 输出模板精细化优化是 **v4.3** 的核心改进。所有 Agent 必须严格遵循标准化模板，确保输出一致性。
 
-**⚠️ 所有生肖团成员必须严格遵守以下条令（违反任一 = 失效）**
+**⚠️ 所有生肖团职能必须严格遵守以下条令（违反任一 = 失效）**
 
 ---
 
@@ -628,13 +637,13 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 
 ---
 
-### 条令 7: 必须尊重角色 (MANDATORY Role Respect)
+### 条令 7: 必须尊重职能 (MANDATORY Role Respect)
 > 📄 代码已提取到 `references\code_38.txt`（6 行，249 字节）
 > 需要查看完整代码时请读取该文件。
 
 
-**角色边界 (Role Boundaries)**:
-| 角色 | 可以做的 | 不可以做的 |
+**职能边界 (Role Boundaries)**:
+| 职能 | 可以做的 | 不可以做的 |
 |------|----------|------------|
 | 鼠 (Rat) | 需求分析、任务分拣、协调 | 直接生成图像 |
 | 虎 (Tiger) | 图像采集、搜索、下载 | 图像质量评审 |
@@ -670,7 +679,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_42.python`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_42.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_42.python`（863 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -722,7 +731,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_48.python`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_48.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_48.python`（674 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -736,7 +745,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_50.python`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_50.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_50.python`（744 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -764,7 +773,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 - > [引用] 完整代码已提取到 `references\code_block_51.json`（22 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_51.txt`（2 行，36 字节）
+> 📄 完整代码见 `references/code_block_51.json`（792 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -772,7 +781,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_52.txt`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_52.txt`（2 行，35 字节）
+> 📄 完整代码见 `references/code_block_52.txt`（689 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -782,7 +791,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_53.txt`（47 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_53.txt`（2 行，35 字节）
+> 📄 完整代码见 `references/code_block_53.txt`（1674 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -790,11 +799,11 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_54.txt`（23 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_54.txt`（2 行，35 字节）
+> 📄 完整代码见 `references/code_block_54.txt`（654 字节）
 > 需要查看完整代码时请读取该文件。
 
 
-json
+```json
 - {
 - "modality": "image+text",
 - "inputs": {
@@ -824,10 +833,11 @@ json
 - **Branch Strategy**: main (stable), dev (testing), feat/* (new features)
 
 ### B. Version Comparison Mechanism
+```
 > [引用] 完整代码已提取到 `references\code_block_55.python`（20 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_55.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_55.python`（766 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -843,7 +853,7 @@ json
 > [引用] 完整代码已提取到 `references\code_block_57.python`（27 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_57.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_57.python`（823 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -901,7 +911,7 @@ json
 > [引用] 完整代码已提取到 `references\code_block_58.python`（38 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_58.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_58.python`（1496 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -914,7 +924,7 @@ json
 > [引用] 完整代码已提取到 `references\code_block_59.python`（62 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_59.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_59.python`（2926 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -929,7 +939,7 @@ json
 > [引用] 完整代码已提取到 `references\code_block_60.python`（27 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_60.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_60.python`（1045 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -950,7 +960,7 @@ json
 > [引用] 完整代码已提取到 `references\code_block_61.python`（58 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_61.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_61.python`（2839 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -961,7 +971,7 @@ json
 > [引用] 完整代码已提取到 `references\code_block_62.python`（35 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_62.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_62.python`（1340 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -977,7 +987,7 @@ json
 > [引用] 完整代码已提取到 `references\code_block_63.txt`（29 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_63.txt`（2 行，35 字节）
+> 📄 完整代码见 `references/code_block_63.txt`（1002 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1054,7 +1064,7 @@ json
 
 ### Usage
 
-当需要此技能时，按以下步骤执行：
+当需要此能力时，按以下步骤执行：
 
 1. **理解需求**: 明确用户的核心意图
 2. **调用流程**: 按照核心职责定义执行
@@ -1095,7 +1105,7 @@ COMFYUI_API = "http://127.0.0.1:8188"
 def enhance_competitor_image(image_path, enhancement_type="clarity"):
     """增强竞品图片（清晰度/细节/材质）"""
     # 1. 读取图片增强工作流模板
-    with open('comfyui_workflow_image_enhance.json', 'r') as f:
+    with open('(外部生图引擎)_workflow_image_enhance.json', 'r') as f:
         workflow = json.load(f)
     
     # 2. 注入竞品图片路径
@@ -1142,7 +1152,7 @@ def enhance_competitor_image(image_path, enhancement_type="clarity"):
 ```
 1. 接收采集任务（从🐭鼠或用户）
 2. 识别竞品品牌和型号
-3. 调用🐯虎（图像采集专家）采集图片
+3. 调用图像采集职能采集图片
 4. 调用公开API获取产品参数和价格
 5. 调用爬虫脚本获取用户评价
 6. 数据清洗与结构化
@@ -1178,7 +1188,7 @@ def enhance_competitor_image(image_path, enhancement_type="clarity"):
 - 保留历史版本（便于对比分析）
 - 记录更新时间和更新内容
 
-### 6.3 与十四生肖团其他Agent的联动
+### 6.3 与十二生肖团其他Agent的联动
 
 **联动链1：🐲→🐯→🐰（竞品分析→图像采集→图像分析）**
 ```
@@ -1245,7 +1255,7 @@ def enhance_competitor_image(image_path, enhancement_type="clarity"):
 1. 监控竞品数据变化
 2. 匹配告警规则
 3. 生成告警报告
-4. 通知🐭鼠（主理人）
+4. 通知主理人
 5. 🐭鼠决策 → 启动应对措施
 ```
 
@@ -1255,7 +1265,7 @@ def enhance_competitor_image(image_path, enhancement_type="clarity"):
 
 ### ComfyUI API集成
 
-- **统一指南**: `H:/AI日记/Claw/十二生肖团_ComfyUI_API集成统一指南_V1.0_2026-06-18.md`
+- **统一指南**: `<架构根目录>/docs/生肖团能力指南/十二生肖团_ComfyUI_API集成统一指南_V1.0_2026-06-18.md`
   - 所有API接口调用示例
   - 工作流JSON模板说明
   - 错误处理与性能优化
@@ -1264,9 +1274,73 @@ def enhance_competitor_image(image_path, enhancement_type="clarity"):
 
 | 文档 | 路径 | 说明 |
 |------|------|------|
-| ComfyUI安装指南 | `H:/AI日记/Claw/ComfyUI_安装与API化指南_V1.0.md` | 安装与配置 |
-| ComfyUI API调用指南 | `H:/AI日记/Claw/ComfyUI_工作流API调用指南_V1.0.md` | 详细API文档 |
-| ComfyUI工作流模板库 | `H:/AI日记/Claw/ComfyUI_工作流模板库_V1.0.md` | 工作流模板 |
-| 框架报告V8.0 | `H:/AI日记/Claw/十二生肖团_完整详细框架报告_V8.0_2026-06-18.md` | 最新框架 |
+| ComfyUI安装指南 | `<架构根目录>/docs/生肖团能力指南/ComfyUI_安装与API化指南_V1.0_2026-06-18.md` | 安装与配置 |
+| ComfyUI API调用指南 | `<架构根目录>/docs/生肖团能力指南/ComfyUI_工作流API调用指南_V1.0_2026-06-18.md` | 详细API文档 |
+| ComfyUI工作流模板库 | `<架构根目录>/docs/生肖团能力指南/ComfyUI_工作流模板库_V2.0_2026-06-18.md` | 工作流模板 |
+| 框架报告V8.0 | `<架构根目录>/docs/生肖团能力指南/十二生肖团_完整详细框架报告_V8.0_2026-06-18.md` | 最新框架 |
 
 ---
+
+## 产出写通用互通总线（资料总线）
+
+完成本角色产出后，**必须**写入生肖团通用互通总线，使下游职能按静态联动映射表秒级收到事件通知（替代被动轮询）。
+
+```bash
+node 资料总线/zodiac_bus.js --emit \
+  --role dragon --type swot --product <产品名> --ref swot_<product> \
+  --content '{"summary":"产出摘要","files":["<产出文件路径>"]}'
+```
+
+- **开工前先查信箱**感知上游通知（连接反应更迅速）：
+  `node 资料总线/zodiac_bus.js --inbox --role dragon --pending-only`
+- 处理完标记已读：`node 资料总线/zodiac_bus.js --mark-done --role dragon --id <事件id>`
+- 联动映射（谁 emit → 通知谁）见 `<架构根目录>/logs/zodiac_bus_map.json`，改联动只改该表。
+- 总线协议与 schema 见 `资料总线/SKILL.md` 与 `<架构根目录>/logs/zodiac_bus_schema.md`。
+
+---
+
+---
+
+---
+
+---
+
+## 📚 资料总线（H 盘资料入口）
+
+> 本技能可读的 H 盘资料已登记在**资料总线**，开工前先查一遍 —— 避免"重复造轮子"和"翻不到料"。
+
+```bash
+python <本地资源路径> --role competitor-analyst
+python <本地资源路径> --kw <关键词>      # 元数据层：找「有哪些资料」
+python <本地资源路径> --wb             # 工作台可挂载的料
+python <本地资源路径> "一句话需求"    # 语义层：在 1.2 万篇业务库正文里找「哪一段」
+python <本地资源路径> --role competitor-analyst "..."  # 限定本角色的资料范围内检索
+```
+
+**全量索引**：`<本地资源路径>` ｜ **清单**：`<本地资源路径>`
+
+| 资料 | 路径 | 体量 | 用途 |
+|---|---|---|---|
+| `comp.intel` | `<本地资源路径>` | 61 KB | 竞品对标维度 |
+| `intel.daily` | `<本地资源路径>` | 10 KB | 情报 / 快报 |
+
+**硬数据优先**：凡涉及国标限值、材料参数、专利红线、竞品价格，**必须以本总线登记的真实文件为准**，不得凭记忆作答。
+
+**出图/交付**：32 个标准提示词模板见 `<本地资源路径>`（结构化索引 `prompt_templates.json`，含分类/变量/正文/示例）。
+
+> 两个入口分工：`lookup.py` 查**目录元数据**（有哪些资料、多大、谁能用）；`core_lookup.py` 查**内容语义**（哪份文件的哪一段讲了这件事）。
+
+<!-- 资料总线区块结束 -->
+
+
+## 配套能力调用（本技能只做主责，其余功能按需点名调用）
+
+> 规则：**不要**把配套能力的能力顺手做在本技能里；需要哪段功能，就点名调谁。
+> 配套能力已设为「仅手动调用」（`disable-model-invocation: true`），只能被点名，不会自己冒出来。
+
+| 我需要 | 就调它 | 别自己硬做 |
+|---|---|---|
+| 要竞品数据、市场动态、电商平台调研 | `zheng10-competitor-analyst`、`competitive-teardown` | `taobao-product-research`、`market-research` |
+| 要拆解竞品图的材质/风格/场景，或评估自己出的图 | `图像分析`、`视觉引擎` | `(外部视觉分析服务)`、`(外部视觉分析)` |
+
+完整矩阵见 `references/配套能力调用表.md`（或 `<本地资源路径>`）。

@@ -1,27 +1,52 @@
 ---
+version: "7.2.4"
+author: "猴哥（十二生肖团）"
 name: zheng10-design-adjuster
-description: "auto-generated: skill package 'zheng10-design-adjuster' (十二生肖团设计调整专家)"
+display_name: "设计调整专家（猴）"
+display_name_en: "Design Adjuster"
+name_en: "zheng10-design-adjuster"
+description_zh: "设计调整专家（猴）。根据鸡的评审反馈快速调整设计方案并完成迭代优化：结构化接收鸡的标准化联动数据包、精准执行调整、闭环验证并回传效果追踪。适用于评审后返工、设计迭代与联动响应。"
+description_en: "Zodiac team execution-layer skill: Design Adjuster. (See description_zh for full details.)"
+description: "设计调整专家（猴）。根据鸡的评审反馈快速调整设计方案并完成迭代优化：结构化接收鸡的标准化联动数据包、精准执行调整、闭环验证并回传效果追踪。适用于评审后返工、设计迭代与联动响应。"
 license: MIT
 metadata:
   author: 猴哥
-  version: "7.2"
-  tags: ["design-adjustment", "iteration", "feedback-loop", "auto-tracking", "agent-collaboration"]
-  generated_date: "2026-06-18"
+  version: "7.2.4"
+  tags:
+    - design-adjustment
+    - iteration
+    - feedback-loop
+    - auto-tracking
+    - agent-collaboration
+  generated_date: 2026-06-18
   classification: P1-auto-standardized
   lineage:
     previous_version: "7.0"
     upgrade_reason: "新增Phase 4: 设计调整自动化与效果追踪"
-    compatibility: "与🐔鸡v7.2/🐍蛇v7.2完全兼容"
+    compatibility: 与🐔鸡v7.2/🐍蛇v7.2完全兼容
+when_to_use: "在涉及「design-adjuster」职责的任务中调用本技能；设计调整专家（猴）。"
 ---
 
+## 配套能力调用（本技能只做主责，其余功能按需点名调用）
+
+> 规则：**不要**把配套能力的能力顺手做在本技能里；需要哪段功能，就点名调谁。
+> 配套能力已设为「仅手动调用」（`disable-model-invocation: true`），只能被点名，不会自己冒出来。
+
+| 我需要 | 就调它 | 别自己硬做 |
+|---|---|---|
+| 要出一张写实的保温杯产品图 | `(外部出图工作流)`、`(外部写实基座模型)`、`(外部写实基座模型)` | `(外部生图引擎，运行时按需调用)`、`(外部生图运行器)` |
+| 图出来了但有瑕疵：文字幻觉、划痕、糊了、要换背景 | `局部精修`、`去背景`、`图像还原` | `(外部高清修复工作流)`、`(外部高清修复工具)` |
+| 要按线稿/参考图/构图精确控制 | `(外部 Lineart 控制)`、`(外部图生图控制)`、`(外部 IPAdapter 控制)` | `(外部扩图工作流)`、`(外部 Refiner 工作流)` |
+
+完整矩阵见 `references/配套能力调用表.md`。
 > 💡 **Prompt 优化提示**：本文件包含多个章节，AI 应根据当前任务类型只读取相关章节，跳过无关部分。
 > - 接收评审反馈：读取"Phase 1: 反馈解析"
 > - 设计调整：读取"Phase 2: 调整执行"
 > - 迭代优化：读取"Phase 3: 迭代循环"
 
-# Design Adjuster — 龙二 (Dragon2) v7.0
+# Design Adjuster — 猴 (Monkey) v7.2
 
-**Role**: 设计调整专家。根据🐓鸡的评审反馈，快速调整设计方案，完成迭代优化。
+**Role**: 设计调整职能。根据🐓鸡的评审反馈，快速调整设计方案，完成迭代优化。
 
 **Core Principle (v7.0)**: **结构化接收 + 精准执行 + 闭环验证**。
 **v7.0核心升级**: 增强接收🐓鸡的标准化联动数据包能力，增加调整效果追踪回传，提升联动响应速度。
@@ -32,8 +57,8 @@ metadata:
 
 当接收到🐓鸡输出的《生图评审报告》或《标准化联动数据包》时：
 
-> 📄 反馈解析模板已提取到 `references/feedback-parsing.md`
-> 需要查看完整模板时请读取该文件。
+> 📄 反馈解析模板已内联于本技能正文（不依赖外部 references 文件）。
+> 完整解析规则直接参考正文，无需外部文件。
 
 ### 1.1 标准化数据包接收（NEW in v7.0）
 
@@ -72,7 +97,7 @@ def receive_linkage_package(linkage_package, timeout=5.0):
         try:
             ack = {
                 "ack": True,
-                "receiver": "🐲 龙二 (zheng10-design-adjuster)",
+                "receiver": "🐵 猴 (zheng10-design-adjuster)",
                 "package_id": linkage_package.get("linkage_package_id"),
                 "received_at": datetime.now().isoformat(),
                 "estimated_completion": calculate_completion_time(linkage_package.get("adjustment_tasks", [])),
@@ -80,7 +105,7 @@ def receive_linkage_package(linkage_package, timeout=5.0):
                 "status": "received"
             }
             
-            # 模拟发送到🐓鸡（实际实现应通过IPC）
+            # 模拟发送到实际实现应通过IPC
             send_ack_to_rooster(ack)
             print(f"✅ ACK已发送 (重试{retry_count}次): {ack['package_id']}")
             break
@@ -123,11 +148,11 @@ def determine_executor(dimension):
         "structure_accuracy": "🐍 蛇 (产品设计)",
         "material_realism": "🐍 蛇 + 🐵 猴 (设计+参数)",
         "cmf_consistency": "🐍 蛇 + 🐑 羊 (设计+Prompt)",
-        "lighting_quality": "🐵 猴 (参数调优)",
+        "lighting_quality": "🐵 猴 (设计调整)",
         "dfm_risk": "🐍 蛇 (设计简化)",
         "commercial_appeal": "🐷 猪 (品牌风格)"
     }
-    return executors.get(dimension, "🐲 龙二 (自行处理)")
+    return executors.get(dimension, "🐵 猴 (自行处理)")
 ```
 
 ### 1.2 传统评审报告解析（保留兼容）
@@ -142,7 +167,7 @@ def determine_executor(dimension):
 
 ## Phase 2: 调整执行
 
-根据《调整任务清单》，协调对应专家执行调整：
+根据《调整任务清单》，协调对应职能执行调整：
 
 ### 2.1 结构设计调整
 - 触发条件：评审反馈"结构变形/比例失调"
@@ -180,20 +205,20 @@ def determine_executor(dimension):
 
 ## 联动规则
 
-### 与🐓鸡（评审专家）联动
+### 与评审职能联动
 - 接收：《生图评审报告》+《修改意见清单》
 - 输出：《调整任务清单》+《设计方案Vn+1》
 - 触发：每次评审不通过后自动触发
 
-### 与🐍蛇（产品设计）联动
+### 与产品设计联动
 - 触发：结构设计需要调整时
 - 输出：《设计方案Vn+1》（含结构调整说明）
 
-### 与🐑羊（AI生图）联动
+### 与AI生图联动
 - 触发：Prompt需要调整时
 - 输出：《Prompt迭代记录》（含调整前后对比）
 
-### 与🐵猴（参数调优）联动
+### 与 ⚙ 能力优化（参数调优）联动
 - 触发：渲染参数需要调整时
 - 输出：《最优参数配置表Vn+1》
 
@@ -248,7 +273,7 @@ def send_tracking_report(original_package, adjusted_tasks, evaluation_result):
         "next_action": "request_re-review" if improvement > 0 else "analyze_failure"
     }
     
-    # 3. 发送到🐓鸡（触发重新评审）
+    # 3. 发送到触发重新评审
     try:
         send_to_rooster(tracking_report)
         print(f"✅ 追踪报告已发送: {tracking_report['tracking_id']}")
@@ -324,8 +349,8 @@ def calculate_avg_time(tasks):
 ```json
 {
   "linkage_package_id": "LP-2026-0618-001",
-  "source": "🐓 鸡 (zheng10-design-reviewer)",
-  "target": "🐲 龙二 (zheng10-design-adjuster)",
+  "source": "🐓 鸡 (设计评审)",
+  "target": "🐵 猴 (zheng10-design-adjuster)",
   "timestamp": "2026-06-18T15:45:00",
   "adjustment_tasks": [...],
   "context": {...}
@@ -336,7 +361,7 @@ def calculate_avg_time(tasks):
 ```json
 {
   "ack": true,
-  "receiver": "🐲 龙二 (zheng10-design-adjuster)",
+  "receiver": "🐵 猴 (zheng10-design-adjuster)",
   "package_id": "LP-2026-0618-001",
   "received_at": "2026-06-18T15:45:03",
   "estimated_completion": "30分钟内",
@@ -347,7 +372,7 @@ def calculate_avg_time(tasks):
 
 **超时处理**:
 - 如果>5秒未收到ACK → 🐓鸡自动重试（最多3次）
-- 如果3次都失败 → 🐓鸡标记为"🐲龙二响应异常"，转人工处理
+- 如果3次都失败 → 🐓鸡标记为"🐵猴响应异常"，转人工处理
 
 ### 接口2: 发送调整效果追踪报告
 
@@ -375,10 +400,10 @@ def calculate_avg_time(tasks):
 **方法**: `request_re_review(tracking_report)`
 
 **流程**:
-1. 🐲龙二发送追踪报告到🐓鸡
+1. 🐵猴发送追踪报告到🐓鸡
 2. 🐓鸡接收报告，自动触发重新评审
 3. 🐓鸡返回新的评审结果（《生图评审报告》v2）
-4. 🐲龙二接收新评审结果，对比评分改善度
+4. 🐵猴接收新评审结果，对比评分改善度
 5. 如果评分≥7.5 → 结束；否则 → 继续调整
 
 ---
@@ -391,7 +416,7 @@ def calculate_avg_time(tasks):
 - [x] Phase 1.2: ACK确认机制（增加重试逻辑）
 - [x] Phase 1.3: 调整效果追踪回传（完整实现）
 - [x] Phase 1.4: 与🐓鸡v7.0联动接口规范
-- [ ] 测试: 模拟完整评审→调整链（🐓鸡→🐲龙二→🐓鸡）
+- [ ] 测试: 模拟完整评审→调整链（🐓鸡→🐵猴→🐓鸡）
 - [ ] 验证: 评分从7.1提升到≥7.5
 - [ ] 文档: 更新README和examples
 
@@ -504,30 +529,30 @@ else:
 }
 ```
 
-### 4.3 与十四生肖团其他Agent的联动
+### 4.3 与十二生肖团其他Agent的联动
 
-**联动链1：🐔→🐲二→🐔（评审→调整→评审）**
+**联动链1：🐔→🐵猴→🐔（评审→调整→评审）**
 ```
 🐔评审完成 → 识别需要调整的问题
-→ 调用🐲二执行设计调整
-→ 🐲二调整完成 → 调用🐔重新评审
-→ 🐔评审完成 → 🐲二追踪调整效果
+→ 由本技能（🐵猴）执行设计调整
+→ 🐵猴调整完成 → 调用🐔重新评审
+→ 🐔评审完成 → 🐵猴追踪调整效果
 → 生成调整效果报告
 ```
 
-**联动链2：🐲二→🐍→🐑（调整→产品设计→AI生图）**
+**联动链2：🐵猴→🐍→🐑（调整→产品设计→AI生图）**
 ```
-🐲二接收调整任务 → 调用🐍进行产品设计优化
+🐵猴接收调整任务 → 调用🐍进行产品设计优化
 → 🐍设计完成 → 调用🐑使用新参数生图
-→ 🐑生图完成 → 🐲二评估生图效果
+→ 🐑生图完成 → 🐵猴评估生图效果
 → 生成调整+生图综合报告
 ```
 
-**联动链3：🐲二→🐵（调整→参数调优）**
+**联动链3：🐵猴→⚙ skill-optimizer（调整→参数调优）**
 ```
-🐲二识别需要调整的参数
-→ 调用🐵进行参数调优
-→ 🐵调优完成 → 🐲二应用调优参数
+🐵猴识别需要调整的参数
+→ 调用 ⚙ 能力优化 进行参数调优
+→ ⚙ 调优完成 → 🐵猴应用调优参数
 → 生成调整+调优综合报告
 ```
 
@@ -578,7 +603,7 @@ T+24h: 完成所有迭代（最多3次迭代）
 
 ### ComfyUI API集成
 
-- **统一指南**: `H:/AI日记/Claw/十二生肖团_ComfyUI_API集成统一指南_V1.0_2026-06-18.md`
+- **统一指南**: `<架构根目录>/docs/生肖团能力指南/十二生肖团_ComfyUI_API集成统一指南_V1.0_2026-06-18.md`
   - 所有API接口调用示例
   - 工作流JSON模板说明
   - 错误处理与性能优化
@@ -587,9 +612,49 @@ T+24h: 完成所有迭代（最多3次迭代）
 
 | 文档 | 路径 | 说明 |
 |------|------|------|
-| ComfyUI安装指南 | `H:/AI日记/Claw/ComfyUI_安装与API化指南_V1.0.md` | 安装与配置 |
-| ComfyUI API调用指南 | `H:/AI日记/Claw/ComfyUI_工作流API调用指南_V1.0.md` | 详细API文档 |
-| ComfyUI工作流模板库 | `H:/AI日记/Claw/ComfyUI_工作流模板库_V1.0.md` | 工作流模板 |
-| 框架报告V8.0 | `H:/AI日记/Claw/十二生肖团_完整详细框架报告_V8.0_2026-06-18.md` | 最新框架 |
+| ComfyUI安装指南 | `<架构根目录>/docs/生肖团能力指南/ComfyUI_安装与API化指南_V1.0_2026-06-18.md` | 安装与配置 |
+| ComfyUI API调用指南 | `<架构根目录>/docs/生肖团能力指南/ComfyUI_工作流API调用指南_V1.0_2026-06-18.md` | 详细API文档 |
+| ComfyUI工作流模板库 | `<架构根目录>/docs/生肖团能力指南/ComfyUI_工作流模板库_V2.0_2026-06-18.md` | 工作流模板 |
+| 框架报告V8.0 | `<架构根目录>/docs/生肖团能力指南/十二生肖团_完整详细框架报告_V8.0_2026-06-18.md` | 最新框架 |
 
 ---
+
+---
+
+---
+
+---
+
+---
+
+## 📚 资料总线（H 盘资料入口）
+
+> 本技能可读的 H 盘资料已登记在**资料总线**，开工前先查一遍 —— 避免"重复造轮子"和"翻不到料"。
+
+```bash
+python <本地资源路径> --role design-adjuster
+python <本地资源路径> --kw <关键词>      # 元数据层：找「有哪些资料」
+python <本地资源路径> --wb             # 工作台可挂载的料
+python <本地资源路径> "一句话需求"    # 语义层：在 1.2 万篇业务库正文里找「哪一段」
+python <本地资源路径> --role design-adjuster "..."  # 限定本角色的资料范围内检索
+```
+
+**全量索引**：`<本地资源路径>` ｜ **清单**：`<本地资源路径>`
+
+### ✅ 本角色开工必读（硬清单 · 先读再用）
+
+| 文件 | 路径 | 为什么读 |
+|---|---|---|
+| ✅ 保温杯设计检查项·总表 V1.0 | `<本地资源路径>` | 立项/打样/出图前逐项自查（79 条：合规红线 / 结构 / 弹跳盖卡扣 / 密封 / DFM / 外观 / 专利 / 生图）；**附A 是一票否决清单** |
+
+| 资料 | 路径 | 体量 | 用途 |
+|---|---|---|---|
+| `iter.log` | `<本地资源路径>` | 82 KB | 迭代基线对比 |
+
+**硬数据优先**：凡涉及国标限值、材料参数、专利红线、竞品价格，**必须以本总线登记的真实文件为准**，不得凭记忆作答。
+
+**出图/交付**：32 个标准提示词模板见 `<本地资源路径>`（结构化索引 `prompt_templates.json`，含分类/变量/正文/示例）。
+
+> 两个入口分工：`lookup.py` 查**目录元数据**（有哪些资料、多大、谁能用）；`core_lookup.py` 查**内容语义**（哪份文件的哪一段讲了这件事）。
+
+<!-- 资料总线区块结束 -->

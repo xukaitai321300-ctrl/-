@@ -1,20 +1,29 @@
 ---
+version: "7.2.4"
+author: "猴哥（十二生肖团）"
 name: zheng10-sd-comfy-expert
-description: "auto-generated: skill package 'zheng10-sd-comfy-expert' (ComfyUI工作流优化专家)"
+display_name: "ComfyUI 工作流架构师（马）"
+display_name_en: "Sd Comfy Expert"
+name_en: "zheng10-sd-comfy-expert"
+description_zh: "ComfyUI 工作流架构师（马）。搭建、优化与调试用于产品图生成的 ComfyUI 工作流，含性能优化与自动诊断；信条「工作流优先，好工作流 = 50% 出图质量，缺陷预防 > 缺陷修复」。适用于工作流设计、参数调优与故障排查。"
+description_en: "Zodiac team execution-layer skill: Sd Comfy Expert. (See description_zh for full details.)"
+description: "ComfyUI 工作流架构师（马）。搭建、优化与调试用于产品图生成的 ComfyUI 工作流，含性能优化与自动诊断；信条「工作流优先，好工作流 = 50% 出图质量，缺陷预防 > 缺陷修复」。适用于工作流设计、参数调优与故障排查。"
 license: MIT
 metadata:
   author: 猴哥
-  version: "7.2"
+  version: "7.2.4"
   previous_version: "7.0"
   upgrade_reason: "新增Phase 8: 工作流性能优化与自动诊断"
-  upgrade_date: "2026-06-19"
-  tags: ["comfyui", "workflow-optimization", "performance-tuning", "auto-diagnostics"]
-  generated_date: "2026-06-15"
+  upgrade_date: 2026-06-19
+  tags:
+    - (外部生图引擎)
+    - workflow-optimization
+    - performance-tuning
+    - auto-diagnostics
+  generated_date: 2026-06-15
   classification: P1-auto-standardized
+when_to_use: "在涉及「sd-comfy-expert」职责的任务中调用本技能；ComfyUI 工作流架构师（马）。"
 ---
-
-
-
 > 💡 **Prompt 优化提示**：本文件包含多个章节，AI 应根据当前任务类型只读取相关章节，跳过无关部分。
 > - 任务分发/协调：读取"执行层"和"联动规则"章节
 > - 需求分析：读取"需求分析框架"章节
@@ -22,7 +31,7 @@ metadata:
 > - 质量评审：读取"评审标准"章节
 
 
-# ComfyUI Workflow Optimization — 马 (Horse) v7.0
+# ComfyUI Workflow Optimization — 马 (Horse) v7.2
 
 **Role**: ComfyUI workflow architect. Build, optimize, and debug ComfyUI workflows for product image generation.
 
@@ -95,6 +104,8 @@ When receiving a task from 鼠 (Rat), analyze:
 | **Plastic texture** | `Texture Enhancer` (Custom Node) | Add anisotropic reflection, metallic texture | Metallic: 0.8, Roughness: 0.3 |
 | **Asymmetric lid** | `Symmetry Checker` (Custom Node) | Detect + warn if lid asymmetric | Threshold: 0.02 (2% asymmetry) |
 
+> ⚠️ **节点真实性修正（2026-09）**：表中「Custom Node」标注含糊，易让人以为都要自己写。实际——`FaceDetailer` 来自 **ComfyUI-Impact-Pack**（真实节点，需先装该包）；`CodeFormer` 来自 **ComfyUI-CodeFormer**（真实节点）。`Sharpener`/`Color Correct` 在 ComfyUI 原生或 Impact-Pack 有对应。`Texture Enhancer` 需社区包（如 ComfyUI_essentials / 部分 LoRA 节点）。**`Symmetry Checker` 不是标准 ComfyUI 节点**——杯盖对称检测请勿在节点库硬找，改用 FaceDetailer 的 bbox 逻辑或生成后脚本/OpenCV 后处理（参考 §5.10 A-23 圆度检测）。
+
 **Workflow Integration Example**:
 > 📄 代码已提取到 `references\code_05.python`（12 行，655 字节）
 > 需要查看完整代码时请读取该文件。
@@ -118,6 +129,12 @@ When receiving a task from 鼠 (Rat), analyze:
 | OpenPose | control_v11p_sd15_openpose_fp16.safetensors | Human pose control | 0.7~1.0 | 0.0 | 1.0 |
 | Lineart | control_v11p_sd15_lineart_fp16.safetensors | Product line art style | 0.6~0.9 | 0.0 | 0.9 |
 | Scribble | control_v11p_sd15_scribble_fp16.safetensors | Sketch-to-image | 0.5~0.8 | 0.0 | 0.8 |
+
+> ⚠️ **SDXL 修正（2026-09，避坑）**：上表 `_sd15_` 模型是 **SD1.5 专用 ControlNet**，直接挂在 `sd_xl_base_1.0` 底模上会报错或失效。保温杯产线已切 **SDXL**，请改用 SDXL 版 ControlNet：
+> - Canny → `control-lora-canny-rank256.safetensors`（Control LoRA，轻量）或 `xinsir/controlnet-canny-sdxl-1.0`
+> - Depth → `controlnet-depth-sdxl-1.0`；OpenPose → `controlnet-openpose-sdxl-1.0`
+> - Lineart → `controlnet-lineart-sdxl-1.0`；Scribble → `controlnet-scribble-sdxl-1.0`
+> 权重区间（0.8/0.7/…）仍适用；**多组叠加总权重 ≤2.0**，Depth 必须 ≤0.7（防杯身变扁 S-70）。
 **ControlNet Config Template**:
 > 📄 代码已提取到 `references\code_06.txt`（5 行，144 字节）
 > 需要查看完整代码时请读取该文件。
@@ -227,7 +244,7 @@ After building the workflow, output API-compatible JSON:
 
 
 
-**Save to**: `E:/AI日记/Claw/comfyui_workflows/[workflow_name].json`
+**Save to**: `<COMFYUI_ROOT>/user/default/workflows/[workflow_name].json`（2026-09 修正：原 `<架构根目录>/...` 路径非本机 ComfyUI 实际目录；本机 ComfyUI 为 `<COMFYUI_ROOT>`，API 端口 127.0.0.1:8188）
 
 ---
 
@@ -313,7 +330,7 @@ Output Quality Checklist (ALL agents MUST verify):
 
 {
   "timestamp": "2026-06-04T14:30:00+08:00",
-  "agent_id": "zheng10-comfyui-core",
+  "agent_id": "ComfyUI 核心",
   "task_id": "gen_20260604_001",
   "status": "success",
   "result": {
@@ -336,7 +353,7 @@ Output Quality Checklist (ALL agents MUST verify):
 
 # Market Research Report (Partial)
 
-**Agent**: zheng10-competitor-analyst
+**Agent**: 竞品分析
 **Timestamp**: 2026-06-04T14:45:00+08:00
 **Task ID**: research_20260604_003
 
@@ -364,7 +381,7 @@ Need to scrape pricing data for NEW entrant (brand: "ThermoMaster").
 
 {
   "timestamp": "2026-06-04T15:00:00+08:00",
-  "agent_id": "zheng10-comfyui-parameter-tuning",
+  "agent_id": "ComfyUI 参数调优",
   "task_id": "tune_20260604_002",
   "status": "failed",
   "result": {
@@ -385,17 +402,17 @@ Need to scrape pricing data for NEW entrant (brand: "ThermoMaster").
 > 需要查看完整代码时请读取该文件。
 
 
-Level 1: Daily Log (E:/AI日记/Claw/.workbuddy/memory/YYYY-MM-DD.md)
+Level 1: Daily Log (<架构根目录>/.workbuddy/memory/YYYY-MM-DD.md)
   - Append-only, max 500 lines/day
   - Auto-trigger: End of session OR >500 lines
   - Compression: Keep only key decisions + errors
 
-Level 2: Weekly Summary (E:/AI日记/Claw/.workbuddy/memory/weekly/YYYY-WW.md)
+Level 2: Weekly Summary (<架构根目录>/.workbuddy/memory/weekly/YYYY-WW.md)
   - Extract from daily logs (last 7 days)
   - Categories: Decisions / Errors / Optimizations / User Feedback
   - Max 200 lines/week
 
-Level 3: Monthly Digest (E:/AI日记/Claw/.workbuddy/memory/MEMORY.md)
+Level 3: Monthly Digest (<架构根目录>/.workbuddy/memory/MEMORY.md)
   - Extract from weekly summaries (last 4 weeks)
   - Keep only: Long-term preferences / Cross-project conventions / Skill versions
   - Max 3000 chars (hard limit)
@@ -472,7 +489,7 @@ def retrieve_memory(query, max_results=5):
     )
     weekly_results = search_recent_weeks(keywords, weeks=2)
     today_results = search_file(
-        f"E:/AI日记/Claw/.workbuddy/memory/{get_today()}.md",
+        f"<架构根目录>/.workbuddy/memory/{get_today()}.md",
         keywords
     )
     all_results = long_term_results + weekly_results + today_results
@@ -524,7 +541,7 @@ class SkillRatingSystem:
 
 
 class CaseDatabase:
-    def __init__(self, db_path="E:/AI日记/Claw/.workbuddy/learning_db/"):
+    def __init__(self, db_path="<架构根目录>/.workbuddy/learning_db/"):
   ... (省略中间部分) ...
             "task_type": task_type,
             "input_params": input_params,
@@ -598,13 +615,13 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_33.txt`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_33.txt`（2 行，35 字节）
+> 📄 完整代码见 `references/code_block_33.txt`（1046 字节）
 > 需要查看完整代码时请读取该文件。
 
 
 
 
-#### 示例 2: 鸡（Rooster）输出示例
+#### 示例 2: Rooster输出示例
 > 📄 代码已提取到 `references\code_34.txt`（12 行，175 字节）
 > 需要查看完整代码时请读取该文件。
 
@@ -634,7 +651,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_37.json`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_37.txt`（2 行，36 字节）
+> 📄 完整代码见 `references/code_block_37.json`（559 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -643,7 +660,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 #### 验证失败处理:
 1. **验证失败** → 返回详细错误信息（JSON Schema 验证错误）
 2. **自动修复** → 尝试自动修复（填充缺失字段/修正数据类型）
-3. **人工介入** → 如果自动修复失败，上报给 鼠（Rat）进行人工介入
+3. **人工介入** → 如果自动修复失败，上报给 Rat进行人工介入
 
 ---
 
@@ -662,7 +679,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 
 > **⚠️ 重要**: 输出模板精细化优化是 **v4.3** 的核心改进。所有 Agent 必须严格遵循标准化模板，确保输出一致性。
 
-**⚠️ 所有生肖团成员必须严格遵守以下条令（违反任一 = 失效）**
+**⚠️ 所有生肖团职能必须严格遵守以下条令（违反任一 = 失效）**
 
 ---
 
@@ -753,13 +770,13 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 
 ---
 
-### 条令 7: 必须尊重角色 (MANDATORY Role Respect)
+### 条令 7: 必须尊重职能 (MANDATORY Role Respect)
 > 📄 代码已提取到 `references\code_49.txt`（6 行，249 字节）
 > 需要查看完整代码时请读取该文件。
 
 
-**角色边界 (Role Boundaries)**:
-| 角色 | 可以做的 | 不可以做的 |
+**职能边界 (Role Boundaries)**:
+| 职能 | 可以做的 | 不可以做的 |
 |------|----------|------------|
 | 鼠 (Rat) | 需求分析、任务分拣、协调 | 直接生成图像 |
 | 虎 (Tiger) | 图像采集、搜索、下载 | 图像质量评审 |
@@ -795,7 +812,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_53.python`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_53.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_53.python`（863 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -847,7 +864,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_59.python`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_59.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_59.python`（674 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -861,7 +878,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_61.python`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_61.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_61.python`（744 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -889,7 +906,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 - > [引用] 完整代码已提取到 `references\code_block_62.json`（22 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_62.txt`（2 行，36 字节）
+> 📄 完整代码见 `references/code_block_62.json`（792 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -897,7 +914,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_63.txt`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_63.txt`（2 行，35 字节）
+> 📄 完整代码见 `references/code_block_63.txt`（689 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -907,7 +924,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_64.txt`（47 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_64.txt`（2 行，35 字节）
+> 📄 完整代码见 `references/code_block_64.txt`（1674 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -915,11 +932,11 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_65.txt`（23 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_65.txt`（2 行，35 字节）
+> 📄 完整代码见 `references/code_block_65.txt`（654 字节）
 > 需要查看完整代码时请读取该文件。
 
 
-json
+```json
 - {
 - "modality": "image+text",
 - "inputs": {
@@ -949,10 +966,11 @@ json
 - **Branch Strategy**: main (stable), dev (testing), feat/* (new features)
 
 ### B. Version Comparison Mechanism
+```
 > [引用] 完整代码已提取到 `references\code_block_66.python`（20 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_66.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_66.python`（766 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -968,7 +986,7 @@ json
 > [引用] 完整代码已提取到 `references\code_block_68.python`（27 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_68.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_68.python`（823 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -989,13 +1007,15 @@ json
 
 ---
 
-## Prompt Library: comfyui_presets
+## Prompt Library: (外部生图引擎)_presets
 
 | 预设名称 | Checkpoint | LoRA | Sampler |
 |----------|-------------|------|---------|
 | 保温杯（圆柱形）生图预设 | v1-5-pruned-emaonly.safetensors | vacuum-cup-v1.safetensors | DPM++ 2M Karras |
 | 饭盒（宽口）生图预设 | v1-5-pruned-emaonly.safetensors | food-jar-v1.safetensors | DPM++ 2M Karras |
 | 水壶（带手柄）生图预设 | v1-5-pruned-emaonly.safetensors | water-bottle-v1.safetensors | DPM++ 2M Karras |
+
+> ⚠️ **底模修正（2026-09）**：上表 Checkpoint `v1-5-pruned-emaonly` 为 **SD1.5**，已不适用于当前产线。保温杯/饮具生图现统一用 **`sd_xl_base_1.0`**（SDXL），采样器 **`DPM++ 2M SDE` / `Karras`**（验证 A 级），LoRA 改用 `zodiac_*` 系列（见 `(外部出图工作流)` §3.2）。SD1.5 预设仅作历史参考，新工作流请勿沿用。
 
 **完整配置见** `prompt_library.json`
 
@@ -1025,7 +1045,7 @@ json
 > [引用] 完整代码已提取到 `references\code_block_69.python`（38 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_69.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_69.python`（1496 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1038,7 +1058,7 @@ json
 > [引用] 完整代码已提取到 `references\code_block_70.python`（62 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_70.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_70.python`（2926 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1053,7 +1073,7 @@ json
 > [引用] 完整代码已提取到 `references\code_block_71.python`（27 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_71.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_71.python`（1045 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1074,7 +1094,7 @@ json
 > [引用] 完整代码已提取到 `references\code_block_72.python`（58 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_72.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_72.python`（2839 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1085,7 +1105,7 @@ json
 > [引用] 完整代码已提取到 `references\code_block_73.python`（35 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_73.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_73.python`（1340 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1101,7 +1121,7 @@ json
 > [引用] 完整代码已提取到 `references\code_block_74.txt`（20 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_74.txt`（2 行，35 字节）
+> 📄 完整代码见 `references/code_block_74.txt`（1064 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1162,7 +1182,7 @@ json
 
 ### Usage
 
-当需要此技能时，按以下步骤执行：
+当需要此能力时，按以下步骤执行：
 
 1. **理解需求**: 明确用户的核心意图
 2. **调用流程**: 按照核心职责定义执行
@@ -1178,12 +1198,6 @@ json
 
 ## 语言说明
 本文档使用简体中文编写，请确保所有操作输出也为中文。
-
-## Language Note
-建议使用中文输出。
-
-## Language Note
-建议使用中文输出。
 
 ---
 
@@ -1311,7 +1325,7 @@ elif performance_metrics["model_load_time"] > 10:
 
 本Skill聚焦工作流优化，ComfyUI API调用的详细实现请参考独立指南：
 
-**文档路径**: `H:/AI日记/Claw/ComfyUI_工作流API调用指南_V1.0_2026-06-18.md`
+**文档路径**: `<架构根目录>/docs/生肖团能力指南/ComfyUI_工作流API调用指南_V1.0_2026-06-18.md`
 
 **指南内容**:
 1. ComfyUI API接口概述
@@ -1328,7 +1342,7 @@ elif performance_metrics["model_load_time"] > 10:
 pip install requests websocket-client Pillow
 
 # 2. 使用示例
-from comfyui_client import ComfyUIClient
+from (外部生图引擎)_client import ComfyUIClient
 
 client = ComfyUIClient()
 with open("workflow_api.json", "r") as f:
@@ -1339,3 +1353,61 @@ outputs = client.wait_for_completion(result["prompt_id"])
 ```
 
 > 💡 **提示**: 详细代码和说明请阅读独立指南文档。
+
+---
+
+---
+
+---
+
+---
+
+## 📚 资料总线（H 盘资料入口）
+
+> 本技能可读的 H 盘资料已登记在**资料总线**，开工前先查一遍 —— 避免"重复造轮子"和"翻不到料"。
+
+```bash
+python <本地资源路径> --role sd-comfy-expert
+python <本地资源路径> --kw <关键词>      # 元数据层：找「有哪些资料」
+python <本地资源路径> --wb             # 工作台可挂载的料
+python <本地资源路径> "一句话需求"    # 语义层：在 1.2 万篇业务库正文里找「哪一段」
+python <本地资源路径> --role sd-comfy-expert "..."  # 限定本角色的资料范围内检索
+```
+
+**全量索引**：`<本地资源路径>` ｜ **清单**：`<本地资源路径>`
+
+### ✅ 本角色开工必读（硬清单 · 先读再用）
+
+| 文件 | 路径 | 为什么读 |
+|---|---|---|
+| ✅ 保温杯设计检查项·总表 V1.0 | `<本地资源路径>` | 立项/打样/出图前逐项自查（79 条：合规红线 / 结构 / 弹跳盖卡扣 / 密封 / DFM / 外观 / 专利 / 生图）；**附A 是一票否决清单** |
+
+| 资料 | 路径 | 体量 | 用途 |
+|---|---|---|---|
+| `asset.cfwf` | `<本地资源路径>` | 1 MB | ✅ 工作流调用 |
+| `asset.testfw` | `<本地资源路径>` | 10 MB | 生图 / 测试 |
+| `prompt.render` | `<本地资源路径> 渲染提示词` | 297 KB | ✅ 渲染参数 |
+| `prompt.tpl` | `<本地资源路径>` | 61 KB | ✅ 出图提示词直接调用 / 锁定约束条件 |
+| `rep.analysis` | `<本地资源路径>` | 727 KB | 出图质量对比 |
+
+**硬数据优先**：凡涉及国标限值、材料参数、专利红线、竞品价格，**必须以本总线登记的真实文件为准**，不得凭记忆作答。
+
+**出图/交付**：32 个标准提示词模板见 `<本地资源路径>`（结构化索引 `prompt_templates.json`，含分类/变量/正文/示例）。
+
+> 两个入口分工：`lookup.py` 查**目录元数据**（有哪些资料、多大、谁能用）；`core_lookup.py` 查**内容语义**（哪份文件的哪一段讲了这件事）。
+
+<!-- 资料总线区块结束 -->
+
+
+## 配套能力调用（本技能只做主责，其余功能按需点名调用）
+
+> 规则：**不要**把配套能力的能力顺手做在本技能里；需要哪段功能，就点名调谁。
+> 配套能力已设为「仅手动调用」（`disable-model-invocation: true`），只能被点名，不会自己冒出来。
+
+| 我需要 | 就调它 | 别自己硬做 |
+|---|---|---|
+| 要训练或加载速凡风格 LoRA | `(外部 LoRA 训练资料)`、`(外部 LoRA 工作流)` | `(外部模型合并工具)`、`(外部桥接工具)` |
+| 提示词写得不好，画面不对 | `(外部提示词工具)`、`(外部提示词优化)`、`(外部提示词优化)` | `(外部提示词专家)`、`(外部提示词范式)` |
+| 要出一张写实的保温杯产品图 | `(外部出图工作流)`、`(外部写实基座模型)`、`(外部写实基座模型)` | `(外部生图引擎，运行时按需调用)`、`(外部生图运行器)` |
+
+完整矩阵见 `references/配套能力调用表.md`。

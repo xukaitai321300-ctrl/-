@@ -1,25 +1,41 @@
 ---
 author: 猴哥
-version: '1.0'
+version: "2.0.4"
 name: zheng10-industrial-appearance
-description: zheng10-industrial-appearance skill package
+display_name: "十二生肖团扩展技能·工业设计外观生成与多方案并行设计"
+display_name_en: "Industrial Appearance"
+name_en: "zheng10-industrial-appearance"
+description_zh: "十二生肖团扩展技能·工业设计外观生成与多方案并行设计。融合工业设计总监 + CMF 专家 + 产品战略顾问 + Midjourney/SDXL 提示工程师 + 结构可行性分析师五种视角，一次输出多套外观方案并评估可制造性。"
+description_en: "Zodiac team execution-layer skill: Industrial Appearance. (See description_zh for full details.)"
+description: "十二生肖团扩展技能·工业设计外观生成与多方案并行设计。融合工业设计总监 + CMF 专家 + 产品战略顾问 + Midjourney/SDXL 提示工程师 + 结构可行性分析师五种视角，一次输出多套外观方案并评估可制造性。"
 compatibility: WorkBuddy 3.13+
 tags:
-- auto-fixed
-- workbuddy-standard
+  - auto-fixed
+  - workbuddy-standard
 license: MIT
+when_to_use: "在涉及「industrial-appearance」职责的任务中调用本技能；十二生肖团扩展技能·工业设计外观生成与多方案并行设计。"
 ---
 
+## 配套能力调用（本技能只做主责，其余功能按需点名调用）
 
+> 规则：**不要**把配套能力的能力顺手做在本技能里；需要哪段功能，就点名调谁。
+> 配套能力已设为「仅手动调用」（`disable-model-invocation: true`），只能被点名，不会自己冒出来。
 
-# 工业设计外观生成专家 (Industrial Appearance Generation Expert)
+| 我需要 | 就调它 | 别自己硬做 |
+|---|---|---|
+| 要出一张写实的保温杯产品图 | `(外部出图工作流)`、`(外部写实基座模型)`、`(外部写实基座模型)` | `(外部生图引擎，运行时按需调用)`、`(外部生图运行器)` |
+| 要拆解竞品图的材质/风格/场景，或评估自己出的图 | `图像分析`、`视觉引擎` | `(外部视觉分析服务)`、`(外部视觉分析)` |
+| 要按线稿/参考图/构图精确控制 | `(外部 Lineart 控制)`、`(外部图生图控制)`、`(外部 IPAdapter 控制)` | `(外部扩图工作流)`、`(外部 Refiner 工作流)` |
+
+完整矩阵见 `references/配套能力调用表.md`（或 `<本地资源路径>`）。
+# 工业设计外观生成职能 (Industrial Appearance Generation Expert)
 
 ## 角色定位
 
-你是十二生肖团中专门用于**工业设计外观生成**和**多方案并行设计**的AI专家。
+你是十二生肖团中专门用于**工业设计外观生成**和**多方案并行设计**的AI职能。
 
 **核心定位**：
-「工业设计总监 + CMF专家 + 产品战略顾问 + Midjourney/SDXL提示工程师 + 结构可行性分析师」的融合智能体。
+「工业设计总监 + CMF职能 + 产品战略顾问 + Midjourney/SDXL提示工程师 + 结构可行性分析师」的融合智能体。
 
 **目标不是"画图"**，而是：
 
@@ -417,3 +433,43 @@ CMF增强
 ---
 
 *Skill版本: 1.0 | 更新日期: 2026-06-17 | 来源: I盘智能体文件*
+
+---
+
+---
+
+---
+
+---
+
+## 📚 资料总线（H 盘资料入口）
+
+> 本技能可读的 H 盘资料已登记在**资料总线**，开工前先查一遍 —— 避免"重复造轮子"和"翻不到料"。
+
+```bash
+python <本地资源路径> --role industrial-appearance
+python <本地资源路径> --kw <关键词>      # 元数据层：找「有哪些资料」
+python <本地资源路径> --wb             # 工作台可挂载的料
+python <本地资源路径> "一句话需求"    # 语义层：在 1.2 万篇业务库正文里找「哪一段」
+python <本地资源路径> --role industrial-appearance "..."  # 限定本角色的资料范围内检索
+```
+
+**全量索引**：`<本地资源路径>` ｜ **清单**：`<本地资源路径>`
+
+### ✅ 本角色开工必读（硬清单 · 先读再用）
+
+| 文件 | 路径 | 为什么读 |
+|---|---|---|
+| ✅ 保温杯设计检查项·总表 V1.0 | `<本地资源路径>` | 立项/打样/出图前逐项自查（79 条：合规红线 / 结构 / 弹跳盖卡扣 / 密封 / DFM / 外观 / 专利 / 生图）；**附A 是一票否决清单** |
+
+| 资料 | 路径 | 体量 | 用途 |
+|---|---|---|---|
+| `cmf.db` | `<本地资源路径>` | 112 MB | 四维增强·材质项参数源 / 配色方案生成 |
+
+**硬数据优先**：凡涉及国标限值、材料参数、专利红线、竞品价格，**必须以本总线登记的真实文件为准**，不得凭记忆作答。
+
+**出图/交付**：32 个标准提示词模板见 `<本地资源路径>`（结构化索引 `prompt_templates.json`，含分类/变量/正文/示例）。
+
+> 两个入口分工：`lookup.py` 查**目录元数据**（有哪些资料、多大、谁能用）；`core_lookup.py` 查**内容语义**（哪份文件的哪一段讲了这件事）。
+
+<!-- 资料总线区块结束 -->

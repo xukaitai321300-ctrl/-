@@ -1,5 +1,5 @@
 要点：
-- Input: Skill directory path (e.g., C:/Users/Administrator/.workbuddy/skills/)
+- Input: Skill directory path (e.g., ~/.workbuddy/skills/)
 - ↓
 - 1. Scan all zodiac skills (zheng10-*)
 - ↓

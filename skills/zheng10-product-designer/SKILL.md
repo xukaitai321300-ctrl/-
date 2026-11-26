@@ -1,18 +1,39 @@
 ---
+version: "7.0.4"
+author: "猴哥（十二生肖团）"
 name: zheng10-product-designer
-description: "auto-generated: skill package 'zheng10-product-designer' (awaiting human review)"
+display_name: "出方案、做变款、新品概念设计、给保温杯定结构时使用"
+display_name_en: "Product Designer"
+name_en: "zheng10-product-designer"
+description_zh: "出方案、做变款、新品概念设计、给保温杯定结构时使用。产品设计专家（蛇）：为真空保温杯/杯壶输出可制造且可 AI 生成的产品设计方案；缺陷预防从设计阶段开始，含接收鸡的结构化评审反馈并驱动 Design2Prompt 规则优化。适用于新品概念设计、结构方案与设计迭代。"
+description_en: "Zodiac team execution-layer skill: Product Designer. (See description_zh for full details.)"
+description: "出方案、做变款、新品概念设计、给保温杯定结构时使用。产品设计专家（蛇）：为真空保温杯/杯壶输出可制造且可 AI 生成的产品设计方案；缺陷预防从设计阶段开始，含接收鸡的结构化评审反馈并驱动 Design2Prompt 规则优化。适用于新品概念设计、结构方案与设计迭代。"
 license: MIT
 metadata:
   author: WorkBuddy
-  version: "7.0"
-  tags: ["design", "ui-ux", "feedback-integration"]
-  generated_date: "2026-06-15"
-  last_updated: "2026-06-18"
+  version: "7.0.4"
+  tags:
+    - design
+    - ui-ux
+    - feedback-integration
+  generated_date: 2026-06-15
+  last_updated: 2026-06-18
   classification: P1-auto-standardized
+when_to_use: "在涉及「product-designer」职责的任务中调用本技能；出方案、做变款、新品概念设计、给保温杯定结构时使用。"
 ---
 
+## 配套能力调用（本技能只做主责，其余功能按需点名调用）
 
+> 规则：**不要**把配套能力的能力顺手做在本技能里；需要哪段功能，就点名调谁。
+> 配套能力已设为「仅手动调用」（`disable-model-invocation: true`），只能被点名，不会自己冒出来。
 
+| 我需要 | 就调它 | 别自己硬做 |
+|---|---|---|
+| 要算成本、判断能不能量产 | `成本分析` | — |
+| 要对标国标条款（如 GB/T 29606） | `标准分析` | — |
+| 要训练或加载速凡风格 LoRA | `(外部 LoRA 训练资料)`、`(外部 LoRA 工作流)` | `(外部模型合并工具)`、`(外部桥接工具)` |
+
+完整矩阵见 `references/配套能力调用表.md`（或 `<本地资源路径>`）。
 > 💡 **Prompt 优化提示**：本文件包含多个章节，AI 应根据当前任务类型只读取相关章节，跳过无关部分。
 > - 任务分发/协调：读取"执行层"和"联动规则"章节
 > - 需求分析：读取"需求分析框架"章节
@@ -40,7 +61,7 @@ metadata:
 ```json
 {
   "metadata": {
-    "source_agent": "zheng10-design-reviewer",
+    "source_agent": "设计评审",
     "target_agent": "zheng10-product-designer",
     "feedback_type": "design2prompt_optimization",
     "timestamp": "2026-06-18T08:30:00+08:00"
@@ -128,7 +149,7 @@ def receive_rooster_feedback(feedback_json):
     # 6. 记录到版本历史
     log_rule_change(
         change_log=change_log,
-        feedback_source="zheng10-design-reviewer",
+        feedback_source="设计评审",
         timestamp=feedback["metadata"]["timestamp"]
     )
     
@@ -187,7 +208,7 @@ def update_style_mapping_rules(rules, aspect, root_cause, suggested_fix):
 {
   "version": "v7.0",
   "last_updated": "2026-06-18T08:30:00+08:00",
-  "last_feedback_source": "zheng10-design-reviewer",
+  "last_feedback_source": "设计评审",
   "material_mapping": {
     "不锈钢": {
       "prompt_keywords": "stainless steel brushed texture, directional brushed grain, metallic reflection anisotropic, high quality brushed finish",
@@ -259,13 +280,13 @@ def verify_design2prompt_improvement(updated_rules, test_design_proposal):
     )
     
     # 2. 调用ComfyUI API生成图像
-    test_image_path = generate_image_via_comfyui(
+    test_image_path = generate_image_via_(外部生图引擎)(
         positive_prompt, negative_prompt, params
     )
     
     # 3. 调用🐓鸡评审（自动化）
     review_report = trigger_skill(
-        "zheng10-design-reviewer",
+        "设计评审",
         input_data={"image_path": test_image_path}
     )
     
@@ -310,8 +331,8 @@ def verify_design2prompt_improvement(updated_rules, test_design_proposal):
 
 **错误处理**:
 - 如果🐍蛇10秒内无响应 → 🐓鸡重试（最多3次）
-- 如果3次失败 → 🐓鸡上报给🐦凤（Evolution Orchestrator）
-- 🐦凤介入协调，或通知🐀鼠（Rat）进行人工干预
+- 如果3次失败 → 🐓鸡上报给⚙进化编排器（Evolution Orchestrator）
+- ⚙进化编排器介入协调，或通知Rat进行人工干预
 
 ---
 
@@ -472,7 +493,7 @@ Output Quality Checklist (ALL agents MUST verify):
 
 {
   "timestamp": "2026-06-04T14:30:00+08:00",
-  "agent_id": "zheng10-comfyui-core",
+  "agent_id": "ComfyUI 核心",
   "task_id": "gen_20260604_001",
   "status": "success",
   "result": {
@@ -495,7 +516,7 @@ Output Quality Checklist (ALL agents MUST verify):
 
 # Market Research Report (Partial)
 
-**Agent**: zheng10-competitor-analyst
+**Agent**: 竞品分析
 **Timestamp**: 2026-06-04T14:45:00+08:00
 **Task ID**: research_20260604_003
 
@@ -523,7 +544,7 @@ Need to scrape pricing data for NEW entrant (brand: "ThermoMaster").
 
 {
   "timestamp": "2026-06-04T15:00:00+08:00",
-  "agent_id": "zheng10-comfyui-parameter-tuning",
+  "agent_id": "ComfyUI 参数调优",
   "task_id": "tune_20260604_002",
   "status": "failed",
   "result": {
@@ -544,17 +565,17 @@ Need to scrape pricing data for NEW entrant (brand: "ThermoMaster").
 > 需要查看完整代码时请读取该文件。
 
 
-Level 1: Daily Log (E:/AI日记/Claw/.workbuddy/memory/YYYY-MM-DD.md)
+Level 1: Daily Log (<架构根目录>/.workbuddy/memory/YYYY-MM-DD.md)
   - Append-only, max 500 lines/day
   - Auto-trigger: End of session OR >500 lines
   - Compression: Keep only key decisions + errors
 
-Level 2: Weekly Summary (E:/AI日记/Claw/.workbuddy/memory/weekly/YYYY-WW.md)
+Level 2: Weekly Summary (<架构根目录>/.workbuddy/memory/weekly/YYYY-WW.md)
   - Extract from daily logs (last 7 days)
   - Categories: Decisions / Errors / Optimizations / User Feedback
   - Max 200 lines/week
 
-Level 3: Monthly Digest (E:/AI日记/Claw/.workbuddy/memory/MEMORY.md)
+Level 3: Monthly Digest (<架构根目录>/.workbuddy/memory/MEMORY.md)
   - Extract from weekly summaries (last 4 weeks)
   - Keep only: Long-term preferences / Cross-project conventions / Skill versions
   - Max 3000 chars (hard limit)
@@ -631,7 +652,7 @@ def retrieve_memory(query, max_results=5):
     )
     weekly_results = search_recent_weeks(keywords, weeks=2)
     today_results = search_file(
-        f"E:/AI日记/Claw/.workbuddy/memory/{get_today()}.md",
+        f"<架构根目录>/.workbuddy/memory/{get_today()}.md",
         keywords
     )
     all_results = long_term_results + weekly_results + today_results
@@ -683,7 +704,7 @@ class SkillRatingSystem:
 
 
 class CaseDatabase:
-    def __init__(self, db_path="E:/AI日记/Claw/.workbuddy/learning_db/"):
+    def __init__(self, db_path="<架构根目录>/.workbuddy/learning_db/"):
   ... (省略中间部分) ...
             "task_type": task_type,
             "input_params": input_params,
@@ -757,13 +778,13 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_23.txt`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_23.txt`（2 行，35 字节）
+> 📄 完整代码见 `references/code_block_23.txt`（1046 字节）
 > 需要查看完整代码时请读取该文件。
 
 
 
 
-#### 示例 2: 鸡（Rooster）输出示例
+#### 示例 2: Rooster输出示例
 > 📄 代码已提取到 `references\code_24.txt`（12 行，175 字节）
 > 需要查看完整代码时请读取该文件。
 
@@ -793,7 +814,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_27.json`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_27.txt`（2 行，36 字节）
+> 📄 完整代码见 `references/code_block_27.json`（559 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -802,7 +823,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 #### 验证失败处理:
 1. **验证失败** → 返回详细错误信息（JSON Schema 验证错误）
 2. **自动修复** → 尝试自动修复（填充缺失字段/修正数据类型）
-3. **人工介入** → 如果自动修复失败，上报给 鼠（Rat）进行人工介入
+3. **人工介入** → 如果自动修复失败，上报给 Rat进行人工介入
 
 ---
 
@@ -821,7 +842,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 
 > **⚠️ 重要**: 输出模板精细化优化是 **v4.3** 的核心改进。所有 Agent 必须严格遵循标准化模板，确保输出一致性。
 
-**⚠️ 所有生肖团成员必须严格遵守以下条令（违反任一 = 失效）**
+**⚠️ 所有生肖团职能必须严格遵守以下条令（违反任一 = 失效）**
 
 ---
 
@@ -912,13 +933,13 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 
 ---
 
-### 条令 7: 必须尊重角色 (MANDATORY Role Respect)
+### 条令 7: 必须尊重职能 (MANDATORY Role Respect)
 > 📄 代码已提取到 `references\code_39.txt`（6 行，249 字节）
 > 需要查看完整代码时请读取该文件。
 
 
-**角色边界 (Role Boundaries)**:
-| 角色 | 可以做的 | 不可以做的 |
+**职能边界 (Role Boundaries)**:
+| 职能 | 可以做的 | 不可以做的 |
 |------|----------|------------|
 | 鼠 (Rat) | 需求分析、任务分拣、协调 | 直接生成图像 |
 | 虎 (Tiger) | 图像采集、搜索、下载 | 图像质量评审 |
@@ -954,7 +975,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_43.python`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_43.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_43.python`（863 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1006,7 +1027,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_49.python`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_49.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_49.python`（674 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1020,7 +1041,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_51.python`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_51.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_51.python`（744 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1048,7 +1069,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 - > [引用] 完整代码已提取到 `references\code_block_52.json`（22 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_52.txt`（2 行，36 字节）
+> 📄 完整代码见 `references/code_block_52.json`（792 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1056,7 +1077,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_53.txt`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_53.txt`（2 行，35 字节）
+> 📄 完整代码见 `references/code_block_53.txt`（689 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1066,7 +1087,7 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_54.txt`（47 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_54.txt`（2 行，35 字节）
+> 📄 完整代码见 `references/code_block_54.txt`（1674 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1074,11 +1095,11 @@ Pattern Extraction -> Prompt/Parameter Optimization -> Next Task (improved)
 > [引用] 完整代码已提取到 `references\code_block_55.txt`（23 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_55.txt`（2 行，35 字节）
+> 📄 完整代码见 `references/code_block_55.txt`（654 字节）
 > 需要查看完整代码时请读取该文件。
 
 
-json
+```json
 - {
 - "modality": "image+text",
 - "inputs": {
@@ -1108,10 +1129,11 @@ json
 - **Branch Strategy**: main (stable), dev (testing), feat/* (new features)
 
 ### B. Version Comparison Mechanism
+```
 > [引用] 完整代码已提取到 `references\code_block_56.python`（20 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_56.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_56.python`（766 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1127,7 +1149,7 @@ json
 > [引用] 完整代码已提取到 `references\code_block_58.python`（27 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_58.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_58.python`（823 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1148,13 +1170,21 @@ json
 
 ---
 
+## 单一真相源（材料 / 工艺 / 跨行业技术）
+
+> 凡涉材质选型、可制造性、跨行业技术迁移，**一律引用团队包内中央库，禁止本技能内写死真源外材料或参数**：
+> - `assets/domain/保温杯材料工程库.md`（选材 / 食品接触合规）
+> - `assets/domain/保温杯制造工艺库.md`（可制造性约束）
+> - `assets/domain/跨行业技术迁移.md`（锁温 / 抗菌 / 轻量化升级候选）
+> 真源外材料（如镁合金等）不得作为保温杯食品接触结构主材，仅可在「外壳非接触」场景引用，且须回指材料工程库立项。
+
 ## Prompt Library: by_material
 
 | 材质 | 正面提示词 | 负面提示词 |
 |------|--------------|--------------|
 | 不锈钢 | stainless steel brushed texture, directional brushed grain, metallic reflection anisotropic... | plastic texture, rough surface... |
 | 钛金属 | titanium raw finish, anisotropic reflection, physical based rendering... | plastic texture, aluminum look... |
-| 镁合金 | magnesium alloy AE44, powder-coated finish, lightweight metal (35% lighter than aluminum)... | plastic texture, raw metal exposed... |
+| 铝合金(外壳) | aluminum alloy shell (outer only; 食品接触内胆须 304/316L，见 材料工程库), anodized/powder-coated finish... | plastic texture, raw metal exposed, uncoated-aluminum interior... |
 | 塑料 | BPA-free plastic, matte plastic texture, smooth plastic surface... | cheap plastic look, glossy plastic (fingerprint magnet)... |
 | 玻璃 | borosilicate glass, heat-resistant glass, transparent glass... | plastic imitation glass, bubbles in glass... |
 | 陶瓷 | ceramic glaze, smooth ceramic surface, even ceramic coating... | chipped ceramic, uneven glaze... |
@@ -1186,7 +1216,7 @@ json
 |------|--------------|----------|
 | 防漏 | watertight seal, silicone gasket, no leakage when inverted... | 倒置24小时不漏水 |
 | 防烫 | double-wall vacuum insulation, no external heat transfer, cool-touch exterior... | 外部温度 < 40°C (装沸水6小时后) |
-| 轻量化 | lightweight design, magnesium alloy body (35% lighter), titanium body (45% lighter)... | {'350ml': '< 180g', '500ml': '< 250g', '750ml': '< 350g'} |
+| 轻量化 | lightweight design, aluminum alloy shell (outer, ~30% lighter than steel), titanium body (45% lighter)... | {'350ml': '< 180g', '500ml': '< 250g', '750ml': '< 350g'} |
 | 车载 | car cup holder compatible (≤70mm diameter), non-slip base, one-handed operation... | N/A |
 
 **完整提示词见** `prompt_library.json`
@@ -1201,7 +1231,7 @@ json
 > [引用] 完整代码已提取到 `references\code_block_59.python`（38 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_59.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_59.python`（1496 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1214,7 +1244,7 @@ json
 > [引用] 完整代码已提取到 `references\code_block_60.python`（62 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_60.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_60.python`（2926 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1229,7 +1259,7 @@ json
 > [引用] 完整代码已提取到 `references\code_block_61.python`（27 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_61.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_61.python`（1045 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1250,7 +1280,7 @@ json
 > [引用] 完整代码已提取到 `references\code_block_62.python`（58 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_62.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_62.python`（2839 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1261,7 +1291,7 @@ json
 > [引用] 完整代码已提取到 `references\code_block_63.python`（35 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_63.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_63.python`（1340 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1277,7 +1307,7 @@ json
 > [引用] 完整代码已提取到 `references\code_block_64.txt`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_64.txt`（2 行，35 字节）
+> 📄 完整代码见 `references/code_block_64.txt`（974 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1338,7 +1368,7 @@ json
 
 ### Usage
 
-当需要此技能时，按以下步骤执行：
+当需要此能力时，按以下步骤执行：
 
 1. **理解需求**: 明确用户的核心意图
 2. **调用流程**: 按照核心职责定义执行
@@ -1468,7 +1498,7 @@ graph TD
 import json
 import time
 
-def inject_prompt_to_workflow(design_proposal, workflow_template="comfyui_workflow_insulated_tumbler.json"):
+def inject_prompt_to_workflow(design_proposal, workflow_template="(外部生图引擎)_workflow_insulated_tumbler.json"):
     """
     将设计方案转换为Prompt并注入ComfyUI工作流
     
@@ -1526,15 +1556,15 @@ if __name__ == "__main__":
     design = load_design_proposal("designs/保温杯方案A.json")
     workflow_path = inject_prompt_to_workflow(design)
     
-    # 传递给🐑 羊（或直接计算）
-    trigger_skill("zheng10-ai-image-generator", 
+    # 传递给🐑 或直接计算
+    trigger_skill("出图执行", 
                   input_data={"workflow_path": workflow_path})
 ```
 
 #### 6.5.2 批量生成工作流注入
 
 ```python
-def batch_inject_prompts_to_workflow(design_proposals, workflow_template="comfyui_workflow_insulated_tumbler.json"):
+def batch_inject_prompts_to_workflow(design_proposals, workflow_template="(外部生图引擎)_workflow_insulated_tumbler.json"):
     """
     批量将多个设计方案转换为Prompt并注入工作流
     
@@ -1568,8 +1598,8 @@ if __name__ == "__main__":
     designs = load_design_proposals("designs/")  # 加载所有设计方案
     workflow_paths = batch_inject_prompts_to_workflow(designs)
     
-    # 传递给🐑 羊（批量生图）
-    trigger_skill("zheng10-ai-image-generator", 
+    # 传递给🐑 批量生图
+    trigger_skill("出图执行", 
                   input_data={"batch_workflows": workflow_paths})
 ```
 
@@ -1656,13 +1686,13 @@ if __name__ == "__main__":
 ```python
 import requests
 
-def generate_image_via_comfyui_api(workflow_path, comfyui_url="http://127.0.0.1:8188"):
+def generate_image_via_(外部生图引擎)_api(workflow_path, (外部生图引擎)_url="http://127.0.0.1:8188"):
     """
     直接调用ComfyUI API生成图片（跳过🐑 羊，🐍 蛇直接生图）
     
     Args:
         workflow_path: ComfyUI工作流JSON文件路径
-        comfyui_url: ComfyUI服务地址
+        (外部生图引擎)_url: ComfyUI服务地址
     
     Returns:
         image_url: 生成图片的URL（或本地路径）
@@ -1673,7 +1703,7 @@ def generate_image_via_comfyui_api(workflow_path, comfyui_url="http://127.0.0.1:
         workflow = json.load(f)
     
     # 2. 提交生图任务到ComfyUI API
-    api_url = f"{comfyui_url}/prompt"
+    api_url = f"{(外部生图引擎)_url}/prompt"
     payload = {"prompt": workflow}
     
     response = requests.post(api_url, json=payload)
@@ -1685,7 +1715,7 @@ def generate_image_via_comfyui_api(workflow_path, comfyui_url="http://127.0.0.1:
         
         # 3. 等待生图完成（轮询队列状态）
         while True:
-            queue_url = f"{comfyui_url}/queue"
+            queue_url = f"{(外部生图引擎)_url}/queue"
             queue_response = requests.get(queue_url).json()
             
             # 检查任务是否完成
@@ -1696,7 +1726,7 @@ def generate_image_via_comfyui_api(workflow_path, comfyui_url="http://127.0.0.1:
             time.sleep(2)  # 等待2秒后重新检查
         
         # 4. 下载生成的图片
-        history_url = f"{comfyui_url}/history/{prompt_id}"
+        history_url = f"{(外部生图引擎)_url}/history/{prompt_id}"
         history_response = requests.get(history_url).json()
         
         # 解析输出图片路径（具体路径取决于工作流输出节点配置）
@@ -1717,18 +1747,18 @@ if __name__ == "__main__":
     design = load_design_proposal("designs/保温杯方案A.json")
     workflow_path = inject_prompt_to_workflow(design)
     
-    image_path = generate_image_via_comfyui_api(workflow_path)
+    image_path = generate_image_via_(外部生图引擎)_api(workflow_path)
     
     if image_path:
         print(f"生成图片: {image_path}")
         # 自动传递给🐓 鸡评审
-        trigger_skill("zheng10-design-reviewer", 
+        trigger_skill("设计评审", 
                       input_data={"image_path": image_path})
 ```
 
 ### 6.6 转换效果评估
 
-🐓 鸡（评审专家）会**评估**Design2Prompt转换效果：
+🐓 评审职能会**评估**Design2Prompt转换效果：
 
 | 评估维度 | 权重 | 评分标准 |
 |------------|------|------------|
@@ -1751,7 +1781,7 @@ if __name__ == "__main__":
 # 在🐍 蛇的Skill中配置（已配置）
 if design_proposal_completed:
     prompt_json = design2prompt(design_proposal)
-    trigger_skill("zheng10-ai-image-generator", 
+    trigger_skill("出图执行", 
                   input_data=prompt_json)
 ```
 
@@ -1765,7 +1795,7 @@ if design_proposal_completed:
 3. 匹配转换模板（保温杯产品图生成）
 4. 生成提示词（正/负） + 参数配置
 5. 输出Prompt JSON文件
-6. 传递给🐑 羊（或让用户下载）
+6. 传递给🐑 或让用户下载
 
 #### 示例3：批量转换
 
@@ -1778,8 +1808,8 @@ for proposal in design_proposals:
     prompt_json = design2prompt(proposal)
     prompt_jsons.append(prompt_json)
 
-# 传递给🐑 羊（批量生图）
-trigger_skill("zheng10-ai-image-generator", 
+# 传递给🐑 批量生图
+trigger_skill("出图执行", 
               input_data={"batch_prompts": prompt_jsons})
 ```
 
@@ -1993,6 +2023,58 @@ else:
 *Phase 8新增于v7.2 | 最后更新: 2026-06-19 | 维护者: 猴哥*
 *> v7.2新增: Design2Prompt智能优化引擎（薄弱环节识别、转换规则自动调整、优化效果验证、性能指标）*
 
+# ⚡已融合硬数据（S级+A级+B级）
+
+> 数据来源：(1) `可融入能力硬数据清单.md` (42条S级+28条A级+40条B级) | (2) `结构设计规范/已读精华_全量.md`（348文件索引+主题分类）
+> 来源文件群：不锈钢资料手册·冲压工艺·管接头标准·安规认证标准
+
+## ⚡ S级Design2Prompt参数速查表
+
+### PD设计方案 → ComfyUI Prompt 完整映射表
+
+| 设计要素 | Prompt关键词模板(正/负) | ComfyUI参数值 | 来源 |
+|---------|------------------------|--------------|------|
+| **304不锈钢内胆** | P: `(insulated inner cup:1.3), 304 stainless steel, food grade` N: `food contamination risk` | Canny=0.7+Depth=0.6 (S-50/51) | `结构设计规范/材料篇` + S-33/34 |
+| **316高端不锈钢壳** | P: `(316 marine-grade stainless steel:1.4), anisotropic specular highlight` N: `corroded, pitted surface` | metal LoRA=0.85+product=0.7 (S-30) | S-29 + 结构设计规范/不锈钢资料手册 |
+| **PVD镀色(TiN金黄)** | P: `PVD gold coating (TiN), rich golden luster, color fastness ≥8 years` N: `fake gold plating, peeling` | PVD工艺LoRA (S-34配方) | S-37 + 结构设计规范/表面工艺篇 |
+| **喷砂哑光(Sandblast)** | P: `sandblasted matte finish, Al₂O₃ 60-80 grit, uniform texture, no glare` N: `glossy, fingerprints visible` | metal=0.6+product=0.7 (S-31) | S-34 + S-37 |
+| **拉丝(Satin)** | P: `directional satin finish, 320-grit brushed pattern, anisotropic reflection` | Canny=0.8 (S-50) | S-35 + S-60 |
+
+### 保温杯结构设计参数速查（来自结构设计规范中的材料/螺纹/管接头标准）
+
+| 设计要素 | 标准值 / 规格参数 | 适用场景 | 来源文件 |
+|---------|-----------------|---------|---------|
+| **304不锈钢壁厚** | 内胆: ≥0.5mm / 外壳: ≥0.6mm | 保温杯常规/耐压要求 | `不锈钢资料手册` + S-124(材料篇) |
+| **真空腔厚度** | 夹层间隙: 8-12mm (抽真空<10Pa) | 双层真空结构 | S-37(材质配方) |
+| **螺纹标准(G/J)** | G=圆柱管螺纹/ BSP锥管 / JIS公制细牙M×P | 国际瓶径适配(GB/T 7306.2) | `国际瓶径及螺纹标准.XLS` + GBT5625管接头 |
+| **PP塑料内塞** | FDA LPS 21 CFR 177.1520合规 | 食品接触级塑料件 | S-49(安规认证) |
+
+## A级Prompt工程方法（A-08~14）+ DFM规则集成
+
+### 材料 → Prompt映射增强逻辑（整合DFM防错）
+
+```
+材质判定: 
+  IF 产品为"高端保温杯" AND "不锈钢壳" → PVD镀色 + 316钢 OR 304L钢 → LoRA metal=0.85
+  IF 产品为"中端保温杯" AND "喷砂外观" → 喷砂工艺 → Canny=0.7 + Depth=0.6 (保结构)
+  IF 产品为"基础款保温杯" → 304标准拉丝 → metal LoRA=0.6+product=0.7
+  
+DFM前置检查(Design Phase):
+  [ ] 壁厚是否≥材料最小成型厚度?
+  [ ] 螺纹是否符合GB/T 7306.2或对应国标?
+  [ ] 冲压系数(D/t)是否在合理范围(<1.5深冲)?
+  [ ] PVD镀色保色要求(8年)/ 盐雾测试(48h无锈蚀)?
+```
+
+## B级参考索引 + Design2Prompt工作流SOP
+
+| SOP环节 | 参数/工具 | 来源 |
+|--------|---------|------|
+| PD设计方案提取 → Design2Prompt规则引擎 → ComfyUI Prompt注入 | Design2Prompt v7.0→S-33/34/35配方 + S-30/31 LoRA权重 | `结构设计规范`全量索引 + 硬数据清单SOP |
+| 文件名归类: prompt_JSON按{sku}_design{ID}.json | ComfyUI filename_prefix={sku}_seed{N} (S-59) | ComfyUI教程#32,40,51 |
+
+---
+
 ---
 
 > **版本**: v7.2 (新增Design2Prompt智能优化引擎)  
@@ -2006,7 +2088,7 @@ else:
 
 ### ComfyUI API集成
 
-- **统一指南**: `H:/AI日记/Claw/十二生肖团_ComfyUI_API集成统一指南_V1.0_2026-06-18.md`
+- **统一指南**: `<架构根目录>/docs/生肖团能力指南/十二生肖团_ComfyUI_API集成统一指南_V1.0_2026-06-18.md`
   - 所有API接口调用示例
   - 工作流JSON模板说明
   - 错误处理与性能优化
@@ -2015,9 +2097,68 @@ else:
 
 | 文档 | 路径 | 说明 |
 |------|------|------|
-| ComfyUI安装指南 | `H:/AI日记/Claw/ComfyUI_安装与API化指南_V1.0.md` | 安装与配置 |
-| ComfyUI API调用指南 | `H:/AI日记/Claw/ComfyUI_工作流API调用指南_V1.0.md` | 详细API文档 |
-| ComfyUI工作流模板库 | `H:/AI日记/Claw/ComfyUI_工作流模板库_V1.0.md` | 工作流模板 |
-| 框架报告V8.0 | `H:/AI日记/Claw/十二生肖团_完整详细框架报告_V8.0_2026-06-18.md` | 最新框架 |
+| ComfyUI安装指南 | `<架构根目录>/docs/生肖团能力指南/ComfyUI_安装与API化指南_V1.0_2026-06-18.md` | 安装与配置 |
+| ComfyUI API调用指南 | `<架构根目录>/docs/生肖团能力指南/ComfyUI_工作流API调用指南_V1.0_2026-06-18.md` | 详细API文档 |
+| ComfyUI工作流模板库 | `<架构根目录>/docs/生肖团能力指南/ComfyUI_工作流模板库_V2.0_2026-06-18.md` | 工作流模板 |
+| 框架报告V8.0 | `<架构根目录>/docs/生肖团能力指南/十二生肖团_完整详细框架报告_V8.0_2026-06-18.md` | 最新框架 |
 
 ---
+
+## 产出写通用互通总线（资料总线）
+
+完成本角色产出后，**必须**写入生肖团通用互通总线，使下游职能按静态联动映射表秒级收到事件通知（替代被动轮询）。
+
+```bash
+node 资料总线/zodiac_bus.js --emit \
+  --role snake --type design --product <产品名> --ref design_<v> \
+  --content '{"summary":"产出摘要","files":["<产出文件路径>"]}'
+```
+
+- **开工前先查信箱**感知上游通知（连接反应更迅速）：
+  `node 资料总线/zodiac_bus.js --inbox --role snake --pending-only`
+- 处理完标记已读：`node 资料总线/zodiac_bus.js --mark-done --role snake --id <事件id>`
+- 联动映射（谁 emit → 通知谁）见 `<架构根目录>/logs/zodiac_bus_map.json`，改联动只改该表。
+- 总线协议与 schema 见 `资料总线/SKILL.md` 与 `<架构根目录>/logs/zodiac_bus_schema.md`。
+
+---
+
+---
+
+---
+
+---
+
+## 📚 资料总线（H 盘资料入口）
+
+> 本技能可读的 H 盘资料已登记在**资料总线**，开工前先查一遍 —— 避免"重复造轮子"和"翻不到料"。
+
+```bash
+python <本地资源路径> --role product-designer
+python <本地资源路径> --kw <关键词>      # 元数据层：找「有哪些资料」
+python <本地资源路径> --wb             # 工作台可挂载的料
+python <本地资源路径> "一句话需求"    # 语义层：在 1.2 万篇业务库正文里找「哪一段」
+python <本地资源路径> --role product-designer "..."  # 限定本角色的资料范围内检索
+```
+
+**全量索引**：`<本地资源路径>` ｜ **清单**：`<本地资源路径>`
+
+### ✅ 本角色开工必读（硬清单 · 先读再用）
+
+| 文件 | 路径 | 为什么读 |
+|---|---|---|
+| ✅ 保温杯设计检查项·总表 V1.0 | `<本地资源路径>` | 立项/打样/出图前逐项自查（79 条：合规红线 / 结构 / 弹跳盖卡扣 / 密封 / DFM / 外观 / 专利 / 生图）；**附A 是一票否决清单** |
+
+| 资料 | 路径 | 体量 | 用途 |
+|---|---|---|---|
+| `ip.fto` | `<本地资源路径>` | 31 KB | 专利红线校验（出图前） |
+| `kb.root` | `<本地资源路径>` | 657 MB | 材质选型合规预检 / 设计评审引用条款 |
+| `tech.eng` | `<本地资源路径>` | 4.42 GB | 结构可行性校验 |
+| `tech.manual` | `<本地资源路径>` | 855 MB | 设计检查项 / 工艺可行性 |
+
+**硬数据优先**：凡涉及国标限值、材料参数、专利红线、竞品价格，**必须以本总线登记的真实文件为准**，不得凭记忆作答。
+
+**出图/交付**：32 个标准提示词模板见 `<本地资源路径>`（结构化索引 `prompt_templates.json`，含分类/变量/正文/示例）。
+
+> 两个入口分工：`lookup.py` 查**目录元数据**（有哪些资料、多大、谁能用）；`core_lookup.py` 查**内容语义**（哪份文件的哪一段讲了这件事）。
+
+<!-- 资料总线区块结束 -->

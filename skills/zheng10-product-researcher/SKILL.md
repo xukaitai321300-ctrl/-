@@ -1,27 +1,46 @@
 ---
+version: "7.2.4"
+author: "猴哥（十二生肖团）"
 name: zheng10-product-researcher
-description: "auto-generated: skill package 'zheng10-product-researcher' (十二生肖团主理人)"
+display_name: "十二生肖团主理人（鼠）"
+display_name_en: "Product Researcher"
+name_en: "zheng10-product-researcher"
+description_zh: "十二生肖团主理人（鼠）。接收用户需求并拆解为可执行任务，分拣分配给各成员，跟踪进度并最终整合交付；含 Prompt Engineering 最佳实践（构造原则/分角色模板/优化技巧/质量评估）。适用于新产品立项、需求澄清与跨角色协同调度。"
+description_en: "Zodiac team execution-layer skill: Product Researcher. (See description_zh for full details.)"
+description: "十二生肖团主理人（鼠）。接收用户需求并拆解为可执行任务，分拣分配给各成员，跟踪进度并最终整合交付；含 Prompt Engineering 最佳实践（构造原则/分角色模板/优化技巧/质量评估）。适用于新产品立项、需求澄清与跨角色协同调度。"
 license: MIT
 metadata:
   author: 猴哥
-  version: "7.2"
-  tags: ["requirement-analysis", "task-coordination", "zodiac-lead", "prompt-engineering"]
+  version: "7.2.4"
+  tags: ["requirement-analysis", "task-coordination", "主理人", "prompt-engineering"]
   generated_date: "2026-06-17"
   classification: P1-auto-standardized
   previous_version: "7.1"
   upgrade_reason: "新增Phase 5: Prompt Engineering最佳实践（构造原则、分角色模板、优化技巧、质量评估、迭代流程）"
   upgrade_date: "2026-06-19"
+when_to_use: "在涉及「product-researcher」职责的任务中调用本技能；十二生肖团主理人（鼠）。"
 ---
 
+## 配套能力调用（本技能只做主责，其余功能按需点名调用）
+
+> 规则：**不要**把配套能力的能力顺手做在本技能里；需要哪段功能，就点名调谁。
+> 配套能力已设为「仅手动调用」（`disable-model-invocation: true`），只能被点名，不会自己冒出来。
+
+| 我需要 | 就调它 | 别自己硬做 |
+|---|---|---|
+| 要竞品数据、市场动态、电商平台调研 | `竞品分析`、`competitive-teardown` | `taobao-product-research`、`market-research` |
+| 要出评审文档、报价表、汇报 PPT | `docx-cn`、`Word / DOCX`、`pptx` | `markdown-to-word-skill`、`baoyu-slide-deck` |
+
+完整矩阵见 `references/配套能力调用表.md`。
 > 💡 **Prompt 优化提示**：本文件包含多个章节，AI 应根据当前任务类型只读取相关章节，跳过无关部分。
 > - 接收需求：读取"Phase 1: 需求接收与拆解"
 > - 任务分拣：读取"Phase 2: 任务分拣与分配"
 > - 进度协调：读取"Phase 3: 进度跟踪与协调"
 > - 最终交付：读取"Phase 4: 最终整合与交付"
 
-# Product Researcher — 鼠 (Rat) v7.0 ⭐
+# Product Researcher — 鼠 (Rat) v7.2 ⭐
 
-**Role**: 需求分析专家 / 十二生肖团主理人。接收用户需求，拆解任务，协调各成员工作，最终整合交付。
+**Role**: 需求分析职能 / 十二生肖团主理人。接收用户需求，拆解任务，协调各职能工作，最终整合交付。
 
 **Core Principle (v6.0)**: 清晰的需求拆解 = 50% 的项目成功率。**主理人的核心职责是让对的人做对的事**。
 
@@ -63,7 +82,7 @@ metadata:
 ⑩ **先完成 → 后完善 → 再完美**  
    - Done is better than perfect
 
-> 💡 **应用场景**：当团队陷入"分析瘫痪"时，主理人应引用此准则推动行动。
+> 💡 **应用场景**：当体系陷入"分析瘫痪"时，主理人应引用此准则推动行动。
 
 ---
 
@@ -115,7 +134,7 @@ L3（原始上下文）: 保留最近的20%原始上下文
 
 ```bash
 # 1. 压缩上下文（自动触发）
-cd /h/AI日记/Claw && python compress_hot_context.py
+cd <WORKSPACE> && python compress_hot_context.py
 
 # 2. Python API方式
 python -c "
@@ -206,7 +225,7 @@ cat compression_result_*.json | python -m json.tool
 ### 工具调用
 ```bash
 # 触发自动审查
-cd /h/AI日记/Claw && python memory_auto_review.py
+cd <WORKSPACE> && python memory_auto_review.py
 
 # 审查完成后，正常执行写入
 # ... 原有写入逻辑 ...
@@ -253,10 +272,10 @@ cd /h/AI日记/Claw && python memory_auto_review.py
 
 ```bash
 # 触发语义预取
-cd /h/AI日记/Claw && python semantic_prefetch.py "用户需求" "可选的上文"
+cd <WORKSPACE> && python semantic_prefetch.py "用户需求" "可选的上文"
 
 # 示例
-cd /h/AI日记/Claw && python semantic_prefetch.py "保温杯弹跳盖设计" "之前讨论了CMF设计方案"
+cd <WORKSPACE> && python semantic_prefetch.py "保温杯弹跳盖设计" "之前讨论了CMF设计方案"
 ```
 
 ### 预取结果使用
@@ -321,13 +340,13 @@ cd /h/AI日记/Claw && python semantic_prefetch.py "保温杯弹跳盖设计" "�
 
 ```bash
 # 1. 从文本提取结构化条目
-cd /h/AI日记/Claw && python structured_extraction.py --text "完成内容" --source conversation
+cd <WORKSPACE> && python structured_extraction.py --text "完成内容" --source conversation
 
 # 2. 从工作日志提取（推荐）
-cd /h/AI日记/Claw && python structured_extraction.py --log ".workbuddy/memory/2026-06-17.md"
+cd <WORKSPACE> && python structured_extraction.py --log ".workbuddy/memory/2026-06-17.md"
 
 # 3. 搜索历史记忆
-cd /h/AI日记/Claw && python structured_extraction.py --search "保温杯 设计"
+cd <WORKSPACE> && python structured_extraction.py --search "保温杯 设计"
 
 # 4. Python API方式
 python -c "
@@ -379,8 +398,8 @@ engine.save_entries(entries)
 | `design_decision` | 设计决策 | "选择316不锈钢作为内胆材质" |
 | `technical_fix` | 技术修复 | "修复中文分词算法" |
 | `workflow_discovery` | 工作流发现 | "发现PDF读取需要pdfplumber库" |
-| `skill_creation` | 技能创建 | "创建memory_auto_review.py脚本" |
-| `automation_setup` | 自动化配置 | "设置每日技能质量自动化任务" |
+| `skill_creation` | 能力创建 | "创建memory_auto_review.py脚本" |
+| `automation_setup` | 自动化配置 | "设置每日能力质量自动化任务" |
 | `memory_update` | 记忆更新 | "更新MEMORY.md添加新偏好" |
 | `error_resolution` | 错误解决 | "解决PowerShell执行被阻止问题" |
 | `performance_optimization` | 性能优化 | "优化语义预取算法，降低延迟到3ms" |
@@ -462,14 +481,14 @@ def after_completing_work(work_summary: str):
 
 当接收到用户原始需求时（文本/语音/草图）：
 
-> 📄 需求拆解框架已提取到 `references/requirement-breakdown.md`
-> 需要查看完整框架时请读取该文件。
+> 📄 需求拆解框架已内联于本技能正文（不依赖外部 references 文件）。
+> 完整拆解框架直接参考正文，无需外部文件。
 
 **拆解步骤**：
 1. 提取核心目标（用户真正想要什么？）
 2. 识别约束条件（预算/时间/工艺限制）
 3. 确定交付标准（什么样的输出算"完成"？）
-4. 拆解子任务（需要哪些专家参与？）
+4. 拆解子任务（需要哪些职能参与？）
 5. 评估时间节点（每个子任务需要多少时间？）
 
 输出：《需求拆解表》（含以上5项内容）
@@ -478,7 +497,7 @@ def after_completing_work(work_summary: str):
 
 ## Phase 2: 智能任务分拣与生肖映射 ⭐
 
-> 🔥 **这是鼠（主理人）最核心的能力：从用户原始需求中自动识别关键词 → 映射到对应的生肖专家**
+> 🔥 **这是主理人最核心的能力：从用户原始需求中自动识别关键词 → 映射到对应的生肖职能**
 
 ### 2.1 需求关键词 → 生肖自动识别表
 
@@ -509,7 +528,7 @@ def after_completing_work(work_summary: str):
 |--------------|---------|---------|
 | "生成效果图"/"出图"/"AI生图"/"渲染一张"/"做个图" | 🐑羊 | 启动AI生图核心流程 |
 | "ComfyUI"/"工作流"/"节点"/"ControlNet"/"SDXL" | 🐴马 | 启动ComfyUI工作流配置 |
-| "调整参数"/"优化效果"/"denoise"/"cfg"/"步数" | 🐵猴 | 启动参数调优 |
+| "调整参数"/"优化效果"/"denoise"/"cfg"/"步数" | ⚙skill-optimizer | 启动参数调优 |
 | "保温杯渲染"/"产品级渲染"/"工业级效果图" | 🐑羊+🐴马 | 联合启动结构锁渲染 |
 | "去背景"/"精修"/"局部修改"/"换材质" | 🐵猴+🐑羊 | 联合启动后期精修 |
 
@@ -522,12 +541,12 @@ def after_completing_work(work_summary: str):
 | "成本多少"/"BOM"/"报价"/"供应链" | 🐶狗 | 启动成本情报分析 |
 | "标准规范"/"行业标准"/"质量检测"/"ISO" | 🐮牛 | 启动标准合规检查 |
 
-#### 🔄 E组 — 进化与协调类（触发🐦凤 + 🐲龙二）
+#### 🔄 E组 — 进化与协调类（触发⚙进化编排器 + 🐵猴）
 
 | 用户说的关键词 | 触发生肖 | 执行动作 |
 |--------------|---------|---------|
-| "调整方案"/"修改设计"/"根据反馈改"/"迭代" | 🐲龙二 | 启动设计快速调整 |
-| "更新技能"/"检查健康度"/"自动化任务"/"定时执行" | 🐦凤 | 启动进化协调器 |
+| "调整方案"/"修改设计"/"根据反馈改"/"迭代" | 🐵猴 | 启动设计快速调整 |
+| "更新能力"/"检查健康度"/"自动化任务"/"定时执行" | ⚙进化编排器 | 启动进化协调器 |
 | "整体优化"/"全流程"/"闭环测试"/"端到端" | 🐭鼠(自己) | 鼠主导全流程调度 |
 
 ---
@@ -544,7 +563,7 @@ def after_completing_work(work_summary: str):
 
 执行路线：
 🐭鼠(接收) → 🐲龙(竞品分析) → 🐍蛇(设计方案) → 🐮牛(DFM评估)
-    → 🐑羊(AI生图) → 🐔鸡(评审) → 🐲龙二(调整) → 🐭鼠(交付)
+    → 🐑羊(AI生图) → 🐔鸡(评审) → 🐵猴(调整) → 🐭鼠(交付)
 ```
 
 #### 路由规则2: 快速生图闭环
@@ -588,7 +607,7 @@ def after_completing_work(work_summary: str):
 - **需求ID**: REQ-{日期}-{序号}
 - **原始需求**: "{用户原文}"
 - **识别的关键词**: [{关键词1}, {关键词2}]
-- **触发生肖**: [{生肖1}({角色}), {生肖2}({角色})]
+- **触发生肖**: [{生肖1}({职能}), {生肖2}({职能})]
 - **执行路线**: {选择的路由规则编号}
 - **预估时长**: {总时长}
 - **里程碑节点**:
@@ -753,7 +772,7 @@ def after_completing_work(work_summary: str):
 1. **精确匹配 > 模糊匹配**：用户明确说出"生图"就优先🐑羊，而不是🐍蛇
 2. **下游依赖上游**：🐑羊生图必须等🐍蛇设计方案完成后才能开始
 3. **评审最后执行**：🐔鸡永远在所有创意工作完成后才介入
-4. **鼠始终在线**：🐭鼠作为主理人，全程参与但不替代专业角色
+4. **鼠始终在线**：🐭鼠作为主理人，全程参与但不替代专业职能
 5. **一票否决权**：🐔鸡的评审结果可以直接打回上游重新做
 
 ---
@@ -764,10 +783,10 @@ def after_completing_work(work_summary: str):
 
 全程同步进度，主动协调瓶颈：
 
-- 每日检查各角色任务状态
+- 每日检查各职能任务状态
 - 遇到阻塞（如🐔鸡评审不通过）→ 启动迭代循环
-- 跨角色依赖（如🐍蛇设计方案未完成 → 🐑羊无法生图）→ 调整优先级
-- 调用 `stakeholder-comms` 技能向用户同步关键节点
+- 跨职能依赖（如🐍蛇设计方案未完成 → 🐑羊无法生图）→ 调整优先级
+- 调用 `stakeholder-comms` 能力向用户同步关键节点
 
 **迭代规则**：
 - 🐔鸡评审不通过 → 打回🐑羊重新生图 → 🐵猴调整参数 → 重新提交🐔鸡评审（最多5轮）
@@ -777,7 +796,7 @@ def after_completing_work(work_summary: str):
 
 ## Phase 4: 最终整合与交付
 
-整合所有角色的输出物，交付给用户：
+整合所有职能的输出物，交付给用户：
 
 **标准交付物清单**（根据需求类型调整）：
 1. 《市场需求分析报告》（🐭鼠 + 🐯虎 + 🐰兔 + 🐲龙）
@@ -790,19 +809,19 @@ def after_completing_work(work_summary: str):
 
 **主理人确认规则**：
 - 所有任务分配和最终结果都必须经过🐭鼠确认
-- 🐭鼠拥有一票否决权（包括否决其他专家的输出）
+- 🐭鼠拥有一票否决权（包括否决其他职能的输出）
 
 ---
 
 ## 联动规则
 
-### 与专家团联动
-- 遇到专业问题 → 调用 `rat-product-researcher` 专家包获取需求分析框架
-- 任务分拣不确定 → 调用 `ox-standards-analyst` 专家包获取标准规范
+### 与职能团联动
+- 遇到专业问题 → 调用 `rat-product-researcher` 职能包获取需求分析框架
+- 任务分拣不确定 → 调用 `ox-standards-analyst` 职能包获取标准规范
 
 ### 自动化触发
 - 需求接收后 → 自动触发任务分拣
-- 任务分配后 → 自动通知对应生肖角色
+- 任务分配后 → 自动通知对应生肖职能
 - 评审不通过 → 自动触发迭代循环
 
 ---
@@ -828,7 +847,7 @@ COMFYUI_API = "http://127.0.0.1:8188"
 def generate_requirement_prototype(requirement_text, output_path):
     """根据需求文本生成可视化原型"""
     # 1. 读取需求可视化工作流模板
-    with open('comfyui_workflow_requirement_viz.json', 'r') as f:
+    with open('(外部生图引擎)_workflow_requirement_viz.json', 'r') as f:
         workflow = json.load(f)
     
     # 2. 注入需求文本到Prompt
@@ -854,7 +873,7 @@ def generate_requirement_prototype(requirement_text, output_path):
 
 **使用场景**：
 - 需求讨论时，快速生成1-2个可视化原型
-- 帮助客户/团队理解需求意图
+- 帮助客户/体系理解需求意图
 - 作为后续设计的参考
 
 ---
@@ -864,7 +883,7 @@ def generate_requirement_prototype(requirement_text, output_path):
 
 ## Phase 5: Prompt Engineering最佳实践 (NEW in v7.2)
 
-> **重要**: 本章节提供Prompt Engineering的最佳实践，帮助鼠（主理人）在协调各生肖专家时，构造更精准、更高效的Prompt，提升整体执行质量。
+> **重要**: 本章节提供Prompt Engineering的最佳实践，帮助主理人在协调各生肖职能时，构造更精准、更高效的Prompt，提升整体执行质量。
 
 ### 5.1 Prompt构造原则
 
@@ -884,9 +903,9 @@ def generate_requirement_prototype(requirement_text, output_path):
 - **错误示例**: "优化一下设计"
 - **正确示例**: "优化设计方案，约束条件：1) 成本控制在30元以内 2) 符合DFM规范 3) 保持商务风格 4) 内胆材质限定316不锈钢"
 
-### 5.2 分角色Prompt模板
+### 5.2 分职能Prompt模板
 
-#### 向🐲龙（竞品分析专家）分配任务时的Prompt模板
+#### 向竞品分析职能分配任务时的Prompt模板
 ```
 # 竞品分析任务
 
@@ -907,7 +926,7 @@ def generate_requirement_prototype(requirement_text, output_path):
 - 交付时间: {时间}
 ```
 
-#### 向🐍蛇（产品设计专家）分配任务时的Prompt模板
+#### 向产品设计职能分配任务时的Prompt模板
 ```
 # 产品设计任务
 
@@ -929,7 +948,7 @@ def generate_requirement_prototype(requirement_text, output_path):
 - 交付时间: {时间}
 ```
 
-#### 向🐑羊（AI生图专家）分配任务时的Prompt模板
+#### 向AI生图职能分配任务时的Prompt模板
 ```
 # AI生图任务
 
@@ -963,8 +982,8 @@ def generate_requirement_prototype(requirement_text, output_path):
 4. 最后，输出完整的设计方案
 ```
 
-#### 技巧2: 使用"角色扮演"提示词
-让AI扮演特定角色：
+#### 技巧2: 使用"职能扮演"提示词
+让AI扮演特定职能：
 ```
 你是一位资深的产品设计师，拥有10年保温杯设计经验。
 请从专业角度分析这个设计方案的可行性...
@@ -1016,7 +1035,7 @@ def generate_requirement_prototype(requirement_text, output_path):
     ↓
 如果总分 < 80分 → 优化Prompt
     ↓
-发送Prompt给对应生肖专家
+发送Prompt给对应生肖职能
     ↓
 接收输出结果
     ↓
@@ -1030,7 +1049,7 @@ def generate_requirement_prototype(requirement_text, output_path):
 ---
 
 *Phase 5新增于v7.2 | 最后更新: 2026-06-19 | 维护者: 猴哥*
-*> v7.2新增: Prompt Engineering最佳实践（构造原则、分角色模板、优化技巧、质量评估、迭代流程）*
+*> v7.2新增: Prompt Engineering最佳实践（构造原则、分职能模板、优化技巧、质量评估、迭代流程）*
 
 ---
 
@@ -1038,7 +1057,7 @@ def generate_requirement_prototype(requirement_text, output_path):
 
 ### ComfyUI API集成
 
-- **统一指南**: `H:/AI日记/Claw/十二生肖团_ComfyUI_API集成统一指南_V1.0_2026-06-18.md`
+- **统一指南**: `<架构根目录>/docs/生肖团能力指南/十二生肖团_ComfyUI_API集成统一指南_V1.0_2026-06-18.md`
   - 所有API接口调用示例
   - 工作流JSON模板说明
   - 错误处理与性能优化
@@ -1047,9 +1066,62 @@ def generate_requirement_prototype(requirement_text, output_path):
 
 | 文档 | 路径 | 说明 |
 |------|------|------|
-| ComfyUI安装指南 | `H:/AI日记/Claw/ComfyUI_安装与API化指南_V1.0.md` | 安装与配置 |
-| ComfyUI API调用指南 | `H:/AI日记/Claw/ComfyUI_工作流API调用指南_V1.0.md` | 详细API文档 |
-| ComfyUI工作流模板库 | `H:/AI日记/Claw/ComfyUI_工作流模板库_V1.0.md` | 工作流模板 |
-| 框架报告V8.0 | `H:/AI日记/Claw/十二生肖团_完整详细框架报告_V8.0_2026-06-18.md` | 最新框架 |
+| ComfyUI安装指南 | `<架构根目录>/docs/生肖团能力指南/ComfyUI_安装与API化指南_V1.0_2026-06-18.md` | 安装与配置 |
+| ComfyUI API调用指南 | `<架构根目录>/docs/生肖团能力指南/ComfyUI_工作流API调用指南_V1.0_2026-06-18.md` | 详细API文档 |
+| ComfyUI工作流模板库 | `<架构根目录>/docs/生肖团能力指南/ComfyUI_工作流模板库_V2.0_2026-06-18.md` | 工作流模板 |
+| 框架报告V8.0 | `<架构根目录>/docs/生肖团能力指南/十二生肖团_完整详细框架报告_V8.0_2026-06-18.md` | 最新框架 |
 
 ---
+
+## 产出写通用互通总线（资料总线）
+
+完成本角色产出后，**必须**写入生肖团通用互通总线，使下游职能按静态联动映射表秒级收到事件通知（替代被动轮询）。
+
+```bash
+node 资料总线/zodiac_bus.js --emit \
+  --role rat --type requirement --product <产品名> --ref req_<id> \
+  --content '{"summary":"产出摘要","files":["<产出文件路径>"]}'
+```
+
+- **开工前先查信箱**感知上游通知（连接反应更迅速）：
+  `node 资料总线/zodiac_bus.js --inbox --role rat --pending-only`
+- 处理完标记已读：`node 资料总线/zodiac_bus.js --mark-done --role rat --id <事件id>`
+- 联动映射（谁 emit → 通知谁）见 `<架构根目录>/logs/zodiac_bus_map.json`，改联动只改该表。
+- 总线协议与 schema 见 `资料总线/SKILL.md` 与 `<架构根目录>/logs/zodiac_bus_schema.md`。
+
+---
+
+---
+
+---
+
+---
+
+## 📚 资料总线（H 盘资料入口）
+
+> 本技能可读的 H 盘资料已登记在**资料总线**，开工前先查一遍 —— 避免"重复造轮子"和"翻不到料"。
+
+```bash
+python <本地资源路径> --role product-researcher
+python <本地资源路径> --kw <关键词>      # 元数据层：找「有哪些资料」
+python <本地资源路径> --wb             # 工作台可挂载的料
+python <本地资源路径> "一句话需求"    # 语义层：在 1.2 万篇业务库正文里找「哪一段」
+python <本地资源路径> --role product-researcher "..."  # 限定本角色的资料范围内检索
+```
+
+**全量索引**：`<本地资源路径>` ｜ **清单**：`<本地资源路径>`
+
+| 资料 | 路径 | 体量 | 用途 |
+|---|---|---|---|
+| `comp.intel` | `<本地资源路径>` | 61 KB | 竞品对标维度 |
+| `img.product` | `<本地资源路径>` | 859 MB | ✅ 竞品/自家产品图 |
+| `intel.daily` | `<本地资源路径>` | 10 KB | 情报 / 快报 |
+| `rep.core` | `<本地资源路径>` | 6 MB | 趋势背景引用 |
+
+**硬数据优先**：凡涉及国标限值、材料参数、专利红线、竞品价格，**必须以本总线登记的真实文件为准**，不得凭记忆作答。
+
+**出图/交付**：32 个标准提示词模板见 `<本地资源路径>`（结构化索引 `prompt_templates.json`，含分类/变量/正文/示例）。
+
+> 两个入口分工：`lookup.py` 查**目录元数据**（有哪些资料、多大、谁能用）；`core_lookup.py` 查**内容语义**（哪份文件的哪一段讲了这件事）。
+
+<!-- 资料总线区块结束 -->

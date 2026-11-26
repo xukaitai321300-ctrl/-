@@ -13,7 +13,7 @@ def interrupt_generation(
         return False
 def check_interruption():
     """Check if user requested interruption"""
-    interruption_file = "E:/AI日记/Claw/.workbuddy/interrupt.flag"
+    interruption_file = "<WORKSPACE>/.workbuddy/interrupt.flag"
     if os.path.exists(interruption_file):
         os.remove(interruption_file)  # Clear flag
         return True

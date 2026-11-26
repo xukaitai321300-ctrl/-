@@ -1,5 +1,5 @@
 class CaseDatabase:
-    def __init__(self, db_path="E:/AI日记/Claw/.workbuddy/learning_db/"):
+    def __init__(self, db_path="<WORKSPACE>/.workbuddy/learning_db/"):
   ... (省略中间部分) ...
             "task_type": task_type,
             "input_params": input_params,

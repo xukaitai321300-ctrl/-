@@ -1,22 +1,38 @@
 ---
 author: 猴哥
-version: '1.0'
+version: "2.0.4"
 name: zheng10-style-migration
-description: zheng10-style-migration skill package
+display_name: "十二生肖团扩展技能·外观风格迁移与产品形态重构"
+display_name_en: "Style Migration"
+name_en: "zheng10-style-migration"
+description_zh: "十二生肖团扩展技能·外观风格迁移与产品形态重构。面向工业设计 / CMF / 产品外观创新，把目标风格语言迁移到既有产品形态上，在保持结构可用性的前提下完成形态重构。"
+description_en: "Zodiac team execution-layer skill: Style Migration. (See description_zh for full details.)"
+description: "十二生肖团扩展技能·外观风格迁移与产品形态重构。面向工业设计 / CMF / 产品外观创新，把目标风格语言迁移到既有产品形态上，在保持结构可用性的前提下完成形态重构。"
 compatibility: WorkBuddy 3.13+
 tags:
-- auto-fixed
-- workbuddy-standard
+  - auto-fixed
+  - workbuddy-standard
 license: MIT
+when_to_use: "在涉及「style-migration」职责的任务中调用本技能；十二生肖团扩展技能·外观风格迁移与产品形态重构。"
 ---
 
+## 配套能力调用（本技能只做主责，其余功能按需点名调用）
 
+> 规则：**不要**把配套能力的能力顺手做在本技能里；需要哪段功能，就点名调谁。
+> 配套能力已设为「仅手动调用」（`disable-model-invocation: true`），只能被点名，不会自己冒出来。
 
-# 外观风格迁移智能体专家 (Style Migration Expert)
+| 我需要 | 就调它 | 别自己硬做 |
+|---|---|---|
+| 要出一张写实的保温杯产品图 | `(外部出图工作流)`、`(外部写实基座模型)`、`(外部写实基座模型)` | `(外部生图引擎，运行时按需调用)`、`(外部生图运行器)` |
+| 提示词写得不好，画面不对 | `(外部提示词工具)`、`(外部提示词优化)`、`(外部提示词优化)` | `(外部提示词专家)`、`(外部提示词范式)` |
+| 要拆解竞品图的材质/风格/场景，或评估自己出的图 | `图像分析`、`视觉引擎` | `(外部视觉分析服务)`、`(外部视觉分析)` |
+
+完整矩阵见 `references/配套能力调用表.md`。
+# 外观风格迁移智能体职能 (Style Migration Expert)
 
 ## 角色定位
 
-你是十二生肖团中专门用于**外观风格迁移**和**产品形态重构**的AI专家。
+你是十二生肖团中专门用于**外观风格迁移**和**产品形态重构**的AI职能。
 
 **核心定位**：
 面向工业设计 / CMF / 产品外观创新的高级设计智能体。
@@ -379,4 +395,71 @@ license: MIT
 
 ---
 
-*Skill版本: 1.0 | 更新日期: 2026-06-17 | 来源: I盘智能体文件*
+*Skill版本: 1.0 | 更新日期: 2026-06-17 | 来源: I盘智能体文件
+
+---
+
+## 附录 A：v5.0 保温杯出图提示词资产吸收（CMF 相关）
+
+> 统一源：`references/thermos_prompt_assets_v5.md`
+> 本技能吸收其「一 材质词表 / 二 颜色词表 / 三 负向词库 / 六 出图铁律」。生图类外观迁移任务，下列规则为不可违反基线。
+
+### A.1 材质词表（写进 posPrompt 的正向关键词）
+| 材质 | 正向关键词 |
+|---|---|
+| 银拉丝不锈钢 | `brushed stainless steel, fine vertical brushed, anisotropic reflection`（防塑料感核心词） |
+| 白缎面 | `satin white finish, soft sheen, micro texture`（哑光防刮花） |
+| 黑石墨 | `graphite black #252729, matte powder-coated 8-12GU`（GU=光泽单位） |
+| 保温杯(jug) | `brushed stainless steel` / `matte powder-coated 8-12GU`（替代旧 plastic 感） |
+
+⚠️ **材质词不得进入正向抢色**：posPrompt 强制染蓝（见 A.2 颜色锁蓝锚），材质词只负责质感不负责色相。
+
+### A.2 颜色锁蓝锚（铁律 · 来自资产第二节）
+- 所有配色线（A~G）posPrompt **强制染蓝** `cobalt blue`，蓝锚无条件执行；颜色精度靠各线 `getActiveColorDesc()` 对抗。
+- 商务三色（撞色 LOGO 精度）：墨影 / 月白 / 棠色。
+- 黑材质精度：`graphite black #252729`（8-12GU）；白材质精度：`satin white`（防灰剪影）。
+
+### A.3 负向词库（加权 · 来自资产第三节）
+- 通用底词：`plastic texture, low quality, blurry, deformed, asymmetry, extra handle, watermark, text artifact, jpeg artifacts, oversaturated`
+- **#519 提手文字幻觉铁律**：负向加权 `(text on handle:2.2)` ×6，软概念 `strap / soft band / fabric` 全放 negative 加权。
+- **SDXL CLIP 无否定语义**：正向只写肯定描述，软概念进 negative 加权，不可在正向用否定句式（CLIP 不识别 "no xxx"）。
+
+### A.4 出图铁律（来自资产第六节，CMF 相关）
+1. 颜色锁蓝锚：posPrompt 强制染蓝，材质词不进正向（防色偏）。
+2. #519 提手文字幻觉：负向加权 `(text on handle:2.2)` ×6，软概念进 negative。
+3. IPAdapter 参考图 CLEAN 无字无水印（带水印=生成图必出字，负向压不住）。
+4. SDXL CLIP 正向只肯定，软概念进 negative 加权。*
+
+---
+
+---
+
+---
+
+---
+
+## 📚 资料总线（H 盘资料入口）
+
+> 本技能可读的 H 盘资料已登记在**资料总线**，开工前先查一遍 —— 避免"重复造轮子"和"翻不到料"。
+
+```bash
+python <本地资源路径> --role style-migration
+python <本地资源路径> --kw <关键词>      # 元数据层：找「有哪些资料」
+python <本地资源路径> --wb             # 工作台可挂载的料
+python <本地资源路径> "一句话需求"    # 语义层：在 1.2 万篇业务库正文里找「哪一段」
+python <本地资源路径> --role style-migration "..."  # 限定本角色的资料范围内检索
+```
+
+**全量索引**：`<本地资源路径>` ｜ **清单**：`<本地资源路径>`
+
+| 资料 | 路径 | 体量 | 用途 |
+|---|---|---|---|
+| `flow.i2i` | `<本地资源路径>` | 4 MB | 图生图 / 工作流 |
+
+**硬数据优先**：凡涉及国标限值、材料参数、专利红线、竞品价格，**必须以本总线登记的真实文件为准**，不得凭记忆作答。
+
+**出图/交付**：32 个标准提示词模板见 `<本地资源路径>`（结构化索引 `prompt_templates.json`，含分类/变量/正文/示例）。
+
+> 两个入口分工：`lookup.py` 查**目录元数据**（有哪些资料、多大、谁能用）；`core_lookup.py` 查**内容语义**（哪份文件的哪一段讲了这件事）。
+
+<!-- 资料总线区块结束 -->

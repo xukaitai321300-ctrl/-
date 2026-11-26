@@ -12,4 +12,4 @@
 
 **Categorization**:
 - [ ] Sort defect samples by defect type (structural/material/lighting/text/background/AI)
-- [ ] Save to: `E:/AI日记/Claw/defect_samples/[defect_type]/`
+- [ ] Save to: `<架构根目录>/defect_samples/[defect_type]/`

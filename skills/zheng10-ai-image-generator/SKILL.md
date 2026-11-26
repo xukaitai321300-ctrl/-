@@ -1,20 +1,27 @@
 ---
+version: "7.0.5"
+author: "猴哥（十二生肖团）"
 name: zheng10-ai-image-generator
-description: "auto-generated: skill package 'zheng10-ai-image-generator' (awaiting human review)"
+display_name: "AI 生图执行专家（羊）"
+display_name_en: "Ai Image Generator"
+name_en: "zheng10-ai-image-generator"
+description_zh: "AI 生图执行专家（羊）。精通提示词工程、ControlNet 精准控制与 LoRA 应用；信条「好提示词 = 70% 质量，缺陷预防关键词 = 30%」，含正向/负向提示词模板与保温杯专用配方。适用于产品图生成与配色变款出图。"
+description_en: "Zodiac team execution-layer skill: Ai Image Generator. (See description_zh for full details.)"
+description: "AI 生图执行专家（羊）。精通提示词工程、ControlNet 精准控制与 LoRA 应用；信条「好提示词 = 70% 质量，缺陷预防关键词 = 30%」，含正向/负向提示词模板与保温杯专用配方。适用于产品图生成与配色变款出图。"
 license: MIT
 metadata:
   author: WorkBuddy
-  version: "7.0"
+  version: "7.0.5"
   previous_version: "1.0"
-  upgrade_reason: "修复版本不一致问题（元数据1.0 → 7.0）"
-  upgrade_date: "2026-06-18"
-  tags: ["image-generation", "comfyui"]
-  generated_date: "2026-06-15"
+  upgrade_reason: 修复版本不一致问题（元数据1.0 → 7.0）
+  upgrade_date: 2026-06-18
+  tags:
+    - image-generation
+    - (外部生图引擎)
+  generated_date: 2026-06-15
   classification: P1-auto-standardized
+when_to_use: "在涉及「ai-image-generator」职责的任务中调用本技能；AI 生图执行专家（羊）。"
 ---
-
-
-
 > 💡 **Prompt 优化提示**：本文件包含多个章节，AI 应根据当前任务类型只读取相关章节，跳过无关部分。
 > - 任务分发/协调：读取"执行层"和"联动规则"章节
 > - 需求分析：读取"需求分析框架"章节
@@ -50,7 +57,7 @@ When receiving generation requirements from 马 (Horse) or 鼠 (Rat):
 
 
 
-**Template for Yongkang vacuum cup products (v3.5 — with defect prevention)**:
+**Template for vacuum cup products (v3.5 — with defect prevention)**:
 
 > 📄 代码已提取到 `references\code_03.txt`（15 行，649 字节）
 > 需要查看完整代码时请读取该文件。
@@ -116,7 +123,7 @@ When receiving generation requirements from 马 (Horse) or 鼠 (Rat):
 
 
 
-**Recommended LoRAs for Yongkang vacuum cups (v3.5 — with defect prevention)**:
+**Recommended LoRAs for vacuum cups (v3.5 — with defect prevention)**:
 
 | LoRA Name | File | Weight Range | Use Case | Defect Prevention |
 |------------|------|--------------|----------|---------------------|
@@ -153,7 +160,7 @@ When receiving generation requirements from 马 (Horse) or 鼠 (Rat):
 > [引用] 完整代码已提取到 `references\code_block_09.python`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_09.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_09.python`（705 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -198,7 +205,7 @@ Before outputting generated images, pre-filter to remove broken ones:
 > [引用] 完整代码已提取到 `references\code_block_14.txt`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_14.txt`（2 行，35 字节）
+> 📄 完整代码见 `references/code_block_14.txt`（1106 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -399,7 +406,7 @@ Before outputting generated images, pre-filter to remove broken ones:
 > [引用] 完整代码已提取到 `references\code_block_33.txt`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_33.txt`（2 行，35 字节）
+> 📄 完整代码见 `references/code_block_33.txt`（343 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -426,7 +433,7 @@ Before outputting generated images, pre-filter to remove broken ones:
 > [引用] 完整代码已提取到 `references\code_block_35.json`（20 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_35.txt`（2 行，36 字节）
+> 📄 完整代码见 `references/code_block_35.json`（446 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -441,7 +448,7 @@ Before outputting generated images, pre-filter to remove broken ones:
 > [引用] 完整代码已提取到 `references\code_block_37.json`（20 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_37.txt`（2 行，36 字节）
+> 📄 完整代码见 `references/code_block_37.json`（500 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -513,7 +520,7 @@ Before outputting generated images, pre-filter to remove broken ones:
 > [引用] 完整代码已提取到 `references\code_block_43.python`（20 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_43.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_43.python`（965 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -563,7 +570,7 @@ Before outputting generated images, pre-filter to remove broken ones:
 
 ## 1. 任务信息
 - **任务 ID**: task-uuid-v4
-- **执行 Agent**: 鼠（Product Researcher）
+- **执行 Agent**: Product Researcher
 - **执行时间**: 2026-06-04 16:00:00
 - **任务状态**: ✅ 成功 / ⚠️ 部分完成 / ❌ 失败
 
@@ -582,19 +589,19 @@ Before outputting generated images, pre-filter to remove broken ones:
 - **改进建议**: [中文说明]
 
 ## 4. 下一步行动
-1. [行动 1] → 分配给: 牛（Ox）
-2. [行动 2] → 分配给: 虎（Tiger）
+1. [行动 1] → 分配给: Ox
+2. [行动 2] → 分配给: Tiger
 
 ## 5. 错误信息（如有）
 - **错误代码**: ERR_TIMEOUT
 - **错误详情**: [中文说明]
 - **恢复操作**: [中文说明]
-> 📄 代码已提取到 `references\code_46.txt`（1 行，0 字节）
+> 📄 ⚠️ 目标代码文件缺失（原碎片指向 code_block_46.*，未随库分发，内容无法恢复）。
 > 需要查看完整代码时请读取该文件。
 
 
 - **任务 ID**: task-001
-- **执行 Agent**: 鼠（Product Researcher）
+- **执行 Agent**: Product Researcher
 - **执行时间**: 2026-06-04 16:00:00
 - **任务状态**: ✅ 成功
 - **产品类型**: 弹跳盖保温杯（vacuum cup with pop-up lid）
@@ -610,8 +617,8 @@ Before outputting generated images, pre-filter to remove broken ones:
 - **质量评分**: 9.0/10
 - **评分理由**: 需求分析完整，缺陷预防需求已明确
 - **改进建议**: 无
-1. 市场调研 → 分配给: 虎（Tiger）
-2. 竞品分析 → 分配给: 龙（Dragon）
+1. 市场调研 → 分配给: Tiger
+2. 竞品分析 → 分配给: Dragon
 - **无错误信息**
 > 📄 代码已提取到 `references\code_47.txt`（3 行，27 字节）
 > 需要查看完整代码时请读取该文件。
@@ -621,7 +628,7 @@ Before outputting generated images, pre-filter to remove broken ones:
 
 ## 1. 任务信息
 - **任务 ID**: task-005
-- **执行 Agent**: 鸡（Rooster）
+- **执行 Agent**: Rooster
 - **执行时间**: 2026-06-04 16:30:00
 - **任务状态**: ⚠️ 部分完成（发现缺陷）
 
@@ -640,16 +647,16 @@ Before outputting generated images, pre-filter to remove broken ones:
 
 ### 2.2 缺陷详情
 - **塑料质感（plastic texture）**: 评分 7.5/10，未添加 "anisotropic reflection" 到 prompt
-- **建议**: 立即升级到 猴（Monkey），添加 "anisotropic reflection, physical based rendering" 到 prompt
+- **建议**: 立即升级到 Monkey，添加 "anisotropic reflection, physical based rendering" 到 prompt
 
 ## 3. 质量评估
 - **质量评分**: 8.25/10
 - **评分理由**: 塑料质感缺陷需改进，其他缺陷均通过
-- **改进建议**: 升级到 猴（Monkey）调整参数
+- **改进建议**: 升级到 Monkey调整参数
 
 ## 4. 下一步行动
-1. 参数调整 → 分配给: 猴（Monkey）
-2. 重新生成 → 分配给: 羊（Goat）
+1. 参数调整 → 分配给: Monkey
+2. 重新生成 → 分配给: Goat
 
 ## 5. 错误信息（如有）
 - **无错误信息**
@@ -672,7 +679,7 @@ Before outputting generated images, pre-filter to remove broken ones:
 | task-002  | 市场调研        | 虎          | ✅ 完成      | 8.5/10  | 2026-06-04 15:00 |
 | task-003  | 竞品分析        | 龙          | ⚠️ 进行中    | -        | -               |
 | task-004  | ComfyUI 工作流  | 马          | ❌ 失败      | 4.5/10  | 2026-06-04 15:30 |
-> 📄 代码已提取到 `references\code_50.txt`（1 行，0 字节）
+> 📄 ⚠️ 目标代码文件缺失（原碎片指向 code_block_50.*，未随库分发，内容无法恢复）。
 > 需要查看完整代码时请读取该文件。
 
 
@@ -742,7 +749,7 @@ Before outputting generated images, pre-filter to remove broken ones:
 - ALL generated images MUST be reviewed by 鸡 (Rooster)
 - NO low-quality output allowed (< 7.0/10)
 - ALL errors MUST be logged + analyzed
-- Reason: 质量是第一生命线，劣质输出 = 团队失信
+- Reason: 质量是第一生命线，劣质输出 = 体系失信
 > 📄 代码已提取到 `references\code_56.txt`（13 行，320 字节）
 > 需要查看完整代码时请读取该文件。
 
@@ -757,7 +764,7 @@ Before outputting generated images, pre-filter to remove broken ones:
 
 
 - timestamp: "2026-06-04T15:30:00+08:00"
-  agent_id: "zheng10-sd-comfy-expert"
+  agent_id: "ComfyUI 架构"
   error_code: "ERR_TIMEOUT"
   severity: "P1"
   root_cause: "ComfyUI server not reachable"
@@ -771,14 +778,14 @@ Before outputting generated images, pre-filter to remove broken ones:
 - NO free-text communication allowed (causes misunderstandings)
 - ALL task dependencies MUST be declared upfront
 - ALL blockers MUST be reported immediately to 鼠 (Rat)
-- Reason: 团队协作需要结构化沟通，模糊信息 = 延误工期
+- Reason: 体系协作需要结构化沟通，模糊信息 = 延误工期
 > 📄 代码已提取到 `references\code_59.txt`（4 行，44 字节）
 > 需要查看完整代码时请读取该文件。
 
-json
+```json
 - {
-- "from": "zheng10-product-researcher",
-- "to": "zheng10-sd-comfy-expert",
+- "from": "产品研究",
+- "to": "ComfyUI 架构",
 - "message_type": "task_assignment",
 - "payload": {
 - "task_id": "gen_20260604_001",
@@ -787,6 +794,7 @@ json
 - },
 - "priority": "high"
 - }
+```
 > 📄 代码已提取到 `references\code_60.txt`（5 行，55 字节）
 > 需要查看完整代码时请读取该文件。
 
@@ -795,7 +803,7 @@ json
 - ALL agents MUST record failed cases to CaseDatabase
 - ALL agents MUST optimize prompts based on past cases
 - ALL agents MUST update own SKILL.md when new learning discovered
-- Reason: 不学习 = 停滞不前，团队竞争力下降
+- Reason: 不学习 = 停滞不前，体系竞争力下降
 > 📄 代码已提取到 `references\code_61.txt`（3 行，27 字节）
 > 需要查看完整代码时请读取该文件。
 
@@ -809,19 +817,19 @@ Generate → Assess → Record (success/failure) → Optimize → Regenerate
 - NO role overflow (e.g., 虎 (Tiger) MUST NOT do 鸡 (Rooster)'s job)
 - ALL cross-role tasks MUST be coordinated by 鼠 (Rat)
 - ALL role conflicts MUST be escalated to 鼠 (Rat)
-- Reason: 角色混乱 = 效率低下，专业度下降
+- Reason: 职能混乱 = 效率低下，专业度下降
 > 📄 代码已提取到 `references\code_63.txt`（16 行，756 字节）
 > 需要查看完整代码时请读取该文件。
 
 
 Version Control: Git + ComfyUI Workflow Versioning
-Storage: C:/Users/Administrator/.workbuddy/comfyui/workflows/
+Storage: <COMFYUI_ROOT>/ComfyUI/user/default/workflows/
 Naming: {workflow_name}_v{major}.{minor}.{patch}.json
 Example: vacuum_cup_workflow_v1.2.3.json
 > 📄 代码已提取到 `references\code_64.txt`（5 行，270 字节）
 > 需要查看完整代码时请读取该文件。
 
-python
+```python
 def compare_workflow_versions(
     workflow_v1: str,  # Path to v1 workflow JSON
     workflow_v2: str,  # Path to v2 workflow JSON
@@ -838,10 +846,11 @@ def compare_workflow_versions(
 def generate_html_diff(json1, json2):
     """Generate HTML diff (for visual comparison)"""
     pass
+```
 > 📄 代码已提取到 `references\code_65.txt`（4 行，51 字节）
 > 需要查看完整代码时请读取该文件。
 
-diff
+```diff
 - --- vacuum_cup_workflow_v1.0.0.json
 - +++ vacuum_cup_workflow_v1.1.0.json
 - @@ -45,7 +45,7 @@
@@ -863,7 +872,8 @@ diff
 - {
 - "id": 16,
 - "type": "VAEDecode",
-> 📄 代码已提取到 `references\code_66.txt`（1 行，0 字节）
+```
+> 📄 ⚠️ 目标代码文件缺失（原碎片指向 code_block_66.*，未随库分发，内容无法恢复）。
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1004,7 +1014,7 @@ def mark_stable_version(workflow_path: str, stable_version: str):
 
 
 def monitor_generation_progress(
-    comfyui_api_url="http://localhost:8188",
+    (外部生图引擎)_api_url="http://localhost:8188",
     prompt_id: str,
     check_interval: int = 2  # seconds
 ):
@@ -1016,7 +1026,7 @@ def monitor_generation_progress(
     while True:
         # 1. Query ComfyUI API for progress
         response = requests.get(
-            f"{comfyui_api_url}/prompt/get_progress",
+            f"{(外部生图引擎)_api_url}/prompt/get_progress",
             params={"prompt_id": prompt_id}
         )
         progress_data = response.json()
@@ -1039,7 +1049,7 @@ def monitor_generation_progress(
         # 4. Check if user interrupted
         if check_interruption():
             print(f"⚠️ User interrupted generation at step {current_step}/{total_steps}")
-            interrupt_generation(comfyui_api_url, prompt_id)
+            interrupt_generation((外部生图引擎)_api_url, prompt_id)
             return {
                 "status": "interrupted",
                 "progress": current_progress,
@@ -1056,26 +1066,26 @@ def monitor_generation_progress(
         # 6. Dynamic adjustment (based on intermediate results)
         if current_step > 0 and current_step % 5 == 0:  # Every 5 steps
             adjustment = analyze_intermediate_result(
-                comfyui_api_url,
+                (外部生图引擎)_api_url,
                 prompt_id,
                 current_step
             )
             if adjustment["should_adjust"]:
-                apply_adjustment(comfyui_api_url, prompt_id, adjustment)
+                apply_adjustment((外部生图引擎)_api_url, prompt_id, adjustment)
         
         # 7. Wait before next check
         time.sleep(check_interval)
-> 📄 代码已提取到 `references\code_72.txt`（1 行，0 字节）
+> 📄 ⚠️ 目标代码文件缺失（原碎片指向 code_block_72.*，未随库分发，内容无法恢复）。
 > 需要查看完整代码时请读取该文件。
 
 
 def interrupt_generation(
-    comfyui_api_url="http://localhost:8188",
+    (外部生图引擎)_api_url="http://localhost:8188",
     prompt_id: str
 ):
     """Interrupt ComfyUI generation process"""
     response = requests.post(
-        f"{comfyui_api_url}/prompt/interrupt",
+        f"{(外部生图引擎)_api_url}/prompt/interrupt",
         json={"prompt_id": prompt_id}
     )
   ... (省略中间部分) ...
@@ -1084,7 +1094,7 @@ def interrupt_generation(
         return False
 def check_interruption():
     """Check if user requested interruption"""
-    interruption_file = "E:/AI日记/Claw/.workbuddy/interrupt.flag"
+    interruption_file = "<架构根目录>/.workbuddy/interrupt.flag"
     if os.path.exists(interruption_file):
         os.remove(interruption_file)  # Clear flag
         return True
@@ -1094,14 +1104,14 @@ def check_interruption():
 
 
 def analyze_intermediate_result(
-    comfyui_api_url: str,
+    (外部生图引擎)_api_url: str,
     prompt_id: str,
     current_step: int
 ):
     """Analyze intermediate generation result and decide adjustments"""
     
     # 1. Get intermediate image (from ComfyUI)
-    intermediate_image = get_intermediate_image(comfyui_api_url, prompt_id, current_step)
+    intermediate_image = get_intermediate_image((外部生图引擎)_api_url, prompt_id, current_step)
     
     # 2. Quick quality assessment (using lightweight model)
     quick_assessment = quick_quality_check(
@@ -1119,7 +1129,7 @@ def analyze_intermediate_result(
     if quick_assessment["blur"] > 0.7:
         adjustment["should_adjust"] = True
         adjustment["adjustments"]["cfg_scale"] = {
-            "current": get_current_cfg(comfyui_api_url, prompt_id),
+            "current": get_current_cfg((外部生图引擎)_api_url, prompt_id),
             "suggested": min(10.0, get_current_cfg() + 0.5),
             "reason": "Image too blurry (blur > 0.7)"
         }
@@ -1145,7 +1155,7 @@ def analyze_intermediate_result(
     return adjustment
 
 def apply_adjustment(
-    comfyui_api_url: str,
+    (外部生图引擎)_api_url: str,
     prompt_id: str,
     adjustment: Dict[str, Any]
 ):
@@ -1153,7 +1163,7 @@ def apply_adjustment(
     
     # 1. Send adjustment request to ComfyUI
     response = requests.post(
-        f"{comfyui_api_url}/prompt/adjust",
+        f"{(外部生图引擎)_api_url}/prompt/adjust",
         json={
             "prompt_id": prompt_id,
             "adjustments": adjustment["adjustments"]
@@ -1166,7 +1176,7 @@ def apply_adjustment(
     else:
         print(f"❌ Failed to apply adjustment: {response.text}")
         return False
-> 📄 代码已提取到 `references\code_74.txt`（1 行，0 字节）
+> 📄 ⚠️ 目标代码文件缺失（原碎片指向 code_block_74.*，未随库分发，内容无法恢复）。
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1197,7 +1207,7 @@ def feedback_loop(
 > [引用] 完整代码已提取到 `references\code_block_76.python`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_76.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_76.python`（689 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1211,7 +1221,7 @@ def feedback_loop(
 > [引用] 完整代码已提取到 `references\code_block_78.python`（21 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_78.txt`（2 行，38 字节）
+> 📄 完整代码见 `references/code_block_78.python`（639 字节）
 > 需要查看完整代码时请读取该文件。
 
 
@@ -1221,11 +1231,11 @@ def feedback_loop(
 - > [引用] 完整代码已提取到 `references\code_block_79.json`（30 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_79.txt`（2 行，36 字节）
+> 📄 完整代码见 `references/code_block_79.json`（906 字节）
 > 需要查看完整代码时请读取该文件。
 
 
-python
+```python
 def compare_workflow_versions(v1_path, v2_path):
     """Compare two ComfyUI workflow JSON files"""
     import json
@@ -1245,10 +1255,11 @@ def compare_workflow_versions(v1_path, v2_path):
                    f"Removed {len(diff.get('dictionary_item_removed', []))} nodes, "
                    f"Changed {len(diff.get('values_changed', {}))} parameters"
     }
+```
 > 📄 代码已提取到 `references\code_80.txt`（3 行，25 字节）
 > 需要查看完整代码时请读取该文件。
 
-python
+```python
 def rollback_workflow(current_path, target_version):
     """Rollback workflow to target version"""
     import json
@@ -1264,10 +1275,11 @@ def rollback_workflow(current_path, target_version):
     
     print(f"[OK] Rolled back to v{target_version}")
     return current_path
+```
 > 📄 代码已提取到 `references\code_81.txt`（3 行，24 字节）
 > 需要查看完整代码时请读取该文件。
 
-python
+```python
 def release_version(workflow_path, version, release_notes):
     """Mark stable version with release notes"""
     import json
@@ -1294,14 +1306,15 @@ def release_version(workflow_path, version, release_notes):
     
     print(f"[OK] Released v{version}")
     return versioned_path
+```
 > [引用] 完整代码已提取到 `references\code_block_82.txt`（82 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_82.txt`（2 行，35 字节）
+> 📄 完整代码见 `references/code_block_82.txt`（3634 字节）
 > 需要查看完整代码时请读取该文件。
 
 
-python
+```python
 def adaptive_vram_allocation(task_type, available_vram_gb):
     """
     根据任务类型动态分配显存（优化版 - v5.0）
@@ -1339,10 +1352,11 @@ def adaptive_vram_allocation(task_type, available_vram_gb):
     else:
         # 显存不足：使用fp8 + 启用所有优化
         return 1, 'fp8', True
+```
 > 📄 代码已提取到 `references\code_83.txt`（6 行，76 字节）
 > 需要查看完整代码时请读取该文件。
 
-python
+```python
 class VRAMRewardSystem:
     """
     显存管理奖励系统（NEW in v5.0）
@@ -1404,10 +1418,11 @@ class VRAMRewardSystem:
                 print(f"[VRAM Reward] 🎉 High Quality Mode unlocked! Using more VRAM for better quality.")
                 return True
         return False
+```
 > 📄 代码已提取到 `references\code_84.txt`（8 行，97 字节）
 > 需要查看完整代码时请读取该文件。
 
-python
+```python
 def defragment_vram():
     """整理显存碎片（NEW in v5.0）"""
     import torch
@@ -1434,10 +1449,11 @@ def defragment_vram():
     else:
         print("[VRAM Defrag] CUDA not available. Skipping.")
         return 0
+```
 > 📄 代码已提取到 `references\code_85.txt`（14 行，204 字节）
 > 需要查看完整代码时请读取该文件。
 
-python
+```python
 class MultiModelVRAMScheduler:
     """
     多模型并行加载的显存调度器（NEW in v5.0）
@@ -1495,10 +1511,11 @@ class MultiModelVRAMScheduler:
         for model in models_to_remove:
             del self.loaded_models[model]
             print(f"[VRAM Scheduler] Unloaded temp model: {model}")
+```
 > 📄 代码已提取到 `references\code_86.txt`（4 行，26 字节）
 > 需要查看完整代码时请读取该文件。
 
-python
+```python
 def log_performance_metrics(task_id, metrics, reward_system=None):
     """
     记录性能指标（优化版 - v5.0）
@@ -1533,10 +1550,11 @@ def log_performance_metrics(task_id, metrics, reward_system=None):
     if fragmentation > 30:
         print(f"[WARNING] High VRAM fragmentation: {fragmentation:.1f}%. Triggering defrag...")
         defragment_vram()
+```
 > 📄 代码已提取到 `references\code_87.txt`（9 行，122 字节）
 > 需要查看完整代码时请读取该文件。
 
-markdown
+```markdown
 ### 1. Basic Prompt Structure:
 (masterpiece, best quality, ultra-detailed) + [subject description] + [material/finish + DEFECT PREVENTION] + [environment/background] + [composition/angle] + [lighting + PHYSICAL CORRECTNESS] + [style words] + [LoRA trigger word]
 
@@ -1557,14 +1575,15 @@ markdown
 - Prevent asymmetric lid: perfectly symmetric lid, centered pop-up button
 - Prevent color inaccuracy: color accurate, Delta E < 3, real photography colors
 - Prevent text artifacts: no text, no watermark, clean logo
+```
 > [引用] 完整代码已提取到 `references\code_block_88.txt`（27 行）
 > 需要查看时请读取该文件。
 
-> 📄 代码已提取到 `references\code_88.txt`（2 行，35 字节）
+> 📄 完整代码见 `references/code_block_88.txt`（1005 字节）
 > 需要查看完整代码时请读取该文件。
 
 
-python
+```python
 def calculate_generation_quality(image, prompt, reference=None):
     """Calculate generation quality score (0-10)"""
     # Prompt Adherence (0-10)
@@ -1581,10 +1600,11 @@ def calculate_generation_quality(image, prompt, reference=None):
     
     quality_score = (prompt_adherence + image_quality + artifact_free + diversity) / 4
     return round(quality_score, 1)
+```
 > 📄 代码已提取到 `references\code_89.txt`（8 行，145 字节）
 > 需要查看完整代码时请读取该文件。
 
-python
+```python
 def compare_generations(current_image, reference_image, past_generations):
     """Compare current generation with reference and past generations"""
     comparison = {
@@ -1837,7 +1857,7 @@ def convert_workflow_to_api(workflow_json):
 
 ### Usage
 
-当需要此技能时，按以下步骤执行：
+当需要此能力时，按以下步骤执行：
 
 1. **理解需求**: 明确用户的核心意图
 2. **调用流程**: 按照核心职责定义执行
@@ -2034,7 +2054,7 @@ print(f"最终 verdict: {review_feedback['verdict']}")
 
 ### ComfyUI API集成
 
-- **统一指南**: `H:/AI日记/Claw/十二生肖团_ComfyUI_API集成统一指南_V1.0_2026-06-18.md`
+- **统一指南**: `<架构根目录>/docs/生肖团能力指南/十二生肖团_ComfyUI_API集成统一指南_V1.0_2026-06-18.md`
   - 所有API接口调用示例
   - 工作流JSON模板说明
   - 错误处理与性能优化
@@ -2043,9 +2063,145 @@ print(f"最终 verdict: {review_feedback['verdict']}")
 
 | 文档 | 路径 | 说明 |
 |------|------|------|
-| ComfyUI安装指南 | `H:/AI日记/Claw/ComfyUI_安装与API化指南_V1.0.md` | 安装与配置 |
-| ComfyUI API调用指南 | `H:/AI日记/Claw/ComfyUI_工作流API调用指南_V1.0.md` | 详细API文档 |
-| ComfyUI工作流模板库 | `H:/AI日记/Claw/ComfyUI_工作流模板库_V1.0.md` | 工作流模板 |
-| 框架报告V8.0 | `H:/AI日记/Claw/十二生肖团_完整详细框架报告_V8.0_2026-06-18.md` | 最新框架 |
+| ComfyUI安装指南 | `<架构根目录>/docs/生肖团能力指南/ComfyUI_安装与API化指南_V1.0_2026-06-18.md` | 安装与配置 |
+| ComfyUI API调用指南 | `<架构根目录>/docs/生肖团能力指南/ComfyUI_工作流API调用指南_V1.0_2026-06-18.md` | 详细API文档 |
+| ComfyUI工作流模板库 | `<架构根目录>/docs/生肖团能力指南/ComfyUI_工作流模板库_V2.0_2026-06-18.md` | 工作流模板 |
+| 框架报告V8.0 | `<架构根目录>/docs/生肖团能力指南/十二生肖团_完整详细框架报告_V8.0_2026-06-18.md` | 最新框架 |
 
 ---
+
+## 产出写通用互通总线（资料总线）
+
+完成本角色产出后，**必须**写入生肖团通用互通总线，使下游职能按静态联动映射表秒级收到事件通知（替代被动轮询）。
+
+```bash
+node 资料总线/zodiac_bus.js --emit \
+  --role sheep --type render --product <产品名> --ref render_<id> \
+  --content '{"summary":"产出摘要","files":["<产出文件路径>"]}'
+```
+
+- **开工前先查信箱**感知上游通知（连接反应更迅速）：
+  `node 资料总线/zodiac_bus.js --inbox --role sheep --pending-only`
+- 处理完标记已读：`node 资料总线/zodiac_bus.js --mark-done --role sheep --id <事件id>`
+- 联动映射（谁 emit → 通知谁）见 `<架构根目录>/logs/zodiac_bus_map.json`，改联动只改该表。
+- 总线协议与 schema 见 `资料总线/SKILL.md` 与 `<架构根目录>/logs/zodiac_bus_schema.md`。
+
+---
+
+# ⚡ S级硬数据 · 材质渲染配方与缺陷防控（2026-09-09 融合）
+
+> 来源: `<本地资源路径>`。与本文冲突时以本文原有正文为准。
+
+## 材质渲染配方（S-33~S-37）
+
+| 材质 | ControlNet | LoRA 权重 | 正向提示词关键词 |
+|---|---|---|---|
+| **抛光不锈钢** | Canny=0.7 + Depth=0.6 | metal=**0.85** + product=**0.7** | `(polished stainless steel:1.4),anisotropic specular highlight,highly reflective` |
+| **磨砂烤漆** | Canny=0.7 + Depth=0.6 | metal=**0.6** + product=**0.7** | `matte powder-coated,fine texture,no glare,soft-touch` |
+| **拉丝金属** | Canny=**0.8** | — | `directional satin finish,320-grit brushed pattern` |
+
+**PBR 五通道**（S-36）: Albedo + Normal + Roughness + Metallic + Height。
+**三光源打光**（S-37）: 光源角 30-360° / 强度 0.1-5.0 / 阴影 1-10 级分层。
+
+## ⛔ 致命错误黑名单（S-66~S-70）★ 出图前必查
+
+| # | 缺陷 | 等级 | 防控 |
+|---|---|---|---|
+| S-66 | **螺纹缺失** | 🔴致命 | 负向排除 `((tall thin bottle))` |
+| S-67 | **提手穿模/内胆错/盖无法开启** | 🔴致命 | 结构性错误,必须打回 |
+| S-68 | **文字/Logo 乱码** | 🔴★★★★★ | AnyText + ByT5 编码节点规避 |
+| S-69 | **材质交界模糊/涂层过度完美/反射虚假** | 🟠严重 | ControlNet + 具体提示词 |
+| S-70 | **杯身变扁** | 🟠严重 | **Depth 权重 ≤0.7** |
+
+## 提示词工程（A-09~A-14）
+
+- **结构模板**: `[质量前缀] → [主体描述] → [细节描述] → [场景/光线] → [风格后缀]`
+- **权重语法**: `(keyword:1.3)` 提权; `((keyword:1.5))` 双重提权
+- **终极负向词**: `worst quality,low quality,blurry,deformed,bad proportions,extra limbs,((tall thin bottle)),small lid,plastic toy,fingerprint marks,watermark,text,logo`
+- **顺序法则**: 越靠前权重越大; LoRA >1.0 易崩
+- **杯类词汇库**: `squat短胖` / `large push-button flip lid` / `vacuum insulated double-wall` / `height:width=1:1` / `lid diameter 1.3× body`
+
+## 自动评估筛选（A-23）
+OpenCV 杯身圆度 **>0.95** + CLIP 语义匹配 **>0.9** + CIE Lab 色差 **ΔE<2** → 不符合自动生成。
+
+### [HD-R2] 色彩增强词对（2026-09-09 新增 S-72/S-73）
+
+**S-72 色彩增强正向词**
+```
+vibrant, saturated rich colors, vivid palette
+high saturation, excellent color contrast
+hyperrealistic, 8k ultra detailed
+```
+
+**S-73 色彩负向词**
+```
+low saturation, washed out, dull
+desaturated, pale colors, flat lighting
+```
+
+> ⚠️ 与「钴蓝锚点」冲突提示：色彩增强词会整体拉饱和，若出图已锁定配色线（如 cobalt blue），
+> 需降权使用或改为局部描述，避免颜色漂移。
+
+### [HD-R2] 材质质感提升三板斧（2026-09-09 新增 A-26）
+
+1. **正面提示词添加材质关键词**（见 S-75 金属三分 / S-76 塑料三分）
+2. **负面提示词排除低质量表述**（`(low quality:1.4)`, `(blurry:1.3)`, `(plastic look:1.2)`）
+3. **使用高清化修复**（Hires.fix / 超分节点）
+
+> 对治 60 分报告通病「材质渲染生硬 / 纹理过度均匀」：第 1 条治词义，第 3 条治细节，缺一不可。
+
+---
+
+---
+
+---
+
+---
+
+## 📚 资料总线（H 盘资料入口）
+
+> 本技能可读的 H 盘资料已登记在**资料总线**，开工前先查一遍 —— 避免"重复造轮子"和"翻不到料"。
+
+```bash
+python <本地资源路径> --role ai-image-generator
+python <本地资源路径> --kw <关键词>      # 元数据层：找「有哪些资料」
+python <本地资源路径> --wb             # 工作台可挂载的料
+python <本地资源路径> "一句话需求"    # 语义层：在 1.2 万篇业务库正文里找「哪一段」
+python <本地资源路径> --role ai-image-generator "..."  # 限定本角色的资料范围内检索
+```
+
+**全量索引**：`<本地资源路径>` ｜ **清单**：`<本地资源路径>`
+
+### ✅ 本角色开工必读（硬清单 · 先读再用）
+
+| 文件 | 路径 | 为什么读 |
+|---|---|---|
+| ✅ 保温杯设计检查项·总表 V1.0 | `<本地资源路径>` | 立项/打样/出图前逐项自查（79 条：合规红线 / 结构 / 弹跳盖卡扣 / 密封 / DFM / 外观 / 专利 / 生图）；**附A 是一票否决清单** |
+
+| 资料 | 路径 | 体量 | 用途 |
+|---|---|---|---|
+| `asset.aigen` | `<本地资源路径>` | 18 MB | 生图 / SDXL |
+| `prompt.render` | `<本地资源路径> 渲染提示词` | 297 KB | ✅ 渲染参数 |
+| `prompt.tpl` | `<本地资源路径>` | 61 KB | ✅ 出图提示词直接调用 / 锁定约束条件 |
+
+**硬数据优先**：凡涉及国标限值、材料参数、专利红线、竞品价格，**必须以本总线登记的真实文件为准**，不得凭记忆作答。
+
+**出图/交付**：32 个标准提示词模板见 `<本地资源路径>`（结构化索引 `prompt_templates.json`，含分类/变量/正文/示例）。
+
+> 两个入口分工：`lookup.py` 查**目录元数据**（有哪些资料、多大、谁能用）；`core_lookup.py` 查**内容语义**（哪份文件的哪一段讲了这件事）。
+
+<!-- 资料总线区块结束 -->
+
+
+## 配套能力调用（本技能只做主责，其余功能按需点名调用）
+
+> 规则：**不要**把配套能力的能力顺手做在本技能里；需要哪段功能，就点名调谁。
+> 配套能力已设为「仅手动调用」（`disable-model-invocation: true`），只能被点名，不会自己冒出来。
+
+| 我需要 | 就调它 | 别自己硬做 |
+|---|---|---|
+| 要出一张写实的保温杯产品图 | `(外部出图工作流)`、`(外部写实基座模型)`、`(外部写实基座模型)` | `(外部生图引擎，运行时按需调用)`、`(外部生图运行器)` |
+| 要按线稿/参考图/构图精确控制 | `(外部 Lineart 控制)`、`(外部图生图控制)`、`(外部 IPAdapter 控制)` | `(外部扩图工作流)`、`(外部 Refiner 工作流)` |
+| 提示词写得不好，画面不对 | `(外部提示词工具)`、`(外部提示词优化)`、`(外部提示词优化)` | `(外部提示词专家)`、`(外部提示词范式)` |
+
+完整矩阵见 `references/配套能力调用表.md`。

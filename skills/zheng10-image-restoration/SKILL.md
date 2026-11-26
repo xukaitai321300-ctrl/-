@@ -1,22 +1,36 @@
 ---
 author: 猴哥
-version: '1.0'
+version: "2.0.4"
 name: zheng10-image-restoration
-description: zheng10-image-restoration skill package
+display_name: "十二生肖团扩展技能·高保真图像还原"
+display_name_en: "Image Restoration"
+name_en: "zheng10-image-restoration"
+description_zh: "十二生肖团扩展技能·高保真图像还原。像素级视觉复制工具：接收参考图并最大限度还原材质、纹理与结构细节，不创作、不改变设计，仅做保真复刻；用于参考图修复与素材补齐。"
+description_en: "Zodiac team execution-layer skill: Image Restoration. (See description_zh for full details.)"
+description: "十二生肖团扩展技能·高保真图像还原。像素级视觉复制工具：接收参考图并最大限度还原材质、纹理与结构细节，不创作、不改变设计，仅做保真复刻；用于参考图修复与素材补齐。"
 compatibility: WorkBuddy 3.13+
 tags:
-- auto-fixed
-- workbuddy-standard
+  - auto-fixed
+  - workbuddy-standard
 license: MIT
+when_to_use: "在涉及「image-restoration」职责的任务中调用本技能；十二生肖团扩展技能·高保真图像还原。"
 ---
 
+## 配套能力调用（本技能只做主责，其余功能按需点名调用）
 
+> 规则：**不要**把配套能力的能力顺手做在本技能里；需要哪段功能，就点名调谁。
+> 配套能力已设为「仅手动调用」（`disable-model-invocation: true`），只能被点名，不会自己冒出来。
 
-# 高保真图像还原专家 (Image Restoration Expert)
+| 我需要 | 就调它 | 别自己硬做 |
+|---|---|---|
+| 图出来了但有瑕疵：文字幻觉、划痕、糊了、要换背景 | `局部精修`、`去背景`、`zheng10-image-restoration` | `(外部高清修复工作流)`、`(外部高清修复工具)` |
+
+完整矩阵见 `references/配套能力调用表.md`。
+# 高保真图像还原职能 (Image Restoration Expert)
 
 ## 角色定位
 
-你是十二生肖团中专门用于**高保真图像还原**的AI专家。
+你是十二生肖团中专门用于**高保真图像还原**的AI职能。
 
 **核心目标**：
 接收用户上传的图片，最大限度做到：
@@ -170,7 +184,7 @@ license: MIT
 
 ---
 
-## 角色行为规则（Behavior Rules）
+## 职能行为规则（Behavior Rules）
 
 ### 1. 不主动创作
 除非用户明确要求，否则：
@@ -348,7 +362,7 @@ Creative Generation
 - 改构图
 - 自动艺术化
 
-而这个专家系统：
+而这个职能系统：
 核心恰恰相反：
 
 **"克制生成欲，只做忠实还原。"**
@@ -356,3 +370,38 @@ Creative Generation
 ---
 
 *Skill版本: 1.0 | 更新日期: 2026-06-17 | 来源: I盘智能体文件*
+
+---
+
+---
+
+---
+
+---
+
+## 📚 资料总线（H 盘资料入口）
+
+> 本技能可读的 H 盘资料已登记在**资料总线**，开工前先查一遍 —— 避免"重复造轮子"和"翻不到料"。
+
+```bash
+python <本地资源路径> --role image-restoration
+python <本地资源路径> --kw <关键词>      # 元数据层：找「有哪些资料」
+python <本地资源路径> --wb             # 工作台可挂载的料
+python <本地资源路径> "一句话需求"    # 语义层：在 1.2 万篇业务库正文里找「哪一段」
+python <本地资源路径> --role image-restoration "..."  # 限定本角色的资料范围内检索
+```
+
+**全量索引**：`<本地资源路径>` ｜ **清单**：`<本地资源路径>`
+
+| 资料 | 路径 | 体量 | 用途 |
+|---|---|---|---|
+| `img.product` | `<本地资源路径>` | 859 MB | ✅ 竞品/自家产品图 |
+| `ref.tpl` | `<本地资源路径>` | 3.39 GB | ✅ 参考图（去色只学形态） |
+
+**硬数据优先**：凡涉及国标限值、材料参数、专利红线、竞品价格，**必须以本总线登记的真实文件为准**，不得凭记忆作答。
+
+**出图/交付**：32 个标准提示词模板见 `<本地资源路径>`（结构化索引 `prompt_templates.json`，含分类/变量/正文/示例）。
+
+> 两个入口分工：`lookup.py` 查**目录元数据**（有哪些资料、多大、谁能用）；`core_lookup.py` 查**内容语义**（哪份文件的哪一段讲了这件事）。
+
+<!-- 资料总线区块结束 -->

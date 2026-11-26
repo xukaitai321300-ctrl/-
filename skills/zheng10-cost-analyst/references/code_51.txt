@@ -1,2 +1,2 @@
-
-### Image Processing Flow (using vision-ai skill):
+
+### Image Processing Flow (using the vision engine):

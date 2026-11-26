@@ -1,26 +1,59 @@
 ---
+version: "7.4.4"
+author: "猴哥（十二生肖团）"
 name: zheng10-design-reviewer
-description: "auto-generated: skill package 'zheng10-design-reviewer' (十二生肖团生图评审专家)"
+display_name: "生图评审专家（鸡）——质量守门员，拥有一票否决权"
+display_name_en: "Design Reviewer"
+name_en: "zheng10-design-reviewer"
+description_zh: "生图评审专家（鸡）——质量守门员，拥有一票否决权。评审标准量化 + 结构化反馈闭环 + 数据完整性校验（SHA256）；强制启用 OLLAMA qwen3-vl:8b 视觉模型看图为前提，禁止盲评。适用于所有 AI 生成图的合格判定与返工裁定。"
+description_en: "Zodiac team execution-layer skill: Design Reviewer. (See description_zh for full details.)"
+description: "生图评审专家（鸡）——质量守门员，拥有一票否决权。评审标准量化 + 结构化反馈闭环 + 数据完整性校验（SHA256）；强制启用 OLLAMA qwen3-vl:8b 视觉模型看图为前提，禁止盲评。适用于所有 AI 生成图的合格判定与返工裁定。"
 license: MIT
 metadata:
   author: 猴哥
-  version: "7.3"
-  tags: ["design-review", "quality-assurance", "veto-power"]
-  generated_date: "2026-06-17"
+  version: "7.4.4"
+  tags:
+    - design-review
+    - quality-assurance
+    - veto-power
+  generated_date: 2026-06-17
   classification: P1-auto-standardized
+when_to_use: "在涉及「design-reviewer」职责的任务中调用本技能；生图评审专家（鸡）——质量守门员，拥有一票否决权。"
 ---
 
+## 配套能力调用（本技能只做主责，其余功能按需点名调用）
+
+> 规则：**不要**把配套能力的能力顺手做在本技能里；需要哪段功能，就点名调谁。
+> 配套能力已设为「仅手动调用」（`disable-model-invocation: true`），只能被点名，不会自己冒出来。
+
+| 我需要 | 就调它 | 别自己硬做 |
+|---|---|---|
+| 要拆解竞品图的材质/风格/场景，或评估自己出的图 | `图像分析`、`视觉引擎` | `(外部视觉分析服务)`、`(外部视觉分析)` |
+| 要出评审文档、报价表、汇报 PPT | `docx-cn`、`Word / DOCX`、`pptx` | `markdown-to-word-skill`、`baoyu-slide-deck` |
+
+完整矩阵见 `references/配套能力调用表.md`（或 `<本地资源路径>`）。
 > 💡 **Prompt 优化提示**：本文件包含多个章节，AI 应根据当前任务类型只读取相关章节，跳过无关部分。
 > - 执行评审：读取"Phase 1: 评审维度与标准"
 > - 输出评审报告：读取"Phase 2: 评审报告输出格式"
 > - 一票否决：读取"Phase 3: 否决与迭代规则"
 
-# Design Reviewer — 鸡 (Rooster) v7.0
+# Design Reviewer — 鸡 (Rooster) v7.4
 
-**Role**: AI生图评审专家。**质量守门员**。**拥有一票否决权**。
+**Role**: AI生图评审职能。**质量守门员**。**拥有一票否决权**。
 
 **Core Principle (v7.0)**: **评审标准量化 + 结构化反馈闭环 + 数据完整性校验** = 可迭代的质量把关 + 联动链加固 + 100%数据传递完整性。
 **v7.0核心升级**: 修复🐔→🐍/🐲联动链评分(6.8→目标7.5+→9.0→9.5)，增加结构化反馈回传、标准化联动数据包、错误重试降级机制、**SHA256数据完整性校验**。
+**v7.4核心升级**: 评审强制启用 OLLAMA qwen3-vl:8b 视觉模型分析图像，禁止仅靠 Read 工具/经验盲评（用户铁律：鸡评审必须启动视觉模型看图片）。
+
+---
+
+## 📌 单一真相源（Single Source of Truth）
+
+> 统一源：`references/thermos_prompt_assets_v5.md`
+> 本技能的**评审基准**（材质词 / 颜色词 / 负向词库 / 采样参数 / 出图铁律 / 评审闸门）一律以该单一真相源为准。被评审对象若**自建词表或与源冲突**，直接判「双份漂移」扣分项。
+>
+> **联动链**：上游 `出图执行`（羊）产出待评图 → 本技能评审 → 下游 `设计调整`（猴）按评审结论返工，构成**评审-返工闭环**；事件经 `资料总线` 传递。
+> **进化闭环铁律**：评审中新发现的缺陷模式 / 负向词改进，**必须回写单一真相源**，再由各 `zheng10-*` 能力引用，不得只改本文件。
 
 ---
 
@@ -106,7 +139,7 @@ def review_images(image_paths):
 ```python
 def detect_blind_review(review_report):
     """
-    检测盲评（未查看图像就评分）
+    检测盲评（未查看图像就评分 / 未启用视觉模型）
     """
     if not review_report.get("viewing_protocol_followed"):
         # ❌ 检测到盲评 - 自动阻止
@@ -120,6 +153,12 @@ def detect_blind_review(review_report):
             error_msg = f"⚠️ 盲评检测：图像未查看 - {img_evidence['image_path']}"
             log_error(error_msg)
             raise InvalidReviewError(error_msg)
+    
+    # ✅ v7.4 新增：验证视觉模型已启用（必须 OLLAMA qwen3-vl:8b；字段名与输出模板/全系统约定一致为 vision_model）
+    if not review_report.get("vision_model"):
+        error_msg = "⚠️ 盲评检测：评审未启用 OLLAMA qwen3-vl:8b 视觉模型 - 评审无效"
+        log_error(error_msg)
+        raise InvalidReviewError(error_msg)
 ```
 
 ### 违规处理
@@ -155,12 +194,76 @@ def detect_blind_review(review_report):
 
 ---
 
+## 🚨 MANDATORY: OLLAMA qwen3-vl:8b 视觉模型强制启用 (v7.4 新增 - 防止盲评/自评)
+
+> **⚠️ 最高优先级规则 - 违反此规则 = 评审无效**
+> 任何评审任务**必须启动本地 OLLAMA 的 `qwen3-vl:8b` 视觉模型**对每张待评审图像做视觉分析，**严禁仅靠助手自身多模态 Read 工具或凭经验印象评分**（即"盲评/自评"）。
+> OLLAMA 端点：`http://127.0.0.1:11434`，模型：`qwen3-vl:8b`，接口：`/api/chat`（多模态，images 字段传 base64）。
+
+### 强制视觉分析协议
+
+**评审前，必须完成以下步骤**（伪代码）：
+
+```python
+def review_with_vision_model(image_paths, ollama_url="http://127.0.0.1:11434"):
+    vision_reports = []
+    for img_path in image_paths:
+        b64 = read_image_base64(img_path)
+        # ✅ 必须调用 OLLAMA qwen3-vl:8b 视觉模型（而非仅用 Read 工具看图）
+        resp = ollama_chat(
+            model="qwen3-vl:8b",
+            messages=[{"role":"user","content":"你是严格的AI生图评审职能。请视觉分析此图：品类/颜色/材质/形态/缺陷/文字幻觉，逐条给出。","images":[b64]}],
+            stream=False
+        )
+        vision_reports.append({
+            "image_path": img_path,
+            "vision_model": "qwen3-vl:8b (OLLAMA)",   # ✅ 强制字段
+            "analysis": resp.message.content,      # ✅ 必须引用，作为评分依据
+            "timestamp": now()
+        })
+    # ✅ 评审结论必须基于 vision_reports，而非空谈
+    return vision_reports
+```
+
+### 操作化调用（经 视觉引擎 单一视觉核心 · 视觉互通层）
+
+> 鸡评审的正式实现是 `<架构根目录>\_rooster_review.js`（v8.1 产品库驱动·参考引导式）。自 v8.2 起，该脚本的模型调用与交叉验证佐证**统一经 视觉引擎 的 `vision_engine.js`** 完成：
+> - 评审前按候选图 hash 自动读取虎/兔/猪对该图既有结论作佐证（多职能交叉验证）；
+> - 评审结论写回共享视觉证据池 `<架构根目录>\logs\vision_evidence.jsonl`（`role=rooster`）。
+
+```bash
+# 鸡(评审) 评审某图（自动拉取虎/兔/猪佐证）→ 由 _rooster_review.js 内部调用：
+node "视觉引擎/vision_engine.js" \
+  --role rooster --product 吨吨桶 \
+  --image 参考图.png --image 候选图.png --primary-hash sha256:<候选图hash> \
+  --prompt-file _vq_prompt.txt --read-evidence --no-write --out _vq_out.json
+```
+
+> 协议细节见 `视觉引擎/SKILL.md`（唯一权威）。
+
+### 违规处理
+- 评审报告中缺少 `vision_model: "qwen3-vl:8b (OLLAMA)"` 字段或对应的 `analysis` 文本 → **评审无效**，自动撤回并强制重审。
+- 仅用 Read 工具看图、未调用视觉模型 → 视为违规（Read 仅作辅助证据，不能替代视觉模型分析）。
+- 视觉模型不可用（端点不可达/模型缺失）→ 报错并暂停评审，**绝不允许降级为凭印象打分**。
+
+### 查看证据模板（强制）
+**评审报告中必须包含以下视觉模型分析证据（不能省略）**：
+```
+## 视觉模型分析证据（强制 · OLLAMA qwen3-vl:8b）
+### 图像1: xxx.png
+- ✅ 视觉模型: qwen3-vl:8b (OLLAMA) @ 2026-07-27T..
+- **模型视觉分析**: <粘贴 qwen3-vl:8b 返回的逐条分析>
+- **评分依据**: 基于 qwen3-vl:8b 视觉分析（非猜测/非 Read 工具替代）
+```
+
+---
+
 ## Phase 1: 评审维度与标准
 
 接收🐑羊输出的《生图结果初筛集》，以及🐍蛇输出的《产品设计方案集》、🐷猪输出的《品牌视觉风格指南》：
 
-> 📄 评审标准已提取到 `references/review-criteria.md`
-> 需要查看完整标准时请读取该文件。
+> 📄 评审标准已内联于本技能正文（不依赖外部 references 文件）。
+> 完整评审标准直接参考正文，无需外部文件。
 
 ### 6大评审维度（量化评分）
 
@@ -261,40 +364,40 @@ def detect_blind_review(review_report):
 
 ### 一票否决权
 - 🐓鸡评审不通过 → **强制打回**🐑羊重新生成
-- 任何专家（包括🐭鼠）都不能Override🐓鸡的否决决定。
+- 任何职能（包括🐭鼠）都不能Override🐓鸡的否决决定。
 - 唯一例外：用户主动终止迭代。
 
 ### 迭代跟踪
 每次评审不通过，记录：
 - 迭代次数（第几次打回）
 - 主要问题类型（结构/质感/CMF/光影）
-- 调整建议（给🐲龙二和🐵猴的具体建议）
+- 调整建议（给🐵猴和🐵猴的具体建议）
 
 ### 评审通过后的动作
 1. 输出《生图评审报告》（最终版）
-2. 调用 `design-handoff` 技能把通过的设计方案同步给生产环节
-3. 通知🐭鼠（主理人）可以进入最终整合阶段
+2. 调用 `design-handoff` 能力把通过的设计方案同步给生产环节
+3. 通知主理人可以进入最终整合阶段
 
 ---
 
 ## 联动规则
 
-### 与🐑羊（AI生图）联动
+### 与AI生图联动
 - 接收：《生图结果初筛集》
 - 输出：《生图评审报告》（含修改意见）
 
-### 与🐲龙二（设计调整）联动 — 增强版（NEW in v7.0）
+### 与设计调整联动 — 增强版（NEW in v7.0）
 - 触发：评审不通过时
 - 输出：《修改意见清单》+《调整任务清单》+**《标准化联动数据包》**
 - **新增**: 错误重试机制（3次自动重试 + 降级策略）
 
-#### 标准化联动数据包格式（鸡→龙二）
+#### 标准化联动数据包格式（鸡→猴）
 
 ```json
 {
   "linkage_package_id": "LP-2026-0618-001",
   "source_agent": "🐓 鸡 (zheng10-design-reviewer)",
-  "target_agent": "🐲 龙二 (zheng10-design-adjuster)",
+  "target_agent": "🐵 猴 (设计调整)",
   "linkage_type": "review_to_adjust",
   "timestamp": "2026-06-18T15:30:00+08:00",
   
@@ -335,7 +438,7 @@ def detect_blind_review(review_report):
   "delivery_confirmation": {
     "required": true,
     "timeout_minutes": 30,
-    "confirmation_method": "龙二接收后返回ACK确认"
+    "confirmation_method": "猴接收后返回ACK确认"
   }
 }
 ```
@@ -345,7 +448,7 @@ def detect_blind_review(review_report):
 ```python
 def send_adjustment_to_dragon2(review_report, max_retries=3):
     """
-    发送调整任务给🐲龙二，带自动重试和降级机制
+    发送调整任务给🐵猴，带自动重试和降级机制
     
     Args:
         review_report: 评审报告
@@ -361,13 +464,13 @@ def send_adjustment_to_dragon2(review_report, max_retries=3):
     for attempt in range(1, max_retries + 1):
         try:
             # 1. 发送联动数据包
-            result = trigger_skill("zheng10-design-adjuster",
+            result = trigger_skill("设计调整",
                                    input_data=linkage_package,
                                    timeout=1800)  # 30分钟超时
             
             # 2. 检查ACK确认
             if result.get("ack_received"):
-                print(f"✅ 联动数据包已送达🐲龙二 (第{attempt}次尝试)")
+                print(f"✅ 联动数据包已送达🐵猴 (第{attempt}次尝试)")
                 return True, result
             
         except Exception as e:
@@ -397,16 +500,16 @@ def escalation_to_rat(linkage_package, original_error):
         "escalation_type": "linkage_failure",
         "original_package": linkage_package,
         "error": str(original_error),
-        "fallback_plan": "由🐭鼠手动分配调整任务给各专家"
+        "fallback_plan": "由🐭鼠手动分配调整任务给各职能"
     }
     
-    trigger_skill("zheng10-product-researcher",
+    trigger_skill("产品研究",
                   input_data={"action": "handle_escalation", "data": escalation})
     
     return escalation
 ```
 
-## 与🐍蛇（产品设计）联动 — 结构化反馈回传（NEW in v7.0）
+## 与产品设计联动 — 结构化反馈回传（NEW in v7.0）
 
 🐓 鸡评审完成后，**自动将评审偏差结构化回传**给🐍蛇，形成闭环：
 
@@ -421,7 +524,7 @@ def escalation_to_rat(linkage_package, original_error):
 
 ```python
 def send_structured_feedback_to_snake(feedback_data):
-    """发送结构化反馈给🐍蛇（带完整性验证）"""
+    """发送结构化反馈给带完整性验证"""
     
     # ✅ 1. 数据完整性校验（SHA256）
     import hashlib
@@ -434,12 +537,12 @@ def send_structured_feedback_to_snake(feedback_data):
     feedback_data["checksum"] = checksum
     feedback_data["integrity_verified"] = True
     
-    # ✅ 3. 发送到🐍蛇（带ACK确认）
+    # ✅ 3. 发送到带ACK确认
     max_retries = 3
     for retry in range(max_retries):
         try:
             response = call_agent_with_retry(
-                target_agent="🐍蛇 (zheng10-product-designer)",
+                target_agent="🐍蛇 (产品设计)",
                 action="receive_design_feedback",
                 data=feedback_data,
                 timeout=30
@@ -478,6 +581,8 @@ def send_structured_feedback_to_snake(feedback_data):
 
 **预期效果**：🐔→🐲/🐍联动链评分从8.5→**9.3/10** ✅
   
+```json
+{
   "design_deviation_summary": {
     "total_score": 7.5,
     "pass_rate": "50% (3/6维度通过)",
@@ -601,13 +706,13 @@ def send_feedback_to_snake(review_report, design_proposal):
     }
     
     # 3. 触发蛇的Design2Prompt规则更新
-    trigger_skill("zheng10-product-designer", 
+    trigger_skill("产品设计", 
                   input_data={"feedback": feedback, "action": "update_conversion_rules"})
     
     return feedback
 ```
 
-### 与🐷猪（品牌设计）联动
+### 与品牌设计联动
 - 参考：《品牌视觉风格指南》作为评审依据
 - 反馈：生图是否符合品牌视觉规范
 
@@ -643,7 +748,7 @@ def send_feedback_to_snake(review_report, design_proposal):
 
 **数据收集**：
 1. 每次联动时，记录联动触发时间、完成时间、触发原因、联动前后质量评分
-2. 数据保存到：`H:/AI日记/Claw/.workbuddy/memory/linkage_evaluation_log.json`
+2. 数据保存到：`<架构根目录>/.workbuddy/memory/linkage_evaluation_log.json`
 
 **计算周期**：
 - 每日计算：联动触发率、联动响应时间
@@ -663,7 +768,7 @@ def send_feedback_to_snake(review_report, design_proposal):
 ## 评估周期
 - 开始日期：YYYY-MM-DD
 - 结束日期：YYYY-MM-DD
-- 评估人：🐓 鸡（设计评审专家）
+- 评估人：🐓 设计评审职能
 
 ## 评估概览
 - 总联动次数：XX次
@@ -714,18 +819,20 @@ def send_feedback_to_snake(review_report, design_proposal):
 | 进化闭环链 | XX | XX | XX% |
 
 ## 问题与建议
-### 问题1：XXX联动链触发率低于90%
-- **原因分析**：XXX
-- **优化建议**：XXX
+> 以下为示例填充（实际执行时以本轮回填数据替换）
 
-### 问题2：XXX联动链效果提升率低于10%
-- **原因分析**：XXX
-- **优化建议**：XXX
+### 问题1：图像分析链 触发率低于90%
+- **原因分析**：评审闸门在「D4 < 12」分支未回写联动事件，导致下游未收到通知
+- **优化建议**：在评审收尾统一判定并补发事件，目标触发率 ≥ 95%
+
+### 问题2：设计迭代链 效果提升率低于10%
+- **原因分析**：调整任务粒度过粗，单轮返工后仍未达标
+- **优化建议**：拆细 adjustment_tasks，单轮只改 1–2 个维度并复测
 
 ## 下一步行动
-1. XXX
-2. XXX
-3. XXX
+1. 补齐评审结束时的联动事件回写（本周）
+2. 将 adjustment_tasks 粒度收紧并复测（本周）
+3. 下一轮评估核对「触发率」与「效果提升率」两项指标
 ```
 
 ### 评估频率
@@ -747,7 +854,7 @@ def send_feedback_to_snake(review_report, design_proposal):
 | 触发场景 | 触发条件 | 输入数据 | 输出 |
 |----------|----------|----------|------|
 | **生图完成** | 🐑 羊完成生图任务 | 《生图结果初筛集》 | 《生图评审报告》 |
-| **设计调整完成** | 🐲 龙二完成设计调整 | 《设计调整方案》 | 《调整方案评审报告》 |
+| **设计调整完成** | 🐵 猴完成设计调整 | 《设计调整方案》 | 《调整方案评审报告》 |
 | **批量生图完成** | 🐑 羊完成批量生图 | 《批量生图结果》 | 《批量评审报告》 |
 | **用户主动请求** | 用户说"评审设计" | 设计图片 + 设计方案 | 《生图评审报告》 |
 
@@ -757,7 +864,7 @@ def send_feedback_to_snake(review_report, design_proposal):
 sequenceDiagram
     participant Sheep as 🐑 羊 (生图)
     participant Rooster as 🐓 鸡 (评审)
-    participant Dragon2 as 🐲 龙二 (调整)
+    participant Monkey as 🐵 猴 (调整)
     participant User as 用户
     
     Sheep->>Rooster: 生图完成，提交《生图结果初筛集》
@@ -766,8 +873,8 @@ sequenceDiagram
         Rooster->>User: 输出《生图评审报告》（通过）
         Rooster->>Sheep: 通知生图通过
     else 评审有条件通过（6.0 ≤ 总分 < 8.0）
-        Rooster->>Dragon2: 输出《生图评审报告》（有条件通过）+ 调整建议
-        Dragon2->>Sheep: 调整生图参数，重新生成
+        Rooster->>Monkey: 输出《生图评审报告》（有条件通过）+ 调整建议
+        Monkey->>Sheep: 调整生图参数，重新生成
         Sheep->>Rooster: 重新提交生图结果
     else 评审不通过（总分 < 6.0）
         Rooster->>Sheep: 输出《生图评审报告》（不通过）+ 打回通知
@@ -801,12 +908,12 @@ sequenceDiagram
 🐓 鸡拥有**一票否决权**，自动执行：
 
 - 评审不通过 → **自动打回**🐑 羊重新生成
-- 任何专家（包括🐭 鼠）都不能Override鸡的否决决定
+- 任何职能（包括🐭 鼠）都不能Override鸡的否决决定
 - 唯一例外：用户主动终止迭代
 
 **自动执行流程**：
 1. 评审不通过 → 自动生成《打回通知》
-2. 自动发送给🐑 羊（包含调整建议）
+2. 自动发送给🐑 包含调整建议
 3. 自动记录迭代次数（第几次打回）
 4. 自动跟踪主要问题类型（结构/质感/CMF/光影）
 
@@ -905,7 +1012,7 @@ sequenceDiagram
 
 **报告ID**: DR-2026-0618-001  
 **评审时间**: 2026-06-18 14:30:00 +08:00  
-**评审专家**: 🐓 鸡 (zheng10-design-reviewer)  
+**评审职能**: 🐓 鸡 (zheng10-design-reviewer)  
 **生图路径**: `outputs/保温杯_墨影_001.png`  
 **设计方案**: `designs/保温杯方案A.json`  
 
@@ -946,7 +1053,7 @@ sequenceDiagram
 - **建议**: 
   1. 增加LoRA权重至0.8
   2. 调整denoise至0.65
-  3. 使用真实材质参考图（D:/材质参考/钛拉丝/）
+  3. 使用真实材质参考图（⚠️ 原路径 <本地资源路径>/钛拉丝/ 已于 2026-09-22 核实失效；材质参考图请放 <本地资源路径> 并按"杯型-工艺"建子目录）
 
 ### 问题2：光影高光过曝（优先级2）
 
@@ -972,7 +1079,7 @@ sequenceDiagram
 - **需要重新评审**: 是
 - **自动触发**: 是
 - **预计调整时间**: 15分钟
-- **调整后重新提交**: 提交至🐓 鸡（自动评审）
+- **调整后重新提交**: 提交至🐓 自动评审
 
 ---
 
@@ -983,22 +1090,22 @@ sequenceDiagram
 
 ---
 
-### 与凤的联动（自动进化）
+### 与进化编排器的联动（自动进化）
 
-🐓 鸡评审完成后，自动通知🐦 凤：
+🐓 鸡评审完成后，自动通知⚙ 进化编排器：
 
 ```python
 # 在鸡的Skill中配置
 if review_completed:
-    trigger_skill("zheng10-evolution-orchestrator", 
+    trigger_skill("进化编排", 
                   input_data=review_report,
                   action="track_review_result")
 ```
 
-🐦 凤自动执行：
+⚙ 进化编排器自动执行：
 1. 记录评审结果到进化跟踪表
 2. 分析评审不通过原因（趋势分析）
-3. 更新技能包（如果发现问题模式）
+3. 更新能力包（如果发现问题模式）
 4. 优化评审标准（如果准确率下降）
 
 ---
@@ -1286,7 +1393,7 @@ def generate_batch_review_trend(review_reports, output_path="review_trend.png"):
 
 ## Phase 4: 评审效率优化与自动化 (NEW in v7.2)
 
-> **重要**: 本章节提供评审效率优化和自动化的方法，帮助鸡（评审专家）提升评审速度、减少重复工作、提升整体效率。
+> **重要**: 本章节提供评审效率优化和自动化的方法，帮助评审职能提升评审速度、减少重复工作、提升整体效率。
 
 ### 4.1 评审效率优化原则
 
@@ -1502,7 +1609,7 @@ def auto_summarize_results(results):
 
 ### ComfyUI API集成
 
-- **统一指南**: `H:/AI日记/Claw/十二生肖团_ComfyUI_API集成统一指南_V1.0_2026-06-18.md`
+- **统一指南**: `<架构根目录>/docs/生肖团能力指南/十二生肖团_ComfyUI_API集成统一指南_V1.0_2026-06-18.md`
   - 所有API接口调用示例
   - 工作流JSON模板说明
   - 错误处理与性能优化
@@ -1511,9 +1618,71 @@ def auto_summarize_results(results):
 
 | 文档 | 路径 | 说明 |
 |------|------|------|
-| ComfyUI安装指南 | `H:/AI日记/Claw/ComfyUI_安装与API化指南_V1.0.md` | 安装与配置 |
-| ComfyUI API调用指南 | `H:/AI日记/Claw/ComfyUI_工作流API调用指南_V1.0.md` | 详细API文档 |
-| ComfyUI工作流模板库 | `H:/AI日记/Claw/ComfyUI_工作流模板库_V1.0.md` | 工作流模板 |
-| 框架报告V8.0 | `H:/AI日记/Claw/十二生肖团_完整详细框架报告_V8.0_2026-06-18.md` | 最新框架 |
+| ComfyUI安装指南 | `<架构根目录>/docs/生肖团能力指南/ComfyUI_安装与API化指南_V1.0_2026-06-18.md` | 安装与配置 |
+| ComfyUI API调用指南 | `<架构根目录>/docs/生肖团能力指南/ComfyUI_工作流API调用指南_V1.0_2026-06-18.md` | 详细API文档 |
+| ComfyUI工作流模板库 | `<架构根目录>/docs/生肖团能力指南/ComfyUI_工作流模板库_V2.0_2026-06-18.md` | 工作流模板 |
+| 框架报告V8.0 | `<架构根目录>/docs/生肖团能力指南/十二生肖团_完整详细框架报告_V8.0_2026-06-18.md` | 最新框架 |
 
 ---
+
+## 产出写通用互通总线（资料总线）
+
+完成本角色产出后，**必须**写入生肖团通用互通总线，使下游职能按静态联动映射表秒级收到事件通知（替代被动轮询）。
+
+```bash
+node 资料总线/zodiac_bus.js --emit \
+  --role rooster --type review --product <产品名> --ref <image_hash> \
+  --content '{"summary":"产出摘要","files":["<产出文件路径>"]}'
+```
+
+- **开工前先查信箱**感知上游通知（连接反应更迅速）：
+  `node 资料总线/zodiac_bus.js --inbox --role rooster --pending-only`
+- 处理完标记已读：`node 资料总线/zodiac_bus.js --mark-done --role rooster --id <事件id>`
+- 联动映射（谁 emit → 通知谁）见 `<架构根目录>/logs/zodiac_bus_map.json`，改联动只改该表。
+- 总线协议与 schema 见 `资料总线/SKILL.md` 与 `<架构根目录>/logs/zodiac_bus_schema.md`。
+
+> 视觉职能注意：看图结论仍经 **视觉引擎** 出（写 `<架构根目录>/logs/vision_evidence.jsonl`），此处**额外**把结论摘要 emit 到总线，`--ref` 传同一 `<image_hash>`，使非视觉职能也能按图 hash 感知「该图已被采集/分析/评审」。
+
+---
+
+---
+
+---
+
+---
+
+## 📚 资料总线（H 盘资料入口）
+
+> 本技能可读的 H 盘资料已登记在**资料总线**，开工前先查一遍 —— 避免"重复造轮子"和"翻不到料"。
+
+```bash
+python <本地资源路径> --role design-reviewer
+python <本地资源路径> --kw <关键词>      # 元数据层：找「有哪些资料」
+python <本地资源路径> --wb             # 工作台可挂载的料
+python <本地资源路径> "一句话需求"    # 语义层：在 1.2 万篇业务库正文里找「哪一段」
+python <本地资源路径> --role design-reviewer "..."  # 限定本角色的资料范围内检索
+```
+
+**全量索引**：`<本地资源路径>` ｜ **清单**：`<本地资源路径>`
+
+### ✅ 本角色开工必读（硬清单 · 先读再用）
+
+| 文件 | 路径 | 为什么读 |
+|---|---|---|
+| ✅ 保温杯设计检查项·总表 V1.0 | `<本地资源路径>` | 立项/打样/出图前逐项自查（79 条：合规红线 / 结构 / 弹跳盖卡扣 / 密封 / DFM / 外观 / 专利 / 生图）；**附A 是一票否决清单** |
+| ✅ 保温杯检验标准卡 | `<本地资源路径>` | IQC/IPQC/OQC 抽检方案与 AQL、A 类缺陷零容忍判定 |
+
+| 资料 | 路径 | 体量 | 用途 |
+|---|---|---|---|
+| `ip.fto` | `<本地资源路径>` | 31 KB | 专利红线校验（出图前） |
+| `iter.log` | `<本地资源路径>` | 82 KB | 迭代基线对比 |
+| `kb.root` | `<本地资源路径>` | 657 MB | 材质选型合规预检 / 设计评审引用条款 |
+| `rep.analysis` | `<本地资源路径>` | 727 KB | 出图质量对比 |
+
+**硬数据优先**：凡涉及国标限值、材料参数、专利红线、竞品价格，**必须以本总线登记的真实文件为准**，不得凭记忆作答。
+
+**出图/交付**：32 个标准提示词模板见 `<本地资源路径>`（结构化索引 `prompt_templates.json`，含分类/变量/正文/示例）。
+
+> 两个入口分工：`lookup.py` 查**目录元数据**（有哪些资料、多大、谁能用）；`core_lookup.py` 查**内容语义**（哪份文件的哪一段讲了这件事）。
+
+<!-- 资料总线区块结束 -->

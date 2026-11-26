@@ -1,5 +1,5 @@
 class CaseDatabase:
-    def __init__(self, db_path="E:/AI日记/Claw/.workbuddy/learning_db/"):
+    def __init__(self, db_path="<架构根目录>/.workbuddy/learning_db/"):
         self.db_path = db_path
         os.makedirs(db_path, exist_ok=True)
     

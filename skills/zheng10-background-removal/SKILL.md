@@ -1,22 +1,36 @@
 ---
 author: 猴哥
-version: '1.0'
+version: "2.0.4"
 name: zheng10-background-removal
-description: zheng10-background-removal skill package
+display_name: "十二生肖团扩展技能·产品去背景（抠图）专家"
+display_name_en: "Background Removal"
+name_en: "zheng10-background-removal"
+description_zh: "十二生肖团扩展技能·产品去背景（抠图）专家。从产品图/场景图/模特图中精准分割主体并输出透明背景 PNG：保留边缘细节（毛发/羽绒/半透明/网状/复杂轮廓）与高反光材质（金属/玻璃），不压缩、不拉伸、不改色、不加阴影；面向 Shopify/Amazon/淘宝/拼多多/独立站/TikTok Shop 及 AI 批量制图。"
+description_en: "Zodiac team execution-layer skill: Background Removal. (See description_zh for full details.)"
+description: "十二生肖团扩展技能·产品去背景（抠图）专家。从产品图/场景图/模特图中精准分割主体并输出透明背景 PNG：保留边缘细节（毛发/羽绒/半透明/网状/复杂轮廓）与高反光材质（金属/玻璃），不压缩、不拉伸、不改色、不加阴影；面向 Shopify/Amazon/淘宝/拼多多/独立站/TikTok Shop 及 AI 批量制图。"
 compatibility: WorkBuddy 3.13+
 tags:
-- auto-fixed
-- workbuddy-standard
+  - auto-fixed
+  - workbuddy-standard
 license: MIT
+when_to_use: "在涉及「background-removal」职责的任务中调用本技能；十二生肖团扩展技能·产品去背景（抠图）专家。"
 ---
 
+## 配套能力调用（本技能只做主责，其余功能按需点名调用）
 
+> 规则：**不要**把配套能力的能力顺手做在本技能里；需要哪段功能，就点名调谁。
+> 配套能力已设为「仅手动调用」（`disable-model-invocation: true`），只能被点名，不会自己冒出来。
 
-# 产品去背景专家 (Background Removal Expert)
+| 我需要 | 就调它 | 别自己硬做 |
+|---|---|---|
+| 图出来了但有瑕疵：文字幻觉、划痕、糊了、要换背景 | `局部精修`、`zheng10-background-removal`、`图像还原` | `(外部高清修复工作流)`、`(外部高清修复工具)` |
+
+完整矩阵见 `references/配套能力调用表.md`。
+# 产品去背景职能 (Background Removal Expert)
 
 ## 角色定位
 
-你是十二生肖团中专门用于**产品去背景（抠图）**的AI专家。
+你是十二生肖团中专门用于**产品去背景（抠图）**的AI职能。
 
 **核心定位**：
 「基于ChatGPT的产品去背景图像处理助手」
@@ -232,7 +246,7 @@ Alpha通道生成
 **例如**：
 - 风景摄影
 - 插画
-- 二次元角色
+- 二次元职能
 
 ---
 
@@ -336,7 +350,7 @@ PNG输出
 
 **而是**：
 
-1. 明确角色
+1. 明确职能
    你是一个产品去背景助手
 
 2. 明确唯一任务
@@ -357,7 +371,7 @@ PNG输出
 这是最好复用的结构：
 
 ```
-角色
+职能
 ↓
 任务
 ↓
@@ -426,3 +440,38 @@ PNG输出
 ---
 
 *Skill版本: 1.0 | 更新日期: 2026-06-17 | 来源: I盘智能体文件*
+
+---
+
+---
+
+---
+
+---
+
+## 📚 资料总线（H 盘资料入口）
+
+> 本技能可读的 H 盘资料已登记在**资料总线**，开工前先查一遍 —— 避免"重复造轮子"和"翻不到料"。
+
+```bash
+python <本地资源路径> --role background-removal
+python <本地资源路径> --kw <关键词>      # 元数据层：找「有哪些资料」
+python <本地资源路径> --wb             # 工作台可挂载的料
+python <本地资源路径> "一句话需求"    # 语义层：在 1.2 万篇业务库正文里找「哪一段」
+python <本地资源路径> --role background-removal "..."  # 限定本角色的资料范围内检索
+```
+
+**全量索引**：`<本地资源路径>` ｜ **清单**：`<本地资源路径>`
+
+| 资料 | 路径 | 体量 | 用途 |
+|---|---|---|---|
+| `img.product` | `<本地资源路径>` | 859 MB | ✅ 竞品/自家产品图 |
+| `ref.tpl` | `<本地资源路径>` | 3.39 GB | ✅ 参考图（去色只学形态） |
+
+**硬数据优先**：凡涉及国标限值、材料参数、专利红线、竞品价格，**必须以本总线登记的真实文件为准**，不得凭记忆作答。
+
+**出图/交付**：32 个标准提示词模板见 `<本地资源路径>`（结构化索引 `prompt_templates.json`，含分类/变量/正文/示例）。
+
+> 两个入口分工：`lookup.py` 查**目录元数据**（有哪些资料、多大、谁能用）；`core_lookup.py` 查**内容语义**（哪份文件的哪一段讲了这件事）。
+
+<!-- 资料总线区块结束 -->

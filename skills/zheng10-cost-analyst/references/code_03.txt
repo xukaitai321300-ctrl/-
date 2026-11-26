@@ -2,4 +2,4 @@
 2. Filter: "product rendering" OR "realistic"
 3. Sort: "Most Downloaded" (popular = reliable)
 4. Download: model file + metadata (trigger words, recommended params)
-5. Save to: `E:/AI日记/Claw/comfyui_models/[model_type]/`
+5. Save to: `<架构根目录>/comfyui_models/[model_type]/`

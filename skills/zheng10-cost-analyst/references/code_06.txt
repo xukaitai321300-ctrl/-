@@ -1,6 +1,6 @@
 ## Intelligence Organization Structure:
 
-**Directory**: `E:/AI日记/Claw/intelligence/`
+**Directory**: `<架构根目录>/intelligence/`
 
 **Subdirectories**:
 - `models/` → Checkpoints, LoRAs, ControlNets, VAEs

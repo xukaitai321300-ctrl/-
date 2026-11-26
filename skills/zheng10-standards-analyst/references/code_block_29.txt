@@ -6,7 +6,7 @@ def retrieve_memory(query, max_results=5):
     
     # 2. Search in MEMORY.md (long-term)
     long_term_results = search_file(
-        "E:/AI日记/Claw/.workbuddy/memory/MEMORY.md",
+        "<架构根目录>/.workbuddy/memory/MEMORY.md",
         keywords
     )
     
@@ -15,7 +15,7 @@ def retrieve_memory(query, max_results=5):
     
     # 4. Search in today's log (short-term)
     today_results = search_file(
-        f"E:/AI日记/Claw/.workbuddy/memory/{get_today()}.md",
+        f"<架构根目录>/.workbuddy/memory/{get_today()}.md",
         keywords
     )
     
